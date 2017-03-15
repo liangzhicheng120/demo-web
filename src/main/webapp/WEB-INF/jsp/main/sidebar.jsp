@@ -13,7 +13,7 @@
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-upload"></i><span> information </span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-eye-open"></i><span> information </span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-comment"></i><span> information </span></a></li>
-				<li><a class="ajax-link" href="javascript:javascript:void(0)"><i class="glyphicon glyphicon-edit"></i><span> information </span></a></li>
+				<li><a class="ajax-link" href="indexs.html"><i class="glyphicon glyphicon-edit"></i><span> information </span></a></li>
 			</ul>
 			<div style="margin-top: 140px; text-align: center;">
 				<hr>
