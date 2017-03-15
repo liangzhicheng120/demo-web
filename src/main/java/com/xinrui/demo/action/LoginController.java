@@ -32,11 +32,11 @@ public class LoginController {
 	@Autowired
 	private Producer captchaProducer = null;
 
-	@RequestMapping(value = "/loginOn",method = RequestMethod.POST)
+	@RequestMapping(value = "/loginOn", method = RequestMethod.POST)
 	@ResponseBody
-	public BaseResultModel loginOn(HttpSession session, String username, String password,String captcha) throws Exception {
+	public BaseResultModel loginOn(HttpSession session, String username, String password, String captcha) throws Exception {
 		BaseResultModel baseResultModel = new BaseResultModel();
-		String sessionCaptcha = ( String ) session.getAttribute ( Constants.KAPTCHA_SESSION_KEY );
+		String sessionCaptcha = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
 		CheckUtil.checkBlank(username, "账号不能为空");
 		if (!captcha.equals(sessionCaptcha)) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
@@ -49,18 +49,17 @@ public class LoginController {
 			baseResultModel.setMessage("账号不存在");
 			return baseResultModel;
 		}
-		String encryptPassword = EncryptUtil.encryptMD5( username+password+Constants.SALT ); 
+		String encryptPassword = EncryptUtil.encryptMD5(username + password + Constants.SALT);
 		String passwordDao = admin.getPassword();
 		if (!encryptPassword.equals(passwordDao)) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("密码错误");
 			return baseResultModel;
 		}
+		session.setAttribute("ADMIN", username);
 		baseResultModel.setRedirect("index");
 		return baseResultModel;
 	}
-
-
 
 	@RequestMapping(value = "/captcha-image")
 	public void getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -81,5 +80,5 @@ public class LoginController {
 			out.close();
 		}
 	}
-	
+
 }

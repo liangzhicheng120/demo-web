@@ -23,10 +23,4 @@ public class PageController {
 		session.invalidate();
 		return "redirect:login";
 	}
-
-	@RequestMapping(value = "/register")
-	public String register() {
-		return "main/register";
-	}
-
 }

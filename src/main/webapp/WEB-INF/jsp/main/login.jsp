@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
@@ -9,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="#" type="image/png">
 <title>后台登陆</title>
-<link rel="stylesheet" type="text/css" href="./Charisma/css/style.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>Charisma/css/style.css" />
 <style>
 body {
 	height: 100%;
@@ -41,7 +45,7 @@ canvas {
 		</dd>
 		<dd class="val_icon">
 			<div class="checkcode">
-				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" />
+				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" /> 
 				<img id="vcode" alt="验证码" src="captcha-image.do" />
 			</div>
 			<a style="width: 82px; text-align: center;" href="javascript:(0)" id="showpwdBtn" class="ver_btn">显示密码</a>
@@ -55,10 +59,10 @@ canvas {
 		</dd>
 	</dl>
 
-	<script src="./Charisma/js/jquery.min.js"></script>
-	<script src="./Charisma/js/login.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/login.js"></script>
 	<script>
-		$(function(){
+		$(function() {
 			login.init();
 		});
 	</script>
