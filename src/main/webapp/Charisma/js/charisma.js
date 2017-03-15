@@ -45,7 +45,7 @@ $(document).ready(function () {
         if (themeName == 'classic') {
         	   $('#bs-css').attr('href', 'Charisma/css/bootstrap.min.css');
         } else {
-        	  $('#bs-css').attr('href', 'Charisma/css/bootstrap-' + themeName + '.min.css');
+        	  $('#bs-css').attr('href', 'Charisma/css/theme/bootstrap-' + themeName + '.min.css');
         }
 
         $('#themes i').removeClass('glyphicon glyphicon-ok whitespace').addClass('whitespace');

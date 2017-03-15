@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
@@ -9,23 +13,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="#" type="image/png">
 <title>首页</title>
-<link id="bs-css" href='./Charisma/css/bootstrap-cerulean.min.css' rel="stylesheet">
-<link href='./Charisma/css/charisma-app.css' rel="stylesheet">
-<link href='./Charisma/css/mystyle.css' rel="stylesheet">
-<link href='./Charisma/css/fullcalendar.css' rel='stylesheet'>
-<link href='./Charisma/css/fullcalendar.print.css' rel='stylesheet' media='print'>
-<link href='./Charisma/css/chosen.min.css' rel='stylesheet'>
-<link href='./Charisma/css//colorbox.css' rel='stylesheet'>
-<link href='./Charisma/css/responsive-tables.css' rel='stylesheet'>
-<link href='./Charisma/css/bootstrap-tour.min.css' rel='stylesheet'>
-<link href='./Charisma/css/jquery.noty.css' rel='stylesheet'>
-<link href='./Charisma/css/noty_theme_default.css' rel='stylesheet'>
-<link href='./Charisma/css/elfinder.min.css' rel='stylesheet'>
-<link href='./Charisma/css/elfinder.theme.css' rel='stylesheet'>
-<link href='./Charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
-<link href='./Charisma/css/uploadify.css' rel='stylesheet'>
-<link href='./Charisma/css/animate.min.css' rel='stylesheet'>
-<link href='./Charisma/css/main.css' rel='stylesheet'>
+<link id="bs-css" href='<%=basePath%>Charisma/css/theme/bootstrap-cerulean.min.css' rel="stylesheet">
+<link href='<%=basePath%>Charisma/css/charisma-app.css' rel="stylesheet">
+<link href='<%=basePath%>Charisma/css/mystyle.css' rel="stylesheet">
+<link href='<%=basePath%>Charisma/css/fullcalendar.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/fullcalendar.print.css' rel='stylesheet' media='print'>
+<link href='<%=basePath%>Charisma/css/chosen.min.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css//colorbox.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/responsive-tables.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/bootstrap-tour.min.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/jquery.noty.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/noty_theme_default.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/elfinder.min.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/elfinder.theme.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/uploadify.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/animate.min.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/main.css' rel='stylesheet'>
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -34,24 +38,41 @@
 </head>
 <body>
 	<%@include file="../main/navbar.jsp"%>
-	<script src="./Charisma/js/jquery.min.js"></script>
-	<script src="./Charisma/js/bootstrap.min.js"></script>
-	<script src="./Charisma/js/jquery.cookie.js"></script>
-	<script src='./Charisma/js/moment.min.js'></script>
-	<script src='./Charisma/js/fullcalendar.min.js'></script>
-	<script src='./Charisma/js/jquery.dataTables.min.js'></script>
-	<script src="./Charisma/js/chosen.jquery.min.js"></script>
-	<script src="./Charisma/js/jquery.colorbox-min.js"></script>
-	<script src="./Charisma/js/jquery.noty.js"></script>
-	<script src="./Charisma/js/responsive-tables.js"></script>
-	<script src="./Charisma/js/jquery.dataTables.min.js"></script>
-	<script src="./Charisma/js/bootstrap-tour.min.js"></script>
-	<script src="./Charisma/js/jquery.raty.min.js"></script>
-	<script src="./Charisma/js/jquery.iphone.toggle.js"></script>
-	<script src="./Charisma/js/jquery.autogrow-textarea.js"></script>
-	<script src="./Charisma/js/jquery.uploadify-3.1.min.js"></script>
-	<script src="./Charisma/js/jquery.history.js"></script>
-	<script src="./Charisma/js/charisma.js"></script>
-	<script src="./Charisma/js/jquery-form.js"></script>
+
+	<div class="ch-container" style="margin-top: -15px;">
+		<div class="row">
+			<%@include file="../main/sidebar.jsp"%>
+			<div id="content" class="col-lg-10 col-sm-10">
+				<div class="row">
+					<div class="box col-md-12">
+						<div class="box-inner">
+							<div id="showLoad"></div>
+							<div id="loadingbody" style="height: 600px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
+	<script src="<%=basePath%>Charisma/js/moment.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/fullcalendar.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.dataTables.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/chosen.jquery.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.colorbox-min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.noty.js"></script>
+	<script src="<%=basePath%>Charisma/js/responsive-tables.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.dataTables.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/bootstrap-tour.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.raty.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.iphone.toggle.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.autogrow-textarea.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.uploadify-3.1.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.history.js"></script>
+	<script src="<%=basePath%>Charisma/js/charisma.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery-form.js"></script>
 </body>
 </html>
