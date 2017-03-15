@@ -34,6 +34,24 @@
 </head>
 <body>
 	<%@include file="../main/navbar.jsp"%>
-
+	<script src="./Charisma/js/jquery.min.js"></script>
+	<script src="./Charisma/js/bootstrap.min.js"></script>
+	<script src="./Charisma/js/jquery.cookie.js"></script>
+	<script src='./Charisma/js/moment.min.js'></script>
+	<script src='./Charisma/js/fullcalendar.min.js'></script>
+	<script src='./Charisma/js/jquery.dataTables.min.js'></script>
+	<script src="./Charisma/js/chosen.jquery.min.js"></script>
+	<script src="./Charisma/js/jquery.colorbox-min.js"></script>
+	<script src="./Charisma/js/jquery.noty.js"></script>
+	<script src="./Charisma/js/responsive-tables.js"></script>
+	<script src="./Charisma/js/jquery.dataTables.min.js"></script>
+	<script src="./Charisma/js/bootstrap-tour.min.js"></script>
+	<script src="./Charisma/js/jquery.raty.min.js"></script>
+	<script src="./Charisma/js/jquery.iphone.toggle.js"></script>
+	<script src="./Charisma/js/jquery.autogrow-textarea.js"></script>
+	<script src="./Charisma/js/jquery.uploadify-3.1.min.js"></script>
+	<script src="./Charisma/js/jquery.history.js"></script>
+	<script src="./Charisma/js/charisma.js"></script>
+	<script src="./Charisma/js/jquery-form.js"></script>
 </body>
 </html>
