@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ErrorCodeUtil {
 
@@ -15,7 +16,8 @@ public class ErrorCodeUtil {
 
 	private static Properties properties = new Properties();
 
-	private static final Logger logger = Logger.getLogger(ErrorCodeUtil.class);
+	private static Logger logger = LoggerFactory.getLogger(ErrorCodeUtil.class);
+	
 	static {
 		Object o = new CodeConstants();
 		java.lang.reflect.Field[] fs = o.getClass().getFields();
@@ -24,15 +26,13 @@ public class ErrorCodeUtil {
 				String fieldName = "";
 				fieldName = fs[i].getName().replaceAll("_", ".").toLowerCase();
 				if (fs[i].getType() == int.class) {
-					codeByMessageMap.put(Integer.valueOf(fs[i].getInt(o)),
-							fieldName);
+					codeByMessageMap.put(Integer.valueOf(fs[i].getInt(o)), fieldName);
 				}
 			}
 		} catch (Exception e) {
 			logger.error("这个地方会错???", e);
 		}
-		InputStream in = Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream(RESOURCESE_NAME);
+		InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(RESOURCESE_NAME);
 		try {
 			properties.load(in);
 		} catch (IOException e) {
@@ -50,8 +50,7 @@ public class ErrorCodeUtil {
 
 	public static void main(String[] args) {
 		System.out.println(ErrorCodeUtil.getMessage("server.unknow"));
-		System.out.println(ErrorCodeUtil
-				.getMessageByCode(CodeConstants.SERVER_UNKNOW));
+		System.out.println(ErrorCodeUtil.getMessageByCode(CodeConstants.SERVER_UNKNOW));
 
 	}
 
