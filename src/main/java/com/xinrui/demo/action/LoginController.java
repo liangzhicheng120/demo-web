@@ -35,9 +35,9 @@ public class LoginController {
 	@RequestMapping(value = "/loginOn", method = RequestMethod.POST)
 	@ResponseBody
 	public BaseResultModel loginOn(HttpSession session, String username, String password, String captcha) throws Exception {
+		CheckUtil.checkBlank(username, "账号不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		String sessionCaptcha = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-		CheckUtil.checkBlank(username, "账号不能为空");
 		if (!captcha.equals(sessionCaptcha)) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("验证码不正确");

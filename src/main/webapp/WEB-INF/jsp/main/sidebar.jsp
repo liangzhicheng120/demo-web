@@ -18,7 +18,7 @@
 			<div style="margin-top: 140px; text-align: center;">
 				<hr>
 				<p class="copyright" style="margin-top: -10px; height: 30px;">
-					&copy; <a href="#">东岸工作室</a> 2016 - 2017
+					&copy; <a href="https://github.com/liangzhicheng120" target="blank">东岸工作室</a> 2016 - 2017
 				</p>
 			</div>
 		</div>

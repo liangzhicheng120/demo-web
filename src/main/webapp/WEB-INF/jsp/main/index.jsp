@@ -46,8 +46,8 @@
 				<div class="row">
 					<div class="box col-md-12">
 						<div class="box-inner">
-							<div id="showLoad"></div>
-							<div id="loadingbody" style="height: 600px;"></div>
+<!-- 							<div id="showLoad"></div>
+							<div id="loadingbody" style="height: 600px;"></div> -->
 						</div>
 					</div>
 				</div>
