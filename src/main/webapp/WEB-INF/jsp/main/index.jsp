@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
@@ -46,8 +48,9 @@
 				<div class="row">
 					<div class="box col-md-12">
 						<div class="box-inner">
-<!-- 							<div id="showLoad"></div>
+							<!-- 							<div id="showLoad"></div>
 							<div id="loadingbody" style="height: 600px;"></div> -->
+							<input type="button" value="确定" id="OkBtn">
 						</div>
 					</div>
 				</div>
@@ -74,5 +77,35 @@
 	<script src="<%=basePath%>Charisma/js/jquery.history.js"></script>
 	<script src="<%=basePath%>Charisma/js/charisma.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery-form.js"></script>
+	<script>
+		$(function() {
+			$('#OkBtn').click(function() {
+				var NAV_XML = _TEXT(function() {
+					/*
+					<a href="http://orzhtml.github.io/">{{home}}</a>
+					<a href="http://orzhtml.github.io/">{{aboutUs}}</a>
+					 */
+				});
+				function changeModelToHtml(template, oSource) {
+					for ( var i in oSource) {
+						var reg = new RegExp("{{" + i + "}}", "gim");
+						template = template.replace(reg, oSource[i]);
+						reg = null;
+					}
+					return template;
+				}
+				function _TEXT(wrap) {
+					return wrap.toString().match(/\/\*\s([\s\S]*)\s\*\//)[1]; 
+				}
+				// 测试
+				var list = {
+					home : '首页',
+					aboutUs : '关于我们'
+				};
+				console.log(changeModelToHtml(NAV_XML, list));
+			});
+		})
+		http://blog.csdn.net/alex2917/article/details/51078543
+	</script>
 </body>
 </html>
