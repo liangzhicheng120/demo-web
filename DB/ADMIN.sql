@@ -9,3 +9,12 @@ COMMENT = '注册用户信息';
 
 INSERT INTO `demo_web`.`user_info` (`id`, `name`, `password`) VALUES ('1', 'admin', '123456');
 INSERT INTO `demo_web`.`user_info` (`id`, `name`, `password`) VALUES ('2', 'lzc', '123456');
+
+ALTER TABLE `demo_web`.`admin` 
+ADD COLUMN `captcha` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL COMMENT '验证码' AFTER `password`;
+
+
+UPDATE `demo_web`.`admin` SET `password`='QNhLwW2dCj1v5fNZ0R3cBg==' WHERE `id`='1';
+UPDATE `demo_web`.`admin` SET `password`='sYVtKNzzLqVJQbhlv6F0sg==' WHERE `id`='2';
+
+

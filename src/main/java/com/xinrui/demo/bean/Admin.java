@@ -1,6 +1,6 @@
 package com.xinrui.demo.bean;
 
-public class UserInfo {
+public class Admin {
 
 	private int id;
 	

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.ErrorCodeUtil;
 
 public class ApplicationExceptionResolver implements HandlerExceptionResolver {

@@ -8,8 +8,6 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import com.xinrui.demo.exception.CodeConstants;
-
 public class ErrorCodeUtil {
 
 	private static final String RESOURCESE_NAME = "preadmessage.properties";

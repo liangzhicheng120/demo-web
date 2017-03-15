@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xinrui.demo.dao.UserInfoDao">
-	<select id="getPasswordByName" resultType="UserInfo" parameterType="UserInfo">
+<mapper namespace="com.xinrui.demo.dao.AdminDao">
+	<select id="getPasswordByName" resultType="Admin" parameterType="Admin">
 		SELECT
 		password
 		FROM
-		user_info
+		admin
 		WHERE name = #{name}
 	</select>
 </mapper>

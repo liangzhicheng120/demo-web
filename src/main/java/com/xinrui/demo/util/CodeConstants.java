@@ -1,4 +1,5 @@
-package com.xinrui.demo.exception;
+package com.xinrui.demo.util;
+
 
 public class CodeConstants implements BaseCode {
 	
@@ -17,13 +18,6 @@ public class CodeConstants implements BaseCode {
 	
 	// 没有登录权限
 	public final static int NOT_LOGIN_PERMISSIONS_ERROR = SERVER_ERROR + SECURITY + 4;
-
-	// 用户名错误
-	public final static int USERNAME_CHECK_ERROR = SERVER_ERROR + SECURITY + 5;
-	
-	// 密码错误
-	public final static int PASSWORD_CHECK_ERROR = SERVER_ERROR + SECURITY + 6;
-	
 	
 	// 参数检查异常
 	public final static int PARAMETERS_CHECK_ERROR = SERVER_ERROR + WEB + 1;

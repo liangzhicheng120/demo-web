@@ -34,23 +34,23 @@ canvas {
 			<strong>站点后台管理系统</strong> <em>Management System</em>
 		</dt>
 		<dd class="user_icon">
-			<input type="text" id="username" placeholder="账号" name="username"  class="login_txtbx" maxlength="12" />
+			<input type="text" id="username" placeholder="账号" class="login_txtbx" maxlength="12" />
 		</dd>
 		<dd class="pwd_icon">
-			<input type="password" id="password" placeholder="密码" maxlength="20" name="password" class="login_txtbx" />
+			<input type="password" id="password" placeholder="密码" maxlength="20" class="login_txtbx" />
 		</dd>
 		<dd class="val_icon">
 			<div class="checkcode">
-				<input type="text" id="codetext" placeholder="验证码" maxlength="4" name="vcode" autocomplete="off" class="login_txtbx" /><img id="vcode" alt="验证码"
-					src="captcha-image.do" onclick="changeCode()" />
+				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" />
+				<img id="vcode" alt="验证码" src="captcha-image.do" />
 			</div>
-			<a style="width: 82px; text-align: center;" href="javascript:showpwd()" class="ver_btn">显示密码</a>
+			<a style="width: 82px; text-align: center;" href="javascript:(0)" id="showpwdBtn" class="ver_btn">显示密码</a>
 		</dd>
 		<dd>
-			<input type="button" value="立即登陆" class="submit_btn" onclick="login()" />
+			<input type="button" value="立即登陆" class="submit_btn" id="loginBtn" />
 		</dd>
 		<dd>
-			<p>© 2015-2016 飞树工作室 版权所有</p>
+			<p>© 2016-2017 东岸工作室 版权所有</p>
 			<p>粤B2-20080224-1</p>
 		</dd>
 	</dl>

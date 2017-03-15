@@ -1,5 +1,6 @@
 package com.xinrui.demo.exception;
 
+import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.ErrorCodeUtil;
 
 public class CalInvitationException extends RuntimeException {

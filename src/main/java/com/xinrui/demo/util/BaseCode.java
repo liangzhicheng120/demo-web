@@ -1,5 +1,5 @@
 
-package com.xinrui.demo.exception;
+package com.xinrui.demo.util;
 
 public interface BaseCode {
 

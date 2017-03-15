@@ -11,56 +11,59 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.google.code.kaptcha.Producer;
+import com.xinrui.demo.bean.Admin;
 import com.xinrui.demo.bean.BaseResultModel;
-import com.xinrui.demo.exception.CodeConstants;
-import com.xinrui.demo.service.UserInfoService;
+import com.xinrui.demo.service.AdminService;
 import com.xinrui.demo.util.CheckUtil;
+import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.Constants;
+import com.xinrui.demo.util.EncryptUtil;
 
 @Controller
 public class LoginController {
 
 	@Autowired
-	private UserInfoService userInfoService;
+	private AdminService adminService;
 
 	@Autowired
 	private Producer captchaProducer = null;
 
-	@RequestMapping(value = "/dologin")
+	@RequestMapping(value = "/loginOn",method = RequestMethod.POST)
 	@ResponseBody
-	public BaseResultModel dologin(HttpSession session, String username, String password) {
+	public BaseResultModel loginOn(HttpSession session, String username, String password,String captcha) throws Exception {
 		BaseResultModel baseResultModel = new BaseResultModel();
-		if (!"Admin".equalsIgnoreCase(username)) {
-			baseResultModel.setCode(CodeConstants.USERNAME_CHECK_ERROR);
-			baseResultModel.setMessage("账号错误");
+		String sessionCaptcha = ( String ) session.getAttribute ( Constants.KAPTCHA_SESSION_KEY );
+		CheckUtil.checkBlank(username, "账号不能为空");
+		if (!captcha.equals(sessionCaptcha)) {
+			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
+			baseResultModel.setMessage("验证码不正确");
+			return baseResultModel;
 		}
-		if (!"123456".equalsIgnoreCase(password)) {
-			baseResultModel.setCode(CodeConstants.PASSWORD_CHECK_ERROR);
+		Admin admin = adminService.getPasswordByName(username);
+		if (admin == null) {
+			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
+			baseResultModel.setMessage("账号不存在");
+			return baseResultModel;
+		}
+		String encryptPassword = EncryptUtil.encryptMD5( username+password+Constants.SALT ); 
+		String passwordDao = admin.getPassword();
+		if (!encryptPassword.equals(passwordDao)) {
+			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("密码错误");
+			return baseResultModel;
 		}
-		if ("Admin".equalsIgnoreCase(username) && "123456".equalsIgnoreCase(password)) {
-			session.setAttribute("username", Constants.ADMIN);
-			baseResultModel.setRedirect("index");
-		}
+		baseResultModel.setRedirect("index");
 		return baseResultModel;
 	}
 
-	@RequestMapping(value = "/doregister")
-	@ResponseBody
-	public BaseResultModel doregister(String name, String password, String rePassword) {
-		BaseResultModel baseResultModel = new BaseResultModel();
-		CheckUtil.checkBlank(name, "用户名不能为空");
-		CheckUtil.checkBlank(password, "密码不能为空");
-		CheckUtil.checkObjIsEqual(password, rePassword, "两次密码不一致");
-		return baseResultModel;
-	}
+
 
 	@RequestMapping(value = "/captcha-image")
-	public ModelAndView getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		response.setDateHeader("Expires", 0);
 		response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
@@ -77,6 +80,6 @@ public class LoginController {
 		} finally {
 			out.close();
 		}
-		return null;
 	}
+	
 }

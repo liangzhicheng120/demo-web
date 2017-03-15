@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 
 import com.xinrui.demo.exception.CalException;
-import com.xinrui.demo.exception.CodeConstants;
 
 public class CheckUtil {
 

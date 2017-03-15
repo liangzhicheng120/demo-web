@@ -1,7 +1,7 @@
 var login = {
 	url : {
-		dologin : function() {
-			return 'dologin';
+		loginOn : function() {
+			return 'loginOn';
 		}
 	},
 	init : function() {
@@ -10,7 +10,43 @@ var login = {
 			dotColor : '#5cbdaa',
 			lineColor : '#5cbdaa'
 		});
-	}
+		$('#vcode').click(function(){
+			$("#vcode").attr("src","captcha-image.do?"+Math.floor(100*Math.random()));
+		});
+		$('#showpwdBtn').click(function(){
+			login.showpwd();
+		});
+		$('#loginBtn').click(function(){
+			var username = $('#username');
+			var password = $('#password');
+			var captcha  = $('#captcha');
+			login.checkBlack(username,"账号不能为空");
+			login.checkBlack(password,"密码不能为空");
+			login.checkBlack(captcha,"验证码为空");
+			$.ajax({
+				url:login.url.loginOn(),
+				type:'POST',
+				data:{
+					username:username.val().trim(),
+					password:password.val().trim(),
+					captcha:captcha.val().trim()
+				},
+				success:function(data){
+					if(data.code == 200){
+						window.location.href = data.redirect
+					}else{
+						username.val(data.message)
+					}
+				}
+			});
+		});
+	},
+	showpwd:function(){
+		var pwd = document.getElementById('password');(pwd.type == 'password')?$('#password').attr('type', 'text'):$('#password').attr('type', 'password');
+	},
+	checkBlack:function(obj,msg){
+		if(obj.val()==''){obj.focus();obj.attr("placeholder",msg);throw msg}
+	},
 }
 /**
  * Particleground
@@ -52,3 +88,4 @@ var login = {
  * @license: MIT license
  */
 function(){for(var a=0,b=["ms","moz","webkit","o"],c=0;c<b.length&&!window.requestAnimationFrame;++c)window.requestAnimationFrame=window[b[c]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[b[c]+"CancelAnimationFrame"]||window[b[c]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(b){var c=(new Date).getTime(),d=Math.max(0,16-(c-a)),e=window.setTimeout(function(){b(c+d)},d);return a=c+d,e}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)})}();
+$(document).keydown(function(a){var b=$(".submit_btn"),c=a||window.event,d=c.keyCode||c.which;switch(d){case 13:b.focus()}});
