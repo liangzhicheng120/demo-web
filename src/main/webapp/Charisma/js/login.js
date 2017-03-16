@@ -35,7 +35,7 @@ var login = {
 					if(data.code == 200){
 						window.location.href = data.redirect
 					}else{
-						username.val(data.message)
+						alert(data.message)
 					}
 				}
 			});

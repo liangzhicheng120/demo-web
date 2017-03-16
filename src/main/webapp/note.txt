@@ -1,0 +1,30 @@
+	<script>
+		$(function() {
+			$('#OkBtn').click(function() {
+				var NAV_XML = _TEXT(function() {
+					/*
+					<a href="http://orzhtml.github.io/">{{home}}</a>
+					<a href="http://orzhtml.github.io/">{{aboutUs}}</a>
+					 */
+				});
+				function changeModelToHtml(template, oSource) {
+					for ( var i in oSource) {
+						var reg = new RegExp("{{" + i + "}}", "gim");
+						template = template.replace(reg, oSource[i]);
+						reg = null;
+					}
+					return template;
+				}
+				function _TEXT(wrap) {
+					return wrap.toString().match(/\/\*\s([\s\S]*)\s\*\//)[1]; 
+				}
+				// 测试
+				var list = {
+					home : '首页',
+					aboutUs : '关于我们'
+				};
+				console.log(changeModelToHtml(NAV_XML, list));
+			});
+		})
+		//http://blog.csdn.net/alex2917/article/details/51078543
+	</script>
