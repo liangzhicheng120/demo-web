@@ -105,7 +105,7 @@
 				console.log(changeModelToHtml(NAV_XML, list));
 			});
 		})
-		http://blog.csdn.net/alex2917/article/details/51078543
+		//http://blog.csdn.net/alex2917/article/details/51078543
 	</script>
 </body>
 </html>
