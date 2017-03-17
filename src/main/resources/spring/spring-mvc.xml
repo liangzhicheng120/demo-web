@@ -27,6 +27,8 @@
 						<prop key="kaptcha.border">yes</prop>
 						<prop key="kaptcha.border.color">105,179,90</prop>
 						<prop key="kaptcha.textproducer.font.color">black</prop>
+						<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>
+						<prop key="kaptcha.textproducer.char.space">3</prop>
 						<prop key="kaptcha.image.width">125</prop>
 						<prop key="kaptcha.image.height">45</prop>
 						<prop key="kaptcha.textproducer.font.size">42</prop>
