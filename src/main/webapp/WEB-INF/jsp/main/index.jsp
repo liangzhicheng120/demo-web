@@ -41,7 +41,7 @@
 <body>
 	<%@include file="../main/navbar.jsp"%>
 
-	<input type="text" hidden="hidden" id="currentPage">
+	<input type="text" hidden="hidden" id="currentPage" value="">
 
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">

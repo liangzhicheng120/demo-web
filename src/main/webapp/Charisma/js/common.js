@@ -31,18 +31,17 @@ var common = {
 		result += '</tr>';
 		return result;
 	},
-	markuptable : function(url, param, thead, tbody,tpage) {
+	markuptable : function(url, param, thead, tbody, tpage) {
 		$.ajax({
 			url : index.url.notelist(),
 			data : param,
 			success : function(data) {
 				if (data.code == 200) {
 					$('#thead').html(thead);
-					setValue('currentPage', data.value.pageParam.currentPage);
 					$('#tbody').empty();
 					$.template("Template", tbody);
 					$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
-					common.markuptpage(data,tpage);
+					common.markuptpage(data, tpage);
 					responsiveTable();
 				} else {
 					alert('{0}:{1}'.format(data.code, data.message));
@@ -52,9 +51,10 @@ var common = {
 	},
 	/**
 	 * 分页插件
+	 * 
 	 * @param data
 	 */
-	markuptpage : function(data,name) {
+	markuptpage : function(data, name) {
 		var pageParam = data.value.pageParam;
 		var info = '';
 		var page = '';
@@ -65,19 +65,20 @@ var common = {
 		}
 		if (pageParam.currentPage != 1) {
 			page += '<li><a href="javascript:{0}.changeCurrentPage(1)">首页</a></li>'.format(name);
-			page += '<li><a href="javascript:{0}.changeCurrentPage({0})"><<</a></li>'.format(name,pageParam.currentPage - 1);
+			page += '<li><a href="javascript:{0}.changeCurrentPage({0})"><<</a></li>'.format(name, pageParam.currentPage - 1);
 		} else {
 			page += '<li class="disabled"><a href="javascript:void(0)">首页</a></li>';
 			page += '<li class="disabled"><a href="javascript:void(0)"><<</a></li>';
 		}
 		page += '<li class="disabled"><a>{0}/{1}</a></li>'.format(pageParam.currentPage, pageParam.totalPage);
 		if (pageParam.currentPage != pageParam.totalPage) {
-			page += '<li><a href="javascript:{0}.changeCurrentPage({1})">>></a></li>'.format(name,pageParam.currentPage + 1);
-			page += '<li><a href="javascript:{0}.changeCurrentPage({1})">末页</a></li>'.format(name,pageParam.totalPage);
+			page += '<li><a href="javascript:{0}.changeCurrentPage({1})">>></a></li>'.format(name, pageParam.currentPage + 1);
+			page += '<li><a href="javascript:{0}.changeCurrentPage({1})">末页</a></li>'.format(name, pageParam.totalPage);
 		} else {
 			page += '<li class="disabled"><a href="javascript:void(0)">>></a></li>';
 			page += '<li class="disabled"><a href="javascript:void(0)">末页</a></li>';
 		}
+		setValue('currentPage', pageParam.currentPage);
 		$('#tinfo').html(info);
 		$('#tpage').html(page);
 	},
@@ -157,7 +158,4 @@ var getValue = function(id) {
  */
 var setValue = function(id, msg) {
 	$('#{0}'.format(id)).val(msg);
-};
-var changeCurrentPage = function(currentPage){
-	
 };
