@@ -14,7 +14,7 @@ var index = {
 		common.markuptable(index.url.notelist(), {
 			currentPage : getValue('currentPage'),
 			keyword : getValue('keyword')
-		}, index.notemarkupthead(), index.notemarkuptbody());
+		}, index.notemarkupthead(), index.notemarkuptbody(), 'index');
 	},
 	notemarkupthead : function() {
 		var before = '<input type="checkbox" id="checkAll" onclick="common.checkall()">';
@@ -27,4 +27,10 @@ var index = {
 		after += '<a class="btn btn-danger btn-sm" id="delete">删除</a>';
 		return common.markuptbody(new Array('content', 'title', 'keyword', 'posttime'), before, after);
 	},
+	changeCurrentPage : function(currentPage) {
+		common.markuptable(index.url.notelist(), {
+			currentPage : currentPage,
+			keyword : getValue('keyword')
+		}, index.notemarkupthead(), index.notemarkuptbody(), 'index');
+	}
 }
