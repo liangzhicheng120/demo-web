@@ -31,6 +31,25 @@ var common = {
 		result += '</tr>';
 		return result;
 	},
+	markuptable : function(url, param, thead, tbody) {
+		$.ajax({
+			url : index.url.notelist(),
+			data : param,
+			success : function(data) {
+				if (data.code == 200) {
+					$('#thead').empty();
+					$('#tbody').empty();
+					$('#thead').html(thead);
+					setValue('currentPage',data.value.pageParam.currentPage);
+					$.template("Template", tbody);
+					$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
+					responsiveTable();
+				} else {
+					alert('{0}:{1}'.format(data.code, data.message));
+				}
+			}
+		});
+	},
 	/**
 	 * 全选
 	 */
@@ -68,4 +87,43 @@ var common = {
 		}
 		return data
 	},
-}
+};
+/**
+ * String.format方法
+ * 
+ * @param args
+ * @returns {String}
+ */
+String.prototype.format = function(args) {
+	var result = this;
+	if (arguments.length > 0) {
+		if (arguments.length == 1 && typeof (args) == "object") {
+			for ( var key in args) {
+				if (args[key] != undefined) {
+					var reg = new RegExp("({" + key + "})", "g");
+					result = result.replace(reg, args[key])
+				}
+			}
+		} else {
+			for (var i = 0; i < arguments.length; i++) {
+				if (arguments[i] != undefined) {
+					var reg = new RegExp("({)" + i + "(})", "g");
+					result = result.replace(reg, arguments[i])
+				}
+			}
+		}
+	}
+	return result
+};
+/**
+ * 获取元素值
+ */
+var getValue = function(id) {
+	return $('#{0}'.format(id)).val().trim();
+};
+/**
+ * 设置元素值
+ */
+var setValue = function(id, msg) {
+	$('#{0}'.format(id)).val(msg);
+};

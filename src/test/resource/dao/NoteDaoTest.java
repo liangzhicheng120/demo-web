@@ -23,7 +23,7 @@ public class NoteDaoTest {
 	@Test
 	public void testGetAllByPage() {
 		Map<String, Object> param = new HashMap<String, Object>();
-		PageParam pageParam = new PageParam(1);		
+		PageParam pageParam = new PageParam("1");		
 		param.put("keyword", "Ïê½â");
 		param.put("pageParam", pageParam);
 		List<Note> notes = NoteDao.getAllByPage(param);

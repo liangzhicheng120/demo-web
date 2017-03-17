@@ -2,6 +2,8 @@ package com.xinrui.demo.bean.param;
 
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
+
 public class PageParam implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -17,13 +19,13 @@ public class PageParam implements java.io.Serializable {
 	private int dbIndex;
 
 	private int dbNumber;
-	
-	public PageParam(int currentPage) {
+
+	public PageParam(String currentPage) {
 		Pattern pattern = Pattern.compile("[0-9]{1,9}");
-		currentPage = (!pattern.matcher(String.valueOf(currentPage)).matches()) ? 1 : currentPage;
-		this.currentPage = currentPage;
+		currentPage = ((StringUtils.isBlank(currentPage) || !pattern.matcher(String.valueOf(currentPage)).matches()) ? "1" : currentPage);
+		this.currentPage = Integer.valueOf(currentPage);
 	}
-	
+
 	public void count() {
 
 		int totalPageTemp = this.totalNumber / this.pageNumber;
@@ -106,5 +108,5 @@ public class PageParam implements java.io.Serializable {
 
 		this.dbNumber = dbNumber;
 	}
-	
+
 }

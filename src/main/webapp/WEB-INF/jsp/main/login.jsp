@@ -46,7 +46,7 @@ canvas {
 		<dd class="val_icon">
 			<div class="checkcode">
 				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" /> 
-				<img id="vcode" alt="验证码" src="captcha-image.do" />
+				<img id="vcode" alt="验证码" src="<%=basePath%>captcha-image.do" />
 			</div>
 			<a style="width: 82px; text-align: center;" href="javascript:(0)" id="showpwdBtn" class="ver_btn">显示密码</a>
 		</dd>

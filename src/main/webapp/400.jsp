@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="liangzhicheng">
 <link rel="shortcut icon" href="#" type="image/png">
-<title>404 Page</title>
+<title>400 Page</title>
 <link href="<%=basePath%>AdminEx/css/style.css" rel="stylesheet">
 <link href="<%=basePath%>AdminEx/css/style-responsive.css" rel="stylesheet">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -23,12 +23,17 @@
 	<section>
 		<div class="container ">
 			<section class="error-wrapper text-center">
-				<h1>
-					<img alt="" src="<%=basePath%>AdminEx/images/404-error.png">
-				</h1>
-				<h2>page not found</h2>
-				<h3>We Couldn’t Find This Page</h3>
-				<a class="back-btn" href="<%=basePath%>index.html"> Back To Home</a>
+				<div style='width: 572px; height: 650px; margin: 0px auto; margin-top: 40px;'>
+					<div style='font-size: 18px; color: #000;'>400 page not found</div>
+					<div style='margin-top: 40px; color: #000;' class='body'>
+						<div>很抱歉，您要访问的页面无法正常显示，可能是因为如下原因：</div>
+						<div>1.系统过于繁忙，请点击浏览器的"刷新"按钮，或稍后再试。</div>
+						<div>2.你输入的网址有误，请重新检查您输入的网址。</div>
+						<div>
+							<a class="back-btn" href="<%=basePath%>index.html"> Back To Home</a>
+						</div>
+					</div>
+				</div>
 			</section>
 		</div>
 	</section>

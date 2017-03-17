@@ -25,7 +25,7 @@ public class NoteController {
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public BaseResultModel list(@RequestParam(required = false) String keyword, int currentPage) {
+	public BaseResultModel list(@RequestParam(required = false) String keyword, String currentPage) {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		PageParam pageParam = new PageParam(currentPage);
 		List<Note> notes = noteService.getAllByPage(keyword, pageParam);
