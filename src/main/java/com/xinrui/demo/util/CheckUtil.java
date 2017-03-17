@@ -49,9 +49,9 @@ public class CheckUtil {
 
 	}
 
-	public static void checkLeZero(Long target, Object... args) {
-		if (target == null || target <= 0) {
-			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, args);
+	public static void checkLeZero(Integer currentPage, String string) {
+		if (currentPage == null || currentPage <= 0) {
+			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, string);
 		}
 	}
 	

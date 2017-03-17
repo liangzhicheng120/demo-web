@@ -19,10 +19,15 @@ var index = {
 			}
 		});
 	},
-	notemarkuptbody : function() {
-		return common.markuptbody(new Array('id', 'content', 'title', 'keyword', 'posttime'));
-	},
 	notemarkupthead : function() {
-		return common.markupthead(new Array('id', '内容', '标题', '关键词', '修改时间'));
+		var before = '<input type="checkbox" id="checkAll" onclick="common.checkall()">';
+		var after  = '操作';
+		return common.markupthead(new Array('内容', '标题', '关键词', '修改时间'), before, after);
+	},
+	notemarkuptbody : function() {
+		var before = '<input type="checkbox" name="checkbox_id" value="\${id}">';
+		var after  = '<a class="btn btn-success btn-sm" id="update">修改</a>&nbsp;&nbsp;';
+			after += '<a class="btn btn-danger btn-sm" id="delete">删除</a>';
+		return common.markuptbody(new Array('content', 'title', 'keyword', 'posttime'), before, after);
 	}
 }

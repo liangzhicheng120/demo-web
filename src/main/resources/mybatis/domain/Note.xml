@@ -2,7 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinrui.demo.dao.NoteDao">
-	<select id="getAll" resultType="Note">
-		SELECT * FROM note
+	<select id="getAllByPage" resultType="Note">
+		SELECT 
+		ID,
+		CONTENT,
+		KEYWORD,
+		POSTTIME,
+		TITLE
+		FROM 
+		NOTE
+		<where>
+			<if test="keyword != null and !&quot;&quot;.equals(keyword.trim())">
+				KEYWORD LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
 	</select>
 </mapper>

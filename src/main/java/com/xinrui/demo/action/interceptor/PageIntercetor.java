@@ -22,7 +22,7 @@ import org.apache.ibatis.reflection.DefaultReflectorFactory;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 
-import com.xinrui.demo.bean.PageParam;
+import com.xinrui.demo.bean.param.PageParam;
 
 /**
  * 
@@ -38,59 +38,37 @@ public class PageIntercetor implements Interceptor {
 	private String pageSqlId = "";;
 
 	public Object intercept(Invocation invocation) throws Throwable {
-
-		StatementHandler statementHandler = (StatementHandler) invocation
-				.getTarget();
-
-		MetaObject metaObject = MetaObject.forObject(statementHandler,
-				SystemMetaObject.DEFAULT_OBJECT_FACTORY,
-				SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY,
-				new DefaultReflectorFactory());
-
-		MappedStatement mappedStatement = (MappedStatement) metaObject
-				.getValue("delegate.mappedStatement");
-
+		StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
+		MetaObject metaObject = MetaObject.forObject(statementHandler, SystemMetaObject.DEFAULT_OBJECT_FACTORY, SystemMetaObject.DEFAULT_OBJECT_WRAPPER_FACTORY, new DefaultReflectorFactory());
+		MappedStatement mappedStatement = (MappedStatement) metaObject.getValue("delegate.mappedStatement");
 		String id = mappedStatement.getId();
-
 		if (id.matches(".*(" + this.pageSqlId + ")$")) {
 			BoundSql boundSql = statementHandler.getBoundSql();
-
 			String sql = boundSql.getSql();
-
-			String countSql = "SELECT count(*) FROM (" + sql + ")a";
-
+			String countSql = "SELECT COUNT(*) FROM (" + sql + ")a";
 			Connection connection = (Connection) invocation.getArgs()[0];
-			PreparedStatement countStatement = connection
-					.prepareStatement(countSql);
-			ParameterHandler parameterHandler = (ParameterHandler) metaObject
-					.getValue("delegate.parameterHandler");
+			PreparedStatement countStatement = connection.prepareStatement(countSql);
+			ParameterHandler parameterHandler = (ParameterHandler) metaObject.getValue("delegate.parameterHandler");
 			parameterHandler.setParameters(countStatement);
 			ResultSet rs = countStatement.executeQuery();
-
 			Map<?, ?> parameter = (Map<?, ?>) boundSql.getParameterObject();
 			PageParam pageParam = (PageParam) parameter.get("pageParam");
-
 			if (rs.next()) {
 				pageParam.setTotalNumber(rs.getInt(1));
 			}
-
-			String pageSql = sql + " LIMIT " + pageParam.getDbIndex() + ","
-					+ pageParam.getDbNumber();
+			String pageSql = sql + " LIMIT " + pageParam.getDbIndex() + "," + pageParam.getDbNumber();
 			metaObject.setValue("delegate.boundSql.sql", pageSql);
 		}
 		return invocation.proceed();
 	}
 
 	public Object plugin(Object target) {
-
 		return Plugin.wrap(target, this);
 	}
 
 	public void setProperties(Properties properties) {
-
 		try {
-			if (StringUtils.isEmpty(this.pageSqlId = properties
-					.getProperty("pageSqlId"))) {
+			if (StringUtils.isEmpty(this.pageSqlId = properties.getProperty("pageSqlId"))) {
 				throw new PropertyException("pageSqlId property is not found!");
 			}
 		} catch (PropertyException e) {

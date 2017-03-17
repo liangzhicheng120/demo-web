@@ -5,12 +5,13 @@ var common = {
 	 * @param array
 	 * @returns {String}
 	 */
-	markupthead : function(array) {
+	markupthead : function(array, before, after) {
 		var result = '<tr>';
-		result += '<th><input type="checkbox" id="checkAll" onclick="common.checkall()"></th>';
+		result += '<th>' + before + '</th>';
 		for ( var x in array) {
 			result += '<th>' + array[x] + '</th>'
 		}
+		result += '<th>' + after + '</th>';
 		result += '</tr>';
 		return result;
 	},
@@ -20,12 +21,13 @@ var common = {
 	 * @param array
 	 * @returns {String}
 	 */
-	markuptbody : function(array) {
+	markuptbody : function(array, before, after) {
 		var result = '<tr>';
-		result += '<td><input type="checkbox" name="checkbox_id" value="\${id}"></td>';
+		result += '<td>' + before + '</td>';
 		for ( var x in array) {
 			result += '<td>\$' + '{' + array[x] + '}' + '</td>'
 		}
+		result += '<td>' + after + '</td>';
 		result += '</tr>';
 		return result;
 	},
@@ -41,7 +43,7 @@ var common = {
 		}
 	},
 	/**
-	 * 获取选择后的id	
+	 * 获取选择后的id
 	 * 
 	 * @returns
 	 */
@@ -56,6 +58,7 @@ var common = {
 	},
 	/**
 	 * 对于内容列大于20的字符改变显示
+	 * 
 	 * @param data
 	 * @returns
 	 */

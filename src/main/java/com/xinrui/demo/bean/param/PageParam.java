@@ -1,4 +1,6 @@
-package com.xinrui.demo.bean;
+package com.xinrui.demo.bean.param;
+
+import java.util.regex.Pattern;
 
 public class PageParam implements java.io.Serializable {
 
@@ -10,12 +12,18 @@ public class PageParam implements java.io.Serializable {
 
 	private int totalPage;
 
-	private int pageNumber = 15;
+	private int pageNumber = 10;
 
 	private int dbIndex;
 
 	private int dbNumber;
-
+	
+	public PageParam(int currentPage) {
+		Pattern pattern = Pattern.compile("[0-9]{1,9}");
+		currentPage = (!pattern.matcher(String.valueOf(currentPage)).matches()) ? 1 : currentPage;
+		this.currentPage = currentPage;
+	}
+	
 	public void count() {
 
 		int totalPageTemp = this.totalNumber / this.pageNumber;
@@ -98,4 +106,5 @@ public class PageParam implements java.io.Serializable {
 
 		this.dbNumber = dbNumber;
 	}
+	
 }
