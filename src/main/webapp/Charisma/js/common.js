@@ -37,18 +37,49 @@ var common = {
 			data : param,
 			success : function(data) {
 				if (data.code == 200) {
-					$('#thead').empty();
-					$('#tbody').empty();
 					$('#thead').html(thead);
-					setValue('currentPage',data.value.pageParam.currentPage);
+					setValue('currentPage', data.value.pageParam.currentPage);
+					$('#tbody').empty();
 					$.template("Template", tbody);
 					$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
+					common.markuptpage(data);
 					responsiveTable();
 				} else {
 					alert('{0}:{1}'.format(data.code, data.message));
 				}
 			}
 		});
+	},
+	/**
+	 * 分页插件
+	 * @param data
+	 */
+	markuptpage : function(data) {
+		var pageParam = data.value.pageParam;
+		var info = '';
+		var page = '';
+		if (pageParam.totalNumber != '0') {
+			info += '共查询到{0}条记录,当前为第{1}/{2}页'.format(pageParam.totalNumber, pageParam.currentPage, pageParam.totalPage);
+		} else {
+			info += '共查询到0条记录,当前为第0/0页';
+		}
+		if (pageParam.currentPage != 1) {
+			page += '<li><a href="javascript:changeCurrentPage(1)">首页</a></li>';
+			page += '<li><a href="javascript:changeCurrentPage({0})"><<</a></li>'.format(pageParam.currentPage - 1);
+		} else {
+			page += '<li class="disabled"><a href="javascript:void(0)">首页</a></li>';
+			page += '<li class="disabled"><a href="javascript:void(0)"><<</a></li>';
+		}
+		page += '<li class="disabled"><a>{0}/{1}</a></li>'.format(pageParam.currentPage, pageParam.totalPage);
+		if (pageParam.currentPage != pageParam.totalPage) {
+			page += '<li><a href="javascript:changeCurrentPage({0})">>></a></li>'.format(pageParam.currentPage + 1);
+			page += '<li><a href="javascript:changeCurrentPage({0})">末页</a></li>'.format(pageParam.totalPage);
+		} else {
+			page += '<li class="disabled"><a href="javascript:void(0)">>></a></li>';
+			page += '<li class="disabled"><a href="javascript:void(0)">末页</a></li>';
+		}
+		$('#tinfo').html(info);
+		$('#tpage').html(page);
 	},
 	/**
 	 * 全选
@@ -126,4 +157,7 @@ var getValue = function(id) {
  */
 var setValue = function(id, msg) {
 	$('#{0}'.format(id)).val(msg);
+};
+var changeCurrentPage = function(currentPage){
+	
 };

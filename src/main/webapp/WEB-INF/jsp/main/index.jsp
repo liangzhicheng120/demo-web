@@ -40,9 +40,9 @@
 </head>
 <body>
 	<%@include file="../main/navbar.jsp"%>
-	
+
 	<input type="text" hidden="hidden" id="currentPage">
-	
+
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
@@ -80,7 +80,7 @@
 
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword" > <span class="input-group-addon" id="searchBtn"><i
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"><i
 												class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
@@ -99,8 +99,15 @@
 										<tbody id="tbody">
 										</tbody>
 									</table>
-								</div>
+									<div id="tinfo"></div>
+									<div class="col-md-12 center-block">
+										<div class="dataTables_paginate paging_bootstrap pagination">
+											<ul class="pagination" id='tpage'>
 
+											</ul>
+										</div>
+									</div>
+								</div>
 
 							</div>
 

@@ -27,7 +27,4 @@ var index = {
 		after += '<a class="btn btn-danger btn-sm" id="delete">删除</a>';
 		return common.markuptbody(new Array('content', 'title', 'keyword', 'posttime'), before, after);
 	},
-	notemarkuptpage : function() {
-
-	},
 }
