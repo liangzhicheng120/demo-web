@@ -48,6 +48,7 @@
 				<div class="row">
 					<div class="box col-md-12">
 						<div class="box-inner">
+<<<<<<< HEAD
 							<div class="table-wrapper">
 								<table class="table table-striped table-bordered responsive">
 									<thead id="thead">
@@ -56,6 +57,11 @@
 									</tbody>
 								</table>
 							</div>
+=======
+							<!-- 							<div id="showLoad"></div>
+							<div id="loadingbody" style="height: 600px;"></div> -->
+							<input type="button" value="确定" id="OkBtn">
+>>>>>>> f9b48112b835692ebbfdacdbd0d0c02579280dae
 						</div>
 					</div>
 				</div>
@@ -82,6 +88,7 @@
 	<script src="<%=basePath%>Charisma/js/jquery.history.js"></script>
 	<script src="<%=basePath%>Charisma/js/charisma.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery-form.js"></script>
+<<<<<<< HEAD
 	<script src="<%=basePath%>Charisma/js/jquery.tmpl.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/common.js"></script>
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
@@ -89,6 +96,37 @@
 		$(function() {
 			index.init();
 		});
+=======
+	<script>
+		$(function() {
+			$('#OkBtn').click(function() {
+				var NAV_XML = _TEXT(function() {
+					/*
+					<a href="http://orzhtml.github.io/">{{home}}</a>
+					<a href="http://orzhtml.github.io/">{{aboutUs}}</a>
+					 */
+				});
+				function changeModelToHtml(template, oSource) {
+					for ( var i in oSource) {
+						var reg = new RegExp("{{" + i + "}}", "gim");
+						template = template.replace(reg, oSource[i]);
+						reg = null;
+					}
+					return template;
+				}
+				function _TEXT(wrap) {
+					return wrap.toString().match(/\/\*\s([\s\S]*)\s\*\//)[1]; 
+				}
+				// 测试
+				var list = {
+					home : '首页',
+					aboutUs : '关于我们'
+				};
+				console.log(changeModelToHtml(NAV_XML, list));
+			});
+		})
+		//http://blog.csdn.net/alex2917/article/details/51078543
+>>>>>>> f9b48112b835692ebbfdacdbd0d0c02579280dae
 	</script>
 </body>
 </html>
