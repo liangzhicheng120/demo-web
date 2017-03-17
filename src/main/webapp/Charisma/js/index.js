@@ -9,6 +9,7 @@ var index = {
 		$('#searchBtn').click(function() {
 			index.notemarkuptable();
 		});
+		responsiveTable();
 	},
 	notemarkuptable : function() {
 		common.markuptable(index.url.notelist(), {
