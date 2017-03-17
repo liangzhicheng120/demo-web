@@ -143,6 +143,7 @@
 	<script>
 		$(function() {
 			index.init();
+			responsiveTable();
 		});
 	</script>
 </body>

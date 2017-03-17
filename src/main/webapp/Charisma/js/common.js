@@ -42,7 +42,6 @@ var common = {
 					$.template("Template", tbody);
 					$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
 					common.markuptpage(data, tpage);
-					responsiveTable();
 				} else {
 					alert('{0}:{1}'.format(data.code, data.message));
 				}
