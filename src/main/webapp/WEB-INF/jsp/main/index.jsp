@@ -58,7 +58,8 @@
 							</div>
 							<div class="box-content">
 
-								<input type="text" value="" hidden="hidden" id="currentPage"> <input type="text" value="" hidden="hidden" id="city"> <input type="text" value="" hidden="hidden" id="district">
+								<input type="text" value="" hidden="hidden" id="currentPage"> <input type="text" value="" hidden="hidden" id="city"> <input
+									type="text" value="" hidden="hidden" id="district">
 
 								<div class="row" style="margin-bottom: 10px;">
 
@@ -80,14 +81,14 @@
 
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"><i
-												class="glyphicon glyphicon-search"></i></span>
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span
+												class="input-group-addon" id="searchBtn"><i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 
 									<div class="col-md-3">
-										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#batchagree_dialog" data-backdrop="static" style="font-weight: bold;">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a
-											class="btn btn-danger btn-sm" style="font-weight: bold;" data-toggle="modal" data-target="#batchdelete_dialog" data-backdrop="static">删除</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#batchagree_dialog" data-backdrop="static" style="font-weight: bold;">&nbsp;&nbsp;新增&nbsp;&nbsp;</a>
+										<a class="btn btn-danger btn-sm" style="font-weight: bold;" data-toggle="modal" data-target="#batchdelete_dialog" data-backdrop="static">删除</a>
 									</div>
 								</div>
 

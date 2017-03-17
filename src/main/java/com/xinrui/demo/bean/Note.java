@@ -12,6 +12,8 @@ public class Note {
 
 	private Date posttime;
 
+	private String title;
+
 	private int aid;
 
 	public int getId() {
@@ -52,6 +54,14 @@ public class Note {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 }

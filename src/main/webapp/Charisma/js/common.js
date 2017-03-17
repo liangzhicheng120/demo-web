@@ -65,7 +65,7 @@ var common = {
 		}
 		if (pageParam.currentPage != 1) {
 			page += '<li><a href="javascript:{0}.changeCurrentPage(1)">首页</a></li>'.format(name);
-			page += '<li><a href="javascript:{0}.changeCurrentPage({0})"><<</a></li>'.format(name, pageParam.currentPage - 1);
+			page += '<li><a href="javascript:{0}.changeCurrentPage({1})"><<</a></li>'.format(name, pageParam.currentPage - 1);
 		} else {
 			page += '<li class="disabled"><a href="javascript:void(0)">首页</a></li>';
 			page += '<li class="disabled"><a href="javascript:void(0)"><<</a></li>';
@@ -78,7 +78,7 @@ var common = {
 			page += '<li class="disabled"><a href="javascript:void(0)">>></a></li>';
 			page += '<li class="disabled"><a href="javascript:void(0)">末页</a></li>';
 		}
-		setValue('currentPage', pageParam.currentPage);
+		$('#currentPage').val(pageParam.currentPage);
 		$('#tinfo').html(info);
 		$('#tpage').html(page);
 	},
@@ -146,16 +146,4 @@ String.prototype.format = function(args) {
 		}
 	}
 	return result
-};
-/**
- * 获取元素值
- */
-var getValue = function(id) {
-	return $('#{0}'.format(id)).val().trim();
-};
-/**
- * 设置元素值
- */
-var setValue = function(id, msg) {
-	$('#{0}'.format(id)).val(msg);
 };

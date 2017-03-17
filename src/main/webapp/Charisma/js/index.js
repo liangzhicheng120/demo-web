@@ -12,8 +12,8 @@ var index = {
 	},
 	notemarkuptable : function() {
 		common.markuptable(index.url.notelist(), {
-			currentPage : getValue('currentPage'),
-			keyword : getValue('keyword')
+			currentPage : $('#currentPage').val(),
+			keyword : $('#keyword').val().trim()
 		}, index.notemarkupthead(), index.notemarkuptbody(), 'index');
 	},
 	notemarkupthead : function() {
@@ -30,7 +30,7 @@ var index = {
 	changeCurrentPage : function(currentPage) {
 		common.markuptable(index.url.notelist(), {
 			currentPage : currentPage,
-			keyword : getValue('keyword')
+			keyword : $('#keyword').val()
 		}, index.notemarkupthead(), index.notemarkuptbody(), 'index');
 	}
 }

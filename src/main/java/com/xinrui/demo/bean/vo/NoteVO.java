@@ -14,6 +14,8 @@ public class NoteVO {
 
 	private Date posttime;
 
+	private String title;
+
 	private int aid;
 
 	public int getId() {
@@ -56,9 +58,18 @@ public class NoteVO {
 		this.content = content;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public static NoteVO build(Note note) {
 		NoteVO noteVO = new NoteVO();
 		noteVO.setAid(note.getAid());
+		noteVO.setTitle(note.getTitle());
 		noteVO.setContent(note.getContent());
 		noteVO.setId(note.getId());
 		noteVO.setKeyword(note.getKeyword());
