@@ -53,33 +53,33 @@ var common = {
 	 * 
 	 * @param data
 	 */
-	markuptpage : function(data, name) {
+	markuptpage : function(data, tchan) {
 		var pageParam = data.value.pageParam;
-		var info = '';
-		var page = '';
+		var tinfo = '';
+		var tpage = '';
 		if (pageParam.totalNumber != '0') {
-			info += '共查询到{0}条记录,当前为第{1}/{2}页'.format(pageParam.totalNumber, pageParam.currentPage, pageParam.totalPage);
+			tinfo += '共查询到{0}条记录,当前为第{1}/{2}页'.format(pageParam.totalNumber, pageParam.currentPage, pageParam.totalPage);
 		} else {
-			info += '共查询到0条记录,当前为第0/0页';
+			tinfo += '共查询到0条记录,当前为第0/0页';
 		}
 		if (pageParam.currentPage != 1) {
-			page += '<li><a href="javascript:{0}.changeCurrentPage(1)">首页</a></li>'.format(name);
-			page += '<li><a href="javascript:{0}.changeCurrentPage({1})"><<</a></li>'.format(name, pageParam.currentPage - 1);
+			tpage += '<li><a href="{0}(1)">首页</a></li>'.format(tchan);
+			tpage += '<li><a href="{0}({1})"><<</a></li>'.format(tchan, pageParam.currentPage - 1);
 		} else {
-			page += '<li class="disabled"><a href="javascript:void(0)">首页</a></li>';
-			page += '<li class="disabled"><a href="javascript:void(0)"><<</a></li>';
+			tpage += '<li class="disabled"><a href="javascript:void(0)">首页</a></li>';
+			tpage += '<li class="disabled"><a href="javascript:void(0)"><<</a></li>';
 		}
-		page += '<li class="disabled"><a>{0}/{1}</a></li>'.format(pageParam.currentPage, pageParam.totalPage);
+		tpage += '<li class="disabled"><a>{0}/{1}</a></li>'.format(pageParam.currentPage, pageParam.totalPage);
 		if (pageParam.currentPage != pageParam.totalPage) {
-			page += '<li><a href="javascript:{0}.changeCurrentPage({1})">>></a></li>'.format(name, pageParam.currentPage + 1);
-			page += '<li><a href="javascript:{0}.changeCurrentPage({1})">末页</a></li>'.format(name, pageParam.totalPage);
+			tpage += '<li><a href="{0}({1})">>></a></li>'.format(tchan, pageParam.currentPage + 1);
+			tpage += '<li><a href="{0}({1})">末页</a></li>'.format(tchan, pageParam.totalPage);
 		} else {
-			page += '<li class="disabled"><a href="javascript:void(0)">>></a></li>';
-			page += '<li class="disabled"><a href="javascript:void(0)">末页</a></li>';
+			tpage += '<li class="disabled"><a href="javascript:void(0)">>></a></li>';
+			tpage += '<li class="disabled"><a href="javascript:void(0)">末页</a></li>';
 		}
 		$('#currentPage').val(pageParam.currentPage);
-		$('#tinfo').html(info);
-		$('#tpage').html(page);
+		$('#tinfo').html(tinfo);
+		$('#tpage').html(tpage);
 	},
 	/**
 	 * 全选
