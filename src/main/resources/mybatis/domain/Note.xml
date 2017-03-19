@@ -10,7 +10,7 @@
 		POSTTIME,
 		TITLE
 		FROM 
-		NOTE
+		note
 		<where>
 			<if test="keyword != null and !&quot;&quot;.equals(keyword.trim())">
 				KEYWORD LIKE CONCAT('%', #{keyword}, '%')
