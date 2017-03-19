@@ -28,3 +28,11 @@
 		})
 		//http://blog.csdn.net/alex2917/article/details/51078543
 	</script>
+	
+	
+	http://blog.csdn.net/ylforever/article/details/44513171
+	
+	wsdl2h.exe -s -o hellowebservice.h http://localhost:8080/demo-web/command/cmd?param=wsdl
+	
+	http://blog.csdn.net/fengshuiyue/article/details/39530093/
+	
