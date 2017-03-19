@@ -34,6 +34,7 @@ var common = {
 	markuptable : function(url, param, thead, tbody, tpage) {
 		$.ajax({
 			url : index.url.notelist(),
+			async : false,
 			data : param,
 			success : function(data) {
 				if (data.code == 200) {
@@ -45,6 +46,9 @@ var common = {
 				} else {
 					alert('{0}:{1}'.format(data.code, data.message));
 				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				alert('异常错误信息' + XMLHttpRequest.status + ':' + XMLHttpRequest.readyState + ':' + textStatus);
 			}
 		});
 	},
