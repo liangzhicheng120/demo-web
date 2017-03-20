@@ -16,6 +16,7 @@ import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.CheckUtil;
+import com.xinrui.demo.util.Nclass;
 import com.xinrui.demo.util.StringUtil;
 
 @Controller
@@ -27,10 +28,10 @@ public class NoteController {
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public BaseResultModel list(@RequestParam(required = false) String keyword, String currentPage) {
+	public BaseResultModel list(@RequestParam(required = false) String keyword, @RequestParam(required = false) String nclass, String currentPage) {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		PageParam pageParam = new PageParam(currentPage);
-		List<Note> notes = noteService.getAllByPage(keyword, pageParam);
+		List<Note> notes = noteService.getAllByPage(keyword, nclass ,pageParam);
 		List<NoteVO> noteVOs = new ArrayList<NoteVO>();
 		for (Note note : notes) {
 			noteVOs.add(NoteVO.build(note));
@@ -59,4 +60,20 @@ public class NoteController {
 		noteService.batchDelete(StringUtil.fromStringToInteger(ids.split(",")));
 		return baseResultModel;
 	}
+
+	@RequestMapping(value = "/getnclass")
+	@ResponseBody
+	public BaseResultModel getNclass() {
+		BaseResultModel baseResultModel = new BaseResultModel();
+		List<JSONObject> value = new ArrayList<JSONObject>();
+		for (Nclass nc : Nclass.values()) {
+			JSONObject e = new JSONObject();
+			e.put("typeCode", nc.getTypeCode());
+			e.put("desc", nc.getDesc());
+			value.add(e);
+		}
+		baseResultModel.setValue(value);
+		return baseResultModel;
+	}
+
 }

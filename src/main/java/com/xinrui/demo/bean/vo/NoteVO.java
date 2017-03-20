@@ -18,6 +18,8 @@ public class NoteVO {
 
 	private int aid;
 
+	private String nclass;
+
 	public int getId() {
 		return id;
 	}
@@ -66,6 +68,14 @@ public class NoteVO {
 		this.title = title;
 	}
 
+	public String getNclass() {
+		return nclass;
+	}
+
+	public void setNclass(String nclass) {
+		this.nclass = nclass;
+	}
+
 	public static NoteVO build(Note note) {
 		NoteVO noteVO = new NoteVO();
 		noteVO.setAid(note.getAid());
@@ -74,6 +84,7 @@ public class NoteVO {
 		noteVO.setId(note.getId());
 		noteVO.setKeyword(note.getKeyword());
 		noteVO.setPosttime(note.getPosttime());
+		noteVO.setNclass(note.getNclass());
 		return noteVO;
 	}
 

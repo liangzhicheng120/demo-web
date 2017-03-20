@@ -41,7 +41,7 @@ var common = {
 	 * @param tpage
 	 */
 	markuptable : function(url, param, thead, tbody, tpage) {
-		common.doAjaxWithNotAsync(url,param,function(data){
+		common.doAjaxWithNotAsync(url, param, function(data) {
 			$('#thead').html(thead);
 			$('#tbody').empty();
 			$.template("Template", tbody);
@@ -51,11 +51,12 @@ var common = {
 	},
 	/**
 	 * 非异步获取数据
+	 * 
 	 * @param url
 	 * @param param
 	 * @param func
 	 */
-	doAjaxWithNotAsync : function(url,param,func) {
+	doAjaxWithNotAsync : function(url, param, func) {
 		$.ajax({
 			url : url,
 			async : false,
@@ -104,6 +105,13 @@ var common = {
 		$('#currentPage').val(pageParam.currentPage);
 		$('#tinfo').html(tinfo);
 		$('#tpage').html(tpage);
+	},
+	markupoption : function(url,selectId) {
+		common.doAjaxWithNotAsync(index.url.notegetnclass(), null, function(data) {
+			var nc = data.value;var content = '<option value="">--请选择--</option>';
+			for (var i = 0; i < nc.length; i++) {content += '<option value="{0}">{1}</option>'.format(nc[i]['desc'], nc[i]['desc'])}
+			$(selectId).html(content);
+		});
 	},
 	/**
 	 * 全选

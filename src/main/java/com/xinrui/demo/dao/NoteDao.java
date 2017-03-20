@@ -14,4 +14,5 @@ public interface NoteDao {
 	public void delete(Note note);
 	
 	public void batchDelete(List<Integer> ids);
+	
 }

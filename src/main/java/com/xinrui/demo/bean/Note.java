@@ -16,6 +16,8 @@ public class Note {
 
 	private int aid;
 
+	private String nclass;
+
 	public int getId() {
 		return id;
 	}
@@ -62,6 +64,14 @@ public class Note {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getNclass() {
+		return nclass;
+	}
+
+	public void setNclass(String nclass) {
+		this.nclass = nclass;
 	}
 
 }

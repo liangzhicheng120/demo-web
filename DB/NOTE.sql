@@ -19,3 +19,9 @@ INSERT INTO `demo_web`.`note` ( `content`, `keyword`, `posttime`, `aid` ,`title`
 ALTER TABLE `demo_web`.`note` 
 ADD COLUMN `title` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL COMMENT '标题' AFTER `aid`;
 
+ALTER TABLE `demo_web`.`note` 
+ADD COLUMN `nclass` VARCHAR(45) NOT NULL AFTER `title`;
+
+INSERT INTO `demo_web`.`note` ( `content`, `keyword`, `posttime`, `aid`,`title`,`nclass`) VALUES ( '这些情况下，动态请求返回的数据一般不是已拼好的 HTML 就是 JSON 或 XML，总之不在浏览器端拼数据就在服务器端拼数据。不过，从传输量方面来看，返回 HTML 不划算，而在 web 传输方面，现在更多的是使用 JSON 而不是 XML。', '详解', '2017-03-15 20:14:17', '2','json','IT');
+
+

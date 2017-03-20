@@ -9,12 +9,17 @@
 		CONTENT,
 		KEYWORD,
 		POSTTIME,
-		TITLE
+		TITLE,
+		NCLASS
 		FROM
 		note
 		<where>
+			1=1
 			<if test="keyword != null and !&quot;&quot;.equals(keyword.trim())">
-				KEYWORD LIKE CONCAT('%', #{keyword}, '%')
+				AND KEYWORD LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="nclass != null and !&quot;&quot;.equals(nclass.trim())">
+				AND NCLASS LIKE CONCAT('%', #{nclass}, '%')
 			</if>
 		</where>
 	</select>
@@ -38,5 +43,6 @@
 		</foreach>
 		)
 	</delete>
+
 
 </mapper>

@@ -43,6 +43,7 @@
 	<%@include file="../main/dialog.jsp"%>
 	
 	<input type="text" hidden="hidden" id="currentPage" value="">
+	<input type="text" hidden="hidden" id="currentNclass" value="">
 
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
@@ -65,7 +66,8 @@
 
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">城市</span> <select size="1" class="form-control">
+											<span class="input-group-addon">类型</span> 
+											 <select size="1" class="form-control" id="nclass" onchange="index.notechangeNcalss(this)"> 
 												<option value="">--请选择--</option>
 											</select>
 										</div>

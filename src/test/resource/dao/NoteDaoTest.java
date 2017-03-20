@@ -39,4 +39,5 @@ public class NoteDaoTest {
 		note.setId(id);
 		noteDao.delete(note);
 	}
+
 }

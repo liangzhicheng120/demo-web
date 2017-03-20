@@ -21,9 +21,10 @@ public class NoteServiceImpl implements NoteService {
 	private NoteDao noteDao;
 
 	@Transactional
-	public List<Note> getAllByPage(String keyword, PageParam pageParam) {
+	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("keyword", SqlUtils.escapeSQLLike(keyword));
+		param.put("nclass", nclass);
 		param.put("pageParam", pageParam);
 		return noteDao.getAllByPage(param);
 	}
