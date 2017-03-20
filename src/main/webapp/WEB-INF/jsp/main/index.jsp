@@ -94,11 +94,10 @@
 									</div>
 								</div>
 
-								<div class="table-wrapper">
 									<table class="table table-striped table-bordered responsive">
-										<thead id="thead">
+										<thead class="thead">
 										</thead>
-										<tbody id="tbody">
+										<tbody class="tbody">
 										</tbody>
 									</table>
 									<div id="tinfo"></div>
@@ -109,7 +108,6 @@
 											</ul>
 										</div>
 									</div>
-								</div>
 
 							</div>
 
