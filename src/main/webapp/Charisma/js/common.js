@@ -31,24 +31,44 @@ var common = {
 		result += '</tr>';
 		return result;
 	},
+	/**
+	 * 构造表格
+	 * 
+	 * @param url
+	 * @param param
+	 * @param thead
+	 * @param tbody
+	 * @param tpage
+	 */
 	markuptable : function(url, param, thead, tbody, tpage) {
+		common.doAjaxWithNotAsync(url,param,function(data){
+			$('#thead').html(thead);
+			$('#tbody').empty();
+			$.template("Template", tbody);
+			$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
+			common.markuptpage(data, tpage);
+		});
+	},
+	/**
+	 * 非异步获取数据
+	 * @param url
+	 * @param param
+	 * @param func
+	 */
+	doAjaxWithNotAsync : function(url,param,func) {
 		$.ajax({
-			url : index.url.notelist(),
+			url : url,
 			async : false,
 			data : param,
 			success : function(data) {
 				if (data.code == 200) {
-					$('#thead').html(thead);
-					$('#tbody').empty();
-					$.template("Template", tbody);
-					$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
-					common.markuptpage(data, tpage);
+					func(data);
 				} else {
-					alert('{0}:{1}'.format(data.code, data.message));
+					common.showerrordialog(data.code + ',' + data.message);
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert('异常错误信息' + XMLHttpRequest.status + ':' + XMLHttpRequest.readyState + ':' + textStatus);
+				common.showerrordialog(XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus);
 			}
 		});
 	},
@@ -122,6 +142,34 @@ var common = {
 		}
 		return data
 	},
+	/**
+	 * 模态框传值
+	 * 
+	 * @param id
+	 * @param array
+	 */
+	markupdata : function(id, array) {
+		$(id).on('show.bs.modal', function(event) {
+			var a = $(event.relatedTarget);
+			var modal = $(id);
+			for (x in array) {
+				modal.find('.modal-body #' + array[x]).val(a.data(array[x]));
+			}
+		});
+	},
+	/**
+	 * 显示错误信息
+	 * 
+	 * @param msg
+	 */
+	showerrordialog : function(msg) {
+		$('#errorDia').modal({
+			keyboard : false,
+			backdrop : 'static',
+			show : true
+		});
+		$('#msg').html(msg);
+	}
 };
 /**
  * String.format方法

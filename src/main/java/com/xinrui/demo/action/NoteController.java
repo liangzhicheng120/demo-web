@@ -15,6 +15,8 @@ import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
 import com.xinrui.demo.service.NoteService;
+import com.xinrui.demo.util.CheckUtil;
+import com.xinrui.demo.util.StringUtil;
 
 @Controller
 @RequestMapping(value = "/note")
@@ -40,4 +42,21 @@ public class NoteController {
 		return baseResultModel;
 	}
 
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public BaseResultModel delete(int id) {
+		CheckUtil.checkLeZero(id, "无效的ID");
+		BaseResultModel baseResultModel = new BaseResultModel();
+		noteService.delete(id);
+		return baseResultModel;
+	}
+
+	@RequestMapping(value = "/batchdelete")
+	@ResponseBody
+	public BaseResultModel batchdelete(String ids) {
+		CheckUtil.checkBlank(ids, "无效的ID");
+		BaseResultModel baseResultModel = new BaseResultModel();
+		noteService.batchDelete(StringUtil.fromStringToInteger(ids.split(",")));
+		return baseResultModel;
+	}
 }

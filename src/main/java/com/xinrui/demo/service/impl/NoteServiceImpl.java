@@ -28,4 +28,16 @@ public class NoteServiceImpl implements NoteService {
 		return noteDao.getAllByPage(param);
 	}
 
+	@Transactional
+	public void delete(int id) {
+		Note note = new Note();
+		note.setId(id);
+		noteDao.delete(note);
+	}
+
+	@Transactional
+	public void batchDelete(List<Integer> ids) {
+		noteDao.batchDelete(ids);
+	}
+
 }

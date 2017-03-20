@@ -8,4 +8,8 @@ import com.xinrui.demo.bean.param.PageParam;
 
 public interface NoteService {
 	public List<Note> getAllByPage(String keyword,PageParam pageParam);
+	
+	public void delete(int id);
+	
+	public void batchDelete(List<Integer> ids);
 }

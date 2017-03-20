@@ -1,5 +1,8 @@
 package com.xinrui.demo.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringUtil {
 	public static String getEncoding(String str) {
 		String encode = "GB2312";
@@ -35,5 +38,13 @@ public class StringUtil {
 		} catch (Exception exception3) {
 		}
 		return "";
+	}
+
+	public static List<Integer> fromStringToInteger(String[] ids) {
+		List<Integer> result = new ArrayList<Integer>();
+		for (String id : ids) {
+			result.add(Integer.valueOf(id));
+		}
+		return result;
 	}
 }

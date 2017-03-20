@@ -18,18 +18,25 @@ import com.xinrui.demo.dao.NoteDao;
 @ContextConfiguration("classpath:spring/spring-*.xml")
 public class NoteDaoTest {
 	@Autowired
-	private NoteDao NoteDao;
+	private NoteDao noteDao;
 
 	@Test
 	public void testGetAllByPage() {
 		Map<String, Object> param = new HashMap<String, Object>();
-		PageParam pageParam = new PageParam("1");		
+		PageParam pageParam = new PageParam("1");
 		param.put("keyword", "json");
 		param.put("pageParam", pageParam);
-		List<Note> notes = NoteDao.getAllByPage(param);
+		List<Note> notes = noteDao.getAllByPage(param);
 		for (Note note : notes) {
 			System.out.println(note.getContent());
 		}
+	}
 
+	@Test
+	public void testDelete() {
+		int id = 1;
+		Note note = new Note();
+		note.setId(id);
+		noteDao.delete(note);
 	}
 }
