@@ -42,10 +42,10 @@ var common = {
 	 */
 	markuptable : function(url, param, thead, tbody, tpage) {
 		common.doAjaxWithNotAsync(url, param, function(data) {
-			$('.thead').html(thead);
-			$('.tbody').empty();
+			$('#thead').html(thead);
+			$('#tbody').empty();
 			$.template("Template", tbody);
-			$.tmpl("Template", common.makecontent(data.value.data)).appendTo(".tbody");
+			$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
 			common.markuptpage(data, tpage);
 		});
 	},

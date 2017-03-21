@@ -102,12 +102,11 @@
 								<div class="col-md-12 center-block">
 									<div class="dataTables_paginate paging_bootstrap pagination">
 										<ul class="pagination" id='tpage'>
-
 										</ul>
 									</div>
 
-								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
