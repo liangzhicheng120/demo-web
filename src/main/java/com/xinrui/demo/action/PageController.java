@@ -23,4 +23,9 @@ public class PageController {
 		session.invalidate();
 		return "redirect:login";
 	}
+
+	@RequestMapping(value = "/note")
+	public String note() {
+		return "main/note";
+	}
 }
