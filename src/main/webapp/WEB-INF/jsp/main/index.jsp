@@ -41,7 +41,7 @@
 <body>
 	<%@include file="../main/navbar.jsp"%>
 	<%@include file="../main/dialog.jsp"%>
-	
+
 	<input type="text" hidden="hidden" id="currentPage" value="">
 	<input type="text" hidden="hidden" id="currentNclass" value="">
 
@@ -66,8 +66,7 @@
 
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">类型</span> 
-											 <select size="1" class="form-control" id="nclass" onchange="index.notechangeNcalss(this)"> 
+											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="index.notechangeNcalss(this)">
 												<option value="">--请选择--</option>
 											</select>
 										</div>
@@ -89,28 +88,26 @@
 									</div>
 
 									<div class="col-md-3">
-										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#batchagree_dialog" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> 
-										<a class="btn btn-danger btn-sm"  data-toggle="modal" data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#batchagree_dialog" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a class="btn btn-danger btn-sm"
+											data-toggle="modal" data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
 									</div>
 								</div>
 
-									<table class="table table-striped table-bordered responsive">
-										<thead class="thead">
-										</thead>
-										<tbody class="tbody">
-										</tbody>
-									</table>
-									<div id="tinfo"></div>
-									<div class="col-md-12 center-block">
-										<div class="dataTables_paginate paging_bootstrap pagination">
-											<ul class="pagination" id='tpage'>
 
-											</ul>
-										</div>
+								<table class="table table-striped table-bordered responsive">
+									<thead id="thead"></thead>
+									<tbody id="tbody"></tbody>
+								</table>
+								<div id="tinfo"></div>
+								<div class="col-md-12 center-block">
+									<div class="dataTables_paginate paging_bootstrap pagination">
+										<ul class="pagination" id='tpage'>
+
+										</ul>
 									</div>
 
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
@@ -141,9 +138,10 @@
 	<script src="<%=basePath%>Charisma/js/common.js"></script>
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
 	<script>
-		$(function() {
-			index.init();
-		});
+		$(function()
+			{
+				index.init();
+			});
 	</script>
 </body>
 </html>
