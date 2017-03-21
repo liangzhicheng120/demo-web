@@ -48,6 +48,7 @@
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
+			
 			<div id="content" class="col-lg-10 col-sm-10">
 				<div class="row">
 					<div class="box col-md-12">
@@ -60,9 +61,7 @@
 
 							<div class="box-content">
 
-								<input type="text" value="" hidden="hidden" id="currentPage"> 
-								<input type="text" value="" hidden="hidden" id="city"> 
-								<input type="text" value="" hidden="hidden" id="district">
+								<input type="text" value="" hidden="hidden" id="currentPage"> <input type="text" value="" hidden="hidden" id="city"> <input type="text" value="" hidden="hidden" id="district">
 
 								<div class="row" style="margin-bottom: 10px;">
 
@@ -94,6 +93,7 @@
 											data-toggle="modal" data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
 									</div>
 								</div>
+
 								<table class="table table-striped table-bordered responsive">
 									<thead class="thead"></thead>
 									<tbody class="tbody"></tbody>

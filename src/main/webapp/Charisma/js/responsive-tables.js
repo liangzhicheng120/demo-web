@@ -1,13 +1,3 @@
-/**
- * table-responsiveTable
- * @param p
- * @param a
- * @param c
- * @param k
- * @param e
- * @param d
- * @returns
- */
 function responsiveTable() {
     var switched = false;
     var updateTables = function() {
