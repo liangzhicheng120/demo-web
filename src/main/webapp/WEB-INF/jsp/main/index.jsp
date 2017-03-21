@@ -48,7 +48,7 @@
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
-			
+
 			<div id="content" class="col-lg-10 col-sm-10">
 				<div class="row">
 					<div class="box col-md-12">
