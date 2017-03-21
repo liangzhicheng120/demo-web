@@ -95,8 +95,8 @@
 								</div>
 
 								<table class="table table-striped table-bordered responsive">
-									<thead class="thead"></thead>
-									<tbody class="tbody"></tbody>
+									<thead id="thead"></thead>
+									<tbody id="tbody"></tbody>
 								</table>
 
 								<div id="tinfo"></div>

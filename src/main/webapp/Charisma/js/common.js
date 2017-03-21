@@ -49,11 +49,13 @@ var common =
 			{
 				common.doAjaxWithNotAsync(url, param, function(data)
 					{
-						$('.thead').html(thead);
-						$('.tbody').empty();
+						$('#thead').html(thead);
+						$('#tbody').empty();
 						$.template("Template", tbody);
-						$.tmpl("Template", common.makecontent(data.value.data)).appendTo(".tbody");
+						$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
 						common.markuptpage(data, tpage);
+						$('.pinned').html(common.markupretable(data.value.data));
+
 					});
 			},
 		/**
@@ -217,6 +219,25 @@ var common =
 						show : true
 					});
 				$('#msg').html(msg);
+			},
+		markupretable : function(data)
+			{
+				var result = '<table class="table table-striped table-bordered">';
+				result += '<thead class="thead">';
+				result += '<tr style="height: 32px;">';
+				result += '<th><input type="checkbox" onclick="common.checkall()"></th>';
+				result += '</tr>';
+				result += '</thead>';
+				result += '<tbody class="tbody">';
+				for (var i = 0; i < data.length; i++)
+				{
+					result += '<tr style="height: 39px;">';
+					result += '<td><input type="checkbox" name="checkbox_id" value="{0}"></td>'.format(data[i]['id']);
+					result += '</tr>';
+				}
+				result += '</tbody>';
+				result += '</table>';
+				return result;
 			}
 	};
 /**
