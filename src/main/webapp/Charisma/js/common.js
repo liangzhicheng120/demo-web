@@ -90,6 +90,43 @@ var common =
 
 			},
 		/**
+		 * ajax提交表单
+		 * 
+		 * @param form
+		 * @param modal
+		 * @param callback
+		 */
+		doAjaxSubmitForm : function(formId, modalId, callback)
+			{
+				$(formId).ajaxSubmit(
+					{
+						secureuri : false,
+						beforeSend : function()
+							{
+								$(".modal-footer a").addClass("disabled"); // 禁用提交按钮
+							},
+						success : function(data)
+							{
+								if (data.code == 200)
+								{
+									callback(data);
+									$(modalId).modal('hide');
+									$(".modal-footer a").removeClass("disabled"); // 禁用提交按钮
+								}
+								else
+								{
+									common.showerrordialog(data.code + ',' + data.message);
+								}
+							},
+						error : function(XMLHttpRequest, textStatus, errorThrown)
+							{
+								common.showerrordialog(XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus);
+							},
+						clearForm : true,
+						resetForm : true,
+					});
+			},
+		/**
 		 * 分页插件
 		 * 
 		 * @param data

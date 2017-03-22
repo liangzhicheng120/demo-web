@@ -1,8 +1,6 @@
 var login = {
 	url : {
-		loginOn : function() {
-			return 'loginOn';
-		}
+		loginOn :'loginOn'
 	},
 	param:function(){
 		return {
@@ -28,7 +26,7 @@ var login = {
 			login.checkBlack('#password',"密码不能为空");
 			login.checkBlack('#captcha',"验证码为空");
 			$.ajax({
-				url:login.url.loginOn(),
+				url:login.url.loginOn,
 				type:'POST',
 				data:login.param(),
 				success:function(data){

@@ -32,6 +32,7 @@
 <link href='<%=basePath%>Charisma/css/uploadify.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/css/animate.min.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/css/main.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/jquery-edit/assets/design/css/trumbowyg.css' rel='stylesheet'>
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -61,8 +62,7 @@
 								<div class="row" style="margin-bottom: 10px;">
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">类型</span> 
-											<select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss(this)">
+											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss(this)">
 												<option value="">--请选择--</option>
 											</select>
 										</div>
@@ -76,13 +76,13 @@
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> 
-											<span class="input-group-addon" id="searchBtn"><i class="glyphicon glyphicon-search"></i></span>
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"><i
+												class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-3">
-										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#noteEdit" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> 
-										<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a class="btn btn-danger btn-sm" data-toggle="modal"
+											data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
 									</div>
 								</div>
 
@@ -105,6 +105,8 @@
 		</div>
 	</div>
 
+
+
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
@@ -125,6 +127,8 @@
 	<script src="<%=basePath%>Charisma/js/charisma.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery-form.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.tmpl.min.js"></script>
+	<script src="<%=basePath%>Charisma/jquery-edit/assets/trumbowyg.js"></script>
+	<script src="<%=basePath%>Charisma/jquery-edit/assets/plugins/base64/trumbowyg.base64.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/common.js"></script>
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
 	<script src="<%=basePath%>Charisma/js/note.js"></script>

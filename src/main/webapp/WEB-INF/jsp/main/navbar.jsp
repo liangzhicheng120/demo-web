@@ -4,7 +4,7 @@
 		<button type="button" class="navbar-toggle pull-left animated flip">
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="./Charisma/img/logo20.png" class="hidden-xs" /> <span>DEMOWEB</span></a>
+		<a class="navbar-brand" href="index.html"> <img alt="Charisma Logo" src="./Charisma/images/logo20.png" class="hidden-xs" /> <span>DEMOWEB</span></a>
 		<div class="btn-group pull-right">
 			<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 				<i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> ${sessionScope.ADMIN }</span> <span class="caret"></span>
