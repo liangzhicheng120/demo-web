@@ -13,6 +13,11 @@ public class PageController {
 		return "main/index";
 	}
 
+	@RequestMapping(value = "/")
+	public String defaultWeb() {
+		return "main/login";
+	}
+
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "main/login";
