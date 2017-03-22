@@ -77,7 +77,6 @@ var note =
 									note.notemarkuptable(note.param());
 								});
 						}
-						responsiveTable(); // 响应式表格
 					});
 			},
 		notemarkuptable : function(param)

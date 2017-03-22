@@ -55,7 +55,6 @@ var common =
 						$.tmpl("Template", common.makecontent(data.value.data)).appendTo("#tbody");
 						common.markuptpage(data, tpage);
 						$('.pinned').html(common.markupretable(data.value.data));
-
 					});
 			},
 		/**
