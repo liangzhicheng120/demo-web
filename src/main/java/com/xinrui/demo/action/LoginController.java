@@ -38,7 +38,7 @@ public class LoginController {
 		CheckUtil.checkBlank(username, "账号不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		String sessionCaptcha = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-		if (!captcha.equals(sessionCaptcha)) {
+		if (!captcha.equalsIgnoreCase(sessionCaptcha)) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("验证码不正确");
 			return baseResultModel;

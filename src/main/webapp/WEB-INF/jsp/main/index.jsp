@@ -58,12 +58,11 @@
 								</h2>
 							</div>
 							<div class="box-content">
-								<input type="text" value="" hidden="hidden" id="currentPage"> <input type="text" value="" hidden="hidden" id="city"> <input
-									type="text" value="" hidden="hidden" id="district">
 								<div class="row" style="margin-bottom: 10px;">
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss(this)">
+											<span class="input-group-addon">类型</span> 
+											<select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss(this)">
 												<option value="">--请选择--</option>
 											</select>
 										</div>
@@ -77,12 +76,12 @@
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span
-												class="input-group-addon" id="searchBtn"><i class="glyphicon glyphicon-search"></i></span>
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> 
+											<span class="input-group-addon" id="searchBtn"><i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-3">
-										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#batchagree_dialog" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" data-target="#noteEdit" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> 
 										<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
 									</div>
 								</div>
@@ -130,9 +129,10 @@
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
 	<script src="<%=basePath%>Charisma/js/note.js"></script>
 	<script>
-		$(function() {
-			note.init();
-		});
+		$(function()
+			{
+				index.init();
+			});
 	</script>
 </body>
 </html>

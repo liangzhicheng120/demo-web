@@ -49,15 +49,39 @@
 				<h4>批量删除</h4>
 			</div>
 			<div class="modal-body" style="text-align: center;">
-				<p>
-					确定批量删除信息？
-				</p>
+				<p>确定批量删除信息？</p>
 			</div>
 			<div class="modal-footer">
-				<a href="javascript:void(0)" class="btn btn-default btn-sm" data-dismiss="modal">关闭</a> 
-				<a href="javascript:void(0)" class="btn btn-success btn-sm" data-dismiss="modal" id="batchDeleteBtn">确定</a>
+				<a href="javascript:void(0)" class="btn btn-default btn-sm" data-dismiss="modal">关闭</a> <a href="javascript:void(0)" class="btn btn-success btn-sm" data-dismiss="modal" id="batchDeleteBtn">确定</a>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- batch delete end -->
+
+<!-- noteedit start -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteEdit" role="dialog" aria-labelledby="myLargeModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<button type="button" class="close" data-dismiss="modal" onclick="closeInfo()">×</button>
+				<h3>
+					<i class="glyphicon glyphicon-edit"></i>新增笔记
+				</h3>
+			</div>
+			<div class="modal-body" >
+				<div id="odiv" style="display: none; position: absolute; z-index: 100;">
+					<img src="../Charisma/images/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" /> 
+					<img src="../Charisma/images/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)" />
+					<img src="../Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> 
+					<img src="../Charisma/images/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
+				</div>
+				<div onmousedown="show_element(event)" style="clear: both" id="customized-buttonpane" class="editor"></div>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" onclick="saveInformation()">发布</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- noteedit end -->
