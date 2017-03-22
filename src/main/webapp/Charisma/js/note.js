@@ -16,9 +16,13 @@ var note =
 				note.notemarkupsearchbtn(); // 注册搜索事件
 				note.notemarkupdeletebtn(); // 注册单个删除事件
 				note.notemarkupbatchdeletebtn() // 注册批量删除事件
-				$('#noteSubmitBtn').click(function(){
-						
-				});
+				$('#noteSubmitBtn').click(function()
+					{
+						common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data)
+							{
+								console.log(data);
+							});
+					});
 				responsiveTable(); // 注册响应式表格
 			},
 		table :

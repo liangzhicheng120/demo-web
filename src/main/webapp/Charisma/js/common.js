@@ -103,19 +103,20 @@ var common =
 						secureuri : false,
 						beforeSend : function()
 							{
-								$(".modal-footer a").addClass("disabled"); // 禁用提交按钮
+								$("#submitFooter a").addClass("disabled"); // 禁用提交按钮
 							},
 						success : function(data)
 							{
+								console.log(data);
 								if (data.code == 200)
 								{
 									callback(data);
 									$(modalId).modal('hide');
-									$(".modal-footer a").removeClass("disabled"); // 禁用提交按钮
+									$("#submitFooter a").removeClass("disabled"); // 禁用提交按钮
 								}
 								else
 								{
-									common.showerrordialog(data.code + ',' + data.message);
+									common.showerrordialog(data.code + ',' + data.message)
 								}
 							},
 						error : function(XMLHttpRequest, textStatus, errorThrown)

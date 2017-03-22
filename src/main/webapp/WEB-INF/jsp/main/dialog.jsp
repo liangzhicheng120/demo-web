@@ -62,27 +62,30 @@
 <!-- noteedit start -->
 <div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteEdit" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header text-center">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h3>
-					<i class="glyphicon glyphicon-edit"></i>新增笔记
-				</h3>
-			</div>
-			<div class="modal-body" >
-				<div style="width: 96%;margin: 17px auto;"> <input type="text" class="form-control" id="title" placeholder="标题"></div>
-				<div id="odiv" style="display: none; position: absolute; z-index: 100;">
-					<img src="./Charisma/images/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" /> 
-					<img src="./Charisma/images/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)" />
-					<img src="./Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> 
-					<img src="./Charisma/images/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
+		<form action="note/save.html" id="noteEditFrom">
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h3>
+						<i class="glyphicon glyphicon-edit"></i>新增笔记
+					</h3>
 				</div>
-				<div onmousedown="show_element(event)" id="trumbowyg" style="clear: both;height: 400px;" id="content" class="editor"></div>
+				<div class="modal-body" >
+					<div style="width: 96%;margin: 17px auto;"> 
+					<input type="text" class="form-control" name="title" placeholder="标题"></div>
+					<div id="odiv" style="display: none; position: absolute; z-index: 100;">
+						<img src="./Charisma/images/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" /> 
+						<img src="./Charisma/images/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)" />
+						<img src="./Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> 
+						<img src="./Charisma/images/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
+					</div>
+					<div onmousedown="show_element(event)" id="trumbowyg" style="clear: both;height: 400px;" class="editor"></div>
+				</div>
+				<div class="modal-footer" id="submitFooter">
+					<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" id="noteSubmitBtn">提交</a>
+				</div>
 			</div>
-			<div class="modal-footer">
-				<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" id="noteSubmitBtn">提交</a>
-			</div>
-		</div>
+		</form>
 	</div>
 </div>
 <!-- noteedit end -->

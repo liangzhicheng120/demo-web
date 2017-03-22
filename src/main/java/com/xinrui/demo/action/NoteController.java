@@ -31,7 +31,7 @@ public class NoteController {
 	public BaseResultModel list(@RequestParam(required = false) String keyword, @RequestParam(required = false) String nclass, String currentPage) {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		PageParam pageParam = new PageParam(currentPage);
-		List<Note> notes = noteService.getAllByPage(keyword, nclass ,pageParam);
+		List<Note> notes = noteService.getAllByPage(keyword, nclass, pageParam);
 		List<NoteVO> noteVOs = new ArrayList<NoteVO>();
 		for (Note note : notes) {
 			noteVOs.add(NoteVO.build(note));
@@ -73,6 +73,13 @@ public class NoteController {
 			value.add(e);
 		}
 		baseResultModel.setValue(value);
+		return baseResultModel;
+	}
+
+	@RequestMapping(value = "/save")
+	public BaseResultModel save(Object... obj) {
+		BaseResultModel baseResultModel = new BaseResultModel();
+		System.out.println("obj=" + obj);
 		return baseResultModel;
 	}
 
