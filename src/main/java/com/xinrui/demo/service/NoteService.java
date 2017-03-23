@@ -11,4 +11,6 @@ public interface NoteService {
 	public void delete(int id);
 
 	public void batchDelete(List<Integer> ids);
+
+	public void save(String tiitle, String content);
 }

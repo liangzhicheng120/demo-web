@@ -91,7 +91,7 @@ var common =
 			},
 		/**
 		 * ajax提交表单
-		 * 
+		 * @DOTO 未完成
 		 * @param form
 		 * @param modal
 		 * @param callback
@@ -101,30 +101,29 @@ var common =
 				$(formId).ajaxSubmit(
 					{
 						secureuri : false,
+						clearForm : true,
+						resetForm : true,
 						beforeSend : function()
 							{
 								$("#submitFooter a").addClass("disabled"); // 禁用提交按钮
 							},
 						success : function(data)
 							{
-								console.log(data);
 								if (data.code == 200)
 								{
 									callback(data);
 									$(modalId).modal('hide');
-									$("#submitFooter a").removeClass("disabled"); // 禁用提交按钮
+									$("#submitFooter a").removeClass("disabled"); // 提交按钮
 								}
 								else
 								{
-									common.showerrordialog(data.code + ',' + data.message)
+									alert(data.code + ',' + data.message)
 								}
 							},
 						error : function(XMLHttpRequest, textStatus, errorThrown)
 							{
-								common.showerrordialog(XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus);
+								alert(XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus);
 							},
-						clearForm : true,
-						resetForm : true,
 					});
 			},
 		/**
@@ -249,12 +248,7 @@ var common =
 		 */
 		showerrordialog : function(msg)
 			{
-				$('#errorDia').modal(
-					{
-						keyboard : false,
-						backdrop : 'static',
-						show : true
-					});
+				$('#errorDia').modal({keyboard : false,backdrop : false,show : true});
 				$('#msg').html(msg);
 			},
 		markupretable : function(data)

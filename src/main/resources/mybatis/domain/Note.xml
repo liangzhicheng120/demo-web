@@ -44,5 +44,26 @@
 		)
 	</delete>
 
+	<insert id="save" parameterType="Note">
+		INSERT INTO
+		note
+		(
+			CONTENT,
+			KEYWORD,
+			POSTTIME,
+			AID,
+			TITLE,
+			NCLASS
+		)
+		VALUES
+		(
+			#{content},
+			#{keyword},
+			now(),
+			#{aid},
+			#{title},
+			#{nclass}
+		)
+	</insert>
 
 </mapper>

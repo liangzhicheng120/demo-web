@@ -77,9 +77,9 @@ public class NoteController {
 	}
 
 	@RequestMapping(value = "/save")
-	public BaseResultModel save(Object... obj) {
+	@ResponseBody
+	public BaseResultModel save(String title, String content) {
 		BaseResultModel baseResultModel = new BaseResultModel();
-		System.out.println("obj=" + obj);
 		return baseResultModel;
 	}
 

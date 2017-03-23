@@ -20,7 +20,7 @@ var note =
 					{
 						common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data)
 							{
-								console.log(data);
+								$('#content').empty();
 							});
 					});
 				responsiveTable(); // 注册响应式表格
@@ -99,7 +99,7 @@ var note =
 								keyboard : false,
 								show : true,
 							});
-						$('#trumbowyg').trumbowyg(
+						$('#content').trumbowyg(
 							{
 								lang : 'zh_cn',
 							});
