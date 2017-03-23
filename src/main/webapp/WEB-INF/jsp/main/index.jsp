@@ -132,6 +132,7 @@
 	<script src="<%=basePath%>Charisma/js/common.js"></script>
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
 	<script src="<%=basePath%>Charisma/js/note.js"></script>
+	<script src="<%=basePath%>Charisma/js/validate.js"></script>
 	<script>
 		$(function()
 			{

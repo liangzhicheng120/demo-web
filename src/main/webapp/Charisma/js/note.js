@@ -18,10 +18,12 @@ var note =
 				note.notemarkupbatchdeletebtn() // 注册批量删除事件
 				$('#noteSubmitBtn').click(function()
 					{
-						common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data)
-							{
-								$('#content').empty();
-							});
+						var validator = new Validator(); // 创建一个构造器对象
+						var noteForm = document.getElementById("noteEditFrom");
+						validator.add(noteForm.title,[{strategy: 'isNotEmpty',msg:'标题不能为空'}]);
+						validator.add(noteForm.content,[{strategy: 'isNotEmpty',msg:'内容不能为空'}]);
+						validator.start();
+						common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data){$('#content').empty();});
 					});
 				responsiveTable(); // 注册响应式表格
 			},
