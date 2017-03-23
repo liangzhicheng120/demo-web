@@ -91,6 +91,7 @@ var common =
 			},
 		/**
 		 * ajax提交表单
+		 * 
 		 * @DOTO 未完成
 		 * @param form
 		 * @param modal
@@ -220,7 +221,7 @@ var common =
 			{
 				for ( var x in data)
 				{
-					data[x]['content'] = data[x]['content'].substring(0, 40) + '......';
+					if (data[x]['content'].length > 40) data[x]['content'] = data[x]['content'].substring(0, 40) + '......';
 				}
 				return data
 			},
@@ -249,7 +250,12 @@ var common =
 		 */
 		showerrordialog : function(msg)
 			{
-				$('#errorDia').modal({keyboard : false,backdrop : false,show : true});
+				$('#errorDia').modal(
+					{
+						keyboard : false,
+						backdrop : false,
+						show : true
+					});
 				$('#msg').html(msg);
 			},
 		markupretable : function(data)
