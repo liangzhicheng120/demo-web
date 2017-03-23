@@ -1,12 +1,12 @@
-package com.xinrui.demo.bean.vo;
+package com.xinrui.demo.bean.param;
 
 import java.sql.Date;
 
+import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.util.HtmlUtil;
 
-public class NoteVO {
-
+public class NoteParam {
 	private int id;
 
 	private String content;
@@ -20,14 +20,6 @@ public class NoteVO {
 	private int aid;
 
 	private String nclass;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getKeyword() {
 		return keyword;
@@ -51,6 +43,14 @@ public class NoteVO {
 
 	public void setAid(int aid) {
 		this.aid = aid;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getContent() {
@@ -77,16 +77,16 @@ public class NoteVO {
 		this.nclass = nclass;
 	}
 
-	public static NoteVO build(Note note) {
-		NoteVO noteVO = new NoteVO();
-		noteVO.setAid(note.getAid());
-		noteVO.setTitle(note.getTitle());
-		noteVO.setContent(HtmlUtil.delHTMLTag(note.getContent()));
-		noteVO.setId(note.getId());
-		noteVO.setKeyword(note.getKeyword());
-		noteVO.setPosttime(note.getPosttime());
-		noteVO.setNclass(note.getNclass());
-		return noteVO;
-	}
+	public Note transformModel() {
+		Note note = new Note();
+		note.setId(this.getId());
+		note.setContent(this.getContent());
+		note.setKeyword(HanLP.extractKeyword(HtmlUtil.delHTMLTag(content), 3).toString().replace("[", "").replace("]", ""));
+		note.setNclass(this.getNclass());
+		note.setTitle(this.getTitle());
+		note.setAid(this.getAid());
+		note.setPosttime(this.getPosttime());
+		return note;
 
+	}
 }

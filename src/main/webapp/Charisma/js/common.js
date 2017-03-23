@@ -103,6 +103,7 @@ var common =
 						secureuri : false,
 						clearForm : true,
 						resetForm : true,
+						type : 'POST',
 						beforeSend : function()
 							{
 								$("#submitFooter a").addClass("disabled"); // 禁用提交按钮

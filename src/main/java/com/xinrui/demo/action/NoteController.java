@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSONObject;
 import com.xinrui.demo.bean.BaseResultModel;
 import com.xinrui.demo.bean.Note;
+import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
 import com.xinrui.demo.service.NoteService;
@@ -66,8 +67,8 @@ public class NoteController {
 	public BaseResultModel getNclass() {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		List<JSONObject> value = new ArrayList<JSONObject>();
+		JSONObject e = new JSONObject();
 		for (Nclass nc : Nclass.values()) {
-			JSONObject e = new JSONObject();
 			e.put("typeCode", nc.getTypeCode());
 			e.put("desc", nc.getDesc());
 			value.add(e);
@@ -78,8 +79,13 @@ public class NoteController {
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public BaseResultModel save(String title, String content) {
+	public BaseResultModel save(NoteParam noteParam) {
+		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
+		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
+		noteParam.setAid(1);
+		noteParam.setNclass("IT");  //DOTO 未实现分类
+		noteService.save(noteParam.transformModel());
 		return baseResultModel;
 	}
 
