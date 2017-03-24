@@ -16,15 +16,7 @@ var note =
 				note.notemarkupsearchbtn(); // 注册搜索事件
 				note.notemarkupdeletebtn(); // 注册单个删除事件
 				note.notemarkupbatchdeletebtn() // 注册批量删除事件
-				$('#noteSubmitBtn').click(function()
-					{
-						var validator = new Validator(); // 创建一个构造器对象
-						var noteForm = document.getElementById("noteEditFrom");
-						validator.add(noteForm.title,[{strategy: 'isNotEmpty',msg:'标题不能为空'}]);
-						validator.add(noteForm.content,[{strategy: 'isNotEmpty',msg:'内容不能为空'}]);
-						validator.start();
-						common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data){$('#content').empty();});
-					});
+				note.notemarkupnotesubmitbtn() // 注册新增事件
 				responsiveTable(); // 注册响应式表格
 			},
 		table :
@@ -147,5 +139,16 @@ var note =
 						}
 					});
 				return func;
-			}
+			},
+		notemarkupnotesubmitbtn:function(){
+			var func = $('#noteSubmitBtn').click(function()
+				{
+					var validator = new Validator(); // 创建一个构造器对象
+					var noteForm = document.getElementById("noteEditFrom");
+					validator.add(noteForm.title,[{strategy: 'isNotEmpty',msg:'标题不能为空'}]);
+					validator.add(noteForm.content,[{strategy: 'isNotEmpty',msg:'内容不能为空'}]);
+					validator.start();
+					common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data){$('#content').empty();});
+				});
+		}
 	};
