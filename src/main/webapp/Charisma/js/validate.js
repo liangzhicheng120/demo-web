@@ -36,6 +36,7 @@ Validator.prototype.start = function() // 添加校验开始方法
 	{
 		for (var i = 0, validatorFunc; validatorFunc = this.cache[i++];)
 		{
-			if (validatorFunc()) throw msg; // 开始校验,取得校验后的返回信息
+			var msg = validatorFunc();
+			if (msg) {$.tooltip(msg, 2500, true);throw msg;} // 开始校验,取得校验后的返回信息
 		}
 	};

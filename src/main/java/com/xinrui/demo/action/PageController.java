@@ -29,8 +29,9 @@ public class PageController {
 		return "redirect:login";
 	}
 
-	@RequestMapping(value = "/note")
-	public String note() {
-		return "main/note";
+	@RequestMapping(value = "/test")
+	public String test() {
+		return "main/test";
 	}
+
 }

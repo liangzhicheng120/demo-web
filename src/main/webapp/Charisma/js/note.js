@@ -118,6 +118,7 @@ var note =
 							}, function()
 							{
 								note.notemarkuptable(note.param());
+								$.tooltip('OK, 操作成功！', 2500, true);
 							});
 					});
 				return func;
@@ -135,6 +136,7 @@ var note =
 								}, function()
 								{
 									note.notemarkuptable(note.param());
+									$.tooltip('OK, 操作成功！', 2500, true);
 								});
 						}
 					});
@@ -148,7 +150,7 @@ var note =
 					validator.add(noteForm.title,[{strategy: 'isNotEmpty',msg:'标题不能为空'}]);
 					validator.add(noteForm.content,[{strategy: 'isNotEmpty',msg:'内容不能为空'}]);
 					validator.start();
-					common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data){$('#content').empty();});
+					common.doAjaxSubmitForm('#noteEditFrom', '#noteEdit', function(data){$('#content').empty();$.tooltip('OK, 操作成功！', 2500, true);});
 				});
 		}
 	};

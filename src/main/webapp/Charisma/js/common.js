@@ -79,12 +79,12 @@ var common =
 								}
 								else
 								{
-									common.showerrordialog(data.code + ',' + data.message);
+									$.tooltip("错误：" + data.code + ',' + data.message, 2500, true);
 								}
 							},
 						error : function(XMLHttpRequest, textStatus, errorThrown)
 							{
-								common.showerrordialog(XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus);
+								$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, true);
 							}
 					});
 
@@ -116,15 +116,16 @@ var common =
 									callback(data);
 									$(modalId).modal('hide');
 									$("#submitFooter a").removeClass("disabled"); // 提交按钮
+									$.tooltip('OK, 操作成功！', 2500, true);
 								}
 								else
 								{
-									alert(data.code + ',' + data.message)
+									$.tooltip("错误：" + data.code + ',' + data.message, 2500, true);
 								}
 							},
 						error : function(XMLHttpRequest, textStatus, errorThrown)
 							{
-								alert(XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus);
+								$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, true);
 							},
 					});
 			},

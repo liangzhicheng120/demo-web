@@ -17,7 +17,6 @@
 <title>首页</title>
 <link id="bs-css" href='<%=basePath%>Charisma/css/theme/bootstrap-cerulean.min.css' rel="stylesheet">
 <link href='<%=basePath%>Charisma/css/charisma-app.css' rel="stylesheet">
-<link href='<%=basePath%>Charisma/css/mystyle.css' rel="stylesheet">
 <link href='<%=basePath%>Charisma/css/fullcalendar.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/css/fullcalendar.print.css' rel='stylesheet' media='print'>
 <link href='<%=basePath%>Charisma/css/chosen.min.css' rel='stylesheet'>
@@ -33,6 +32,9 @@
 <link href='<%=basePath%>Charisma/css/animate.min.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/css/main.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/jquery-edit/assets/design/css/trumbowyg.css' rel='stylesheet'>
+<link href='<%=basePath%>Charisma/css/mystyle.css' rel="stylesheet">
+<link href='<%=basePath%>Charisma/css/common.css' rel="stylesheet">
+<link href='<%=basePath%>Charisma/css/animate.min.css' rel="stylesheet">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -133,6 +135,7 @@
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
 	<script src="<%=basePath%>Charisma/js/note.js"></script>
 	<script src="<%=basePath%>Charisma/js/validate.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
 	<script>
 		$(function()
 			{

@@ -79,7 +79,7 @@
 						<img src="./Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> 
 						<img src="./Charisma/images/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
 					</div>
-					<div onmousedown="show_element(event)" id="content" style="clear: both;height: 400px;" class="editor"></div>
+					<div id="content" style="clear: both;height: 400px;" class="editor"></div>
 				</div>
 				<div class="modal-footer" id="submitFooter">
 					<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" id="noteSubmitBtn">提交</a>
