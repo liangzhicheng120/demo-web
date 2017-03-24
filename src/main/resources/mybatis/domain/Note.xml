@@ -22,6 +22,8 @@
 				AND NCLASS LIKE CONCAT('%', #{nclass}, '%')
 			</if>
 		</where>
+		ORDER BY 
+		POSTTIME DESC
 	</select>
 
 	<delete id="delete" parameterType="Note">

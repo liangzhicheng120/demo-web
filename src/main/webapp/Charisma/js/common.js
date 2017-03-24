@@ -79,12 +79,12 @@ var common =
 								}
 								else
 								{
-									$.tooltip("错误：" + data.code + ',' + data.message, 2500, true);
+									$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 								}
 							},
 						error : function(XMLHttpRequest, textStatus, errorThrown)
 							{
-								$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, true);
+								$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 							}
 					});
 
@@ -120,12 +120,12 @@ var common =
 								}
 								else
 								{
-									$.tooltip("错误：" + data.code + ',' + data.message, 2500, true);
+									$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 								}
 							},
 						error : function(XMLHttpRequest, textStatus, errorThrown)
 							{
-								$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, true);
+								$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 							},
 					});
 			},
