@@ -18,6 +18,7 @@ import sun.misc.BASE64Encoder;
  * @date 2016年3月19日 下午8:40:52
  *
  */
+@SuppressWarnings("restriction")
 public class EncryptUtil {
 
 	/**
