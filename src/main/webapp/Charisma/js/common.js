@@ -180,6 +180,7 @@ var common =
 						var content = '<option value="">--请选择--</option>';
 						for (var i = 0; i < nc.length; i++)
 						{
+							console.log(nc[i]['desc']);
 							content += '<option value="{0}">{1}</option>'.format(nc[i]['desc'], nc[i]['desc'])
 						}
 						$(selectId).html(content);

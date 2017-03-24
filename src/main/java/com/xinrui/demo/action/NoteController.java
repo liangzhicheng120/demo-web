@@ -67,8 +67,8 @@ public class NoteController {
 	public BaseResultModel getNclass() {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		List<JSONObject> value = new ArrayList<JSONObject>();
-		JSONObject e = new JSONObject();
 		for (Nclass nc : Nclass.values()) {
+			JSONObject e = new JSONObject();
 			e.put("typeCode", nc.getTypeCode());
 			e.put("desc", nc.getDesc());
 			value.add(e);
