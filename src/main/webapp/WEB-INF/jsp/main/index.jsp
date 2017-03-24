@@ -33,7 +33,6 @@
 <link href='<%=basePath%>Charisma/css/main.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/jquery-edit/assets/design/css/trumbowyg.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/css/mystyle.css' rel="stylesheet">
-<link href='<%=basePath%>Charisma/css/common.css' rel="stylesheet">
 <link href='<%=basePath%>Charisma/css/animate.min.css' rel="stylesheet">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
