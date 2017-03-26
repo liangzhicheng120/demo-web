@@ -25,7 +25,7 @@ Validator.prototype.add = function(dom, rules)
 					self.cache.push(function()
 						{
 							var strategy = strategyAry.shift();
-							strategyAry.unshift(dom.value);
+							strategyAry.unshift(dom);
 							strategyAry.push(msg);
 							return strategys[strategy].apply(dom, strategyAry)
 						});

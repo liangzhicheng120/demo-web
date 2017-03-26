@@ -12,6 +12,7 @@
 <meta name="author" content="liangzhicheng">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="#" type="image/png">
+<link href='<%=basePath%>Charisma/css/animate.min.css' rel="stylesheet">
 <title>后台登陆</title>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>Charisma/css/style.css" />
 <style>
@@ -48,7 +49,7 @@ canvas {
 				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" /> 
 				<img id="vcode" alt="验证码" src="<%=basePath%>captcha-image.do" />
 			</div>
-			<a style="width: 82px; text-align: center;" href="javascript:(0)" id="showpwdBtn" class="ver_btn">显示密码</a>
+			<a style="width: 82px; text-align: center;" href="javascript:(0)" id="registerBtn" class="ver_btn">注册</a>
 		</dd>
 		<dd>
 			<input type="button" value="立即登陆" class="submit_btn" id="loginBtn" />
@@ -61,6 +62,8 @@ canvas {
 
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/login.js"></script>
+	<script src="<%=basePath%>Charisma/js/validate.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
 	<script>
 		$(function() {
 			login.init();
