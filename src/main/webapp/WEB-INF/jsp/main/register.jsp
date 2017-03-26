@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="shortcut icon" href="#" type="image/png">
 <link href='<%=basePath%>Charisma/css/animate.min.css' rel="stylesheet">
-<title>后台登陆</title>
+<title>后台注册</title>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>Charisma/css/style.css" />
 <style>
 body {
@@ -49,10 +49,10 @@ canvas {
 				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" /> 
 				<img id="vcode" alt="验证码" src="<%=basePath%>captcha-image.do" />
 			</div>
-			<a style="width: 82px; text-align: center;" href="<%=basePath%>register.html" class="ver_btn">注册</a>
+			<a style="width: 82px; text-align: center;" href="<%=basePath%>login.html" class="ver_btn">登陆</a>
 		</dd>
 		<dd>
-			<input type="button" value="立即登陆" class="submit_btn" id="loginBtn" />
+			<input type="button" value="立即注册" class="submit_btn" id="loginBtn" />
 		</dd>
 		<dd>
 			<p>© 2016-2017 东岸工作室 版权所有</p>
@@ -61,13 +61,13 @@ canvas {
 	</dl>
 
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
-	<script src="<%=basePath%>Charisma/js/login.js"></script>
+	<script src="<%=basePath%>Charisma/js/view.js"></script>
+	<script src="<%=basePath%>Charisma/js/register.js"></script>
 	<script src="<%=basePath%>Charisma/js/validate.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
-	<script src="<%=basePath%>Charisma/js/view.js"></script>
 	<script>
 		$(function() {
-			login.init();
+			register.init();
 		});
 	</script>
 </body>
