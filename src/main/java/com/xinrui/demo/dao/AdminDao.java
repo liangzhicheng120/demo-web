@@ -6,10 +6,8 @@ import com.xinrui.demo.bean.Admin;
 
 @Repository
 public interface AdminDao {
-	
-	public void add(Admin userInfo);
 
 	public Admin getPasswordByName(Admin userInfo);
 	
-	
+	public void save(Admin admin);
 }

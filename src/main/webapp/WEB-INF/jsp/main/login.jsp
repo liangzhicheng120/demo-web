@@ -39,7 +39,7 @@ canvas {
 			<strong>站点后台管理系统</strong> <em>Management System</em>
 		</dt>
 		<dd class="user_icon">
-			<input type="text" id="username" placeholder="账号" class="login_txtbx" maxlength="12" />
+			<input type="text" id="username" placeholder="账号" class="login_txtbx" maxlength="20" />
 		</dd>
 		<dd class="pwd_icon">
 			<input type="password" id="password" placeholder="密码" maxlength="20" class="login_txtbx" />
@@ -65,6 +65,7 @@ canvas {
 	<script src="<%=basePath%>Charisma/js/validate.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/view.js"></script>
+	<script src="<%=basePath%>Charisma/js/util.js"></script>
 	<script>
 		$(function() {
 			login.init();

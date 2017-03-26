@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
@@ -39,20 +41,17 @@ canvas {
 			<strong>站点后台管理系统</strong> <em>Management System</em>
 		</dt>
 		<dd class="user_icon">
-			<input type="text" id="username" placeholder="账号" class="login_txtbx" maxlength="12" />
+			<input type="text" id="username" placeholder="请输入0-20位账号" class="login_txtbx" maxlength="20" />
 		</dd>
 		<dd class="pwd_icon">
-			<input type="password" id="password" placeholder="密码" maxlength="20" class="login_txtbx" />
+			<input type="password" id="password" placeholder="请输入0-20位密码" maxlength="20" class="login_txtbx" />
 		</dd>
-		<dd class="val_icon">
-			<div class="checkcode">
-				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" /> 
-				<img id="vcode" alt="验证码" src="<%=basePath%>captcha-image.do" />
-			</div>
+		<dd class="pwd_icon">
+			<input type="password" id="repassword" placeholder="再输一次密码" maxlength="20" class="login_txtbx" /> 
 			<a style="width: 82px; text-align: center;" href="<%=basePath%>login.html" class="ver_btn">登陆</a>
 		</dd>
 		<dd>
-			<input type="button" value="立即注册" class="submit_btn" id="loginBtn" />
+			<input type="button" value="立即注册" class="submit_btn" id="registerBtn" />
 		</dd>
 		<dd>
 			<p>© 2016-2017 东岸工作室 版权所有</p>
@@ -62,9 +61,10 @@ canvas {
 
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/view.js"></script>
-	<script src="<%=basePath%>Charisma/js/register.js"></script>
 	<script src="<%=basePath%>Charisma/js/validate.js"></script>
+	<script src="<%=basePath%>Charisma/js/register.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/util.js"></script>
 	<script>
 		$(function() {
 			register.init();

@@ -18,20 +18,17 @@ public class CheckUtil {
 		Matcher matcher = patt.matcher(url);
 		boolean isMatch = matcher.matches();
 		if (!isMatch) {
-			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR,
-					"URL地址:[" + url + "]不合法");
+			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, "URL地址:[" + url + "]不合法");
 		}
 
 	}
 
 	public static void isValiLength(String str, int length) {
 		if (StringUtils.isBlank(str)) {
-			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR,
-					"参数不能为空");
+			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, "参数不能为空");
 		}
 		if (str.trim().length() > length) {
-			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR,
-					"参数长度不能超过[" + length + "]个字符");
+			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, "参数长度不能超过[" + length + "]个字符");
 		}
 	}
 
@@ -43,8 +40,7 @@ public class CheckUtil {
 
 	public static void isValidUnPushRegister(String sign, String serverSign) {
 		if (!sign.equals(serverSign)) {
-			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR,
-					"客户端sign[" + sign + "[不合法");
+			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, "客户端sign[" + sign + "[不合法");
 		}
 
 	}
@@ -54,11 +50,11 @@ public class CheckUtil {
 			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, args);
 		}
 	}
-	
-	public static void checkObjIsEqual(Object obj1,Object obj2,Object... args) {
-		if (obj1 != obj2) {
+
+	public static void checkObjIsEqual(String obj1, String obj2, Object... args) {
+		if (!obj1.equals(obj2)) {
 			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, args);
 		}
 	}
-	
+
 }

@@ -4,9 +4,25 @@
 <mapper namespace="com.xinrui.demo.dao.AdminDao">
 	<select id="getPasswordByName" resultType="Admin" parameterType="Admin">
 		SELECT
-		password
+		PASSWORD
 		FROM
 		admin
-		WHERE name = #{name}
+		WHERE
+		NAME = #{name}
 	</select>
+
+	<insert id="save" parameterType="Admin">
+		INSERT INTO 
+		admin
+		(
+		NAME,
+		PASSWORD
+		)
+		VALUES
+		(
+		#{name},
+		#{password}
+		)
+	</insert>
+
 </mapper>
