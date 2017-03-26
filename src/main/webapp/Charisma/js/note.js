@@ -110,12 +110,11 @@ var note = {
 	notemarkupnotesubmitbtn : function() {
 		$('#noteSubmitBtn').click(function() {
 			var validator = new Validator(); // 创建一个构造器对象
-			var noteForm = document.getElementById("noteEditFrom");
-			validator.add(noteForm.title.value, [ {
+			validator.add($('#title'), [ {
 				strategy : 'isNotEmpty',
 				msg : '标题不能为空'
 			} ]);
-			validator.add(noteForm.content.value, [ {
+			validator.add($('#content'), [ {
 				strategy : 'isNotEmpty',
 				msg : '内容不能为空'
 			} ]);

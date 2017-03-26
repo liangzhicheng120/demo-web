@@ -1,6 +1,6 @@
 var strategys = {
 	isNotEmpty : function(dom, msg) {
-		if (dom.val() === '') {
+		if (dom.val() === '' && dom.text() === '') {
 			dom.focus();
 			return msg;
 		}
