@@ -33,9 +33,14 @@ public class PageController {
 	public String test() {
 		return "main/test";
 	}
-	
-	@RequestMapping(value="/register")
-	public String register(){
+
+	@RequestMapping(value = "/register")
+	public String register() {
 		return "main/register";
+	}
+
+	@RequestMapping(value = "/note")
+	public String note() {
+		return "main/note";
 	}
 }

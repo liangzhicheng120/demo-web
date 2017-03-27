@@ -4,8 +4,8 @@
 		<div class="nav-canvas">
 			<div class="nav-sm nav nav-stacked"></div>
 			<ul class="nav nav-pills nav-stacked main-menu">
-				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-home"></i><span> 首页</span></a></li>
-				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-check"></i><span> 笔记管理平台 </span></a></li>
+				<li><a class="ajax-link" href="index.html"><i class="glyphicon glyphicon-home"></i><span> 首页</span></a></li>
+				<li><a class="ajax-link" href="note.html"><i class="glyphicon glyphicon-check"></i><span> 笔记管理平台 </span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-info-sign"></i><span> information </span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-info-sign"></i><span> information </span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-phone-alt"></i><span> information</span></a></li>
