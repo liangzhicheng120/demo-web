@@ -82,7 +82,7 @@
 									</div>
 									<div class="col-md-3">
 										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a
-											class="btn btn-danger btn-sm" data-toggle="modal" data-target="#batchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
+											class="btn btn-danger btn-sm" data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
 									</div>
 								</div>
 

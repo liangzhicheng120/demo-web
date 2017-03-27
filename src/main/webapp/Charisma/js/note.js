@@ -39,8 +39,8 @@ var note = {
 	},
 	notemarkuptbody : function() {
 		var before = '<input type="checkbox" name="checkbox_id" value="\${id}">';
-		var after = '<a class="btn btn-success btn-sm" id="update">修改</a>&nbsp;&nbsp;';
-		after += '<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteDia" data-backdrop="static" data-id="\${id}">删除</a>';
+		var after = '<a class="btn btn-success btn-sm" href="javascript:note.markupnoteupdatebtn(\${id})">修改</a>&nbsp;&nbsp;';
+		after += '<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#noteDeleteDia" data-backdrop="static" data-id="\${id}">删除</a>';
 		return common.markuptbody(note.table.body, before, after);
 	},
 	changeCurrentPage : function(currentPage) {
@@ -69,7 +69,7 @@ var note = {
 	},
 	notemarkupnoteedit : function() {
 		$('#noteEditBtn').click(function() {
-			$('#noteEdit').modal({
+			$('#noteEditDia').modal({
 				backdrop : 'static',
 				keyboard : false,
 				show : true,
@@ -124,6 +124,17 @@ var note = {
 				note.notemarkuptable(note.param());
 				$.tooltip('OK, 操作成功！', 2500, true);
 			});
+		});
+	},
+	markupnoteupdatebtn : function(id){
+		console.log(id);
+		$('#noteUpdateDia').modal({
+			backdrop : 'static',
+			keyboard : false,
+			show : true,
+		});  
+		$('#content-update').trumbowyg({
+			lang : 'zh_cn',
 		});
 	}
 };

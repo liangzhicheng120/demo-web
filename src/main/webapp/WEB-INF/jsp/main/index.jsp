@@ -41,9 +41,6 @@
 <body>
 	<%@include file="../main/navbar.jsp"%>
 
-	<input type="text" hidden="hidden" id="currentPage" value="">
-	<input type="text" hidden="hidden" id="currentNclass" value="">
-
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
