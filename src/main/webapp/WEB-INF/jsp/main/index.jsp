@@ -130,6 +130,8 @@
 	<script src="<%=basePath%>Charisma/js/jquery.iphone.toggle.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.uploadify-3.1.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.history.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.autogrow-textarea.js"></script>
+	<script src="<%=basePath%>Charisma/js/jquery.dataTables.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/charisma.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/common.js"></script>
 	<script src="<%=basePath%>Charisma/js/index.js"></script>
