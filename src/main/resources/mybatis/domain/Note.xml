@@ -67,5 +67,17 @@
 			#{nclass}
 		)
 	</insert>
+	
+	<select id="get" resultType="Note">
+		SELECT 		
+		CONTENT,
+		KEYWORD,
+		TITLE,
+		NCLASS
+		FROM 
+		note
+		WHERE
+		ID = #{id}
+	</select>
 
 </mapper>

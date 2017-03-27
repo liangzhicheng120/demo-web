@@ -84,8 +84,18 @@ public class NoteController {
 		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteParam.setAid(1);
-		noteParam.setNclass("IT");  //DOTO 未实现分类
+		noteParam.setNclass("IT"); // DOTO 未实现分类
 		noteService.save(noteParam.transformModel());
+		return baseResultModel;
+	}
+
+	@RequestMapping(value = "/get")
+	@ResponseBody
+	public BaseResultModel get(int id) {
+		CheckUtil.checkLeZero(id, "id不能为空");
+		BaseResultModel baseResultModel = new BaseResultModel();
+		Note note = noteService.get(id);
+		baseResultModel.setValue(note);
 		return baseResultModel;
 	}
 

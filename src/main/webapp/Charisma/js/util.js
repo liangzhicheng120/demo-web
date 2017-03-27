@@ -1,7 +1,8 @@
 var util = {
 	/**
 	 * Post 提交ajax
-	 * 
+	 * @param url
+	 * @param param
 	 * @param fn
 	 */
 	doAjaxWithPost : function(url, param, fn) {
@@ -21,5 +22,5 @@ var util = {
 				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 			}
 		});
-	}
+	},
 }

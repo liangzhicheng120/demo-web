@@ -46,4 +46,9 @@ public class NoteServiceImpl implements NoteService {
 		noteDao.save(note);
 	}
 
+	@Transactional
+	public Note get(int id) {
+		return noteDao.get(id);
+	}
+
 }
