@@ -47,7 +47,7 @@ canvas {
 			<input type="password" id="password" placeholder="请输入0-20位密码" maxlength="20" class="login_txtbx" />
 		</dd>
 		<dd class="pwd_icon">
-			<input type="password" id="repassword" placeholder="再输一次密码" maxlength="20" class="login_txtbx" /> 
+			<input type="password" style="width: 185px;" id="repassword" placeholder="再输一次密码" maxlength="20" class="login_txtbx" /> 
 			<a style="width: 82px; text-align: center;" href="<%=basePath%>login.html" class="ver_btn">登陆</a>
 		</dd>
 		<dd>
@@ -66,9 +66,10 @@ canvas {
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/util.js"></script>
 	<script>
-		$(function() {
-			register.init();
-		});
+		$(function()
+			{
+				register.init();
+			});
 	</script>
 </body>
 </html>
