@@ -6,16 +6,16 @@ import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.PageParam;
 
 public interface NoteService {
-	
-	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam);
+
+	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam, String start, String end);
 
 	public void delete(int id);
 
 	public void batchDelete(List<Integer> ids);
 
 	public void save(Note note);
-	
+
 	public Note get(int id);
-	
+
 	public void update(Note note);
 }

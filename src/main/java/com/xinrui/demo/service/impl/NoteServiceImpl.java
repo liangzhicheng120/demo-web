@@ -21,11 +21,13 @@ public class NoteServiceImpl implements NoteService {
 	private NoteDao noteDao;
 
 	@Transactional
-	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam) {
+	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam, String start, String end) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("keyword", SqlUtils.escapeSQLLike(keyword));
 		param.put("nclass", nclass);
 		param.put("pageParam", pageParam);
+		param.put("start", start);
+		param.put("end", end);
 		return noteDao.getAllByPage(param);
 	}
 
@@ -53,7 +55,7 @@ public class NoteServiceImpl implements NoteService {
 
 	@Override
 	public void update(Note note) {
-		
+		noteDao.update(note);
 	}
 
 }

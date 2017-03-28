@@ -9,7 +9,6 @@ var note = {
 	},
 	init : function() {
 		note.notemarkuptable(); // 初始化表格
-		note.notemarkupdeleteid(); // 注册删除事件
 		note.notemarkuptoption(); // 初始化选择框
 		note.notemarkupnoteedit(); // 注册笔记编辑事件
 		note.notemarkupsearchbtn(); // 注册搜索事件
@@ -18,6 +17,7 @@ var note = {
 		note.notemarkupnotesubmitbtn(); // 注册新增事件
 		note.notemarkupupdatebtn(); // 注册修改事件
 		note.notemarkupdatepicker(); // 注册日期选择事件
+		note.notemarkupsearchdatebtn(); // 注册搜索日期事件
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
@@ -31,7 +31,7 @@ var note = {
 			keyword : $('#keyword').val().trim(),
 			nclass : $('#nclass').val(),
 			start : $('#start').val().trim(),
-			end : $('#end').val().trim()
+			end : $('#end').val().trim(),
 		}
 	},
 	notemarkuptable : function(param) {
@@ -54,11 +54,8 @@ var note = {
 			keyword : $('#keyword').val(),
 			nclass : $('#nclass').val(),
 			start : $('#start').val().trim(),
-			end : $('#end').val().trim()
+			end : $('#end').val().trim(),
 		});
-	},
-	notemarkupdeleteid : function() {
-		common.markupdata('#deleteDia', new Array('id'));
 	},
 	notemarkuptoption : function() {
 		common.markupoption(note.url.notegetnclass, '#nclass');
@@ -84,12 +81,13 @@ var note = {
 		});
 	},
 	notemarkupdeletebtn : function() {
+		common.markupdata('#noteDeleteDia', new Array('id'));
 		$('#deleteBtn').click(function() {
 			common.doAjaxWithNotAsync(note.url.notedelete, {
 				id : Number($('#id').val())
 			}, function() {
-				note.notemarkuptable(note.param());
 				$.tooltip('OK, 操作成功！', 2500, true);
+				note.notemarkuptable(note.param());
 			});
 		});
 	},
@@ -100,8 +98,8 @@ var note = {
 				common.doAjaxWithNotAsync(note.url.notebatchdelete, {
 					ids : ids
 				}, function() {
-					note.notemarkuptable(note.param());
 					$.tooltip('OK, 操作成功！', 2500, true);
+					note.notemarkuptable(note.param());
 				});
 			}
 		});
@@ -148,9 +146,7 @@ var note = {
 		});
 	},
 	isNotEmpty : function(id) {
-		var value = $(id).val();
-		value = (value) ? ',' + value : '';
-		return value;
+		return ($(id).val()) ? ',' + $(id).val() : '';
 	},
 	notemarkupupdatebtn : function() {
 		$('#noteUpdateBtn').click(function() {
@@ -175,9 +171,14 @@ var note = {
 			});
 		});
 	},
+	notemarkupsearchdatebtn : function() {
+		$('#searchDateBtn').click(function() {
+			note.notemarkuptable(note.param());
+		});
+	},
 	notemarkupdatepicker : function() {
 		$('.default-date-picker').datepicker({
 			format : 'yyyy-mm-dd'
 		});
-	}
+	},
 };

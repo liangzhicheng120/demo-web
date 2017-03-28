@@ -21,8 +21,11 @@
 			<if test="nclass != null and !&quot;&quot;.equals(nclass.trim())">
 				AND NCLASS LIKE CONCAT('%', #{nclass}, '%')
 			</if>
+			<if test="start != null and !&quot;&quot;.equals(start.trim()) and end != null and !&quot;&quot;.equals(end.trim())">
+				AND POSTTIME BETWEEN #{start} AND #{end}
+			</if>
 		</where>
-		ORDER BY 
+		ORDER BY
 		POSTTIME DESC
 	</select>
 
@@ -50,48 +53,48 @@
 		INSERT INTO
 		note
 		(
-			CONTENT,
-			KEYWORD,
-			POSTTIME,
-			AID,
-			TITLE,
-			NCLASS
+		CONTENT,
+		KEYWORD,
+		POSTTIME,
+		AID,
+		TITLE,
+		NCLASS
 		)
 		VALUES
 		(
-			#{content},
-			#{keyword},
-			now(),
-			#{aid},
-			#{title},
-			#{nclass}
+		#{content},
+		#{keyword},
+		now(),
+		#{aid},
+		#{title},
+		#{nclass}
 		)
 	</insert>
-	
+
 	<select id="get" resultType="Note">
 		SELECT
-		ID, 		
+		ID,
 		CONTENT,
 		KEYWORD,
 		TITLE,
 		NCLASS
-		FROM 
+		FROM
 		note
 		WHERE
 		ID = #{id}
 	</select>
-	
+
 	<update id="update" parameterType="Note">
-		UPDATE 
-		note 
-		SET 
+		UPDATE
+		note
+		SET
 		TITLE = #{title},
 		KEYWORD = #{keyword},
 		NCLASS = #{nclass},
-		CONTENT = #{content},
+		CONTENT	= #{content},
 		POSTTIME = NOW()
-		WHERE 
+		WHERE
 		ID = #{id}
 	</update>
-	
+
 </mapper>

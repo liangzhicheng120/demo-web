@@ -25,8 +25,10 @@ public class NoteDaoTest {
 	public void testGetAllByPage() {
 		Map<String, Object> param = new HashMap<String, Object>();
 		PageParam pageParam = new PageParam("1");
-		param.put("keyword", "json");
+		param.put("keyword", "Ïê½â");
 		param.put("pageParam", pageParam);
+		param.put("start", "2017-03-01");
+		param.put("end", "2017-03-02");
 		List<Note> notes = noteDao.getAllByPage(param);
 		for (Note note : notes) {
 			System.out.println(note.getContent());

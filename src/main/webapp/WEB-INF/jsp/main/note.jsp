@@ -74,7 +74,7 @@
 											<input class="default-date-picker form-control" type="text" value="" id="start"> 
 											<span class="input-group-addon">TO</span>
 											<input id="end" class="default-date-picker form-control" type="text" value="">
-											<span class="input-group-addon">
+											<span class="input-group-addon" id="searchDateBtn">
 											<i class="glyphicon glyphicon-search"></i>
 											</span>
 										</div>
