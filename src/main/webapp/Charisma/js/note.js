@@ -4,7 +4,8 @@ var note = {
 		notedelete : 'note/delete',
 		notebatchdelete : 'note/batchdelete',
 		notegetnclass : 'note/getnclass',
-		noteget : 'note/get'
+		noteget : 'note/get',
+		noteupdate : 'note/update'
 	},
 	init : function() {
 		note.notemarkuptable(); // 初始化表格
@@ -15,6 +16,7 @@ var note = {
 		note.notemarkupdeletebtn(); // 注册单个删除事件
 		note.notemarkupbatchdeletebtn(); // 注册批量删除事件
 		note.notemarkupnotesubmitbtn(); // 注册新增事件
+		note.notemarkupupdatebtn(); // 注册修改事件
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
@@ -123,22 +125,58 @@ var note = {
 			common.doAjaxSubmitForm('#noteEditFrom', '#noteEditDia', function(data) {
 				$('#content').empty();
 				note.notemarkuptable(note.param());
-				$.tooltip('OK, 操作成功！', 2500, true);
 			});
 		});
 	},
-	notemarkupinitupdateformbtn:function(id){
+	notemarkupinitupdateformbtn : function(id) {
 		$('#noteUpdateDia').modal({
 			backdrop : 'static',
 			keyboard : false,
 			show : true,
-		});  
-		common.doAjaxWithNotAsync(note.url.noteget,{id:id},function(data){
-			$('#update-title').val(data.value.title);
-			$('#update-content').text(data.value.content);
 		});
-		$('#content-update').trumbowyg({
-			lang : 'zh_cn',
+		common.doAjaxWithNotAsync(note.url.noteget, {
+			id : id
+		}, function(data) {
+			$('#update-title').val(data.value.title);
+			$('#update-content').trumbowyg({
+				lang : 'zh_cn',
+			});
+			$('#update-content').html(data.value.content);
+			var keys = data.value.keyword.split(",");
+			for (var i = 0; i < keys.length; i++) {
+				$('#key' + i).val(keys[i]);
+			}
+			common.markupoption(note.url.notegetnclass, '#update-option');
+			$('#update-option').val(data.value.nclass);
+			$('#noteId').val(data.value.id)
+		});
+	},
+	isNotEmpty : function(id) {
+		var value = $(id).val();
+		value = (value) ? ',' + value : '';
+		return value;
+	},
+	notemarkupupdatebtn : function() {
+		$('#noteUpdateBtn').click(function() {
+			var validator = new Validator(); // 创建一个构造器对象
+			validator.add($('#update-title'), [ {
+				strategy : 'isNotEmpty',
+				msg : '标题不能为空'
+			} ]);
+			validator.add($('#update-content'), [ {
+				strategy : 'isNotEmpty',
+				msg : '内容不能为空'
+			} ]);
+			validator.start();
+			common.doAjaxSubmit(note.url.noteupdate, {
+				id : $('#noteId').val(),
+				title : $('#update-title').val(),
+				content : document.getElementById('update-content').innerHTML,
+				keyword : $('#key0').val() + note.isNotEmpty('#key1') + note.isNotEmpty('#key2'),
+				nclass : $('#update-option').val()
+			}, '#noteUpdateDia', function(data) {
+				note.notemarkuptable(note.param());
+			});
 		});
 	}
 };

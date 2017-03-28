@@ -69,7 +69,8 @@
 	</insert>
 	
 	<select id="get" resultType="Note">
-		SELECT 		
+		SELECT
+		ID, 		
 		CONTENT,
 		KEYWORD,
 		TITLE,
@@ -79,5 +80,18 @@
 		WHERE
 		ID = #{id}
 	</select>
-
+	
+	<update id="update" parameterType="Note">
+		UPDATE 
+		note 
+		SET 
+		TITLE = #{title},
+		KEYWORD = #{keyword},
+		NCLASS = #{nclass},
+		CONTENT = #{content},
+		POSTTIME = NOW()
+		WHERE 
+		ID = #{id}
+	</update>
+	
 </mapper>

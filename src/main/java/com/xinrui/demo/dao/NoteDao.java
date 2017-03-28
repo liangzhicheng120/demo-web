@@ -20,4 +20,6 @@ public interface NoteDao {
 
 	public Note get(int id);
 	
+	public void update(Note note);
+	
 }

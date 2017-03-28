@@ -1,7 +1,0 @@
-var index =
-	{
-		init : function()
-			{
-			
-			}
-	}

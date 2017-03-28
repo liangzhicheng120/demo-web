@@ -134,13 +134,6 @@
 	<script src="<%=basePath%>Charisma/js/jquery.dataTables.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/charisma.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/common.js"></script>
-	<script src="<%=basePath%>Charisma/js/index.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
-	<script>
-		$(function()
-			{
-				index.init();
-			});
-	</script>
 </body>
 </html>

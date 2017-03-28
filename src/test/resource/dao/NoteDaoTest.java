@@ -59,5 +59,15 @@ public class NoteDaoTest {
 		Note note = noteDao.get(id);
 		System.out.println(note.getContent());
 	}
-
+	
+	@Test
+	public void testUpdate(){
+		Note note = new Note();
+		note.setId(164);
+		note.setContent("ม๚ึ้ณฌ");
+		note.setKeyword("ม๚ึ้");
+		note.setTitle("ม๚ึ้");
+		note.setNclass("IT");
+		noteDao.update(note);
+	}
 }

@@ -99,4 +99,14 @@ public class NoteController {
 		return baseResultModel;
 	}
 
+	@RequestMapping(value = "/update")
+	@ResponseBody
+	public BaseResultModel update(NoteParam noteParam) {
+		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
+		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
+		BaseResultModel baseResultModel = new BaseResultModel();
+		noteService.save(noteParam.transformModel());
+		return baseResultModel;
+	}
+
 }

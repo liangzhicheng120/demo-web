@@ -104,12 +104,13 @@
 						<input type="text" class="form-control" id="update-title" name="title" placeholder="标题">
 					</div>
 					<div class="form-inline" style="width: 96%; margin: 17px auto;">
-						<input type="text" class="form-control" id="key1" placeholder="关键词">
-						<input type="text" class="form-control" id="key2" placeholder="关键词">
-						<input type="text" class="form-control" id="key3" placeholder="关键词">
+						<input type="text" class="form-control" id="key0" placeholder="关键词1">
+						<input type="text" class="form-control" id="key1" placeholder="关键词2">
+						<input type="text" class="form-control" id="key2" placeholder="关键词3">
+						<input type="text" hidden="hidden" id="noteId">
 						<div class="input-group">
 							<span class="input-group-addon">类型</span> 
-							<select size="1" class="form-control" id="">
+							<select size="1" class="form-control" id="update-option" dir="ltr">
 								<option value="">---------请选择---------</option>
 							</select>
 						</div>
@@ -123,7 +124,7 @@
 					<div id="update-content" style="clear: both; height: 400px;" class="editor"></div>
 				</div>
 				<div class="modal-footer" id="submitFooter">
-					<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" id="noteUpdateBtn">提交</a>
+					<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" id="noteUpdateBtn">修改</a>
 				</div>
 			</div>
 	</div>

@@ -63,14 +63,14 @@
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
 											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss(this)">
-												<option value="">--请选择--</option>
+												<option value=" ">--------请选择--------</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
 											<span class="input-group-addon">地区</span> <select size="1" class="form-control">
-												<option value="">--请选择--</option>
+												<option value="">---------请选择--------</option>
 											</select>
 										</div>
 									</div>

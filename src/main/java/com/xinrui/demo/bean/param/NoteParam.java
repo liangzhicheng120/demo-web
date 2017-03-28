@@ -2,6 +2,8 @@ package com.xinrui.demo.bean.param;
 
 import java.sql.Date;
 
+import org.apache.commons.lang.ObjectUtils;
+
 import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.util.HtmlUtil;
@@ -81,12 +83,11 @@ public class NoteParam {
 		Note note = new Note();
 		note.setId(this.getId());
 		note.setContent(this.getContent());
-		note.setKeyword(HanLP.extractKeyword(HtmlUtil.delHTMLTag(content), 3).toString().replace("[", "").replace("]", ""));
+		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(), HanLP.extractKeyword(HtmlUtil.delHTMLTag(content), 3).toString().replace("[", "").replace("]", "")));
 		note.setNclass(this.getNclass());
 		note.setTitle(this.getTitle());
 		note.setAid(this.getAid());
 		note.setPosttime(this.getPosttime());
 		return note;
-
 	}
 }
