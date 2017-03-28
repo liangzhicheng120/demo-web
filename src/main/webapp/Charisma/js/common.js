@@ -213,8 +213,8 @@ var common = {
 	 */
 	makecontent : function(data) {
 		for ( var x in data) {
-			if (data[x]['content'].length > 40)
-				data[x]['content'] = data[x]['content'].substring(0, 40) + '......';
+			if (data[x]['content'].length > 20)
+				data[x]['content'] = data[x]['content'].substring(0, 20) + '......';
 		}
 		return data
 	},
