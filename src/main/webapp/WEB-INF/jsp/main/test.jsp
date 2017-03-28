@@ -42,64 +42,53 @@
 <body>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
-
-<style type="text/css">
-.modal {
-	bottom: auto;
-	padding: 0;
-	background-color: #ffffff;
-	border: 1px solid #999999;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 6px;
-	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-	background-clip: padding-box;
-	overflow-y: auto;
-}
-</style>
+<title>Test</title>
 </head>
 <body>
-	<div class="content" style="margin-left: 100px; margin-top: 100px;">
-		<button class="btn btn-primary btn-lg" id="m1">打开第一层模态窗口</button>
-	</div>
-	<div id="firstmodal" class="modal container fade" tabindex="-1" style="display: none;">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h4 class="modal-title">第一层模态窗口</h4>
+	<form action="#" class="form-horizontal ">
+		<div class="form-group">
+			<label class="control-label col-md-3">Default Datepicker</label>
+			<div class="col-md-4 col-xs-11">
+				<input class="form-control form-control-inline input-medium default-date-picker" size="16" type="text" value=""> <span class="help-block">Select date</span>
+			</div>
 		</div>
-		<div class="modal-body">
-			<p>
-				<button class="btn btn-primary btn-lg" id="m2">打开第二层模态窗口</button>
-				第一层主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 第一层主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 第一层主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-			</p>
-		</div>
-		<div class="modal-footer" style="text-align: center;">
-			<button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
-		</div>
-	</div>
+		<div class="form-group">
+			<label class="control-label col-md-3">Start with years viewMode</label>
+			<div class="col-md-4 col-xs-11">
 
-	<div id="secondmodal" class="modal container fade" tabindex="-1" style="display: none;">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h4 class="modal-title">第二层模态窗口</h4>
+				<div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="12-02-2012" class="input-append date dpYears">
+					<input type="text" readonly="" value="12-02-2012" size="16" class="form-control"> <span class="input-group-btn add-on">
+						<button class="btn btn-primary" type="button">
+							<i class="fa fa-calendar"></i>
+						</button>
+					</span>
+				</div>
+				<span class="help-block">Select date</span>
+			</div>
 		</div>
-		<div class="modal-body">
-			<p>第二层主体内容主体内容主体内容主体内容主体内体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容 主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容
-				主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容主体内容</p>
+		<div class="form-group">
+			<label class="control-label col-md-3">Months Only</label>
+			<div class="col-md-4 col-xs-11">
+				<div data-date-minviewmode="months" data-date-viewmode="years" data-date-format="mm/yyyy" data-date="102/2012" class="input-append date dpMonths">
+					<input type="text" readonly="" value="02/2012" size="16" class="form-control"> <span class="input-group-btn add-on">
+						<button class="btn btn-primary" type="button">
+							<i class="fa fa-calendar"></i>
+						</button>
+					</span>
+				</div>
+				<span class="help-block">Select month only</span>
+			</div>
 		</div>
-		<div class="modal-footer" style="text-align: center;">
-			<button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+		<div class="form-group">
+			<label class="control-label col-md-3">Date Range</label>
+			<div class="col-md-4">
+				<div class="input-group input-large custom-date-range" data-date="13/07/2013" data-date-format="mm/dd/yyyy">
+					<input type="text" class="form-control dpd1" name="from"> <span class="input-group-addon">To</span> <input type="text" class="form-control dpd2" name="to">
+				</div>
+				<span class="help-block">Select date range</span>
+			</div>
 		</div>
-	</div>
+	</form>
 </body>
 <script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 <script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
@@ -124,19 +113,6 @@
 <script src="<%=basePath%>Charisma/js/common.js"></script>
 <script src="<%=basePath%>Charisma/jquery-edit/assets/trumbowyg.js"></script>
 <script src="<%=basePath%>Charisma/jquery-edit/assets/plugins/base64/trumbowyg.base64.min.js"></script>
-<script type="text/javascript">
-	$(function()
-		{
-			$('#m1').on("click", function()
-				{
-					$('#firstmodal').modal();
-				});
-			$('#m2').on("click", function()
-				{
-					$('#secondmodal').modal();
-				});
-		});
-</script>
 </body>
 
 

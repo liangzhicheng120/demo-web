@@ -33,6 +33,7 @@
 <link href='<%=basePath%>Charisma/jquery-edit/assets/design/css/trumbowyg.css' rel='stylesheet'>
 <link href='<%=basePath%>Charisma/css/mystyle.css' rel="stylesheet">
 <link href='<%=basePath%>Charisma/css/animate.min.css' rel="stylesheet">
+<link href='<%=basePath%>AdminEx/css/datepicker-custom.css' rel="stylesheet">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -133,6 +134,7 @@
 	<script src="<%=basePath%>Charisma/js/note.js"></script>
 	<script src="<%=basePath%>Charisma/js/validate.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
+	<script src="<%=basePath%>AdminEx/js/bootstrap-datepicker.js"></script>
 	<script>
 		$(function() {
 			note.init();

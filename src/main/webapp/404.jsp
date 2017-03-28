@@ -32,9 +32,5 @@
 			</section>
 		</div>
 	</section>
-	<script src="<%=basePath%>AdminEx/js/jquery-1.10.2.min.js"></script>
-	<script src="<%=basePath%>AdminEx/js/jquery-migrate-1.2.1.min.js"></script>
-	<script src="<%=basePath%>AdminEx/js/bootstrap.min.js"></script>
-	<script src="<%=basePath%>AdminEx/js/modernizr.min.js"></script>
 </body>
 </html>
