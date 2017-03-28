@@ -173,7 +173,7 @@ var common = {
 	markupoption : function(url, selectId) {
 		common.doAjaxWithNotAsync(url, null, function(data) {
 			var nc = data.value;
-			var content = '<option value=" ">---------请选择---------</option>';
+			var content = '<option value=" ">---请选择---</option>';
 			for (var i = 0; i < nc.length; i++) {
 				content += '<option value="{0}">{1}</option>'.format(nc[i]['desc'], nc[i]['desc'])
 			}
