@@ -9,7 +9,7 @@
 			</div>
 			<div class="modal-body" style="text-align: center;">
 				<p>确定删除信息？</p>
-				<input type="text" id="id">
+				<input type="text" id="id" hidden="hidden">
 			</div>
 			<div class="modal-footer">
 				<a href="javascript:void(0)" class="btn btn-default btn-sm" data-dismiss="modal">关闭</a> <a href="javascript:void(0)" class="btn btn-success btn-sm" data-dismiss="modal" id="deleteBtn">确定</a>
