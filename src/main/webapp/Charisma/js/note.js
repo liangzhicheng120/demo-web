@@ -144,7 +144,7 @@ var note = {
 			$('#update-content').html(data.value.content);
 			var keys = data.value.keyword.split(",");
 			for (var i = 0; i < keys.length; i++) {
-				$('#key' + i).val(keys[i]);
+				$('#key' + i).val(keys[i].trim());
 			}
 			common.markupoption(note.url.notegetnclass, '#update-option');
 			$('#update-option').val(data.value.nclass);
