@@ -3775,7 +3775,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 .input-group-addon.input-sm {
 	padding: 5px 10px;
 	font-size: 12px;
-	border-radius: 3px
+/* 	border-radius: 3px */
 }
 
 .input-group-addon.input-lg {
