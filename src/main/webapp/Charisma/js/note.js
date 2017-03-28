@@ -17,6 +17,7 @@ var note = {
 		note.notemarkupbatchdeletebtn(); // 注册批量删除事件
 		note.notemarkupnotesubmitbtn(); // 注册新增事件
 		note.notemarkupupdatebtn(); // 注册修改事件
+		note.notemarkupdatepicker(); // 注册日期选择事件
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
@@ -25,12 +26,13 @@ var note = {
 		page : 'javascript:note.changeCurrentPage'
 	},
 	param : function() {
-		var result = {
+		return {
 			currentPage : $('#currentPage').val(),
 			keyword : $('#keyword').val().trim(),
-			nclass : $('#currentNclass').val()
+			nclass : $('#nclass').val(),
+			start : $('#start').val().trim(),
+			end : $('#end').val().trim()
 		}
-		return result
 	},
 	notemarkuptable : function(param) {
 		common.markuptable(note.url.notelist, param, note.notemarkupthead(), note.notemarkuptbody(), note.table.page);
@@ -50,7 +52,9 @@ var note = {
 		note.notemarkuptable({
 			currentPage : currentPage,
 			keyword : $('#keyword').val(),
-			nclass : $('#currentNclass').val()
+			nclass : $('#nclass').val(),
+			start : $('#start').val().trim(),
+			end : $('#end').val().trim()
 		});
 	},
 	notemarkupdeleteid : function() {
@@ -59,16 +63,8 @@ var note = {
 	notemarkuptoption : function() {
 		common.markupoption(note.url.notegetnclass, '#nclass');
 	},
-	notechangeNcalss : function(osel) {
-		var nclass = osel.options[osel.selectedIndex].value;
-		if (nclass) {
-			note.notemarkuptable({
-				currentPage : $('#currentPage').val(),
-				keyword : $('#keyword').val().trim(),
-				nclass : nclass
-			});
-			$('#currentNclass').val(nclass);
-		}
+	notechangeNcalss : function() {
+		note.notemarkuptable(note.param());
 	},
 	notemarkupnoteedit : function() {
 		$('#noteEditBtn').click(function() {
@@ -177,6 +173,11 @@ var note = {
 			}, '#noteUpdateDia', function(data) {
 				note.notemarkuptable(note.param());
 			});
+		});
+	},
+	notemarkupdatepicker : function() {
+		$('.default-date-picker').datepicker({
+			format : 'yyyy-mm-dd'
 		});
 	}
 };

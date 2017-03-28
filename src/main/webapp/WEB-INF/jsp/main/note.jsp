@@ -45,7 +45,7 @@
 	<%@include file="../main/dialog.jsp"%>
 
 	<input type="text" hidden="hidden" id="currentPage" value="">
-	<input type="text" hidden="hidden" id="currentNclass" value="">
+	<!-- 	<input type="text" hidden="hidden" id="currentNclass" value=""> -->
 
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
@@ -63,27 +63,26 @@
 								<div class="row" style="margin-bottom: 10px;">
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss(this)">
+											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss()">
 												<option value=" ">--------请选择--------</option>
 											</select>
 										</div>
 									</div>
-									<div class="col-md-2">
+									<div class="col-md-4">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">地区</span> <select size="1" class="form-control">
-												<option value="">---------请选择--------</option>
-											</select>
+											<span class="input-group-addon">日期</span><input class="default-date-picker form-control" type="text" value="" id="start"> <span class="input-group-addon">TO</span><input id="end"
+												class="default-date-picker form-control" type="text" value=""><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span
-												class="input-group-addon" id="searchBtn"><i class="glyphicon glyphicon-search"></i></span>
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn">
+											<i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-3">
-										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a
-											class="btn btn-danger btn-sm" data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a class="btn btn-danger btn-sm" data-toggle="modal"
+											data-target="#noteBatchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
 									</div>
 								</div>
 
@@ -105,8 +104,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
