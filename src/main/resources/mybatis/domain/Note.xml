@@ -22,7 +22,7 @@
 				AND NCLASS LIKE CONCAT('%', #{nclass}, '%')
 			</if>
 			<if test="start != null and !&quot;&quot;.equals(start.trim()) and end != null and !&quot;&quot;.equals(end.trim())">
-				AND POSTTIME BETWEEN #{start} AND #{end}
+				AND POSTTIME BETWEEN #{start} AND DATE_ADD(#{end} , INTERVAL 1 day)
 			</if>
 		</where>
 		ORDER BY
