@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.BadSqlGrammarException;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,12 +18,10 @@ import com.xinrui.demo.util.ErrorCodeUtil;
 
 public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 
-	protected Logger logger = LoggerFactory
-			.getLogger(ApplicationExceptionResolver.class);
+	protected Logger logger = LoggerFactory.getLogger(ApplicationExceptionResolver.class);
 
 	@Override
-	public ModelAndView resolveException(HttpServletRequest request,
-			HttpServletResponse response, Object handle, Exception e) {
+	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handle, Exception e) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
@@ -31,6 +30,16 @@ public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 		int code;
 		String message;
 		boolean flag = false;
+		if (e instanceof BadSqlGrammarException) {
+			model.put("code", CodeConstants.SQL_SYNTAX_ERROR);
+			model.put("message", "sql”Ô∑®¥ÌŒÛ");
+			model.put("value", "");
+			ModelAndView m = new ModelAndView("error", model);
+			m.addObject("Cache-Control", "no-cache");
+			m.addObject("Pragma", "no-cache");
+			m.addObject("Expires", 0);
+			return m;
+		}
 		if (e instanceof CalException) {
 			CalException es = (CalException) e;
 			code = es.getErrorCode();
@@ -41,11 +50,10 @@ public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 			code = es.getErrorCode();
 			message = es.getErrorMessage();
 			flag = es.isPringStackTrace();
-
 			model.put("code", code);
 			model.put("message", message);
 			model.put("value", "");
-			ModelAndView m = new ModelAndView("err", model);
+			ModelAndView m = new ModelAndView("error", model);
 			m.addObject("Cache-Control", "no-cache");
 			m.addObject("Pragma", "no-cache");
 			m.addObject("Expires", 0);

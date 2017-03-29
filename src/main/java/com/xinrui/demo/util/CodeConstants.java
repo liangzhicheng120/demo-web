@@ -63,5 +63,8 @@ public class CodeConstants implements BaseCode {
 
 	// 日期转换错误
 	public final static int DATE_CONVERTER_ERROR = SERVER_ERROR + THIRD + 4;
+	
+	// sql语法错误
+	public final static int SQL_SYNTAX_ERROR = SERVER_ERROR + DB + 1;
 
 }

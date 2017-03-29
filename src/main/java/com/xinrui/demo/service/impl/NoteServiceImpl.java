@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.dao.NoteDao;
+import com.xinrui.demo.exception.CalException;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.SqlUtils;
 
@@ -53,7 +54,7 @@ public class NoteServiceImpl implements NoteService {
 		return noteDao.get(id);
 	}
 
-	@Override
+	@Transactional
 	public void update(Note note) {
 		noteDao.update(note);
 	}
