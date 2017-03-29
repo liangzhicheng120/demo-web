@@ -171,10 +171,10 @@ var common = {
 		$('#tinfo').html(tinfo);
 		$('#tpage').html(tpage);
 	},
-	markupoption : function(url, selectId) {
+	markupoption : function(url, selectId,other) {
 		common.doAjaxWithNotAsync(url, null, function(data) {
 			var nc = data.value;
-			var content = '<option value=" ">---请选择---</option>';
+			var content = '<option value=" ">{0}</option>'.format(other);
 			for (var i = 0; i < nc.length; i++) {
 				content += '<option value="{0}">{1}</option>'.format(nc[i]['desc'], nc[i]['desc'])
 			}

@@ -48,7 +48,6 @@ public class NoteController {
 	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public BaseResultModel delete(int id) {
-		System.out.println(id);
 		CheckUtil.checkLeZero(id, "ÎÞÐ§µÄID");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.delete(id);

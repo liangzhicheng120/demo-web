@@ -5902,7 +5902,7 @@ button.close {
 
 .modal {
 	position: fixed;
-	top: 0;
+	top: -15px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -5989,7 +5989,7 @@ button.close {
 
 .modal-body {
 	position: relative;
-	padding: 15px
+	padding: -15px
 }
 
 .modal-footer {
@@ -6035,7 +6035,7 @@ button.close {
 
 @media ( min-width :992px) {
 	.modal-lg {
-		width: 900px
+		width: 1000px
 	}
 }
 

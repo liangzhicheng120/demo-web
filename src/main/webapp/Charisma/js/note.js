@@ -21,8 +21,8 @@ var note = {
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
-		head : new Array('内容', '标题', '关键词', '类型', '修改时间'),
-		body : new Array('content', 'title', 'keyword', 'nclass', 'posttime'),
+		head : new Array('标题', '内容', '关键词', '类型', '修改时间'),
+		body : new Array('title', 'content', 'keyword', 'nclass', 'posttime'),
 		page : 'javascript:note.changeCurrentPage'
 	},
 	param : function() {
@@ -44,7 +44,7 @@ var note = {
 	},
 	notemarkuptbody : function() {
 		var before = '<input type="checkbox" name="checkbox_id" value="\${id}">';
-		var after = '<a class="btn btn-success btn-sm" href="javascript:note.notemarkupinitupdateformbtn(\${id})">修改</a>&nbsp;&nbsp;';
+		var after = '<a class="btn btn-success btn-sm" href="javascript:note.notemarkupinitupdateformbtn(\${id})">查看</a>&nbsp;&nbsp;';
 		after += '<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#noteDeleteDia" data-backdrop="static" data-id="\${id}">删除</a>';
 		return common.markuptbody(note.table.body, before, after);
 	},
@@ -58,7 +58,7 @@ var note = {
 		});
 	},
 	notemarkuptoption : function() {
-		common.markupoption(note.url.notegetnclass, '#nclass');
+		common.markupoption(note.url.notegetnclass, '#nclass', '全部');
 	},
 	notechangeNcalss : function() {
 		note.notemarkuptable(note.param());
@@ -140,7 +140,7 @@ var note = {
 			for (var i = 0; i < keys.length; i++) {
 				$('#key' + i).val(keys[i].trim());
 			}
-			common.markupoption(note.url.notegetnclass, '#update-option');
+			common.markupoption(note.url.notegetnclass, '#update-option', '其他');
 			$('#update-option').val(data.value.nclass);
 			$('#noteId').val(data.value.id)
 		});

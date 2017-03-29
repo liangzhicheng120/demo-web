@@ -63,14 +63,14 @@
 								<div class="row" style="margin-bottom: 10px;">
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">类型</span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss()">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss()">
 												<option value=" ">---请选择---</option>
 											</select>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-5">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon">日期</span>
+											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
 											<input class="default-date-picker form-control" type="text" value="" id="start"> 
 											<span class="input-group-addon">TO</span>
 											<input id="end" class="default-date-picker form-control" type="text" value="">
@@ -86,11 +86,10 @@
 										</div>
 									</div>
 									<div class="col-md-2">
-										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">&nbsp;&nbsp;新增&nbsp;&nbsp;</a> <a class="btn btn-danger btn-sm" data-toggle="modal"
-											data-target="#noteBatchDeleteDia" data-backdrop="static">&nbsp;&nbsp;删除&nbsp;&nbsp;</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm" data-toggle="modal"
+											data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a>
 									</div>
 								</div>
-
 								<table class="table table-striped table-bordered responsive">
 									<thead id="thead"></thead>
 									<tbody id="tbody"></tbody>
