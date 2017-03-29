@@ -33,7 +33,7 @@ public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 		if (e instanceof BadSqlGrammarException) {
 			model.put("code", CodeConstants.SQL_SYNTAX_ERROR);
 			model.put("message", "sql”Ô∑®¥ÌŒÛ");
-			model.put("value", "");
+			model.put("value", "");     
 			ModelAndView m = new ModelAndView("error", model);
 			m.addObject("Cache-Control", "no-cache");
 			m.addObject("Pragma", "no-cache");
