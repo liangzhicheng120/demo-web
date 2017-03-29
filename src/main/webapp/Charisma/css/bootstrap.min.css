@@ -5902,7 +5902,7 @@ button.close {
 
 .modal {
 	position: fixed;
-	top: -15px;
+	top: -25px;
 	right: 0;
 	bottom: 0;
 	left: 0;

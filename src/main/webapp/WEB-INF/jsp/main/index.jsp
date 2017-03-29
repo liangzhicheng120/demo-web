@@ -48,7 +48,7 @@
 						<div class="box-inner">
 							<div class="box-header well" data-original-title="">
 								<h2>
-									<i class="glyphicon glyphicon-font"></i> Typography
+									<i class="glyphicon glyphicon-font"></i> Neural Networks and Deep Learning
 								</h2>
 							</div>
 							<div class="box-content">
