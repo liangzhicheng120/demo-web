@@ -18,6 +18,7 @@ var note = {
 		note.notemarkupupdatebtn(); // 注册修改事件
 		note.notemarkupdatepicker(); // 注册日期选择事件
 		note.notemarkupsearchdatebtn(); // 注册搜索日期事件
+		note.notemarkuprefreshbtn(); // 注册刷新按钮
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
@@ -181,4 +182,9 @@ var note = {
 			format : 'yyyy-mm-dd'
 		});
 	},
+	notemarkuprefreshbtn : function() {
+		$('#refreshBtn').click(function() {
+			console.log('refreshBtn');
+		});
+	}
 };
