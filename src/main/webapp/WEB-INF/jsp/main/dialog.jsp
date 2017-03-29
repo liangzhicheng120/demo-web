@@ -121,7 +121,7 @@
 						</select>
 					</div>
 					<div class="input-group input-group-sm">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-sm" onclick="">&nbsp;取消&nbsp;</a> &nbsp; <a class="btn btn-success btn-sm" id="noteUpdateBtn">&nbsp;修改&nbsp;</a>
+						<a class="btn btn-danger btn-sm" onclick="">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>&nbsp;<a class="btn btn-success btn-sm" id="noteUpdateBtn">&nbsp;&nbsp;修改&nbsp;&nbsp;</a>
 					</div>
 				</div>
 				<div id="odiv" style="display: none; position: absolute; z-index: 100;">
