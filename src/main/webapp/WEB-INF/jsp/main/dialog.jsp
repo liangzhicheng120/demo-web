@@ -3,12 +3,12 @@
 <div class="modal fade" id="noteDeleteDia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header" style="padding-bottom: 3px;">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<h4>删除</h4>
 			</div>
 			<div class="modal-body" style="text-align: center;">
-				<p>确定删除信息？</p>
+				<p style="margin: 0 10px;">确定删除信息？</p>
 				<input type="text" id="id" hidden="hidden">
 			</div>
 			<div class="modal-footer">
@@ -23,12 +23,12 @@
 <div class="modal fade" id="errorDia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header" style="padding-bottom: 3px;">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<h4>error</h4>
 			</div>
 			<div class="modal-body" style="text-align: center;">
-				<p>
+				<p style="margin: 0 10px;">
 					异常错误信息:<span id="msg"></span>
 				</p>
 			</div>
@@ -44,12 +44,12 @@
 <div class="modal fade" id="noteBatchDeleteDia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header" style="padding-bottom: 3px;">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<h4>批量删除</h4>
 			</div>
 			<div class="modal-body" style="text-align: center;">
-				<p>确定批量删除信息？</p>
+				<p style="margin: 0 10px;">确定批量删除信息？</p>
 			</div>
 			<div class="modal-footer">
 				<a href="javascript:void(0)" class="btn btn-default btn-sm" data-dismiss="modal">关闭</a> <a href="javascript:void(0)" class="btn btn-success btn-sm" data-dismiss="modal" id="batchDeleteBtn">确定</a>
@@ -60,7 +60,7 @@
 <!-- batch delete end -->
 
 <!-- noteedit start -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteEditDia" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteEditDia" role="dialog" aria-labelledby="myLargeModalLabel" style="top: -10px;">
 	<div class="modal-dialog modal-lg" role="document">
 		<form action="note/save.html" id="noteEditFrom">
 			<div class="modal-content">
@@ -90,7 +90,7 @@
 <!-- noteedit end -->
 
 <!-- noteupdate start -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteUpdateDia" role="dialog" aria-labelledby="myLargeModalLabel">
+<div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteUpdateDia" role="dialog" aria-labelledby="myLargeModalLabel" style="top: -10px;">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header text-center">
