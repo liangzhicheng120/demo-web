@@ -1,8 +1,23 @@
 package com.xinrui.demo.ml.bayes;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.io.Charsets;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
+
+import com.hankcs.hanlp.HanLP;
+import com.xinrui.demo.exception.CalException;
+import com.xinrui.demo.util.CodeConstants;
+import com.xinrui.demo.util.Constants;
+import com.xinrui.demo.util.MathUtil;
 
 /**
  * 贝叶斯计算器主体类
@@ -50,6 +65,7 @@ public class Bayes {
 	 * @return 测试元组的类别
 	 */
 	public String predictClassify(ArrayList<ArrayList<String>> datas, ArrayList<String> testData) {
+
 		if (datas == null || testData == null) {
 			return null;
 		}
@@ -63,12 +79,6 @@ public class Bayes {
 			for (int j = 0; j < testData.size(); j++) {
 				p += calProbabilityClassificationInKey(map, classes[i].toString(), testData.get(j));
 			}
-			
-//			System.out.println(classes[i] + " " + p);
-//			if (p != 0) {
-//				System.out.println(classes[i] + " " + p);
-//			}
-
 			if (p > maxProbability) {
 				maxProbability = p;
 				maxPIndex = i;
@@ -86,7 +96,7 @@ public class Bayes {
 	 * @return 测试元组的类别
 	 */
 	public String predictClassify(ArrayList<String> testData) {
-		return predictClassify(BayesFileTools.read("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\resources\\model\\classify.txt"), testData);
+		return predictClassify(read(Constants.BAYES_MODEL), testData);
 	}
 
 	/**
@@ -99,11 +109,9 @@ public class Bayes {
 	 * @return 概率分布
 	 */
 	private double calProbabilityKeyInClassification(ArrayList<ArrayList<String>> classify, String value) {
-		if (classify == null || Tools.isEmptyString(value)) {
+		if (classify == null || StringUtils.isEmpty(value)) {
 			return 0.0;
 		}
-
-		double p = 0.0;
 		int totleKeyCount = 0;
 		int foundKeyCount = 0;
 		ArrayList<String> featureVector = null; // 分类中的某一特征向量
@@ -116,14 +124,7 @@ public class Bayes {
 				}
 			}
 		}
-
-		if (totleKeyCount == 0) {
-			p = 0.0;
-		} else {
-			p = 1.0 * foundKeyCount / totleKeyCount;
-		}
-
-		return p;
+		return totleKeyCount == 0 ? 0.0 : 1.0 * foundKeyCount / totleKeyCount;
 	}
 
 	/**
@@ -136,7 +137,7 @@ public class Bayes {
 	 * @return 某一分类的概率
 	 */
 	private double calProbabilityClassification(Map<String, ArrayList<ArrayList<String>>> map, String classify) {
-		if (map == null | Tools.isEmptyString(classify)) {
+		if (map == null | StringUtils.isEmpty(classify)) {
 			return 0;
 		}
 
@@ -159,11 +160,9 @@ public class Bayes {
 	 * @return 某一特征值在所有分类数据集中的比率
 	 */
 	private double calProbabilityKey(Map<String, ArrayList<ArrayList<String>>> map, String key) {
-		if (map == null || Tools.isEmptyString(key)) {
+		if (map == null || StringUtils.isEmpty(key)) {
 			return 0;
 		}
-
-		double p = 0;
 		int foundKeyCount = 0;
 		int totleKeyCount = 0;
 		Object[] classes = map.keySet().toArray();
@@ -180,14 +179,7 @@ public class Bayes {
 				}
 			}
 		}
-
-		if (totleKeyCount == 0) {
-			p = 0.0;
-		} else {
-			p = 1.0 * foundKeyCount / totleKeyCount;
-		}
-
-		return p;
+		return totleKeyCount == 0 ? 0.0 : 1.0 * foundKeyCount / totleKeyCount;
 	}
 
 	/**
@@ -203,18 +195,76 @@ public class Bayes {
 	 */
 	private double calProbabilityClassificationInKey(Map<String, ArrayList<ArrayList<String>>> map, String classify, String key) {
 		ArrayList<ArrayList<String>> classifyList = map.get(classify);
+
 		double pkc = calProbabilityKeyInClassification(classifyList, key); // p(key|classify)
 		double pc = calProbabilityClassification(map, classify); // p(classify)
 		double pk = calProbabilityKey(map, key); // p(key)
-		double pck = 0.0; // p(classify | key)
 
-		if (pk == 0) {
-			pck = 0;
-		} else {
-			pck = pkc * pc / pk;
-		}
-
-		// System.out.println("P(" + classify + "|" + key + ") = " + pck);
-		return pck;
+		return pk == 0 ? 0 : pkc * pc / pk; // p(classify | key)
 	}
+
+	/**
+	 * 读取训练文档中的训练数据 并进行封装
+	 * 
+	 * @param filePath
+	 *            训练文档的路径
+	 * @return 训练数据集
+	 */
+	public static ArrayList<ArrayList<String>> read(String filePath) {
+		ArrayList<String> singleTrainning = null;
+		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
+		try {
+			List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(filePath), Charsets.UTF_8));
+			for (int i = 0; i < datas.size(); i++) {
+				String[] characteristicValues = datas.get(i).split(" ");
+				singleTrainning = new ArrayList<String>();
+				for (int j = 0; j < characteristicValues.length; j++) {
+					if (StringUtils.isNotEmpty(characteristicValues[j])) {
+						singleTrainning.add(characteristicValues[j]);
+					}
+				}
+				trainningSet.add(singleTrainning);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new CalException(CodeConstants.FILE_PATH_ERROR, "文件路径访问错误");
+		}
+		return trainningSet;
+	}
+
+	/**
+	 * 
+	 * @param fileName
+	 *            训练文件
+	 * @param size
+	 *            关键词个数
+	 */
+	public static void trainBayes(String fileName, int size) {
+		try {
+			Bayes bayes = new Bayes();
+			BufferedReader reader = new BufferedReader(new FileReader(Constants.TRAIN_FILE + fileName));
+			String line = null;
+			int total = 0;
+			int right = 0;
+			long start = System.currentTimeMillis();
+			while ((line = reader.readLine()) != null) {
+				ArrayList<String> testData = (ArrayList<String>) HanLP.extractKeyword(line, size);
+				String classification = bayes.predictClassify(testData);
+				if (classification.equals(fileName.split("\\.")[0])) {
+					right += 1;
+				}
+				System.out.print("\n分类：" + classification);
+				total++;
+			}
+			reader.close();
+			long end = System.currentTimeMillis();
+			System.out.println("正确分类：" + right);
+			System.out.println("总行数：" + total);
+			System.out.println("正确率：" + MathUtil.div(right, total, 4) * 100 + "%");
+			System.out.println("程序运行时间： " + (end - start) / 1000 + "s");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

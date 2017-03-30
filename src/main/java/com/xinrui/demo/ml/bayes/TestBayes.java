@@ -1,13 +1,6 @@
 package com.xinrui.demo.ml.bayes;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import com.hankcs.hanlp.HanLP;
-import com.xinrui.demo.util.MathUtil;
 
 /**
  * 
@@ -20,31 +13,13 @@ import com.xinrui.demo.util.MathUtil;
 public class TestBayes {
 
 	public static void main(String[] args) throws IOException {
-
-		String fileName = "房产";
-		Bayes bayes = new Bayes();
-		File file = new File("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\java\\com\\xinrui\\demo\\ml\\bayes\\files\\" + fileName + ".txt");
-		BufferedReader reader = null;
-		reader = new BufferedReader(new FileReader(file));
-		String tempString = null;
-		int line = 1;
-		int correct = 0;
-		long start = System.currentTimeMillis();
-		while ((tempString = reader.readLine()) != null) {
-			ArrayList<String> testData = (ArrayList<String>) HanLP.extractKeyword(tempString, 15);
-			String clzss = bayes.predictClassify(testData);
-			if (clzss.equals(fileName)) {
-				correct += 1;
-			}
-			System.out.print("\n分类：" + clzss);
-			line++;
-		}
-		reader.close();
-		long end = System.currentTimeMillis();
-		System.out.println("正确分类：" + correct);
-		System.out.println("总行数：" + line);
-		System.out.println("正确率：" + MathUtil.div(correct, line, 4) * 100 + "%");
-		System.out.println("程序运行时间： " + (end - start) / 1000 + "s");
+//		String fileName = "房产";
+//		Bayes bayes = new Bayes();
+//		BufferedReader reader = new BufferedReader(new FileReader("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\java\\com\\xinrui\\demo\\ml\\bayes\\files\\" + fileName + ".txt"));
+//		ArrayList<ArrayList<String>> model = Bayes.read("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\resources\\model\\classify.txt");
+//		ArrayList<String> testData = (ArrayList<String>) HanLP.extractKeyword("据了解，2017年，北京市将加大自住房供应力度，将新增1.5万套自住房用地，而近期就有近一半自住房用地有了着落。", 15);
+//		System.out.println(bayes.predictClassify(model,testData));
+		Bayes.trainBayes("房产.txt", 15);
 	}
 
 }
