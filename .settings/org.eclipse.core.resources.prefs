@@ -1,7 +1,10 @@
 eclipse.preferences.version=1
 encoding//lib/hanlp-1.3.2-sources.jar=UTF-8
+encoding//src/main/java=UTF-8
 encoding//src/main/java/com/xinrui/demo/action/LoginController.java=UTF-8
 encoding//src/main/java/com/xinrui/demo/ml/bayes/Bayes.java=UTF-8
 encoding//src/main/java/com/xinrui/demo/ml/bayes/files/\u623F\u4EA7.txt=UTF-8
+encoding//src/main/resources=UTF-8
+encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
 encoding/README.md=UTF-8
