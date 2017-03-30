@@ -1,20 +1,20 @@
-package com.xinrui.demo.algorithm.bayes;
+package com.xinrui.demo.ml.bayes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 贝叶斯计算器主体类
+ * 贝叶斯计算器主体�?
  */
 public class Bayes {
 
 	/**
-	 * 将原训练元组按类别划分
+	 * 将原训练元组按类别划�?
 	 * 
 	 * @param datas
 	 *            训练元组
-	 * @return Map<类别，属于该类别的训练元组>
+	 * @return Map<类别，属于该类别的训练元�?
 	 */
 	public Map<String, ArrayList<ArrayList<String>>> classifyByCategory(ArrayList<ArrayList<String>> datas) {
 		if (datas == null) {
@@ -47,7 +47,7 @@ public class Bayes {
 	 *            训练元组
 	 * @param testData
 	 *            测试元组
-	 * @return 测试元组的类别
+	 * @return 测试元组的类�?
 	 */
 	public String predictClassify(ArrayList<ArrayList<String>> datas, ArrayList<String> testData) {
 		if (datas == null || testData == null) {
@@ -63,11 +63,11 @@ public class Bayes {
 			for (int j = 0; j < testData.size(); j++) {
 				p += calProbabilityClassificationInKey(map, classes[i].toString(), testData.get(j));
 			}
-			
-//			System.out.println(classes[i] + " " + p);
-//			if (p != 0) {
-//				System.out.println(classes[i] + " " + p);
-//			}
+
+			// System.out.println(classes[i] + " " + p);
+			// if (p != 0) {
+			// System.out.println(classes[i] + " " + p);
+			// }
 
 			if (p > maxProbability) {
 				maxProbability = p;
@@ -75,7 +75,7 @@ public class Bayes {
 			}
 		}
 
-		return maxPIndex == -1 ? "未发现合适分类" : classes[maxPIndex].toString();
+		return maxPIndex == -1 ? "其他" : classes[maxPIndex].toString();
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class Bayes {
 	 * 
 	 * @param testData
 	 *            测试元组
-	 * @return 测试元组的类别
+	 * @return 测试元组的类�?
 	 */
 	public String predictClassify(ArrayList<String> testData) {
 		return predictClassify(BayesFileTools.read("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\java\\com\\xinrui\\demo\\algorithm\\bayes\\files\\trainset.txt"), testData);
@@ -93,9 +93,9 @@ public class Bayes {
 	 * 某一特征值在某一分类上的概率分布[ P(key|Classify) ]
 	 * 
 	 * @param classify
-	 *            某一分类特征向量集
+	 *            某一分类特征向量�?
 	 * @param value
-	 *            某一特征值
+	 *            某一特征�?
 	 * @return 概率分布
 	 */
 	private double calProbabilityKeyInClassification(ArrayList<ArrayList<String>> classify, String value) {
@@ -127,13 +127,13 @@ public class Bayes {
 	}
 
 	/**
-	 * 获得某一分类的概率 [ P(Classify) ]
+	 * 获得某一分类的概�?[ P(Classify) ]
 	 * 
 	 * @param classes
 	 *            分类集合
 	 * @param classify
 	 *            某一特定分类
-	 * @return 某一分类的概率
+	 * @return 某一分类的概�?
 	 */
 	private double calProbabilityClassification(Map<String, ArrayList<ArrayList<String>>> map, String classify) {
 		if (map == null | Tools.isEmptyString(classify)) {
@@ -150,13 +150,13 @@ public class Bayes {
 	}
 
 	/**
-	 * 获得关键词的总概率
+	 * 获得关键词的总概�?
 	 * 
 	 * @param map
-	 *            所有分类的数据集
+	 *            �?��分类的数据集
 	 * @param key
-	 *            某一特征值
-	 * @return 某一特征值在所有分类数据集中的比率
+	 *            某一特征�?
+	 * @return 某一特征值在�?��分类数据集中的比�?
 	 */
 	private double calProbabilityKey(Map<String, ArrayList<ArrayList<String>>> map, String key) {
 		if (map == null || Tools.isEmptyString(key)) {
@@ -191,10 +191,10 @@ public class Bayes {
 	}
 
 	/**
-	 * 计算在出现key的情况下，是分类classify的概率 [ P(Classify | key) ]
+	 * 计算在出现key的情况下，是分类classify的概�?[ P(Classify | key) ]
 	 * 
 	 * @param map
-	 *            所有分类的数据集
+	 *            �?��分类的数据集
 	 * @param classify
 	 *            某一特定分类
 	 * @param key

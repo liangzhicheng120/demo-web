@@ -1,4 +1,4 @@
-package com.xinrui.demo.algorithm.bayes;
+package com.xinrui.demo.ml.bayes;
 
 public class Tools {
 
