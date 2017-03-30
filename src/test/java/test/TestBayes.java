@@ -1,6 +1,8 @@
-package com.xinrui.demo.ml.bayes;
+package test;
 
 import java.io.IOException;
+
+import com.xinrui.demo.ml.Bayes;
 
 /**
  * 
