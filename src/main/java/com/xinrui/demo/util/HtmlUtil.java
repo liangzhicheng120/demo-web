@@ -6,24 +6,24 @@ import java.util.regex.Pattern;
 public class HtmlUtil {
 
 	public static String delHTMLTag(String htmlStr) {
-		String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // ¶¨ÒåscriptµÄÕıÔò±í´ïÊ½
-		String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // ¶¨ÒåstyleµÄÕıÔò±í´ïÊ½
-		String regEx_html = "<[^>]+>"; // ¶¨ÒåHTML±êÇ©µÄÕıÔò±í´ïÊ½
+		String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // å®šä¹‰scriptçš„æ­£åˆ™è¡¨è¾¾å¼
+		String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // å®šä¹‰styleçš„æ­£åˆ™è¡¨è¾¾å¼
+		String regEx_html = "<[^>]+>"; // å®šä¹‰HTMLæ ‡ç­¾çš„æ­£åˆ™è¡¨è¾¾å¼
 
 		Pattern p_script = Pattern.compile(regEx_script, Pattern.CASE_INSENSITIVE);
 		Matcher m_script = p_script.matcher(htmlStr);
-		htmlStr = m_script.replaceAll(""); // ¹ıÂËscript±êÇ©
+		htmlStr = m_script.replaceAll(""); // è¿‡æ»¤scriptæ ‡ç­¾
 
 		Pattern p_style = Pattern.compile(regEx_style, Pattern.CASE_INSENSITIVE);
 		Matcher m_style = p_style.matcher(htmlStr);
-		htmlStr = m_style.replaceAll(""); // ¹ıÂËstyle±êÇ©
+		htmlStr = m_style.replaceAll(""); // è¿‡æ»¤styleæ ‡ç­¾
 
 		Pattern p_html = Pattern.compile(regEx_html, Pattern.CASE_INSENSITIVE);
 		Matcher m_html = p_html.matcher(htmlStr);
-		htmlStr = m_html.replaceAll(""); // ¹ıÂËhtml±êÇ©
+		htmlStr = m_html.replaceAll(""); // è¿‡æ»¤htmlæ ‡ç­¾
 
-		htmlStr = htmlStr.replace("&nbsp;", ""); // ¹ıÂË¿Õ¸ñ
+		htmlStr = htmlStr.replace("&nbsp;", ""); // è¿‡æ»¤ç©ºæ ¼
 
-		return htmlStr.trim(); // ·µ»ØÎÄ±¾×Ö·û´®
+		return htmlStr.trim(); // è¿”å›æ–‡æœ¬å­—ç¬¦ä¸²
 	}
 }

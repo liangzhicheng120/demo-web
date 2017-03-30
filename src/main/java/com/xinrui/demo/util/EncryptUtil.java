@@ -13,23 +13,23 @@ import sun.misc.BASE64Encoder;
 /**
  * 
  * @ClassName: EncryptUtil
- * @Description: ¼ÓÃÜ¹¤¾ßÀà
+ * @Description: åŠ å¯†å·¥å…·ç±»
  * @author liangzhicheng
- * @date 2016Äê3ÔÂ19ÈÕ ÏÂÎç8:40:52
+ * @date 2016å¹´3æœˆ19æ—¥ ä¸‹åˆ8:40:52
  *
  */
 @SuppressWarnings("restriction")
 public class EncryptUtil {
 
 	/**
-	 * »ù´¡¼ÓÃÜ×é¼ş
+	 * åŸºç¡€åŠ å¯†ç»„ä»¶
 	 */
 	public static final String KEY_SHA = "SHA";
 
 	public static final String KEY_MD5 = "MD5";
 
 	/**
-	 * MACËã·¨¿ÉÑ¡ÒÔÏÂ¶àÖÖËã·¨
+	 * MACç®—æ³•å¯é€‰ä»¥ä¸‹å¤šç§ç®—æ³•
 	 * 
 	 * <pre>
 	 * HmacMD5  
@@ -42,7 +42,7 @@ public class EncryptUtil {
 	public static final String KEY_MAC = "HmacMD5";
 
 	/**
-	 * BASE64½âÃÜ
+	 * BASE64è§£å¯†
 	 * 
 	 * @param key
 	 * @return
@@ -53,7 +53,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * BASE64¼ÓÃÜ
+	 * BASE64åŠ å¯†
 	 * 
 	 * @param key
 	 * @return
@@ -64,7 +64,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * MD5¼ÓÃÜ
+	 * MD5åŠ å¯†
 	 * 
 	 * @param data
 	 * @return 
@@ -77,7 +77,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * SHA¼ÓÃÜ
+	 * SHAåŠ å¯†
 	 * 
 	 * @param data
 	 * @return
@@ -91,7 +91,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * ³õÊ¼»¯HMACÃÜÔ¿
+	 * åˆå§‹åŒ–HMACå¯†é’¥
 	 * 
 	 * @return
 	 * @throws Exception
@@ -104,7 +104,7 @@ public class EncryptUtil {
 	}
 
 	/**
-	 * HMAC¼ÓÃÜ
+	 * HMACåŠ å¯†
 	 * 
 	 * @param data
 	 * @param key

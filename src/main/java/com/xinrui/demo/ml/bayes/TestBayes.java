@@ -12,23 +12,18 @@ import com.xinrui.demo.util.MathUtil;
 /**
  * 
  * @ClassName: TestBayes
- * @Description:²âÊÔ±´Ò¶Ë¹·ÖÀàÆ÷
+ * @Description:æµ‹è¯•è´å¶æ–¯åˆ†ç±»å™¨
  * @author liangzhicheng
- * @date 2017Äê1ÔÂ20ÈÕ ÉÏÎç9:55:14
+ * @date 2017å¹´1æœˆ20æ—¥ ä¸Šåˆ9:55:14
  *
  */
 public class TestBayes {
 
 	public static void main(String[] args) throws IOException {
-		// BayesCalculator calculator = new BayesCalculator();
-		// String sentence =
-		// "4½Ú8ÈË´Î£¬NBLĞÂÈü¼¾µÄÍâÔ®ĞÂÕşÈÃÕâ¸ö¹ıÈ¥½ÏCBA¶øÑÔÀäÇåĞí¶àµÄÁªÈü£¬ÔÚ½ñÄê£¬ÖÁÉÙ´Ó³¡ÃæÉÏ¿´£¬»ğ±¬ÁËÆğÀ´¡£³ıÀ­ÈøºÍ¶«²¿Â½¾üÕâÑùÉÙÊıÃ»ÓĞÒı½øÍâÔ®µÄÇò¶Ó£¬¸÷Ö§Çò¶Ó×îÖ÷ÒªµÄµÃ·ÖÁ¦Á¿¶¼¼¯ÖĞÔÚÁËÕâĞ©¡°ÍâÀ´»§¡±ÉíÉÏ¡£ËûÃÇÊÇÈ«³¡µÄÄ¿¹â½¹µã£¬ËûÃÇÓĞ×ÅÎŞÏŞ¿ª»ğÈ¨£¬ÔÚNBLÁªÈüµÃ·ÖÍõÇ°15ÃûÖĞ£¬ÓĞ14¸öÍâÔ®£¬¶øÄÇÎ¨Ò»Ò»¸ö¹ú²úÇòÔ±£¬¾ÍÊÇ¼´½«²Î¼ÓCBAÑ¡ĞãµÄ£¬±±¾©¶«·½ĞÛÂ¹ÇòÔ±ÇÇÎÄå«¡£";
-		// ArrayList<String> testData = (ArrayList<String>)
-		// HanLP.extractKeyword(sentence, 20);
-		// System.out.print("\n·ÖÀà£º" + calculator.predictClassify(testData));
-		String fileName = "·¿²ú";
+
+		String fileName = "æˆ¿äº§";
 		Bayes bayes = new Bayes();
-		File file = new File("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\java\\com\\xinrui\\demo\\algorithm\\bayes\\files\\" + fileName + ".txt");
+		File file = new File("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\java\\com\\xinrui\\demo\\ml\\bayes\\files\\" + fileName + ".txt");
 		BufferedReader reader = null;
 		reader = new BufferedReader(new FileReader(file));
 		String tempString = null;
@@ -41,15 +36,15 @@ public class TestBayes {
 			if (clzss.equals(fileName)) {
 				correct += 1;
 			}
-			System.out.print("\n·ÖÀà£º" + clzss);
+			System.out.print("\nåˆ†ç±»ï¼š" + clzss);
 			line++;
 		}
 		reader.close();
 		long end = System.currentTimeMillis();
-		System.out.println("ÕıÈ··ÖÀà£º" + correct);
-		System.out.println("×ÜĞĞÊı£º" + line);
-		System.out.println("ÕıÈ·ÂÊ£º" + MathUtil.div(correct, line, 4) * 100 + "%");
-		System.out.println("³ÌĞòÔËĞĞÊ±¼ä£º " + (end - start) / 1000 + "s");
+		System.out.println("æ­£ç¡®åˆ†ç±»ï¼š" + correct);
+		System.out.println("æ€»è¡Œæ•°ï¼š" + line);
+		System.out.println("æ­£ç¡®ç‡ï¼š" + MathUtil.div(correct, line, 4) * 100 + "%");
+		System.out.println("ç¨‹åºè¿è¡Œæ—¶é—´ï¼š " + (end - start) / 1000 + "s");
 	}
 
 }

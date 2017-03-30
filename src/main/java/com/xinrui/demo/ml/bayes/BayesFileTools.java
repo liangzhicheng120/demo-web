@@ -10,19 +10,19 @@ import java.util.List;
 /**
  * 
  * @ClassName: BayesFileTools
- * @Description:¶ÁÈ¡ÎÄ¼ş¹¤¾ß
+ * @Description:è¯»å–æ–‡ä»¶å·¥å…·
  * @author liangzhicheng
- * @date 2017Äê1ÔÂ20ÈÕ ÏÂÎç3:21:22
+ * @date 2017å¹´1æœˆ20æ—¥ ä¸‹åˆ3:21:22
  *
  */
 public class BayesFileTools {
 
 	/**
-	 * ¶ÁÈ¡ÑµÁ·ÎÄµµÖĞµÄÑµÁ·Êı¾İ ²¢½øĞĞ·â×°
+	 * è¯»å–è®­ç»ƒæ–‡æ¡£ä¸­çš„è®­ç»ƒæ•°æ® å¹¶è¿›è¡Œå°è£…
 	 * 
 	 * @param filePath
-	 *            ÑµÁ·ÎÄµµµÄÂ·¾¶
-	 * @return ÑµÁ·Êı¾İ¼¯
+	 *            è®­ç»ƒæ–‡æ¡£çš„è·¯å¾„
+	 * @return è®­ç»ƒæ•°æ®é›†
 	 */
 	public static ArrayList<ArrayList<String>> read(String filePath) {
 		if (Tools.isEmptyString(filePath)) {
@@ -48,11 +48,11 @@ public class BayesFileTools {
 	}
 
 	/**
-	 * Ö±½Ó½øĞĞÎÄ¼ş²Ù×÷µÄ·½·¨
+	 * ç›´æ¥è¿›è¡Œæ–‡ä»¶æ“ä½œçš„æ–¹æ³•
 	 * 
 	 * @param filePath
-	 *            ÑµÁ·ÎÄµµµÄÂ·¾¶
-	 * @return ÑµÁ·Êı¾İ¼¯
+	 *            è®­ç»ƒæ–‡æ¡£çš„è·¯å¾„
+	 * @return è®­ç»ƒæ•°æ®é›†
 	 */
 	private static ArrayList<String> readFile(String filePath) {
 		if (Tools.isEmptyString(filePath)) {
@@ -66,7 +66,7 @@ public class BayesFileTools {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String tempString = null;
-			// Ò»´Î¶ÁÈëÒ»ĞĞ£¬Ö±µ½¶ÁÈënullÎªÎÄ¼ş½áÊø
+			// ä¸€æ¬¡è¯»å…¥ä¸€è¡Œï¼Œç›´åˆ°è¯»å…¥nullä¸ºæ–‡ä»¶ç»“æŸ
 			while ((tempString = reader.readLine()) != null) {
 				if (!Tools.isEmptyString(tempString)) {
 					datas.add(tempString);

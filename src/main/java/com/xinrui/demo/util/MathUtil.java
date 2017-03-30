@@ -10,13 +10,13 @@ public class MathUtil {
 	}
 
 	/**
-	 * Ìá¹©¾«È·µÄ¼Ó·¨ÔËËã¡£
+	 * æä¾›ç²¾ç¡®çš„åŠ æ³•è¿ç®—ã€‚
 	 * 
 	 * @param v1
-	 *            ±»¼ÓÊı
+	 *            è¢«åŠ æ•°
 	 * @param v2
-	 *            ¼ÓÊı
-	 * @return Á½¸ö²ÎÊıµÄºÍ
+	 *            åŠ æ•°
+	 * @return ä¸¤ä¸ªå‚æ•°çš„å’Œ
 	 */
 	public static double add(double v1, double v2) {
 		BigDecimal b1 = new BigDecimal(Double.toString(v1));
@@ -25,13 +25,13 @@ public class MathUtil {
 	}
 
 	/**
-	 * Ìá¹©¾«È·µÄ¼õ·¨ÔËËã¡£
+	 * æä¾›ç²¾ç¡®çš„å‡æ³•è¿ç®—ã€‚
 	 * 
 	 * @param v1
-	 *            ±»¼õÊı
+	 *            è¢«å‡æ•°
 	 * @param v2
-	 *            ¼õÊı
-	 * @return Á½¸ö²ÎÊıµÄ²î
+	 *            å‡æ•°
+	 * @return ä¸¤ä¸ªå‚æ•°çš„å·®
 	 */
 	public static double sub(double v1, double v2) {
 		BigDecimal b1 = new BigDecimal(Double.toString(v1));
@@ -40,13 +40,13 @@ public class MathUtil {
 	}
 
 	/**
-	 * Ìá¹©¾«È·µÄ³Ë·¨ÔËËã¡£
+	 * æä¾›ç²¾ç¡®çš„ä¹˜æ³•è¿ç®—ã€‚
 	 * 
 	 * @param v1
-	 *            ±»³ËÊı
+	 *            è¢«ä¹˜æ•°
 	 * @param v2
-	 *            ³ËÊı
-	 * @return Á½¸ö²ÎÊıµÄ»ı
+	 *            ä¹˜æ•°
+	 * @return ä¸¤ä¸ªå‚æ•°çš„ç§¯
 	 */
 	public static double mul(double v1, double v2) {
 		BigDecimal b1 = new BigDecimal(Double.toString(v1));
@@ -55,28 +55,28 @@ public class MathUtil {
 	}
 
 	/**
-	 * Ìá¹©£¨Ïà¶Ô£©¾«È·µÄ³ı·¨ÔËËã£¬µ±·¢Éú³ı²»¾¡µÄÇé¿öÊ±£¬¾«È·µ½ Ğ¡ÊıµãÒÔºó10Î»£¬ÒÔºóµÄÊı×ÖËÄÉáÎåÈë¡£
+	 * æä¾›ï¼ˆç›¸å¯¹ï¼‰ç²¾ç¡®çš„é™¤æ³•è¿ç®—ï¼Œå½“å‘ç”Ÿé™¤ä¸å°½çš„æƒ…å†µæ—¶ï¼Œç²¾ç¡®åˆ° å°æ•°ç‚¹ä»¥å10ä½ï¼Œä»¥åçš„æ•°å­—å››èˆäº”å…¥ã€‚
 	 * 
 	 * @param v1
-	 *            ±»³ıÊı
+	 *            è¢«é™¤æ•°
 	 * @param v2
-	 *            ³ıÊı
-	 * @return Á½¸ö²ÎÊıµÄÉÌ
+	 *            é™¤æ•°
+	 * @return ä¸¤ä¸ªå‚æ•°çš„å•†
 	 */
 	public static double div(double v1, double v2) {
 		return div(v1, v2, DEF_DIV_SCALE);
 	}
 
 	/**
-	 * Ìá¹©£¨Ïà¶Ô£©¾«È·µÄ³ı·¨ÔËËã¡£µ±·¢Éú³ı²»¾¡µÄÇé¿öÊ±£¬ÓÉscale²ÎÊıÖ¸ ¶¨¾«¶È£¬ÒÔºóµÄÊı×ÖËÄÉáÎåÈë¡£
+	 * æä¾›ï¼ˆç›¸å¯¹ï¼‰ç²¾ç¡®çš„é™¤æ³•è¿ç®—ã€‚å½“å‘ç”Ÿé™¤ä¸å°½çš„æƒ…å†µæ—¶ï¼Œç”±scaleå‚æ•°æŒ‡ å®šç²¾åº¦ï¼Œä»¥åçš„æ•°å­—å››èˆäº”å…¥ã€‚
 	 * 
 	 * @param v1
-	 *            ±»³ıÊı
+	 *            è¢«é™¤æ•°
 	 * @param v2
-	 *            ³ıÊı
+	 *            é™¤æ•°
 	 * @param scale
-	 *            ±íÊ¾±íÊ¾ĞèÒª¾«È·µ½Ğ¡ÊıµãÒÔºó¼¸Î»¡£
-	 * @return Á½¸ö²ÎÊıµÄÉÌ
+	 *            è¡¨ç¤ºè¡¨ç¤ºéœ€è¦ç²¾ç¡®åˆ°å°æ•°ç‚¹ä»¥åå‡ ä½ã€‚
+	 * @return ä¸¤ä¸ªå‚æ•°çš„å•†
 	 */
 
 	public static double div(double v1, double v2, int scale) {
@@ -89,13 +89,13 @@ public class MathUtil {
 	}
 
 	/**
-	 * Ìá¹©¾«È·µÄĞ¡ÊıÎ»ËÄÉáÎåÈë´¦Àí¡£
+	 * æä¾›ç²¾ç¡®çš„å°æ•°ä½å››èˆäº”å…¥å¤„ç†ã€‚
 	 * 
 	 * @param v
-	 *            ĞèÒªËÄÉáÎåÈëµÄÊı×Ö
+	 *            éœ€è¦å››èˆäº”å…¥çš„æ•°å­—
 	 * @param scale
-	 *            Ğ¡Êıµãºó±£Áô¼¸Î»
-	 * @return ËÄÉáÎåÈëºóµÄ½á¹û
+	 *            å°æ•°ç‚¹åä¿ç•™å‡ ä½
+	 * @return å››èˆäº”å…¥åçš„ç»“æœ
 	 */
 	public static double round(double v, int scale) {
 		if (scale < 0) {

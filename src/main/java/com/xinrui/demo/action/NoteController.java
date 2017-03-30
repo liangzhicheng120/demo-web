@@ -48,7 +48,7 @@ public class NoteController {
 	@RequestMapping(value = "/delete")
 	@ResponseBody
 	public BaseResultModel delete(int id) {
-		CheckUtil.checkLeZero(id, "无效的ID");
+		CheckUtil.checkLeZero(id, "鏃犳晥鐨処D");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.delete(id);
 		return baseResultModel;
@@ -57,7 +57,7 @@ public class NoteController {
 	@RequestMapping(value = "/batchdelete")
 	@ResponseBody
 	public BaseResultModel batchdelete(String ids) {
-		CheckUtil.checkBlank(ids, "无效的ID");
+		CheckUtil.checkBlank(ids, "鏃犳晥鐨処D");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.batchDelete(StringUtil.fromStringToInteger(ids.split(",")));
 		return baseResultModel;
@@ -81,11 +81,11 @@ public class NoteController {
 	@RequestMapping(value = "/save")
 	@ResponseBody
 	public BaseResultModel save(NoteParam noteParam) {
-		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
-		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
+		CheckUtil.checkBlank(noteParam.getTitle(), "鏍囬涓嶈兘涓虹┖");
+		CheckUtil.checkBlank(noteParam.getContent(), "鍐呭涓嶈兘涓虹┖");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteParam.setAid(1);
-		noteParam.setNclass("IT"); // DOTO 未实现分类
+		noteParam.setNclass("IT"); // DOTO 鍒嗙被灏氭湭瀹炵幇
 		noteService.save(noteParam.transformModel());
 		return baseResultModel;
 	}
@@ -93,7 +93,7 @@ public class NoteController {
 	@RequestMapping(value = "/get")
 	@ResponseBody
 	public BaseResultModel get(int id) {
-		CheckUtil.checkLeZero(id, "id不能为空");
+		CheckUtil.checkLeZero(id, "id涓嶈兘涓虹┖");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		Note note = noteService.get(id);
 		baseResultModel.setValue(note);
@@ -103,8 +103,8 @@ public class NoteController {
 	@RequestMapping(value = "/update")
 	@ResponseBody
 	public BaseResultModel update(NoteParam noteParam) {
-		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
-		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
+		CheckUtil.checkBlank(noteParam.getTitle(), "鏍囬涓嶈兘涓虹┖");
+		CheckUtil.checkBlank(noteParam.getContent(), "鍐呭涓嶈兘涓虹┖");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.update(noteParam.transformModel());
 		return baseResultModel;

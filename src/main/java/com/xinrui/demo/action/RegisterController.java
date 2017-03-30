@@ -20,14 +20,14 @@ public class RegisterController {
 	@RequestMapping(value = "/doregister")
 	@ResponseBody
 	public BaseResultModel doRegister(String username, String password, String repassword) throws Exception {
-		CheckUtil.checkBlank(username, "ÕËºÅ²»ÄÜÎª¿Õ");
-		CheckUtil.checkBlank(password, "ÃÜÂë²»ÄÜÎª¿Õ");
-		CheckUtil.checkObjIsEqual(password, repassword, "Á½´ÎÃÜÂë²»Ò»ÖÂ");
+		CheckUtil.checkBlank(username, "è´¦å·ä¸èƒ½ä¸ºç©º");
+		CheckUtil.checkBlank(password, "å¯†ç ä¸èƒ½ä¸ºç©º");
+		CheckUtil.checkObjIsEqual(password, repassword, "ä¸¤æ¬¡å¯†ç ä¸ä¸€è‡´");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		Admin admin = adminService.getPasswordByName(username);
 		if (admin != null) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
-			baseResultModel.setMessage("ÕËºÅÒÑ´æÔÚ");
+			baseResultModel.setMessage("è´¦å·å·²å­˜åœ¨");
 			return baseResultModel;	
 		}
 		adminService.save(username, repassword);

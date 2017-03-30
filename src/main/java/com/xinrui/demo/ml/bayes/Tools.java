@@ -3,10 +3,10 @@ package com.xinrui.demo.ml.bayes;
 public class Tools {
 
     /**
-     * Ïß³ÌĞİÃß
+     * çº¿ç¨‹ä¼‘çœ 
      * 
      * @param millis
-     *          ĞİÃßÊ±¼ä(ºÁÃë)
+     *          ä¼‘çœ æ—¶é—´(æ¯«ç§’)
      */
     public static void sleep(long millis) {
         try {
@@ -17,12 +17,12 @@ public class Tools {
     }
     
     /**
-     * ÅĞ¶ÏÒ»¸ö×Ö·û´®ÊÇ·ñÎª¿Õ×Ö·û´®
+     * åˆ¤æ–­ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸ºç©ºå­—ç¬¦ä¸²
      * 
      * @param text
-     *          ´ıÅĞ¶ÏµÄ×Ö·û´®
+     *          å¾…åˆ¤æ–­çš„å­—ç¬¦ä¸²
      * @return
-     *          ÊÇ·ñÎª¿Õ×Ö·û´®
+     *          æ˜¯å¦ä¸ºç©ºå­—ç¬¦ä¸²
      */
     public static boolean isEmptyString(String text) {
         if (text == null || text.length() == 0) {

@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum Nclass {
 	
-	IT(0, "IT"), EDUCATION(1, "教育"), FINANCE(2, "财经"), SPORTS(3, "体育");
+	IT(0, "IT"), EDUCATION(1, "鏁欒偛"), FINANCE(2, "璐㈢粡"), SPORTS(3, "浣撹偛");
 
 	private int typeCode;
 

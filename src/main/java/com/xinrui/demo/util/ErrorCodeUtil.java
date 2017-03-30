@@ -30,13 +30,13 @@ public class ErrorCodeUtil {
 				}
 			}
 		} catch (Exception e) {
-			logger.error("Õâ¸öµØ·½»á´í???", e);
+			logger.error("è¿™ä¸ªåœ°æ–¹ä¼šé”™???", e);
 		}
 		InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream(RESOURCESE_NAME);
 		try {
 			properties.load(in);
 		} catch (IOException e) {
-			logger.error("¼ÓÔØ" + RESOURCESE_NAME + "´íÎó£¡", e);
+			logger.error("åŠ è½½" + RESOURCESE_NAME + "é”™è¯¯ï¼", e);
 		}
 	}
 

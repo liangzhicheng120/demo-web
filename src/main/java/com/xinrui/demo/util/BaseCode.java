@@ -3,50 +3,50 @@ package com.xinrui.demo.util;
 
 public interface BaseCode {
 
-	// ÏîÄ¿»ò²úÆ·Ãû³Æ£¬¸ÃÃûÓÃÓÚÒì³£´¦ÀíÊ±¸Ãlog×¡ APP_NAME + ERROR_CODE + USER_ID/SN/CELLPHONE_NUMBER/COOIKE_ID(Èç¹ûÄÜ»ñµÃ)
+	// é¡¹ç›®æˆ–äº§å“åç§°ï¼Œè¯¥åç”¨äºŽå¼‚å¸¸å¤„ç†æ—¶è¯¥logä½ APP_NAME + ERROR_CODE + USER_ID/SN/CELLPHONE_NUMBER/COOIKE_ID(å¦‚æžœèƒ½èŽ·å¾—)
 
 	public final static String APP_NAME = "SYNC";
 
 	/**
 	 * 
-	 * ÕýÈ·£¬ÏÂÃæ¶ÔÕýÈ·×´Ì¬ÂëµÄ¶¨Òå£¬ÕýÈ·×´Ì¬ÂëÊýÖµ<=1000
+	 * æ­£ç¡®ï¼Œä¸‹é¢å¯¹æ­£ç¡®çŠ¶æ€ç çš„å®šä¹‰ï¼Œæ­£ç¡®çŠ¶æ€ç æ•°å€¼<=1000
 	 */
 
-	// success code Ê¹ÓÃ200·¶Î§
+	// success code ä½¿ç”¨200èŒƒå›´
 	public final static int SUCCESS = 200;
-	// ÐèÒªÉý¼¶³ÌÐò
+	// éœ€è¦å‡çº§ç¨‹åº
 	public final static int UPGRADE = 100;
-	// Ðè¸üÐÂÅäÖÃ»òÊý¾Ý
+	// éœ€æ›´æ–°é…ç½®æˆ–æ•°æ®
 	public final static int UPGRADE_DATA = 101;
-	// ÖØ¶¨Ïò
+	// é‡å®šå‘
 	public final static int REDIRECT = 300;
-	// ·þÎñ²»¿ÉÓÃ
+	// æœåŠ¡ä¸å¯ç”¨
 	public final static int NO_SERVICE = 600;
 
-	// Â·ÓÉ
+	// è·¯ç”±
 	public final static int ROUTER = 700;
 
-	//Í¨Öª£¬¿Í»§¶ËÊÕµ½¸Ãcode£¬Ö±½Ó½«returnMessageÕ¹Ê¾¸øÓÃ»§£¬ÓÃÓÚÌØÊâÍ¨¸æ
+	//é€šçŸ¥ï¼Œå®¢æˆ·ç«¯æ”¶åˆ°è¯¥codeï¼Œç›´æŽ¥å°†returnMessageå±•ç¤ºç»™ç”¨æˆ·ï¼Œç”¨äºŽç‰¹æ®Šé€šå‘Š
 	public final static int NOTICE = 800;
 
 	/**
 	 * 
-	 * ³ö´í£¬ÏÂÃæ¶Ô´íÎó×´Ì¬ÂëµÄ¶¨Òå£¬´íÎó×´Ì¬ÂëÊýÖµ>=100000
+	 * å‡ºé”™ï¼Œä¸‹é¢å¯¹é”™è¯¯çŠ¶æ€ç çš„å®šä¹‰ï¼Œé”™è¯¯çŠ¶æ€ç æ•°å€¼>=100000
 	 * 
 	 * 
 	 * 
-	 * Ã¿¸öerror codeÓÉ 6 Î»µÄÕûÐÍÊý×Ö£¬·Ö 3 ¶ÎÓÐº¬ÒåµÄÊýÖµ±íÊ¾£»¾ßÌå¶¨Òå·½Ê½ºóÃæÓÐ¾ÙÀý
+	 * æ¯ä¸ªerror codeç”± 6 ä½çš„æ•´åž‹æ•°å­—ï¼Œåˆ† 3 æ®µæœ‰å«ä¹‰çš„æ•°å€¼è¡¨ç¤ºï¼›å…·ä½“å®šä¹‰æ–¹å¼åŽé¢æœ‰ä¸¾ä¾‹
 	 * 
-	 * µÚ1¶Î ÓÉµÚ1Î»Êý×Ö±íÊ¾£¬Æä´ú±íerrorµÄ³ö´¦ 1:server£¬2:android£¬3:web page£¬4:pc client£¬9:other;
+	 * ç¬¬1æ®µ ç”±ç¬¬1ä½æ•°å­—è¡¨ç¤ºï¼Œå…¶ä»£è¡¨errorçš„å‡ºå¤„ 1:serverï¼Œ2:androidï¼Œ3:web pageï¼Œ4:pc clientï¼Œ9:other;
 	 * 
-	 * Èç 1XXXXX£¬ÎªÃ¿¸öÀà±ð¶¨ÒåÆðÊ¼Î»
+	 * å¦‚ 1XXXXXï¼Œä¸ºæ¯ä¸ªç±»åˆ«å®šä¹‰èµ·å§‹ä½
 	 * 
-	 * µÚ2¶Î ÓÉµÚ2¡«3Î»Êý×Ö±íÊ¾£¬Æä´ú±íerrorµÄÀà±ð
+	 * ç¬¬2æ®µ ç”±ç¬¬2ï½ž3ä½æ•°å­—è¡¨ç¤ºï¼Œå…¶ä»£è¡¨errorçš„ç±»åˆ«
 	 * 
-	 * µÚ3¶Î ÓÉµÚ4¡«6Î»Êý×Ö±íÊ¾£¬×ÔÈ»Ôö³¤£¬¶¨ÒåÊÇ£«
+	 * ç¬¬3æ®µ ç”±ç¬¬4ï½ž6ä½æ•°å­—è¡¨ç¤ºï¼Œè‡ªç„¶å¢žé•¿ï¼Œå®šä¹‰æ˜¯ï¼‹
 	 */
 
-	// µÚ1¶Î¶¨Òå
+	// ç¬¬1æ®µå®šä¹‰
 
 	public final static int SERVER_ERROR = 100000;
 	public final static int ANDROID_ERROR = 200000;
@@ -54,48 +54,48 @@ public interface BaseCode {
 	public final static int PC_CLIENT_ERROR = 400000;
 	public final static int OTHER_ERROR = 900000;
 
-	// µÚ2¶Î¶¨Òå£¬´Ë¶ÎÊý×Öµ¥¶ÀÃ»ÓÐÒâÒå£¬±ØÐèÓëµÚ1¶Î¼°¾ßÌå´íÎóÂë½áºÏÊ¹ÓÃ£¬
+	// ç¬¬2æ®µå®šä¹‰ï¼Œæ­¤æ®µæ•°å­—å•ç‹¬æ²¡æœ‰æ„ä¹‰ï¼Œå¿…éœ€ä¸Žç¬¬1æ®µåŠå…·ä½“é”™è¯¯ç ç»“åˆä½¿ç”¨ï¼Œ
 
-	// Î´ÄÜÔÚ³õ´ÎÉè¼Æ¿¼ÂËµ½µÄÀà±ð¿É×Ô¶¨Òå
+	// æœªèƒ½åœ¨åˆæ¬¡è®¾è®¡è€ƒæ»¤åˆ°çš„ç±»åˆ«å¯è‡ªå®šä¹‰
 
-	// Ç°ºó¶Ë¹²ÓÃÀà±ð
-	public final static int DB = 91000; // DB·ÃÎÊ´íÎó
-	public final static int DS = 92000; // I/OÎÄ¼þÀà·ÃÎÊ´íÎó
-	public final static int CACHE = 93000; // »º´æÀà·ÃÎÊ´íÎó
-	public final static int THIRD = 94000; // ÌØ¶¨µÚÈý·½Local apiµ÷ÓÃ´íÎó£¬ÈçÎÄ¼þÖ¸ÎÄ¼ÆËã£¬ÎÄ¼þÑ¹Ëõ£¬IP×ª³ÇÊÐµÈ
-	public final static int BS = 95000; // ·ÃÎÊÆäËüÓ¦ÓÃ³ö´í£¬ÈçÆäËü·þÎñ»¯½Ó¿Ú
-	public final static int SECURITY = 98000; // °²È«Àà³ö´í£¬ÊÔÍ¼²Ù×÷Î´ÊÚÈ¨×ÊÔ´
+	// å‰åŽç«¯å…±ç”¨ç±»åˆ«
+	public final static int DB = 91000; // DBè®¿é—®é”™è¯¯
+	public final static int DS = 92000; // I/Oæ–‡ä»¶ç±»è®¿é—®é”™è¯¯
+	public final static int CACHE = 93000; // ç¼“å­˜ç±»è®¿é—®é”™è¯¯
+	public final static int THIRD = 94000; // ç‰¹å®šç¬¬ä¸‰æ–¹Local apiè°ƒç”¨é”™è¯¯ï¼Œå¦‚æ–‡ä»¶æŒ‡æ–‡è®¡ç®—ï¼Œæ–‡ä»¶åŽ‹ç¼©ï¼ŒIPè½¬åŸŽå¸‚ç­‰
+	public final static int BS = 95000; // è®¿é—®å…¶å®ƒåº”ç”¨å‡ºé”™ï¼Œå¦‚å…¶å®ƒæœåŠ¡åŒ–æŽ¥å£
+	public final static int SECURITY = 98000; // å®‰å…¨ç±»å‡ºé”™ï¼Œè¯•å›¾æ“ä½œæœªæŽˆæƒèµ„æº
 
-	// ·þÎñ¶Ë
+	// æœåŠ¡ç«¯
 
-	public final static int WEB = 10000; // web´úÂë²ã³ö´í
-	public final static int BIZ = 20000; // service´úÂë²ã³ö´í
-	public final static int DAO = 30000; // dao´úÂë²ã³ö´í
+	public final static int WEB = 10000; // webä»£ç å±‚å‡ºé”™
+	public final static int BIZ = 20000; // serviceä»£ç å±‚å‡ºé”™
+	public final static int DAO = 30000; // daoä»£ç å±‚å‡ºé”™
 
-	// ÊÖ»ú¶Ë»òPC¶Ë
+	// æ‰‹æœºç«¯æˆ–PCç«¯
 
-	public final static int UI = 50000; // ÊÖ»úapp²ã³ö´í»òPC app²ã³ö´í
-	public final static int HTTP = 60000; // ÊÖ»ú·þÎñ·ÃÎÊ³ö´í
+	public final static int UI = 50000; // æ‰‹æœºappå±‚å‡ºé”™æˆ–PC appå±‚å‡ºé”™
+	public final static int HTTP = 60000; // æ‰‹æœºæœåŠ¡è®¿é—®å‡ºé”™
 
-	// WebÒ³Ãæ
+	// Webé¡µé¢
 
-	public final static int JS = 80000; // web html£¯jsÇ°¶ËÒ³Ãæ´¦Àí³ö´í
+	public final static int JS = 80000; // web htmlï¼jså‰ç«¯é¡µé¢å¤„ç†å‡ºé”™
 
-	// error code Ê¹ÓÃ>=100000 && <=999999·¶Î§£¬ÆäÖÐserver error code Ê¹ÓÃ>=100000 && <=199999·¶Î§
+	// error code ä½¿ç”¨>=100000 && <=999999èŒƒå›´ï¼Œå…¶ä¸­server error code ä½¿ç”¨>=100000 && <=199999èŒƒå›´
 
-	// server·þÎñ¶Ë´íÎñÂë¶¨Òå
+	// serveræœåŠ¡ç«¯é”™åŠ¡ç å®šä¹‰
 
-	public final static int SERVER_UNKNOW = SERVER_ERROR + 0; // 100000 ±íÊ¾Îª·þÎñ¶ËÎ´Öª´íÎóunknow£¬¿ÉÊÓÎªÎÞ¶¨ÒåÊ±µÄÄ¬ÈÏÖµundefine
+	public final static int SERVER_UNKNOW = SERVER_ERROR + 0; // 100000 è¡¨ç¤ºä¸ºæœåŠ¡ç«¯æœªçŸ¥é”™è¯¯unknowï¼Œå¯è§†ä¸ºæ— å®šä¹‰æ—¶çš„é»˜è®¤å€¼undefine
 
-	// ±ÈÈçÒª¶¨ÒåÁ½¸ö ·þÎñ¶Ë dbÀà µÄ´íÈçÏÂ£º
+	// æ¯”å¦‚è¦å®šä¹‰ä¸¤ä¸ª æœåŠ¡ç«¯ dbç±» çš„é”™å¦‚ä¸‹ï¼š
 	//
-	// public final static int SERVER_DB_CONNECTION = SERVER_ERROR + DB + 1; //110001 »ñÈ¡DBÁ¬½ÓÊ§°Ü
+	// public final static int SERVER_DB_CONNECTION = SERVER_ERROR + DB + 1; //110001 èŽ·å–DBè¿žæŽ¥å¤±è´¥
 	//
-	// public final static int SERVER_DB_ERROR_PARAM = SERVER_ERROR + DB + 2; //110002 ´íÎóµÄSQL²ÎÊý
+	// public final static int SERVER_DB_ERROR_PARAM = SERVER_ERROR + DB + 2; //110002 é”™è¯¯çš„SQLå‚æ•°
 	//
 	//
-	// //ÈçÈçËµÒª¶¨ÒåÒ»¸ö ·þÎñ¶Ë BIZÒµÎñÀà µÄ´íÈçÏÂ£º
+	// //å¦‚å¦‚è¯´è¦å®šä¹‰ä¸€ä¸ª æœåŠ¡ç«¯ BIZä¸šåŠ¡ç±» çš„é”™å¦‚ä¸‹ï¼š
 	//
-	// public final static int SERVER_BIZ_UPLOAD_SRCFILE_MISSSIZE = SERVER_ERROR + BIZ + 1; //120001 ÎÄ¼þÉÏ´«³ö´í£¬ÓëÉÏ´«¶ËÎÄ¼þ²»Ò»ÖÂ
+	// public final static int SERVER_BIZ_UPLOAD_SRCFILE_MISSSIZE = SERVER_ERROR + BIZ + 1; //120001 æ–‡ä»¶ä¸Šä¼ å‡ºé”™ï¼Œä¸Žä¸Šä¼ ç«¯æ–‡ä»¶ä¸ä¸€è‡´
 
 }
