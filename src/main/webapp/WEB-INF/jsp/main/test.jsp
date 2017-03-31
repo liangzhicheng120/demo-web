@@ -46,7 +46,7 @@
 </head>
 <body>
 	
-</body>
+
 <script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 <script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
 <script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
@@ -71,6 +71,7 @@
 <script src="<%=basePath%>Charisma/jquery-edit/assets/trumbowyg.js"></script>
 <script src="<%=basePath%>Charisma/jquery-edit/assets/plugins/base64/trumbowyg.base64.min.js"></script>
 </body>
+
 
 
 </html>

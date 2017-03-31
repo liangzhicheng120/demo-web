@@ -21,7 +21,6 @@ public class XssHttpServletRequestWraper extends HttpServletRequestWrapper {
 
 	@Override
 	public String[] getParameterValues(String name) {
-		System.out.println("XssHttpServletRequestWraper=" + name);
 		String[] values = super.getParameterValues(name);
 		String[] newValues = new String[values.length];
 		for (int i = 0; i < values.length; i++) {
