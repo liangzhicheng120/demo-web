@@ -86,7 +86,8 @@ public class NoteParam {
 		Note note = new Note();
 		note.setId(this.getId());
 		note.setContent(this.getContent());
-		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(), HanLP.extractKeyword(HtmlUtil.delHTMLTag(content), 3).toString().replace("[", "").replace("]", "")));
+		String keywords = HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 3).toString().replace("[", "").replace("]", "");
+		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(), keywords));
 		ArrayList<ArrayList<String>> model = Bayes.read(Constants.BAYES_MODEL);
 		ArrayList<String> data = (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15);
 		note.setNclass(Bayes.predictClassify(model, data));

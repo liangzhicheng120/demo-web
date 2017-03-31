@@ -24,6 +24,7 @@ import com.xinrui.demo.util.MathUtil;
  */
 public class Bayes {
 
+
 	/**
 	 * 将原训练元组按类别划分
 	 * 
