@@ -141,7 +141,7 @@ var note = {
 			for (var i = 0; i < keys.length; i++) {
 				$('#key' + i).val(keys[i].trim());
 			}
-			common.markupoption(note.url.notegetnclass, '#update-option', '其他');
+			common.markupoption(note.url.notegetnclass, '#update-option', null);
 			$('#update-option').val(data.value.nclass);
 			$('#noteId').val(data.value.id)
 		});

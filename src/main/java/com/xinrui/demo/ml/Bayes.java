@@ -31,7 +31,7 @@ public class Bayes {
 	 *            训练元组
 	 * @return Map<类别，属于该类别的训练元组>
 	 */
-	public Map<String, ArrayList<ArrayList<String>>> classifyByCategory(ArrayList<ArrayList<String>> datas) {
+	public static Map<String, ArrayList<ArrayList<String>>> classifyByCategory(ArrayList<ArrayList<String>> datas) {
 		if (datas == null) {
 			return null;
 		}
@@ -64,7 +64,7 @@ public class Bayes {
 	 *            测试元组
 	 * @return 测试元组的类别
 	 */
-	public String predictClassify(ArrayList<ArrayList<String>> datas, ArrayList<String> testData) {
+	public static String predictClassify(ArrayList<ArrayList<String>> datas, ArrayList<String> testData) {
 
 		if (datas == null || testData == null) {
 			return null;
@@ -85,7 +85,7 @@ public class Bayes {
 			}
 		}
 
-		return maxPIndex == -1 ? "未发现合适分类" : classes[maxPIndex].toString();
+		return maxPIndex == -1 ? "其他" : classes[maxPIndex].toString();
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class Bayes {
 	 *            某一特征值
 	 * @return 概率分布
 	 */
-	private double calProbabilityKeyInClassification(ArrayList<ArrayList<String>> classify, String value) {
+	private static double calProbabilityKeyInClassification(ArrayList<ArrayList<String>> classify, String value) {
 		if (classify == null || StringUtils.isEmpty(value)) {
 			return 0.0;
 		}
@@ -136,7 +136,7 @@ public class Bayes {
 	 *            某一特定分类
 	 * @return 某一分类的概率
 	 */
-	private double calProbabilityClassification(Map<String, ArrayList<ArrayList<String>>> map, String classify) {
+	private static double calProbabilityClassification(Map<String, ArrayList<ArrayList<String>>> map, String classify) {
 		if (map == null | StringUtils.isEmpty(classify)) {
 			return 0;
 		}
@@ -159,7 +159,7 @@ public class Bayes {
 	 *            某一特征值
 	 * @return 某一特征值在所有分类数据集中的比率
 	 */
-	private double calProbabilityKey(Map<String, ArrayList<ArrayList<String>>> map, String key) {
+	private static double calProbabilityKey(Map<String, ArrayList<ArrayList<String>>> map, String key) {
 		if (map == null || StringUtils.isEmpty(key)) {
 			return 0;
 		}
@@ -193,7 +193,7 @@ public class Bayes {
 	 *            某一特定特征
 	 * @return P(Classify | key)
 	 */
-	private double calProbabilityClassificationInKey(Map<String, ArrayList<ArrayList<String>>> map, String classify, String key) {
+	private static double calProbabilityClassificationInKey(Map<String, ArrayList<ArrayList<String>>> map, String classify, String key) {
 		ArrayList<ArrayList<String>> classifyList = map.get(classify);
 
 		double pkc = calProbabilityKeyInClassification(classifyList, key); // p(key|classify)

@@ -4,8 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Nclass {
-	
-	IT(0, "IT"), EDUCATION(1, "教育"), FINANCE(2, "财经"), SPORTS(3, "体育");
+
+	SPORTS(0, "体育"), 
+	HOUSE(1, "房产"), 
+	EDUCATION(2, "教育"), 
+	ENTERTAINMENT(3, "娱乐"), 
+	TOUR(4, "旅游"), 
+	CAR(5, "汽车"), 
+	Other(6, "其他");
 
 	private int typeCode;
 
