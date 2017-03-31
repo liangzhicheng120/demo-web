@@ -2,7 +2,7 @@ package test;
 
 import java.io.IOException;
 
-import com.xinrui.demo.ml.Bayes;
+import com.hankcs.hanlp.HanLP;
 
 /**
  * 
@@ -21,11 +21,12 @@ public class TestBayes {
 //		ArrayList<ArrayList<String>> model = Bayes.read("D:\\workspace\\eclipse-workspace\\demo-web\\src\\main\\resources\\model\\classify.txt");
 //		ArrayList<String> testData = (ArrayList<String>) HanLP.extractKeyword("据了解，2017年，北京市将加大自住房供应力度，将新增1.5万套自住房用地，而近期就有近一半自住房用地有了着落。", 15);
 //		System.out.println(bayes.predictClassify(model,testData));
-		Bayes.trainBayes("房产.txt", 15);
+//		Bayes.trainBayes("房产.txt", 15);
 //		for (int i = 0; i < 10; i++) {
 //			ArrayList<ArrayList<String>> model = Bayes.get(Constants.BAYES_MODEL);
 //			System.out.println(model.get(1).toString());
 //		}
+		System.out.println(HanLP.extractKeyword("据了解，2017年，北京市将加大自住房供应力度，将新增1.5万套自住房用地，而近期就有近一半自住房用地有了着落。", 5));
 		
 	}
 
