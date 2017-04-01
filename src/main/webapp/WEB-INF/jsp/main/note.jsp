@@ -41,12 +41,10 @@
     <![endif]-->
 </head>
 <body>
-	<%@include file="../main/navbar.jsp"%>
 	<%@include file="../main/dialog.jsp"%>
-
-	<input type="text" hidden="hidden" id="currentPage" value="">
-	<!-- 	<input type="text" hidden="hidden" id="currentNclass" value=""> -->
-
+	<div class="row">
+		<%@include file="../main/navbar.jsp"%>
+	</div>
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
@@ -60,36 +58,38 @@
 								</h2>
 								<div class="box-icon">
 									<h2>
-										<a href="note.html" style="color: #333;margin-top: 4px;"><i class="glyphicon glyphicon-refresh"></i></a>
+										<a href="note.html" style="color: #333; margin-top: 4px;"><i class="glyphicon glyphicon-refresh"></i></a>
 									</h2>
 								</div>
 							</div>
 							<div class="box-content">
-								<div class="row" style="margin-bottom: 10px;">
+								<div class="row" style="margin-bottom: 10px; margin-left: -10px;">
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <select size="1" class="form-control" id="nclass" onchange="note.notechangeNcalss()">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <select size="1" class="form-control" id="nclass"
+												onchange="note.notechangeNcalss()">
 												<option value=" ">---请选择---</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-5">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> <input class="default-date-picker form-control" type="text" value="" id="start"> <span
-												class="input-group-addon">TO</span> <input id="end" class="default-date-picker form-control" type="text" value=""> <span class="input-group-addon" id="searchDateBtn"> <i
+											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> <input class="default-date-picker form-control"
+												type="text" value="" id="start"> <span class="input-group-addon">TO</span> <input id="end"
+												class="default-date-picker form-control" type="text" value=""> <span class="input-group-addon" id="searchDateBtn"> <i
 												class="glyphicon glyphicon-search"></i>
 											</span>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"> <i
-												class="glyphicon glyphicon-search"></i></span>
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span
+												class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
-										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#noteBatchDeleteDia"
-											data-backdrop="static">删除</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm"
+											data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a>
 									</div>
 								</div>
 								<table class="table table-striped table-bordered responsive">
@@ -110,7 +110,8 @@
 			</div>
 		</div>
 	</div>
-
+	<%-- <%@include file="../main/dialog.jsp"%> --%>
+	<input type="text" hidden="hidden" id="currentPage" value="">
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
