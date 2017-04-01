@@ -14,7 +14,7 @@ public class Constants {
 	 * tomcat根目录 
 	 */
 //	public static final String TOMCAT_HOME = "/home/tomcat/apache-tomcat-8.0.41/webapps";
-	public static final String TOMCAT_HOME = "E:/webworkspace-test/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps";
+	public static final String TOMCAT_HOME = "E:/webworkspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps";
 
 	/**
 	 * 贝叶斯参数模型地址
