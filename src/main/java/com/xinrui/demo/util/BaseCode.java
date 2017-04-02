@@ -65,7 +65,7 @@ public interface BaseCode {
 	public final static int THIRD = 94000; // 特定第三方Local api调用错误，如文件指文计算，文件压缩，IP转城市等
 	public final static int BS = 95000; // 访问其它应用出错，如其它服务化接口
 	public final static int SECURITY = 98000; // 安全类出错，试图操作未授权资源
-
+	
 	// 服务端
 
 	public final static int WEB = 10000; // web代码层出错

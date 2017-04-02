@@ -14,16 +14,13 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 
 import com.hankcs.hanlp.HanLP;
-import com.xinrui.demo.exception.CalException;
-import com.xinrui.demo.util.CodeConstants;
-import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.MathUtil;
+import com.xinrui.demo.util.ModelConfig;
 
 /**
  * 贝叶斯计算器主体类
  */
 public class Bayes {
-
 
 	/**
 	 * 将原训练元组按类别划分
@@ -95,9 +92,10 @@ public class Bayes {
 	 * @param testData
 	 *            测试元组
 	 * @return 测试元组的类别
+	 * @throws IOException
 	 */
-	public String predictClassify(ArrayList<String> testData) {
-		return predictClassify(read(Constants.BAYES_MODEL), testData);
+	public String predictClassify(ArrayList<String> testData) throws IOException {
+		return predictClassify(read(), testData);
 	}
 
 	/**
@@ -210,25 +208,21 @@ public class Bayes {
 	 * @param filePath
 	 *            训练文档的路径
 	 * @return 训练数据集
+	 * @throws IOException
 	 */
-	public static ArrayList<ArrayList<String>> read(String filePath) {
+	public static ArrayList<ArrayList<String>> read() throws IOException {
 		ArrayList<String> singleTrainning = null;
 		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
-		try {
-			List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(filePath), Charsets.UTF_8));
-			for (int i = 0; i < datas.size(); i++) {
-				String[] characteristicValues = datas.get(i).split(" ");
-				singleTrainning = new ArrayList<String>();
-				for (int j = 0; j < characteristicValues.length; j++) {
-					if (StringUtils.isNotEmpty(characteristicValues[j])) {
-						singleTrainning.add(characteristicValues[j]);
-					}
+		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(ModelConfig.BAYES_MODEL_FILE_PATH), Charsets.UTF_8));
+		for (int i = 0; i < datas.size(); i++) {
+			String[] characteristicValues = datas.get(i).split(" ");
+			singleTrainning = new ArrayList<String>();
+			for (int j = 0; j < characteristicValues.length; j++) {
+				if (StringUtils.isNotEmpty(characteristicValues[j])) {
+					singleTrainning.add(characteristicValues[j]);
 				}
-				trainningSet.add(singleTrainning);
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new CalException(CodeConstants.FILE_PATH_ERROR, "文件路径访问错误");
+			trainningSet.add(singleTrainning);
 		}
 		return trainningSet;
 	}
@@ -243,7 +237,7 @@ public class Bayes {
 	public static void trainBayes(String fileName, int size) {
 		try {
 			Bayes bayes = new Bayes();
-			BufferedReader reader = new BufferedReader(new FileReader(Constants.TRAIN_FILE + fileName));
+			BufferedReader reader = new BufferedReader(new FileReader(ModelConfig.BAYES_TRAIN_FILE_PATH + fileName));
 			String line = null;
 			int total = 0;
 			int right = 0;

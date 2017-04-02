@@ -9,14 +9,15 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ErrorCodeUtil {
+public class CodeUtil {
 
-	private static final String RESOURCESE_NAME = "preadmessage.properties";
+	private static final String RESOURCESE_NAME = "code.properties";
+	
 	private static Map<Integer, String> codeByMessageMap = new HashMap<Integer, String>();
 
 	private static Properties properties = new Properties();
 
-	private static Logger logger = LoggerFactory.getLogger(ErrorCodeUtil.class);
+	private static Logger logger = LoggerFactory.getLogger(CodeUtil.class);
 	
 	static {
 		Object o = new CodeConstants();
@@ -49,9 +50,9 @@ public class ErrorCodeUtil {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(ErrorCodeUtil.getMessage("server.unknow"));
-		System.out.println(ErrorCodeUtil.getMessageByCode(CodeConstants.SERVER_UNKNOW));
-
+		System.out.println(CodeUtil.getMessage("server.unknow"));
+		System.out.println(CodeUtil.getMessageByCode(CodeConstants.SERVER_UNKNOW));
+		System.out.println(CodeUtil.getMessageByCode(CodeConstants.READ_FILE_ERROR));
 	}
 
 }

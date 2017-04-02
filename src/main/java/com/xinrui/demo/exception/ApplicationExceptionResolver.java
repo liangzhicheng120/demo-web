@@ -1,81 +1,63 @@
 package com.xinrui.demo.exception;
 
-import java.io.EOFException;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.jdbc.BadSqlGrammarException;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.xinrui.demo.util.CodeConstants;
-import com.xinrui.demo.util.ErrorCodeUtil;
+import com.xinrui.demo.util.CodeUtil;
 
 public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 
-	protected Logger logger = LoggerFactory.getLogger(ApplicationExceptionResolver.class);
+	private static Logger logger = Logger.getLogger(ApplicationExceptionResolver.class);
 
 	@Override
+	@ResponseBody
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handle, Exception e) {
-		Map<String, Object> model = new HashMap<String, Object>();
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
 		response.setDateHeader("Expires", 0);
-
-		int code;
-		String message;
-		boolean flag = false;
+		if (e instanceof IOException) {
+			return makeModelAndView(CodeConstants.READ_FILE_ERROR, e);
+		}
+		if (e instanceof FileNotFoundException) {
+			return makeModelAndView(CodeConstants.ACCESS_FILE_ERROR, e);
+		}
 		if (e instanceof BadSqlGrammarException) {
-			model.put("code", CodeConstants.SQL_SYNTAX_ERROR);
-			model.put("message", "sql”Ô∑®¥ÌŒÛ");
-			model.put("value", "");     
-			ModelAndView m = new ModelAndView("error", model);
-			m.addObject("Cache-Control", "no-cache");
-			m.addObject("Pragma", "no-cache");
-			m.addObject("Expires", 0);
-			return m;
+			return makeModelAndView(CodeConstants.SQL_SYNTAX_ERROR, e);
 		}
 		if (e instanceof CalException) {
 			CalException es = (CalException) e;
-			code = es.getErrorCode();
-			message = es.getErrorMessage();
-			flag = es.isPringStackTrace();
-		} else if (e instanceof CalInvitationException) {
-			CalInvitationException es = (CalInvitationException) e;
-			code = es.getErrorCode();
-			message = es.getErrorMessage();
-			flag = es.isPringStackTrace();
-			model.put("code", code);
-			model.put("message", message);
-			model.put("value", "");
-			ModelAndView m = new ModelAndView("error", model);
-			m.addObject("Cache-Control", "no-cache");
-			m.addObject("Pragma", "no-cache");
-			m.addObject("Expires", 0);
-			return m;
-		} else {
-			code = CodeConstants.SERVER_UNKNOW;
-			message = ErrorCodeUtil.getMessageByCode(code);
-			flag = true;
+			ModelAndView mav = new ModelAndView("error");
+			mav.addObject("Cache-Control", "no-cache");
+			mav.addObject("Pragma", "no-cache");
+			mav.addObject("Expires", 0);
+			mav.addObject("code", es.getErrorCode());
+			mav.addObject("message", es.getErrorMessage());
+			mav.addObject("value", "");
+			return mav;
 		}
-		if (!EOFException.class.isInstance(e)) {
-			if (flag) {
-				logger.error("unexpected", e);
-			}
-		}
-		model.put("code", code);
-		model.put("message", message);
-		model.put("value", "");
-		ModelAndView m = new ModelAndView("error", model);
-		m.addObject("Cache-Control", "no-cache");
-		m.addObject("Pragma", "no-cache");
-		m.addObject("Expires", 0);
-		return m;
-
+		return makeModelAndView(CodeConstants.SERVER_UNKNOW, e);
 	}
+
+	public ModelAndView makeModelAndView(int code, Throwable e) {
+		ModelAndView mav = new ModelAndView("error");
+		mav.addObject("Cache-Control", "no-cache");
+		mav.addObject("Pragma", "no-cache");
+		mav.addObject("Expires", 0);
+		mav.addObject("code", code);
+		mav.addObject("message", CodeUtil.getMessageByCode(code));
+		mav.addObject("value", "");
+		logger.error("ERROR INFOMATION:", e);
+		return mav;
+	}
+
 }

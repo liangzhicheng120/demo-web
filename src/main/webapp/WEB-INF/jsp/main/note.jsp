@@ -42,9 +42,7 @@
 </head>
 <body>
 	<%@include file="../main/dialog.jsp"%>
-	<div class="row">
-		<%@include file="../main/navbar.jsp"%>
-	</div>
+	<%@include file="../main/navbar.jsp"%>
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
@@ -83,6 +81,7 @@
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
+											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span>
 											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span
 												class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
 										</div>

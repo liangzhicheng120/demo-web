@@ -1,7 +1,7 @@
 package com.xinrui.demo.exception;
 
 import com.xinrui.demo.util.CodeConstants;
-import com.xinrui.demo.util.ErrorCodeUtil;
+import com.xinrui.demo.util.CodeUtil;
 
 public class CalInvitationException extends RuntimeException {
 
@@ -31,13 +31,13 @@ public class CalInvitationException extends RuntimeException {
 	public CalInvitationException() {
 		super();
 		this.errorCode = CodeConstants.SERVER_UNKNOW;
-		this.errorMessage = ErrorCodeUtil.getMessageByCode(CodeConstants.SERVER_UNKNOW);
+		this.errorMessage = CodeUtil.getMessageByCode(CodeConstants.SERVER_UNKNOW);
 	}
 
 	public CalInvitationException(int code, Throwable cause) {
 		super(cause);
 		this.errorCode = code;
-		this.errorMessage = ErrorCodeUtil.getMessageByCode(code);
+		this.errorMessage = CodeUtil.getMessageByCode(code);
 		this.pringStackTrace = true;
 	}
 
@@ -48,7 +48,7 @@ public class CalInvitationException extends RuntimeException {
 
 	public CalInvitationException(int code) {
 		this.errorCode = code;
-		this.errorMessage = ErrorCodeUtil.getMessageByCode(code);
+		this.errorMessage = CodeUtil.getMessageByCode(code);
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class CalInvitationException extends RuntimeException {
 	 */
 	public CalInvitationException(int code, Object... args) {
 		this.errorCode = code;
-		this.errorMessage = String.format(ErrorCodeUtil.getMessageByCode(code), args);
+		this.errorMessage = String.format(CodeUtil.getMessageByCode(code), args);
 	}
 
 	public boolean isPringStackTrace() {

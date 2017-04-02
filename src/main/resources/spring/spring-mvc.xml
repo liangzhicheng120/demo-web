@@ -8,13 +8,21 @@
 	<context:component-scan base-package="com.xinrui.demo.action" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	
+
 	<mvc:annotation-driven />
-	
+
 	<mvc:default-servlet-handler />
 
 	<!-- 自定义异常捕获,将异常抛出页面 -->
 	<bean id="exceptionHandler" class="com.xinrui.demo.exception.ApplicationExceptionResolver" />
+	
+	<bean id="customSimpleMappingExceptionResolver" class="com.xinrui.demo.exception.CustomSimpleMappingExceptionResolver"></bean>
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="warnLogCategory" value="WARN"></property>
+		<property name="defaultErrorView" value="error"></property>
+		<property name="defaultStatusCode" value="500"></property>
+	</bean>
 
 	<!-- 配置验证码产生器属性 -->
 	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">

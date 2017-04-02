@@ -82,7 +82,7 @@
 							border="0" alt="放大" onclick="sub(1)" /> <img src="./Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> <img
 							src="./Charisma/images/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
 					</div>
-					<div id="content" style="clear: both; height: 400px;" class="editor"></div>
+					<div id="content" style="clear: both; height: 400px;width: 100%;" class="editor"></div>
 				</div>
 				<div class="modal-footer" id="submitFooter">
 					<a class="btn btn-danger btn-sm" onclick="">取消</a> <a class="btn btn-success btn-sm" id="noteSubmitBtn">提交</a>
@@ -105,50 +105,50 @@
 			</div>
 			<div class="modal-body">
 				<div class="row" style="width: 99%; margin: 5px auto;">
-					<div class="col-md-12" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-12" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
 							<span class="input-group-addon">标题词</span><input type="text" class="form-control" id="update-title" name="title">
 						</div>
 					</div>
 				</div>
 				<div class="row" style="width: 99%; margin: 5px auto;">
-					<div class="col-md-2" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-2" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
 							<span class="input-group-addon">关键词</span> <input type="text" class="form-control" id="key0" placeholder="关键词1">
 						</div>
 					</div>
-					<div class="col-md-2" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-2" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
 							<span class="input-group-addon">关键词</span><input type="text" class="form-control" id="key1" placeholder="关键词2">
 						</div>
 					</div>
-					<div class="col-md-2" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-2" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
 							<span class="input-group-addon">关键词</span><input type="text" class="form-control" id="key2" placeholder="关键词3">
 						</div>
 					</div>
 					<input type="text" hidden="hidden" id="noteId">
-					<div class="col-md-3" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-3" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
 							<span class="input-group-addon">类型词</span> <select size="1" class="form-control" id="update-option" dir="ltr">
 								<option value="">--请选择--</option>
 							</select>
 						</div>
 					</div>
-					<div class="col-md-3" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-3" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
 							<a class="btn btn-danger btn-sm" onclick="">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>&nbsp;<a class="btn btn-success btn-sm" id="noteUpdateBtn">&nbsp;&nbsp;修改&nbsp;&nbsp;</a>
 						</div>
 					</div>
 				</div>
 				<div class="row" style="margin-top: -5px;">
-					<div class="col-md-12" style="padding-right: 0px; padding-left: 0px;">
+					<div class="col-md-12" style="padding-right: 0px; padding-left: 5px;">
 						<div id="odiv" style="display: none; position: absolute; z-index: 100;">
 							<img src="./Charisma/images/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" /> <img src="./Charisma/images/fd.png" title="放大"
 								border="0" alt="放大" onclick="sub(1)" /> <img src="./Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> <img
 								src="./Charisma/images/sc.png" title="删除" border="0" alt="删除" onclick="del();odiv.style.display='none';" />
 						</div>
-						<div id="update-content" style="clear: both; height: 400px;" class="editor"></div>
+						<div id="update-content" style="clear: both; height: 400px; width: 100%;" class="editor"></div>
 					</div>
 				</div>
 			</div>
