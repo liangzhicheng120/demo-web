@@ -56,7 +56,7 @@ public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 		mav.addObject("code", code);
 		mav.addObject("message", CodeUtil.getMessageByCode(code));
 		mav.addObject("value", "");
-		logger.error("ERROR INFOMATION:", e);
+		logger.error("ERROR INFOMATION:[" + code + "," + CodeUtil.getMessageByCode(code) + "]", e);
 		return mav;
 	}
 

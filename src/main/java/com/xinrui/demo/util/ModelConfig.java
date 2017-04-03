@@ -4,12 +4,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 
 public class ModelConfig {
 
-	protected static Logger logger = LoggerFactory.getLogger(ModelConfig.class);
+	private static Logger logger = Logger.getLogger(ModelConfig.class);
 
 	/**
 	 * 模型属性配置文件
@@ -23,7 +22,6 @@ public class ModelConfig {
 	public static String BAYES_TRAIN_FILE_PATH = "demo-web/Bayes/files/";
 
 	static {
-		// 自动读取配置
 		Properties p = new Properties();
 		try {
 			ClassLoader loader = Thread.currentThread().getContextClassLoader();

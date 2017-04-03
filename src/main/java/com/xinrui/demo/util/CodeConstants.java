@@ -22,9 +22,5 @@ public class CodeConstants implements BaseCode {
 	 * SQL语法错误
 	 */
 	public final static int SQL_SYNTAX_ERROR = SERVER_ERROR + DB + 1;
-	/**
-	 * 贝叶斯模型文件路径
-	 */
-	public final static int BAYES_MODEL_FILE = DB + 1;
 
 }

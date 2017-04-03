@@ -5,8 +5,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
@@ -18,7 +17,7 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
  */
 public class CustomSimpleMappingExceptionResolver extends SimpleMappingExceptionResolver {
 
-	private static Logger logger = LoggerFactory.getLogger(CustomSimpleMappingExceptionResolver.class);
+	private static Logger logger = Logger.getLogger(CustomSimpleMappingExceptionResolver.class);
 
 	@Override
 	protected ModelAndView doResolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
@@ -34,7 +33,7 @@ public class CustomSimpleMappingExceptionResolver extends SimpleMappingException
 				writer.flush();
 				writer.close();
 			} catch (Exception e) {
-				logger.error("", e);
+				logger.error("处理ajax异常错误:", e);
 			}
 			return null;
 		}
