@@ -1,11 +1,11 @@
 var note = {
 	url : {
-		notelist : 'note/list',
-		notedelete : 'note/delete',
-		notebatchdelete : 'note/batchdelete',
-		notegetnclass : 'note/getnclass',
-		noteget : 'note/get',
-		noteupdate : 'note/update'
+		list : 'note/list',
+		del : 'note/delete',
+		batchdelete : 'note/batchdelete',
+		getnclass : 'note/getnclass',
+		get : 'note/get',
+		update : 'note/update'
 	},
 	init : function() {
 		note.notemarkuptable(); // 初始化表格
@@ -18,7 +18,6 @@ var note = {
 		note.notemarkupupdatebtn(); // 注册修改事件
 		note.notemarkupdatepicker(); // 注册日期选择事件
 		note.notemarkupsearchdatebtn(); // 注册搜索日期事件
-		note.notemarkuprefreshbtn(); // 注册刷新按钮
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
@@ -36,7 +35,7 @@ var note = {
 		}
 	},
 	notemarkuptable : function(param) {
-		common.markuptable(note.url.notelist, param, note.notemarkupthead(), note.notemarkuptbody(), note.table.page);
+		common.markuptable(note.url.list, param, note.notemarkupthead(), note.notemarkuptbody(), note.table.page);
 	},
 	notemarkupthead : function() {
 		var before = '<input type="checkbox" onclick="common.checkall()">';
@@ -59,13 +58,13 @@ var note = {
 		});
 	},
 	notemarkuptoption : function() {
-		common.markupoption(note.url.notegetnclass, '#nclass', '全部');
+		common.markupoption(note.url.getnclass, '#nclass', '全部');
 	},
 	notechangeNcalss : function() {
 		note.notemarkuptable(note.param());
 	},
 	notemarkupnoteedit : function() {
-		$('#noteEditBtn').click(function() {
+		$('#noteEditBtn').on('click', function() {
 			$('#noteEditDia').modal({
 				backdrop : 'static',
 				keyboard : false,
@@ -77,15 +76,15 @@ var note = {
 		});
 	},
 	notemarkupsearchbtn : function() {
-		$('#searchBtn').click(function() {
+		$('#searchBtn').on('click', function() {
 			note.notemarkuptable(note.param());
 		});
 	},
 	notemarkupdeletebtn : function() {
 		common.markupdata('#noteDeleteDia', new Array('id'));
-		$('#deleteBtn').click(function() {
-			common.doAjaxWithNotAsync(note.url.notedelete, {
-				id : Number($('#id').val())
+		$('#deleteBtn').on('click', function() {
+			common.doAjaxWithNotAsync(note.url.del, {
+				id : $('#id').val()
 			}, function() {
 				$.tooltip('OK, 操作成功！', 2500, true);
 				note.notemarkuptable(note.param());
@@ -93,10 +92,10 @@ var note = {
 		});
 	},
 	notemarkupbatchdeletebtn : function() {
-		$('#batchDeleteBtn').click(function() {
+		$('#batchDeleteBtn').on('click', function() {
 			var ids = common.getcheckids();
 			if (ids.length != 0) {
-				common.doAjaxWithNotAsync(note.url.notebatchdelete, {
+				common.doAjaxWithNotAsync(note.url.batchdelete, {
 					ids : ids
 				}, function() {
 					$.tooltip('OK, 操作成功！', 2500, true);
@@ -106,7 +105,7 @@ var note = {
 		});
 	},
 	notemarkupnotesubmitbtn : function() {
-		$('#noteSubmitBtn').click(function() {
+		$('#noteSubmitBtn').on('click', function() {
 			var validator = new Validator(); // 创建一个构造器对象
 			validator.add($('#title'), [ {
 				strategy : 'isNotEmpty',
@@ -129,7 +128,7 @@ var note = {
 			keyboard : false,
 			show : true,
 		});
-		common.doAjaxWithNotAsync(note.url.noteget, {
+		common.doAjaxWithNotAsync(note.url.get, {
 			id : id
 		}, function(data) {
 			$('#update-title').val(data.value.title);
@@ -141,7 +140,7 @@ var note = {
 			for (var i = 0; i < keys.length; i++) {
 				$('#key' + i).val(keys[i].trim());
 			}
-			common.markupoption(note.url.notegetnclass, '#update-option', null);
+			common.markupoption(note.url.getnclass, '#update-option', null);
 			$('#update-option').val(data.value.nclass);
 			$('#noteId').val(data.value.id)
 		});
@@ -150,7 +149,7 @@ var note = {
 		return ($(id).val()) ? ',' + $(id).val() : '';
 	},
 	notemarkupupdatebtn : function() {
-		$('#noteUpdateBtn').click(function() {
+		$('#noteUpdateBtn').on('click', function() {
 			var validator = new Validator(); // 创建一个构造器对象
 			validator.add($('#update-title'), [ {
 				strategy : 'isNotEmpty',
@@ -161,7 +160,7 @@ var note = {
 				msg : '内容不能为空'
 			} ]);
 			validator.start();
-			common.doAjaxSubmit(note.url.noteupdate, {
+			common.doAjaxSubmit(note.url.update, {
 				id : $('#noteId').val(),
 				title : $('#update-title').val(),
 				content : document.getElementById('update-content').innerHTML,
@@ -173,7 +172,7 @@ var note = {
 		});
 	},
 	notemarkupsearchdatebtn : function() {
-		$('#searchDateBtn').click(function() {
+		$('#searchDateBtn').on('click', function() {
 			note.notemarkuptable(note.param());
 		});
 	},
@@ -182,9 +181,4 @@ var note = {
 			format : 'yyyy-mm-dd'
 		});
 	},
-	notemarkuprefreshbtn : function() {
-		$('#refreshBtn').click(function() {
-			console.log('refreshBtn');
-		});
-	}
 };

@@ -30,8 +30,8 @@ public class NoteController {
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public BaseResultModel list(@RequestParam(required = false) String keyword, @RequestParam(required = false) String nclass, String currentPage, @RequestParam(required = false) String start,
-			@RequestParam(required = false) String end) {
+	public BaseResultModel list(@RequestParam(required = false) String keyword, @RequestParam(required = false) String nclass, String currentPage,
+			@RequestParam(required = false) String start, @RequestParam(required = false) String end) {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		PageParam pageParam = new PageParam(currentPage);
 		List<Note> notes = noteService.getAllByPage(keyword, nclass, pageParam, start, end);
@@ -48,10 +48,10 @@ public class NoteController {
 
 	@RequestMapping(value = "/delete")
 	@ResponseBody
-	public BaseResultModel delete(int id) {
-		CheckUtil.checkLeZero(id, "无效的ID");
+	public BaseResultModel delete(String id) {
+		CheckUtil.checkIsNumeric(id, "无效的ID");
 		BaseResultModel baseResultModel = new BaseResultModel();
-		noteService.delete(id);
+		noteService.delete(Integer.valueOf(id));
 		return baseResultModel;
 	}
 
@@ -91,10 +91,10 @@ public class NoteController {
 
 	@RequestMapping(value = "/get")
 	@ResponseBody
-	public BaseResultModel get(int id) {
-		CheckUtil.checkLeZero(id, "id不能为空");
+	public BaseResultModel get(String id) {
+		CheckUtil.checkIsNumeric(id, "id不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
-		baseResultModel.setValue(noteService.get(id));
+		baseResultModel.setValue(noteService.get(Integer.valueOf(id)));
 		return baseResultModel;
 	}
 
@@ -102,7 +102,7 @@ public class NoteController {
 	@ResponseBody
 	public BaseResultModel update(NoteParam noteParam) throws IOException {
 		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
-		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");	
+		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.update(noteParam.transformModel());
 		return baseResultModel;

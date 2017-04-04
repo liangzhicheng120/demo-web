@@ -50,4 +50,10 @@ public class CheckUtil {
 		}
 	}
 
+	public static void checkIsNumeric(String num, Object... args) {
+		if (!StringUtils.isNumeric(num) || "".equals(num)) {
+			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, args);
+		}
+	}
+
 }
