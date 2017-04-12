@@ -89,14 +89,10 @@ var common = {
 			clearForm : true,
 			resetForm : true,
 			type : 'POST',
-			beforeSend : function() {
-				$("#submitFooter a").addClass("disabled"); // 禁用提交按钮
-			},
 			success : function(data) {
 				if (data.code == 200) {
 					callback(data);
 					$(modalId).modal('hide');
-					$("#submitFooter a").removeClass("disabled"); // 提交按钮
 					$.tooltip('OK, 操作成功！', 2500, true);
 				} else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
@@ -120,14 +116,10 @@ var common = {
 			url : url,
 			data : param,
 			type : 'POST',
-			beforeSend : function() {
-				$("#submitFooter a").addClass("disabled"); // 禁用提交按钮
-			},
 			success : function(data) {
 				if (data.code == 200) {
 					callback(data);
 					$(modalId).modal('hide');
-					$("#submitFooter a").removeClass("disabled"); // 提交按钮
 					$.tooltip('OK, 操作成功！', 2500, true);
 				} else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);

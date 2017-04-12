@@ -74,16 +74,16 @@
 										<div class="input-group input-group-sm">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> <input class="default-date-picker form-control"
 												type="text" value="" id="start"> <span class="input-group-addon">TO</span> <input id="end"
-												class="default-date-picker form-control" type="text" value=""> <span class="input-group-addon" id="searchDateBtn"> <i
-												class="glyphicon glyphicon-search"></i>
+												class="default-date-picker form-control" type="text" value=""> 
+												<span class="input-group-addon" id="searchDateBtn"> <i class="glyphicon glyphicon-search"></i>
 											</span>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span>
-											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> <span
-												class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
+											<input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1" id="keyword"> 
+											<span class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
@@ -109,7 +109,6 @@
 			</div>
 		</div>
 	</div>
-	<%-- <%@include file="../main/dialog.jsp"%> --%>
 	<input type="text" hidden="hidden" id="currentPage" value="">
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
