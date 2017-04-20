@@ -45,8 +45,6 @@
 <title>Test</title>
 </head>
 <body>
-	
-
 <script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 <script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
 <script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
