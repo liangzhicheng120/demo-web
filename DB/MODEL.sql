@@ -7,3 +7,12 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin
 COMMENT = '贝叶斯模型词库';
+
+ALTER TABLE `demo_web`.`model` 
+CHANGE COLUMN `clazz` `label` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL COMMENT '标签' ,
+ADD COLUMN `clzss` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL COMMENT '类型' AFTER `keyword`;
+
+ALTER TABLE `demo_web`.`model` 
+ADD COLUMN `newword` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL AFTER `clzss`;
+
+
