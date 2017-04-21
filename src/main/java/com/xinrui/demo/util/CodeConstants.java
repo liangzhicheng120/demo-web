@@ -19,6 +19,10 @@ public class CodeConstants implements BaseCode {
 	 */
 	public final static int READ_FILE_ERROR = SERVER_ERROR + DS + 4;
 	/**
+	 * python执行类错误
+	 */
+	public final static int PYTHON_CLASS_ERROR = SERVER_ERROR + DS + 5;
+	/**
 	 * SQL语法错误
 	 */
 	public final static int SQL_SYNTAX_ERROR = SERVER_ERROR + DB + 1;
