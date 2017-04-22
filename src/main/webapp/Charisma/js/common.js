@@ -208,6 +208,8 @@ var common = {
 		for ( var x in data) {
 			if (data[x]['content'].length > 20)
 				data[x]['content'] = data[x]['content'].substring(0, 20) + '......';
+			if (data[x]['title'].length > 20)
+				data[x]['title'] = data[x]['title'].substring(0, 10) + '......';
 		}
 		return data
 	},
