@@ -15,15 +15,15 @@ public class ModelConfig {
 	 */
 	public static String MODEL_PROPERTIES_PATH;
 
-	public static String ROOT = "E:/webworkspace/demo-ml";
+	public static String ROOT = "E:/webworkspace/demo-ml/python";
 
-	public static String BAYES_MODEL_FILE_PATH = "bayes/model/classify.txt";
-
-	public static String BAYES_TRAIN_FILE_PATH = "bayes/files/";
-
-	public static String PYTHON_PROCESS_PATH = "python/process/Python27/python.exe";
+	public static String PYTHON_PROCESS_PATH = "process/Python27/python.exe";
 
 	public static String PYTHON_BAIKE_CRAW_PATH = "python/pyclass/baikecraw/baike_craw.py";
+
+	public static String BAYES_MODEL_FILE_PATH = "pyclass/bayes/model";
+
+	public static String BAYES_TRAIN_FILE_PATH = "pyclass/bayes/files/";
 
 	static {
 		Properties p = new Properties();
@@ -38,12 +38,12 @@ public class ModelConfig {
 			if (!root.endsWith("/")) {
 				root += "/";
 			}
-			
+
 			BAYES_MODEL_FILE_PATH = root + p.getProperty("bayes.model.file.path", BAYES_MODEL_FILE_PATH);
 			BAYES_TRAIN_FILE_PATH = root + p.getProperty("bayes.train.file.path", BAYES_TRAIN_FILE_PATH);
 			PYTHON_PROCESS_PATH = root + p.getProperty("python.process.path", PYTHON_PROCESS_PATH);
 			PYTHON_BAIKE_CRAW_PATH = root + p.getProperty("python.baike.craw.path", PYTHON_BAIKE_CRAW_PATH);
-			
+
 		} catch (Exception e) {
 			logger.error("模型属性配置文件读取错误:[" + e + "]");
 		}
