@@ -19,11 +19,13 @@ public class ModelConfig {
 
 	public static String PYTHON_PROCESS_PATH = "process/Python27/python.exe";
 
-	public static String PYTHON_BAIKE_CRAW_PATH = "python/pyclass/baikecraw/baike_craw.py";
-
 	public static String BAYES_MODEL_FILE_PATH = "pyclass/bayes/model";
 
 	public static String BAYES_TRAIN_FILE_PATH = "pyclass/bayes/files/";
+
+	public static String SPIDER_PY = "pyclass/baike/spider.py";
+
+	public static String MAKE_MODEL_PY = "pyclass/bayes/make_model.py";
 
 	static {
 		Properties p = new Properties();
@@ -42,7 +44,8 @@ public class ModelConfig {
 			BAYES_MODEL_FILE_PATH = root + p.getProperty("bayes.model.file.path", BAYES_MODEL_FILE_PATH);
 			BAYES_TRAIN_FILE_PATH = root + p.getProperty("bayes.train.file.path", BAYES_TRAIN_FILE_PATH);
 			PYTHON_PROCESS_PATH = root + p.getProperty("python.process.path", PYTHON_PROCESS_PATH);
-			PYTHON_BAIKE_CRAW_PATH = root + p.getProperty("python.baike.craw.path", PYTHON_BAIKE_CRAW_PATH);
+			SPIDER_PY = root + p.getProperty("baike.spider.py", SPIDER_PY);
+			MAKE_MODEL_PY = root + p.getProperty("bayes.make.model.py", MAKE_MODEL_PY);
 
 		} catch (Exception e) {
 			logger.error("模型属性配置文件读取错误:[" + e + "]");

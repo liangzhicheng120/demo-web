@@ -6,6 +6,8 @@ import com.xinrui.demo.util.PythonUtil;
 public class TestPython {
 
 	public static void main(String[] args) {
-		PythonUtil.Process(ModelConfig.PYTHON_BAIKE_CRAW_PATH);
+		PythonUtil.Process(ModelConfig.SPIDER_PY);
+		PythonUtil.Process(ModelConfig.MAKE_MODEL_PY);
 	}
+	
 }
