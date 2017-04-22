@@ -1,6 +1,5 @@
 package com.xinrui.demo.bean.param;
 
-import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -12,6 +11,7 @@ import com.xinrui.demo.ml.Bayes;
 import com.xinrui.demo.util.HtmlUtil;
 
 public class NoteParam {
+	
 	private int id;
 
 	private String content;
@@ -82,16 +82,18 @@ public class NoteParam {
 		this.nclass = nclass;
 	}
 
-	public Note transformModel() throws IOException {
+	public Note transformModel() throws Exception {
 		Note note = new Note();
 		note.setId(this.getId());
 		note.setContent(this.getContent());
-		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(), HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 3).toString().replace("[", "").replace("]", "")));
+		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(),
+				HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 3).toString().replace("[", "").replace("]", "")));
 		note.setNclass((String) ObjectUtils.defaultIfNull(this.getNclass(),
-				Bayes.predictClassify(Bayes.read(), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15))));
+				Bayes.predictClassify(Bayes.read("新闻"), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15))));
 		note.setTitle(this.getTitle());
 		note.setAid((int) ObjectUtils.defaultIfNull(this.getAid(), 1));
 		note.setPosttime(this.getPosttime());
 		return note;
 	}
+	
 }

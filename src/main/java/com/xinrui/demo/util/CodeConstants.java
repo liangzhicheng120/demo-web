@@ -22,6 +22,11 @@ public class CodeConstants implements BaseCode {
 	 * python执行类错误
 	 */
 	public final static int PYTHON_CLASS_ERROR = SERVER_ERROR + DS + 5;
+
+	/**
+	 * 模型文件错误
+	 */
+	public final static int MODEL_FILE_ERROR = SERVER_ERROR + DS + 6;
 	/**
 	 * SQL语法错误
 	 */

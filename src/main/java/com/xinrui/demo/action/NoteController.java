@@ -1,6 +1,5 @@
 package com.xinrui.demo.action;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +80,7 @@ public class NoteController {
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public BaseResultModel save(NoteParam noteParam) throws IOException {
+	public BaseResultModel save(NoteParam noteParam) throws Exception {
 		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
 		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
@@ -100,7 +99,7 @@ public class NoteController {
 
 	@RequestMapping(value = "/update")
 	@ResponseBody
-	public BaseResultModel update(NoteParam noteParam) throws IOException {
+	public BaseResultModel update(NoteParam noteParam) throws Exception {
 		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
 		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();

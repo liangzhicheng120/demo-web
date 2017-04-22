@@ -3,7 +3,6 @@ package com.xinrui.demo.ml;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +11,12 @@ import java.util.Map;
 import org.apache.commons.io.Charsets;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
 import com.hankcs.hanlp.HanLP;
+import com.xinrui.demo.exception.CalException;
+import com.xinrui.demo.util.CodeConstants;
+import com.xinrui.demo.util.EncryptUtil;
 import com.xinrui.demo.util.MathUtil;
 import com.xinrui.demo.util.ModelConfig;
 
@@ -21,6 +24,8 @@ import com.xinrui.demo.util.ModelConfig;
  * 贝叶斯计算器主体类
  */
 public class Bayes {
+
+	private static Logger logger = Logger.getLogger(ModelConfig.class);
 
 	/**
 	 * 将原训练元组按类别划分
@@ -92,10 +97,10 @@ public class Bayes {
 	 * @param testData
 	 *            测试元组
 	 * @return 测试元组的类别
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public String predictClassify(ArrayList<String> testData) throws IOException {
-		return predictClassify(read(), testData);
+	public String predictClassify(ArrayList<String> testData, String mId) throws Exception {
+		return predictClassify(read(mId), testData);
 	}
 
 	/**
@@ -139,13 +144,11 @@ public class Bayes {
 		if (map == null | StringUtils.isEmpty(classify)) {
 			return 0;
 		}
-
 		Object[] classes = map.keySet().toArray();
 		int totleClassifyCount = 0;
 		for (int i = 0; i < classes.length; i++) {
 			totleClassifyCount += map.get(classes[i].toString()).size();
 		}
-
 		return 1.0 * map.get(classify).size() / totleClassifyCount;
 	}
 
@@ -208,12 +211,17 @@ public class Bayes {
 	 * @param filePath
 	 *            训练文档的路径
 	 * @return 训练数据集
-	 * @throws IOException
+	 * @throws Exception
 	 */
-	public static ArrayList<ArrayList<String>> read() throws IOException {
+	public static ArrayList<ArrayList<String>> read(String mId) throws Exception {
 		ArrayList<String> singleTrainning = null;
 		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
-		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(ModelConfig.BAYES_MODEL_FILE_PATH), Charsets.UTF_8));
+		String modelFileName = ModelConfig.BAYES_MODEL_FILE_PATH + EncryptUtil.HMACMD5(mId) + ".txt";
+		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(modelFileName), Charsets.UTF_8));
+		if (datas.size() == 0) {
+			logger.error(modelFileName + "[" + "模型文件加载错误" + "]");
+			throw new CalException(CodeConstants.MODEL_FILE_ERROR, "模型文件加载错误!");
+		}
 		for (int i = 0; i < datas.size(); i++) {
 			String[] characteristicValues = datas.get(i).split(" ");
 			singleTrainning = new ArrayList<String>();
@@ -234,7 +242,7 @@ public class Bayes {
 	 * @param size
 	 *            关键词个数
 	 */
-	public static void trainBayes(String fileName, int size) {
+	public static void trainBayes(String fileName, String mId, int size) {
 		try {
 			Bayes bayes = new Bayes();
 			BufferedReader reader = new BufferedReader(new FileReader(ModelConfig.BAYES_TRAIN_FILE_PATH + fileName));
@@ -244,7 +252,7 @@ public class Bayes {
 			long start = System.currentTimeMillis();
 			while ((line = reader.readLine()) != null) {
 				ArrayList<String> testData = (ArrayList<String>) HanLP.extractKeyword(line, size);
-				String classification = bayes.predictClassify(testData);
+				String classification = bayes.predictClassify(testData, mId);
 				if (classification.equals(fileName.split("\\.")[0])) {
 					right += 1;
 				}

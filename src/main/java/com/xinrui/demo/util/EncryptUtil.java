@@ -28,6 +28,8 @@ public class EncryptUtil {
 
 	public static final String KEY_MD5 = "MD5";
 
+	public static final String HMA_CMD5 = "qwertyuiopasdfghjklzxcvbnm";
+
 	/**
 	 * MAC算法可选以下多种算法
 	 * 
@@ -67,7 +69,7 @@ public class EncryptUtil {
 	 * MD5加密
 	 * 
 	 * @param data
-	 * @return 
+	 * @return
 	 * @throws Exception
 	 */
 	public static String encryptMD5(String str) throws Exception {
@@ -105,17 +107,43 @@ public class EncryptUtil {
 
 	/**
 	 * HMAC加密
-	 * 
+	 *
 	 * @param data
 	 * @param key
 	 * @return
 	 * @throws Exception
 	 */
 	public static byte[] encryptHMAC(byte[] data, String key) throws Exception {
-		SecretKey secretKey = new SecretKeySpec(decryptBASE64(key), KEY_MAC);
+
+		SecretKey secretKey = new SecretKeySpec(key.getBytes(), KEY_MAC);
 		Mac mac = Mac.getInstance(secretKey.getAlgorithm());
 		mac.init(secretKey);
 		return mac.doFinal(data);
 
 	}
+
+	/* byte数组转换为HexString */
+	public static String byteArrayToHexString(byte[] b) {
+		StringBuffer sb = new StringBuffer(b.length * 2);
+		for (int i = 0; i < b.length; i++) {
+			int v = b[i] & 0xff;
+			if (v < 16) {
+				sb.append('0');
+			}
+			sb.append(Integer.toHexString(v));
+		}
+		return sb.toString();
+	}
+
+	/**
+	 * hmacmd5加密
+	 * 
+	 * @param str
+	 * @return
+	 * @throws Exception
+	 */
+	public static String HMACMD5(String str) throws Exception {
+		return byteArrayToHexString(encryptHMAC(str.getBytes("utf-8"), HMA_CMD5));
+	}
+
 }

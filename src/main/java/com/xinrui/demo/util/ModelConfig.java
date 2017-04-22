@@ -19,7 +19,7 @@ public class ModelConfig {
 
 	public static String PYTHON_PROCESS_PATH = "process/Python27/python.exe";
 
-	public static String BAYES_MODEL_FILE_PATH = "pyclass/bayes/model";
+	public static String BAYES_MODEL_FILE_PATH = "pyclass/bayes/model/";
 
 	public static String BAYES_TRAIN_FILE_PATH = "pyclass/bayes/files/";
 
