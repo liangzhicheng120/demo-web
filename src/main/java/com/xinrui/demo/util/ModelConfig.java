@@ -23,7 +23,7 @@ public class ModelConfig {
 
 	public static String PYTHON_PROCESS_PATH = "python/process/Python27/python.exe";
 
-	public static String PYTHON_BAIKE_CRAW_PATH = "python/pyclass/baikecraw/BaikeCraw.py";
+	public static String PYTHON_BAIKE_CRAW_PATH = "python/pyclass/baikecraw/baike_craw.py";
 
 	static {
 		Properties p = new Properties();
