@@ -16,3 +16,7 @@ ALTER TABLE `demo_web`.`model`
 ADD COLUMN `newword` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL AFTER `clzss`;
 
 
+ALTER TABLE `demo_web`.`model` 
+ADD COLUMN `mid` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL COMMENT 'clzss经hamcmd5加密得到' AFTER `newword`;
+
+

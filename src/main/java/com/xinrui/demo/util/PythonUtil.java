@@ -17,9 +17,17 @@ public class PythonUtil {
 
 	private static Logger logger = Logger.getLogger(PythonUtil.class);
 
-	public static void Process(String PyClassPath, String... args) {
+	public static void winProcess(String pyClassPath, String... args) {
+		Process(ModelConfig.PYTHON_EXE + " " + pyClassPath + StringUtil.argsToString(args));
+	}
+
+	public static void linuxProcess(String pyClassPath, String... args) {
+		Process("python" + " " + pyClassPath + StringUtil.argsToString(args));
+	}
+
+	public static void Process(String cmd) {
 		try {
-			Process pr = Runtime.getRuntime().exec(ModelConfig.PYTHON_EXE + " " + PyClassPath + StringUtil.argsToString(args));
+			Process pr = Runtime.getRuntime().exec(cmd);
 			BufferedReader error = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			String head = error.readLine();
 			if (head != null) {

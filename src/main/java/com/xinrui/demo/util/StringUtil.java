@@ -48,7 +48,7 @@ public class StringUtil {
 		return result;
 	}
 
-	public static String argsToString(String... args) throws Exception {
+	public static String argsToString(String... args) {
 		String result = "";
 		for (String s : args) {
 			result += " " + s;
