@@ -17,15 +17,15 @@ public class ModelConfig {
 
 	public static String ROOT = "E:/webworkspace/demo-ml/python";
 
-	public static String PYTHON_PROCESS_PATH = "process/Python27/python.exe";
+	public static String PYTHON_EXE = "python.exe";
 
-	public static String BAYES_MODEL_FILE_PATH = "pyclass/bayes/model/";
+	public static String BAYES_MODEL_FILES = "Lib/site-packages/ml/bayes/model/";
 
-	public static String BAYES_TRAIN_FILE_PATH = "pyclass/bayes/files/";
+	public static String BAYES_TRAIN_FILES = "Lib/site-packages/ml/bayes/files/";
 
-	public static String SPIDER_PY = "pyclass/baike/spider.py";
+	public static String BAIKE_SPIDER_PY = "Lib/site-packages/ml/baike/spider.py";
 
-	public static String MAKE_MODEL_PY = "pyclass/bayes/make_model.py";
+	public static String BAYES_BAYES_PY = "Lib/site-packages/ml/bayes/bayes.py";
 
 	static {
 		Properties p = new Properties();
@@ -41,11 +41,11 @@ public class ModelConfig {
 				root += "/";
 			}
 
-			BAYES_MODEL_FILE_PATH = root + p.getProperty("bayes.model.file.path", BAYES_MODEL_FILE_PATH);
-			BAYES_TRAIN_FILE_PATH = root + p.getProperty("bayes.train.file.path", BAYES_TRAIN_FILE_PATH);
-			PYTHON_PROCESS_PATH = root + p.getProperty("python.process.path", PYTHON_PROCESS_PATH);
-			SPIDER_PY = root + p.getProperty("baike.spider.py", SPIDER_PY);
-			MAKE_MODEL_PY = root + p.getProperty("bayes.make.model.py", MAKE_MODEL_PY);
+			BAYES_MODEL_FILES = root + p.getProperty("bayes.model.files", BAYES_MODEL_FILES);
+			BAYES_TRAIN_FILES = root + p.getProperty("bayes.train.files", BAYES_TRAIN_FILES);
+			PYTHON_EXE = root + p.getProperty("python.exe", PYTHON_EXE);
+			BAIKE_SPIDER_PY = root + p.getProperty("baike.spider.py", BAIKE_SPIDER_PY);
+			BAYES_BAYES_PY = root + p.getProperty("bayes.bayes.py", BAYES_BAYES_PY);
 
 		} catch (Exception e) {
 			logger.error("模型属性配置文件读取错误:[" + e + "]");

@@ -216,10 +216,10 @@ public class Bayes {
 	public static ArrayList<ArrayList<String>> read(String mId) throws Exception {
 		ArrayList<String> singleTrainning = null;
 		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
-		String modelFileName = ModelConfig.BAYES_MODEL_FILE_PATH + EncryptUtil.HMACMD5(mId) + ".txt";
+		String modelFileName = ModelConfig.BAYES_MODEL_FILES + EncryptUtil.HMACMD5(mId) + ".txt";
 		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(modelFileName), Charsets.UTF_8));
 		if (datas.size() == 0) {
-			logger.error(modelFileName + "[" + "模型文件加载错误" + "]");
+			logger.error("[" + "模型文件加载错误" + "]" + modelFileName);
 			throw new CalException(CodeConstants.MODEL_FILE_ERROR, "模型文件加载错误!");
 		}
 		for (int i = 0; i < datas.size(); i++) {
@@ -245,7 +245,8 @@ public class Bayes {
 	public static void trainBayes(String fileName, String mId, int size) {
 		try {
 			Bayes bayes = new Bayes();
-			BufferedReader reader = new BufferedReader(new FileReader(ModelConfig.BAYES_TRAIN_FILE_PATH + fileName));
+			String trainFileName = ModelConfig.BAYES_TRAIN_FILES + fileName;
+			BufferedReader reader = new BufferedReader(new FileReader(trainFileName));
 			String line = null;
 			int total = 0;
 			int right = 0;

@@ -47,4 +47,12 @@ public class StringUtil {
 		}
 		return result;
 	}
+
+	public static String argsToString(String... args) throws Exception {
+		String result = "";
+		for (String s : args) {
+			result += " " + s;
+		}
+		return result;
+	}
 }
