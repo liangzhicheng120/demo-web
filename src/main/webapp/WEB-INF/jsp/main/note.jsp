@@ -87,8 +87,9 @@
 										</div>
 									</div>
 									<div class="col-md-2">
-										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm"
-											data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> 
+										<a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteDownloadBtn" data-backdrop="static">下载</a> 
 									</div>
 								</div>
 								<table class="table table-striped table-bordered responsive">
