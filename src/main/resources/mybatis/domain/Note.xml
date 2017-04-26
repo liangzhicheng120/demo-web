@@ -14,7 +14,7 @@
 		FROM
 		note
 		<where>
-			1=1
+			AID = (SELECT ID FROM admin WHERE NAME = #{name})
 			<if test="keyword != null and !&quot;&quot;.equals(keyword.trim())">
 				AND KEYWORD LIKE CONCAT('%', #{keyword}, '%')
 			</if>

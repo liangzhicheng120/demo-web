@@ -12,6 +12,8 @@ import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.dao.NoteDao;
 import com.xinrui.demo.service.NoteService;
+import com.xinrui.demo.util.Constants;
+import com.xinrui.demo.util.SessionUtil;
 import com.xinrui.demo.util.SqlUtils;
 
 @Service
@@ -23,6 +25,7 @@ public class NoteServiceImpl implements NoteService {
 	@Transactional
 	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam, String start, String end) {
 		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("name", SessionUtil.getAttribute(Constants.ADMIN));
 		param.put("keyword", SqlUtils.escapeSQLLike(keyword));
 		param.put("nclass", nclass);
 		param.put("pageParam", pageParam);

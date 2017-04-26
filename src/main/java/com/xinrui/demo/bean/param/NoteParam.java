@@ -8,10 +8,12 @@ import org.apache.commons.lang.ObjectUtils;
 import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.ml.Bayes;
+import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.HtmlUtil;
+import com.xinrui.demo.util.SessionUtil;
 
 public class NoteParam {
-	
+
 	private int id;
 
 	private String content;
@@ -91,9 +93,9 @@ public class NoteParam {
 		note.setNclass((String) ObjectUtils.defaultIfNull(this.getNclass(),
 				Bayes.predictClassify(Bayes.read("新闻"), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15))));
 		note.setTitle(this.getTitle());
-		note.setAid((int) ObjectUtils.defaultIfNull(this.getAid(), 1));
+		note.setAid(Integer.valueOf(SessionUtil.getAttribute(Constants.AID)));
 		note.setPosttime(this.getPosttime());
 		return note;
 	}
-	
+
 }

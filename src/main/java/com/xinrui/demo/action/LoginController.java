@@ -43,20 +43,21 @@ public class LoginController {
 			baseResultModel.setMessage("验证码不正确");
 			return baseResultModel;
 		}
-		Admin admin = adminService.getPasswordByName(username);
+		Admin admin = adminService.getAdminByName(username);
 		if (admin == null) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("账号不存在");
 			return baseResultModel;
 		}
-		String encryptPassword = EncryptUtil.encryptMD5(username + password + Constants.SALT);
-		String passwordDao = admin.getPassword();
-		if (!encryptPassword.equals(passwordDao)) {
+		String epassdb = EncryptUtil.encryptMD5(username + password + Constants.SALT);
+		String passdb = admin.getPassword();
+		if (!epassdb.equals(passdb)) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("密码错误");
 			return baseResultModel;
 		}
-		session.setAttribute("ADMIN", username);
+		session.setAttribute(Constants.ADMIN, username);
+		session.setAttribute(Constants.AID, String.valueOf(admin.getId()));
 		baseResultModel.setRedirect("index");
 		return baseResultModel;
 	}

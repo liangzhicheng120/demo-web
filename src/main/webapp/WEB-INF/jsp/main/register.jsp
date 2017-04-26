@@ -48,7 +48,7 @@ canvas {
 		</dd>
 		<dd class="pwd_icon">
 			<input type="password" style="width: 185px;" id="repassword" placeholder="再输一次密码" maxlength="20" class="login_txtbx" /> 
-			<a style="width: 82px; text-align: center;" href="<%=basePath%>login.html" class="ver_btn">登陆</a>
+			<a style="width: 82px; text-align: center;" href="<%=basePath%>login" class="ver_btn">登陆</a>
 		</dd>
 		<dd>
 			<input type="button" value="立即注册" class="submit_btn" id="registerBtn" />

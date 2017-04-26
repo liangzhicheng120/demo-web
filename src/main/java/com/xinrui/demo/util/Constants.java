@@ -1,6 +1,5 @@
 package com.xinrui.demo.util;
 
-
 public class Constants {
 	/**
 	 * 验证码key
@@ -10,5 +9,13 @@ public class Constants {
 	 * 用户密码加密 盐值
 	 */
 	public static final String SALT = "DEMO-WEB";
-	
+	/**
+	 * session保存值
+	 */
+	public static final String ADMIN = "ADMIN";
+	/**
+	 * session保存值
+	 */
+	public static final String AID = "AID";
+
 }

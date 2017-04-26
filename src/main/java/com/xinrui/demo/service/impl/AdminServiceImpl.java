@@ -17,10 +17,10 @@ public class AdminServiceImpl implements AdminService {
 	private AdminDao adminDao;
 
 	@Transactional
-	public Admin getPasswordByName(String name) {
+	public Admin getAdminByName(String name) {
 		Admin admin = new Admin();
 		admin.setName(name);
-		return adminDao.getPasswordByName(admin);
+		return adminDao.getAdminByName(admin);
 	}
 
 	@Transactional

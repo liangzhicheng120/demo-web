@@ -17,14 +17,14 @@ public class RegisterController {
 	@Autowired
 	private AdminService adminService;
 
-	@RequestMapping(value = "/doregister")
+	@RequestMapping(value = "/registerOn")
 	@ResponseBody
 	public BaseResultModel doRegister(String username, String password, String repassword) throws Exception {
 		CheckUtil.checkBlank(username, "账号不能为空");
 		CheckUtil.checkBlank(password, "密码不能为空");
 		CheckUtil.checkObjIsEqual(password, repassword, "两次密码不一致");
 		BaseResultModel baseResultModel = new BaseResultModel();
-		Admin admin = adminService.getPasswordByName(username);
+		Admin admin = adminService.getAdminByName(username);
 		if (admin != null) {
 			baseResultModel.setCode(CodeConstants.PARAMETERS_CHECK_ERROR);
 			baseResultModel.setMessage("账号已存在");

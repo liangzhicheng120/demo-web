@@ -49,7 +49,7 @@ canvas {
 				<input type="text" id="captcha" placeholder="验证码" maxlength="4" autocomplete="off" class="login_txtbx" /> 
 				<img id="vcode" alt="验证码" src="<%=basePath%>captcha-image.do" />
 			</div>
-			<a style="width: 82px; text-align: center;" href="<%=basePath%>register.html" class="ver_btn">注册</a>
+			<a style="width: 82px; text-align: center;" href="<%=basePath%>register" class="ver_btn">注册</a>
 		</dd>
 		<dd>
 			<input type="button" value="立即登陆" class="submit_btn" id="loginBtn" />

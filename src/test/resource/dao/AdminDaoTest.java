@@ -22,15 +22,15 @@ public class AdminDaoTest {
 	public void testGetPasswordByName() {
 		Admin admin = new Admin();
 		admin.setName("admin");
-		adminDao.getPasswordByName(admin);
+		adminDao.getAdminByName(admin);
 	}
 
 	@Test
 	public void testSave() throws Exception {
-		String username = "ÁúÖé³¬";
-		String password = "123";
+		String username = "admin";
+		String password = "12345";
 		Admin admin = new Admin();
-		admin.setName("ÁúÖé³¬");
+		admin.setName(username);
 		admin.setPassword(EncryptUtil.encryptMD5(username + password + Constants.SALT));
 		adminDao.save(admin);
 	}

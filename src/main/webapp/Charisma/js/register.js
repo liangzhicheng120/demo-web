@@ -1,6 +1,6 @@
 var register = {
 	url : {
-		doregister : 'doregister'
+		doregister : 'registerOn'
 	},
 	param : function() {
 		return {

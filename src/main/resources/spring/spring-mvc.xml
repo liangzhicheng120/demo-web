@@ -13,11 +13,32 @@
 
 	<mvc:default-servlet-handler />
 
+	<!-- 注册登录拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<bean class="com.xinrui.demo.action.interceptor.LoginInterceptor">
+				<property name="excludeUrl">
+					<set>
+						<value>login</value>
+						<value>loginOn</value>
+						<value>registerOn</value>
+						<value>register</value>
+						<value>captcha-image</value>
+						<value>css</value>
+						<value>png</value>
+						<value>js</value>
+					</set>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 	<!-- 自定义异常捕获,将异常抛出页面 -->
 	<bean id="exceptionHandler" class="com.xinrui.demo.exception.ApplicationExceptionResolver" />
-	
+
 	<bean id="customSimpleMappingExceptionResolver" class="com.xinrui.demo.exception.CustomSimpleMappingExceptionResolver"></bean>
-	
+
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="warnLogCategory" value="WARN"></property>
 		<property name="defaultErrorView" value="error"></property>
