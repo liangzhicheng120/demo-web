@@ -217,7 +217,7 @@ public class Bayes {
 	public static ArrayList<ArrayList<String>> read(String mId) throws Exception {
 		ArrayList<String> singleTrainning = null;
 		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
-		String modelFileName = PyConstants.BAYES_MODEL + EncryptUtil.HMACMD5(mId) + ".txt";
+		String modelFileName = PyConstants.ml.BAYES_MODEL + EncryptUtil.HMACMD5(mId) + ".txt";
 		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(modelFileName), Charsets.UTF_8));
 		if (datas.size() == 0) {
 			logger.error("[" + "模型文件加载错误" + "]" + modelFileName);
@@ -246,7 +246,7 @@ public class Bayes {
 	public static void trainBayes(String fileName, String mId, int size) {
 		try {
 			Bayes bayes = new Bayes();
-			String trainFileName = PyConstants.BAYES_TRAIN + fileName;
+			String trainFileName = PyConstants.ml.BAYES_TRAIN + fileName;
 			BufferedReader reader = new BufferedReader(new FileReader(trainFileName));
 			String line = null;
 			int total = 0;

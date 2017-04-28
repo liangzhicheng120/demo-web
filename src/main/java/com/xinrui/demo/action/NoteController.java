@@ -15,6 +15,8 @@ import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
+import com.xinrui.demo.python.PyConstants;
+import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.StringUtil;
 import com.xinrui.demo.util.web.CheckUtil;
@@ -112,7 +114,7 @@ public class NoteController {
 	public BaseResultModel initModel(String clzss, String label) {
 		CheckUtil.checkBlank(clzss, "类别不能为空");
 		CheckUtil.checkBlank(label, "标签不能为空");
-//		PythonUtil.winProcess(ModelConfig.BAIKE_SPIDER_PY, clzss);
+		PythonUtil.Process(PyConstants.ml.SPIDER_PY, clzss);
 		BaseResultModel baseResultModel = new BaseResultModel();
 		return baseResultModel;
 	}
