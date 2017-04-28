@@ -3,7 +3,7 @@ package com.xinrui.demo.bean.vo;
 import java.sql.Date;
 
 import com.xinrui.demo.bean.Note;
-import com.xinrui.demo.util.HtmlUtil;
+import com.xinrui.demo.util.web.HtmlUtil;
 
 public class NoteVO {
 

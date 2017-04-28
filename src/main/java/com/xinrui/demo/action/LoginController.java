@@ -18,10 +18,10 @@ import com.google.code.kaptcha.Producer;
 import com.xinrui.demo.bean.Admin;
 import com.xinrui.demo.bean.BaseResultModel;
 import com.xinrui.demo.service.AdminService;
-import com.xinrui.demo.util.CheckUtil;
-import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.Constants;
-import com.xinrui.demo.util.EncryptUtil;
+import com.xinrui.demo.util.code.CodeConstants;
+import com.xinrui.demo.util.encrypt.EncryptUtil;
+import com.xinrui.demo.util.web.CheckUtil;
 
 @Controller
 public class LoginController {

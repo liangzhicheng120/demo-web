@@ -1,4 +1,4 @@
-package com.xinrui.demo.util;
+package com.xinrui.demo.util.web;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 
 import com.xinrui.demo.exception.CalException;
+import com.xinrui.demo.util.code.CodeConstants;
 
 public class CheckUtil {
 

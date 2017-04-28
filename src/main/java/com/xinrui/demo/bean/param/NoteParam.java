@@ -9,8 +9,8 @@ import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.algorithm.bayes.Bayes;
 import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.util.Constants;
-import com.xinrui.demo.util.HtmlUtil;
-import com.xinrui.demo.util.SessionUtil;
+import com.xinrui.demo.util.web.HtmlUtil;
+import com.xinrui.demo.util.web.SessionUtil;
 
 public class NoteParam {
 

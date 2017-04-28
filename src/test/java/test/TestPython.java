@@ -2,7 +2,7 @@ package test;
 
 import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
-import com.xinrui.demo.util.EncryptUtil;
+import com.xinrui.demo.util.encrypt.EncryptUtil;
 
 public class TestPython {
 

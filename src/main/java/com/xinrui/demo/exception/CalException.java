@@ -1,7 +1,7 @@
 package com.xinrui.demo.exception;
 
-import com.xinrui.demo.util.CodeConstants;
-import com.xinrui.demo.util.CodeUtil;
+import com.xinrui.demo.util.code.CodeConstants;
+import com.xinrui.demo.util.code.CodeUtil;
 
 public class CalException extends RuntimeException {
 

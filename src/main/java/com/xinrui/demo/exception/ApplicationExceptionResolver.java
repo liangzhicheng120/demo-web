@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.xinrui.demo.util.CodeConstants;
-import com.xinrui.demo.util.CodeUtil;
+import com.xinrui.demo.util.code.CodeConstants;
+import com.xinrui.demo.util.code.CodeUtil;
 
 public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 

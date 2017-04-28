@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.xinrui.demo.bean.Admin;
 import com.xinrui.demo.dao.AdminDao;
 import com.xinrui.demo.util.Constants;
-import com.xinrui.demo.util.EncryptUtil;
+import com.xinrui.demo.util.encrypt.EncryptUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/spring-*.xml")

@@ -16,9 +16,9 @@ import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
 import com.xinrui.demo.service.NoteService;
-import com.xinrui.demo.util.CheckUtil;
-import com.xinrui.demo.util.Nclass;
 import com.xinrui.demo.util.StringUtil;
+import com.xinrui.demo.util.web.CheckUtil;
+import com.xinrui.demo.util.web.Nclass;
 
 @Controller
 @RequestMapping(value = "/note")

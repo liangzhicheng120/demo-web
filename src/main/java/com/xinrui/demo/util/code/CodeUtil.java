@@ -1,4 +1,4 @@
-package com.xinrui.demo.util;
+package com.xinrui.demo.util.code;
 
 import java.io.IOException;
 import java.io.InputStream;

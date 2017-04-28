@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import org.apache.log4j.Logger;
 
 import com.xinrui.demo.exception.CalException;
-import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.OSInfoUtil;
 import com.xinrui.demo.util.StringUtil;
+import com.xinrui.demo.util.code.CodeConstants;
 
 /**
  * python处理工具

@@ -8,7 +8,7 @@ import com.xinrui.demo.bean.Admin;
 import com.xinrui.demo.dao.AdminDao;
 import com.xinrui.demo.service.AdminService;
 import com.xinrui.demo.util.Constants;
-import com.xinrui.demo.util.EncryptUtil;
+import com.xinrui.demo.util.encrypt.EncryptUtil;
 
 @Service
 public class AdminServiceImpl implements AdminService {

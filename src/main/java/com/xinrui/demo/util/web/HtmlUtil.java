@@ -1,4 +1,4 @@
-package com.xinrui.demo.util;
+package com.xinrui.demo.util.web;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

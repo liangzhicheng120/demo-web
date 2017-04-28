@@ -17,9 +17,9 @@ import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.exception.CalException;
 import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonConfig;
-import com.xinrui.demo.util.CodeConstants;
-import com.xinrui.demo.util.EncryptUtil;
-import com.xinrui.demo.util.MathUtil;
+import com.xinrui.demo.util.code.CodeConstants;
+import com.xinrui.demo.util.encrypt.EncryptUtil;
+import com.xinrui.demo.util.math.MathUtil;
 
 /**
  * 贝叶斯计算器主体类

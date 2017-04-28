@@ -1,4 +1,4 @@
-package com.xinrui.demo.util;
+package com.xinrui.demo.util.math;
 
 import java.math.BigDecimal;
 
