@@ -24,7 +24,7 @@ public class PythonUtil {
 
 	public static void Process(String pyclass, String... args) {
 		if (OSInfoUtil.isWindows()) {
-			command = String.format("%spython.exe %s%s", ModelConfig.ROOT, pyclass, StringUtil.argsToString(args));
+			command = String.format("%spython.exe %s%s", PythonConfig.ROOT, pyclass, StringUtil.argsToString(args));
 		} else if (OSInfoUtil.isLinux()) {
 			command = String.format("python %s%s", pyclass, StringUtil.argsToString(args));
 		} else {

@@ -15,8 +15,6 @@ import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
-import com.xinrui.demo.python.ModelConfig;
-import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.CheckUtil;
 import com.xinrui.demo.util.Nclass;

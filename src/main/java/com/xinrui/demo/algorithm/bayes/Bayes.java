@@ -15,7 +15,8 @@ import org.apache.log4j.Logger;
 
 import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.exception.CalException;
-import com.xinrui.demo.python.ModelConfig;
+import com.xinrui.demo.python.PyConstants;
+import com.xinrui.demo.python.PythonConfig;
 import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.EncryptUtil;
 import com.xinrui.demo.util.MathUtil;
@@ -25,7 +26,7 @@ import com.xinrui.demo.util.MathUtil;
  */
 public class Bayes {
 
-	private static Logger logger = Logger.getLogger(ModelConfig.class);
+	private static Logger logger = Logger.getLogger(PythonConfig.class);
 
 	/**
 	 * 将原训练元组按类别划分
@@ -216,7 +217,7 @@ public class Bayes {
 	public static ArrayList<ArrayList<String>> read(String mId) throws Exception {
 		ArrayList<String> singleTrainning = null;
 		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
-		String modelFileName = ModelConfig.BAYES_MODEL_FILES + EncryptUtil.HMACMD5(mId) + ".txt";
+		String modelFileName = PyConstants.BAYES_MODEL + EncryptUtil.HMACMD5(mId) + ".txt";
 		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(modelFileName), Charsets.UTF_8));
 		if (datas.size() == 0) {
 			logger.error("[" + "模型文件加载错误" + "]" + modelFileName);
@@ -245,7 +246,7 @@ public class Bayes {
 	public static void trainBayes(String fileName, String mId, int size) {
 		try {
 			Bayes bayes = new Bayes();
-			String trainFileName = ModelConfig.BAYES_TRAIN_FILES + fileName;
+			String trainFileName = PyConstants.BAYES_TRAIN + fileName;
 			BufferedReader reader = new BufferedReader(new FileReader(trainFileName));
 			String line = null;
 			int total = 0;
