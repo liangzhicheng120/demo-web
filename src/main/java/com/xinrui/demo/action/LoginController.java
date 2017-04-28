@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.code.kaptcha.Producer;
 import com.xinrui.demo.bean.Admin;
-import com.xinrui.demo.bean.BaseResultModel;
+import com.xinrui.demo.bean.base.BaseResultModel;
 import com.xinrui.demo.service.AdminService;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.code.CodeConstants;

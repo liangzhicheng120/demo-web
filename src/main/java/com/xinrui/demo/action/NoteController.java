@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
-import com.xinrui.demo.bean.BaseResultModel;
 import com.xinrui.demo.bean.Note;
+import com.xinrui.demo.bean.base.BaseResultModel;
 import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;

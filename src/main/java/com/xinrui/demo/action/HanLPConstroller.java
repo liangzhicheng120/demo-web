@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hankcs.hanlp.HanLP;
-import com.xinrui.demo.bean.BaseResultModel;
+import com.xinrui.demo.bean.base.BaseResultModel;
 
 @Controller
 @RequestMapping(value = "/hanlp")

@@ -1,4 +1,4 @@
-package com.xinrui.demo.bean;
+package com.xinrui.demo.bean.base;
 
 public class BaseResultModel {
 
