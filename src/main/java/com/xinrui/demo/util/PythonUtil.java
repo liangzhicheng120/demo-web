@@ -17,27 +17,35 @@ public class PythonUtil {
 
 	private static Logger logger = Logger.getLogger(PythonUtil.class);
 
-	public static void winProcess(String pyClassPath, String... args) {
-		Process(ModelConfig.PYTHON_EXE + " " + pyClassPath + StringUtil.argsToString(args));
+	private static String command = "command";
+
+	public static void Process(String pyclass, String... args) {
+		if (OSInfoUtil.isWindows()) {
+			command = String.format("%spython.exe %s%s", ModelConfig.ROOT, pyclass, StringUtil.argsToString(args));
+		} else if (OSInfoUtil.isLinux()) {
+			command = String.format("python %s%s", pyclass, StringUtil.argsToString(args));
+		} else {
+			String er = "操作系统错误,当前操作系统：[" + OSInfoUtil.getOsName() + "]";
+			logger.error(er);
+			throw new CalException(CodeConstants.OPERATING_SYSTEM_ERROR, er);
+		}
+		Process(command);
 	}
 
-	public static void linuxProcess(String pyClassPath, String... args) {
-		Process("python" + " " + pyClassPath + StringUtil.argsToString(args));
-	}
-
-	public static void Process(String cmd) {
+	public static void Process(String command) {
 		try {
-			Process pr = Runtime.getRuntime().exec(cmd);
+			logger.info(String.format("[command] %s", command));
+			Process pr = Runtime.getRuntime().exec(command);
 			BufferedReader error = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			String head = error.readLine();
 			if (head != null) {
-				logger.error(head);
+				logger.error(String.format("[process] %s", head));
 				error.lines().forEach(e -> logger.error(e));
 				throw new CalException(CodeConstants.PYTHON_CLASS_ERROR, "[ Python ProgrammingError ]");
 			}
 		} catch (Exception e) {
-			logger.error(e);
-			e.printStackTrace();
+			logger.error(String.format("[process] %s", e));
 		}
 	}
+
 }

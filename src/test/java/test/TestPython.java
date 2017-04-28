@@ -8,8 +8,7 @@ public class TestPython {
 
 	public static void main(String[] args) throws Exception {
 		// PythonUtil.winProcess(ModelConfig.BAIKE_SPIDER_PY);
-		PythonUtil.winProcess(ModelConfig.BAYES_BAYES_PY, EncryptUtil.HMACMD5("新闻"));
-		// System.out.println(EncryptUtil.HMACMD5("学习"));
+		PythonUtil.Process(ModelConfig.BAIKE_SPIDER_PY, EncryptUtil.HMACMD5("学习"));
 	}
 
 }

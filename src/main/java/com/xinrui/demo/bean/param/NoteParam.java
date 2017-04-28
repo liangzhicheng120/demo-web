@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import org.apache.commons.lang.ObjectUtils;
 
 import com.hankcs.hanlp.HanLP;
+import com.xinrui.demo.algorithm.bayes.Bayes;
 import com.xinrui.demo.bean.Note;
-import com.xinrui.demo.ml.Bayes;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.HtmlUtil;
 import com.xinrui.demo.util.SessionUtil;

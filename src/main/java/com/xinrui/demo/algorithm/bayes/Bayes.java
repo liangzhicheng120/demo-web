@@ -1,4 +1,4 @@
-package com.xinrui.demo.ml;
+package com.xinrui.demo.algorithm.bayes;
 
 import java.io.BufferedReader;
 import java.io.File;

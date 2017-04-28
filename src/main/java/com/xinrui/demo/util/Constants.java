@@ -17,5 +17,4 @@ public class Constants {
 	 * session保存值
 	 */
 	public static final String AID = "AID";
-
 }

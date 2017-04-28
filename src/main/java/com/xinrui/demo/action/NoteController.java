@@ -17,7 +17,9 @@ import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.CheckUtil;
+import com.xinrui.demo.util.ModelConfig;
 import com.xinrui.demo.util.Nclass;
+import com.xinrui.demo.util.PythonUtil;
 import com.xinrui.demo.util.StringUtil;
 
 @Controller
@@ -106,6 +108,15 @@ public class NoteController {
 		noteService.update(noteParam.transformModel());
 		return baseResultModel;
 	}
-	
+
+	@RequestMapping(value = "/initmodel")
+	@ResponseBody
+	public BaseResultModel initModel(String clzss, String label) {
+		CheckUtil.checkBlank(clzss, "类别不能为空");
+		CheckUtil.checkBlank(label, "标签不能为空");
+//		PythonUtil.winProcess(ModelConfig.BAIKE_SPIDER_PY, clzss);
+		BaseResultModel baseResultModel = new BaseResultModel();
+		return baseResultModel;
+	}
 
 }
