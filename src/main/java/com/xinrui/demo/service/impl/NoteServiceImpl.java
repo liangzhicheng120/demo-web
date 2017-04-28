@@ -13,7 +13,7 @@ import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.dao.NoteDao;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.Constants;
-import com.xinrui.demo.util.SqlUtils;
+import com.xinrui.demo.util.sql.SqlUtils;
 import com.xinrui.demo.util.web.SessionUtil;
 
 @Service

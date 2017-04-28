@@ -1,4 +1,4 @@
-package com.xinrui.demo.util;
+package com.xinrui.demo.util.sql;
 
 import org.apache.commons.lang.StringUtils;
 
