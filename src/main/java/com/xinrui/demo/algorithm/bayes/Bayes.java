@@ -15,10 +15,10 @@ import org.apache.log4j.Logger;
 
 import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.exception.CalException;
+import com.xinrui.demo.python.ModelConfig;
 import com.xinrui.demo.util.CodeConstants;
 import com.xinrui.demo.util.EncryptUtil;
 import com.xinrui.demo.util.MathUtil;
-import com.xinrui.demo.util.ModelConfig;
 
 /**
  * 贝叶斯计算器主体类

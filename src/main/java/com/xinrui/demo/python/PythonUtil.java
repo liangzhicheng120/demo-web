@@ -1,4 +1,4 @@
-package com.xinrui.demo.util;
+package com.xinrui.demo.python;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import org.apache.log4j.Logger;
 
 import com.xinrui.demo.exception.CalException;
+import com.xinrui.demo.util.CodeConstants;
+import com.xinrui.demo.util.OSInfoUtil;
+import com.xinrui.demo.util.StringUtil;
 
 /**
  * python处理工具

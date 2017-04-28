@@ -1,8 +1,8 @@
 package test;
 
+import com.xinrui.demo.python.ModelConfig;
+import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.util.EncryptUtil;
-import com.xinrui.demo.util.ModelConfig;
-import com.xinrui.demo.util.PythonUtil;
 
 public class TestPython {
 
