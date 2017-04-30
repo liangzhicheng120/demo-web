@@ -18,45 +18,21 @@ public class PythonConfig {
 	 * python 安装包存放位置
 	 */
 	public static String ROOT = "E:/webworkspace/demo-ml/python/";
-
-	public static String ML = "Lib/site-packages/ml/";
-	// /**
-	// * 贝叶斯模型存放位置
-	// */
-	// public static String BAYES_MODEL_FILES =
-	// "Lib/site-packages/ml/bayes/model/";
-	// /**
-	// * 贝叶斯训练集存放位置
-	// */
-	// public static String BAYES_TRAIN_FILES =
-	// "Lib/site-packages/ml/bayes/files/";
-	// /**
-	// * 百度百科爬虫py存放位置
-	// */
-	// public static String BAIKE_SPIDER_PY =
-	// "Lib/site-packages/ml/baike/spider.py";
-	// /**
-	// * 贝叶斯py存放位置
-	// */
-	// public static String BAYES_BAYES_PY =
-	// "Lib/site-packages/ml/bayes/bayes.py";
+	/**
+	 * python 工程存放位置
+	 */
+	public static String PROJECT = "E:/webworkspace/demo-ml/python/Lib/site-packages";
 
 	static {
-		Properties p = new Properties();
 		try {
 			ClassLoader loader = Thread.currentThread().getContextClassLoader();
-			if (loader == null) {
-				loader = PythonConfig.class.getClassLoader();
-			}
+			loader = (loader == null) ? PythonConfig.class.getClassLoader() : loader;
+			Properties p = new Properties();
 			p.load(new InputStreamReader(PYTHON_PROPERTIES_PATH == null ? loader.getResourceAsStream("python.properties") : new FileInputStream(PYTHON_PROPERTIES_PATH), "UTF-8"));
-			String root = p.getProperty("root", "").replaceAll("\\\\", "/");
-			if (!root.endsWith("/")) {
-				root += "/";
-			}
-			ML = root + p.getProperty("ml", ML);
+			ROOT = p.getProperty("root", ROOT);
+			PROJECT = p.getProperty("project", PROJECT);
 		} catch (Exception e) {
 			logger.error("模型属性配置文件读取错误:[" + e + "]");
 		}
-
 	}
 }

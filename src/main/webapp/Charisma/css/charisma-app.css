@@ -287,7 +287,7 @@ ul.dashboard-list li a span {
 
 .thumbnails>li {
 	display: inline-block;
-	margin-left: 15px;
+/* 	margin-left: 15px; */
 }
 
 .thumbnail img, .thumbnail>a {
@@ -296,6 +296,7 @@ ul.dashboard-list li a span {
 	width: 100px;
 	position: relative;
 	display: block;
+	cursor: pointer;
 }
 
 img.grayscale {

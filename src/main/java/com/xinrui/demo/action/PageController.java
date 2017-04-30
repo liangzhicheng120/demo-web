@@ -43,10 +43,14 @@ public class PageController {
 	public String note() {
 		return "main/note";
 	}
-	
-	@RequestMapping(value="/learn")
-	public String learn(){
+
+	@RequestMapping(value = "/learn")
+	public String learn() {
 		return "main/learn";
 	}
-	
+
+	@RequestMapping(value = "/gallery")
+	public String gallery() {
+		return "main/gallery";
+	}
 }

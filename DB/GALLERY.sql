@@ -1,0 +1,8 @@
+CREATE TABLE `demo_web`.`gallery` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `clzss` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL COMMENT '类别',
+  `label` VARCHAR(500) CHARACTER SET 'utf8' NOT NULL COMMENT '标签',
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;

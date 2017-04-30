@@ -19,6 +19,7 @@ import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.StringUtil;
+import com.xinrui.demo.util.encrypt.EncryptUtil;
 import com.xinrui.demo.util.web.CheckUtil;
 import com.xinrui.demo.util.web.Nclass;
 
@@ -109,12 +110,12 @@ public class NoteController {
 		return baseResultModel;
 	}
 
-	@RequestMapping(value = "/initmodel")
+	@RequestMapping(value = "/init")
 	@ResponseBody
-	public BaseResultModel initModel(String clzss, String label) {
+	public BaseResultModel init(String clzss, String label) throws Exception {
 		CheckUtil.checkBlank(clzss, "类别不能为空");
 		CheckUtil.checkBlank(label, "标签不能为空");
-		PythonUtil.Process(PyConstants.ml.SPIDER_PY, clzss);
+		PythonUtil.Process(PyConstants.ml.BAIKE_PY, clzss, label, EncryptUtil.HMACMD5(clzss));
 		BaseResultModel baseResultModel = new BaseResultModel();
 		return baseResultModel;
 	}

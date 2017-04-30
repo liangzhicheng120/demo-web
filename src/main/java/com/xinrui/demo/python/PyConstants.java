@@ -8,23 +8,23 @@ public class PyConstants {
 		/**
 		 * ml project path
 		 */
-		public static final String ML_PROJECT = PythonConfig.ML;
+		public static final String ML_PROJECT = PythonConfig.PROJECT + "/ml";
 		/**
-		 * spider.py 百度百科爬虫
+		 * baike.py 百度百科爬虫 [ clzss,label,mid]=[类别,标签,标识]
 		 */
-		public static final String SPIDER_PY = ML_PROJECT + "baike/spider.py";
+		public static final String BAIKE_PY = ML_PROJECT + "/baike/baike.py";
 		/**
-		 * bayes.py 创建贝叶斯模型
+		 * bayes.py 创建贝叶斯模型[mid]=[标识]
 		 */
-		public static final String BAYES_PY = ML_PROJECT + "bayes/bayes.py";
+		public static final String BAYES_PY = ML_PROJECT + "/bayes/bayes.py";
 		/**
 		 * bayes model 贝叶斯模型文件
 		 */
-		public static final String BAYES_MODEL = ML_PROJECT + "bayes/model/";
+		public static final String BAYES_MODEL = ML_PROJECT + "/model/";
 		/**
 		 * bayes train set 贝叶斯训练集文件
 		 */
-		public static final String BAYES_TRAIN = ML_PROJECT + "bayes/files/";
+		public static final String BAYES_TRAIN = ML_PROJECT + "/train/";
 	}
 
 }

@@ -4961,7 +4961,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
 	margin-bottom: 20px;
 	line-height: 1.42857143;
 	background-color: #fcfcfc;
-	border: 1px solid #dddddd;
+/* 	border: 1px solid #dddddd; */
 	border-radius: 4px;
 	-webkit-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;

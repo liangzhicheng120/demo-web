@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import org.apache.log4j.Logger;
+import org.python.core.PyException;
 
 import com.xinrui.demo.exception.CalException;
 import com.xinrui.demo.util.StringUtil;
@@ -21,7 +22,11 @@ public class PythonUtil {
 	private static Logger logger = Logger.getLogger(PythonUtil.class);
 
 	private static String command = "command";
-
+	/**
+	 * python 执行器
+	 * @param pyclass [python执行类]
+	 * @param args [参数]
+	 */
 	public static void Process(String pyclass, String... args) {
 		if (OSInfoUtil.isWindows()) {
 			command = String.format("%spython.exe %s%s", PythonConfig.ROOT, pyclass, StringUtil.argsToString(args));
@@ -34,7 +39,10 @@ public class PythonUtil {
 		}
 		Process(command);
 	}
-
+	/**
+	 * 
+	 * @param command [cmd执行命令]
+	 */
 	public static void Process(String command) {
 		try {
 			logger.info(String.format("[command] %s", command));
@@ -44,10 +52,11 @@ public class PythonUtil {
 			if (head != null) {
 				logger.error(String.format("[process] %s", head));
 				error.lines().forEach(e -> logger.error(e));
-				throw new CalException(CodeConstants.PYTHON_CLASS_ERROR, "[ Python ProgrammingError ]");
+				throw new PyException();
 			}
 		} catch (Exception e) {
 			logger.error(String.format("[process] %s", e));
+			throw new CalException(CodeConstants.PYTHON_CLASS_ERROR, "[ Python ProgrammingError ]");
 		}
 	}
 
