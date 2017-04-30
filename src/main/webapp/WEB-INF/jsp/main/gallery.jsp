@@ -125,7 +125,7 @@
 					}
 				});
 				var li_foot = gallery.html
-						.li('<a id="createBtn" style="text-align: center;"><img src="./Charisma/images/0.png" style="display: block;">【添加】<br>添加新类别</a>');
+						.li('<a id="createBtn" style="text-align: center;text-decoration:none"><img src="./Charisma/images/0.png" style="display: block;">【添加】<br>添加新类别</a>');
 				var ul = gallery.html.ul(li_body + li_foot);
 				var content = gallery.html.content(ul);
 				$('#content').html(content);
@@ -138,7 +138,7 @@
 					return '<li class="thumbnail" style="float:left;list-style:none">{0}</li>'.format(args);
 				},
 				a : function() {
-					return '<a style="text-align: center;" data-toggle="tooltip" data-placement="bottom" title="{4}" href="javascript:intoNote({1})"><img src="./Charisma/images/{0}.png" style="display: block;">【{2}】<br>{3}</a>';
+					return '<a style="text-align: center;text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="{4}" href="javascript:intoNote({1})"><img src="./Charisma/images/{0}.png" style="display: block;">【{2}】<br>{3}</a>';
 				},
 				content : function(args) {
 					var result = '<div class="box col-md-12">';
