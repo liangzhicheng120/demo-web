@@ -258,6 +258,9 @@ var common = {
 		result += '</table>';
 		return result;
 	},
+	modal : function(id) {
+		$(id).modal({backdrop : 'static',keyboard : false,show : true,});
+	},
 };
 /**
  * String.format方法
