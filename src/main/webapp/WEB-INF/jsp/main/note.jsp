@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE HTML>
 <html lang="zh-CN">
@@ -32,6 +34,7 @@
 <link href='<%=basePath%>Charisma/css/mystyle.css' rel="stylesheet">
 <link href='<%=basePath%>Charisma/css/animate.min.css' rel="stylesheet">
 <link href='<%=basePath%>AdminEx/css/datepicker-custom.css' rel="stylesheet">
+<link href="<%=basePath%>Charisma/jquery-tag/tag-basic-style.css" rel="stylesheet">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -41,20 +44,21 @@
 <body>
 	<%@include file="../main/dialog.jsp"%>
 	<%@include file="../main/navbar.jsp"%>
+	<input type="text" hidden="hidden" id="currentPage" value="">
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
-			<div id="content" class="col-lg-10 col-sm-10">
+			<div id="ch-content" class="col-lg-10 col-sm-10">
 				<div class="row">
 					<div class="box col-md-12">
 						<div class="box-inner">
-							<div class="box-header well" data-original-title="">
+							<div class="box-header well">
 								<h2>
-									<i class="glyphicon glyphicon-user"></i> 笔记管理系统
+									<i class="glyphicon glyphicon-user"></i> ${sessionScope.CLZSS }笔记管理
 								</h2>
 								<div class="box-icon">
 									<h2>
-										<a href="note.html" style="color: #333; margin-top: 4px;"><i class="glyphicon glyphicon-refresh"></i></a>
+										<a href="gallery" style="color: #333; margin-top: 4px;"><i class="glyphicon glyphicon-arrow-left"></i></a>
 									</h2>
 								</div>
 							</div>
@@ -62,32 +66,28 @@
 								<div class="row" style="margin-bottom: 10px; margin-left: -10px;">
 									<div class="col-md-2">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <select size="1" class="form-control" id="nclass"
-												onchange="note.notechangeNcalss()">
-												<option value=" ">---请选择---</option>
+											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <select size="1" class="form-control" id="label" onchange="note.notechangelabel()">
+												<option value=" ">---全部---</option>
 											</select>
 										</div>
 									</div>
 									<div class="col-md-5">
 										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> <input class="default-date-picker form-control"
-												type="text" value="" id="start"> <span class="input-group-addon">TO</span> <input id="end"
-												class="default-date-picker form-control" type="text" value=""> <span class="input-group-addon" id="searchDateBtn"> <i
-												class="glyphicon glyphicon-search"></i>
+											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> <input class="default-date-picker form-control" type="text" value="" id="start">
+											<span class="input-group-addon">TO</span> <input id="end" class="default-date-picker form-control" type="text" value=""> <span class="input-group-addon"
+												id="searchDateBtn"> <i class="glyphicon glyphicon-search"></i>
 											</span>
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="input-group input-group-sm">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <input type="text" class="form-control" placeholder="搜索关键词"
-												aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"> <i
-												class="glyphicon glyphicon-search"></i></span>
+												aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
-										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm"
-											data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a> <a class="btn btn-success btn-sm" data-toggle="modal"
-											id="noteDownloadBtn" data-backdrop="static">下载</a>
+										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm" data-toggle="modal"
+											data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a> <a class="btn btn-success btn-sm" data-toggle="modal" id="noteDownloadBtn" data-backdrop="static">下载</a>
 									</div>
 								</div>
 								<table class="table table-striped table-bordered responsive">
@@ -108,7 +108,6 @@
 			</div>
 		</div>
 	</div>
-	<input type="text" hidden="hidden" id="currentPage" value="">
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
@@ -116,7 +115,6 @@
 	<script src="<%=basePath%>Charisma/js/fullcalendar.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.dataTables.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/chosen.jquery.min.js"></script>
-	<script src="<%=basePath%>Charisma/js/jquery.colorbox-min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.noty.js"></script>
 	<script src="<%=basePath%>Charisma/js/responsive-tables.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.dataTables.min.js"></script>
@@ -136,6 +134,7 @@
 	<script src="<%=basePath%>Charisma/js/validate.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
 	<script src="<%=basePath%>AdminEx/js/bootstrap-datepicker.js"></script>
+	<script src="<%=basePath%>Charisma/jquery-tag/tagging.js"></script>
 	<script>
 		$(function() {
 			note.init();

@@ -3,7 +3,7 @@ var note = {
 		list : 'note/list',
 		del : 'note/delete',
 		batchdelete : 'note/batchdelete',
-		getnclass : 'note/getnclass',
+		getlabel : 'note/getlabel',
 		get : 'note/get',
 		update : 'note/update'
 	},
@@ -21,15 +21,15 @@ var note = {
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
-		head : new Array('标题', '内容', '关键词', '类型', '修改时间'),
-		body : new Array('title', 'content', 'keyword', 'nclass', 'posttime'),
+		head : new Array('标题', '内容', '关键词', '标签', '修改时间'),
+		body : new Array('title', 'content', 'keyword', 'label', 'posttime'),
 		page : 'javascript:note.changeCurrentPage'
 	},
 	param : function() {
 		return {
 			currentPage : $('#currentPage').val(),
 			keyword : $('#keyword').val().trim(),
-			nclass : $('#nclass').val(),
+			label : $('#label').val(),
 			start : $('#start').val().trim(),
 			end : $('#end').val().trim(),
 		}
@@ -38,9 +38,7 @@ var note = {
 		common.markuptable(note.url.list, param, note.notemarkupthead(), note.notemarkuptbody(), note.table.page);
 	},
 	notemarkupthead : function() {
-		var before = '<input type="checkbox" onclick="common.checkall()">';
-		var after = '操作';
-		return common.markupthead(note.table.head, before, after);
+		return common.markupthead(note.table.head, '<input type="checkbox" onclick="common.checkall()">', '操作');
 	},
 	notemarkuptbody : function() {
 		var before = '<input type="checkbox" name="checkbox_id" value="\${id}">';
@@ -52,15 +50,15 @@ var note = {
 		note.notemarkuptable({
 			currentPage : currentPage,
 			keyword : $('#keyword').val(),
-			nclass : $('#nclass').val(),
+			label : $('#label').val(),
 			start : $('#start').val().trim(),
 			end : $('#end').val().trim(),
 		});
 	},
 	notemarkuptoption : function() {
-		common.markupoption(note.url.getnclass, '#nclass', '全部');
+		common.markupoption(note.url.getlabel, '#label', '全部');
 	},
-	notechangeNcalss : function() {
+	notechangelabel : function() {
 		note.notemarkuptable(note.param());
 	},
 	notemarkupnoteedit : function() {
@@ -68,11 +66,9 @@ var note = {
 			$('#noteEditDia').modal({
 				backdrop : 'static',
 				keyboard : false,
-				show : true,
+				show : true
 			});
-			$('#content').trumbowyg({
-				lang : 'zh_cn',
-			});
+			common.trumbowyg('#content');
 		});
 	},
 	notemarkupsearchbtn : function() {
@@ -123,25 +119,19 @@ var note = {
 		});
 	},
 	notemarkupinitupdateformbtn : function(id) {
-		$('#noteUpdateDia').modal({
-			backdrop : 'static',
-			keyboard : false,
-			show : true,
-		});
+		common.modal('#noteUpdateDia');
 		common.doAjaxWithNotAsync(note.url.get, {
 			id : id
 		}, function(data) {
 			$('#update-title').val(data.value.title);
-			$('#update-content').trumbowyg({
-				lang : 'zh_cn',
-			});
+			common.trumbowyg('#update-content');
 			$('#update-content').html(data.value.content);
 			var keys = data.value.keyword.split(",");
 			for (var i = 0; i < keys.length; i++) {
 				$('#key' + i).val(keys[i].trim());
 			}
-			common.markupoption(note.url.getnclass, '#update-option', null);
-			$('#update-option').val(data.value.nclass);
+			common.markupoption(note.url.getlabel, '#update-option', null);
+			$('#update-option').val(data.value.label);
 			$('#noteId').val(data.value.id)
 		});
 	},
@@ -165,7 +155,7 @@ var note = {
 				title : $('#update-title').val(),
 				content : document.getElementById('update-content').innerHTML,
 				keyword : $('#key0').val() + note.isNotEmpty('#key1') + note.isNotEmpty('#key2'),
-				nclass : $('#update-option').val()
+				label : $('#update-option').val()
 			}, '#noteUpdateDia', function(data) {
 				note.notemarkuptable(note.param());
 			});

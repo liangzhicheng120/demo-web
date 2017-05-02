@@ -26,7 +26,9 @@ public class NoteParam {
 
 	private int aid;
 
-	private String nclass;
+	private String clzss;
+
+	private String label;
 
 	public String getKeyword() {
 		return keyword;
@@ -76,26 +78,33 @@ public class NoteParam {
 		this.title = title;
 	}
 
-	public String getNclass() {
-		return nclass;
+	public String getClzss() {
+		return clzss;
 	}
 
-	public void setNclass(String nclass) {
-		this.nclass = nclass;
+	public void setClzss(String clzss) {
+		this.clzss = clzss;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 	public Note transformModel() throws Exception {
 		Note note = new Note();
 		note.setId(this.getId());
 		note.setContent(this.getContent());
-		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(),
-				HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 3).toString().replace("[", "").replace("]", "")));
-		note.setNclass((String) ObjectUtils.defaultIfNull(this.getNclass(),
-				Bayes.predictClassify(Bayes.read("新闻"), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15))));
+		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(), HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 3).toString().replace("[", "").replace("]", "")));
+		String label = Bayes.predictClassify(Bayes.read(SessionUtil.getAttribute(Constants.CLZSS)), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15));
+		note.setLabel(((String) ObjectUtils.defaultIfNull(this.getLabel(), label)));
 		note.setTitle(this.getTitle());
 		note.setAid(Integer.valueOf(SessionUtil.getAttribute(Constants.AID)));
 		note.setPosttime(this.getPosttime());
+		note.setClzss(SessionUtil.getAttribute(Constants.CLZSS));
 		return note;
 	}
-
 }

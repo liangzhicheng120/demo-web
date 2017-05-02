@@ -8,48 +8,55 @@ var gallery = {
 		gallery.createBtn(); // 注册创建模态框事件
 		gallery.taggingBtn(); // 注册标签按钮事件
 	},
-	params : function() {
-		return '';
-	},
 	initView : function() {
 		var li_body = '';
 		common.doAjaxWithNotAsync(gallery.url.list, {}, function(result) {
 			var data = result.value.data;
-			for ( var i in data) {
-				li_body += gallery.html.li(gallery.html.a().format(i % 6, data[i]['clzss'], data[i]['clzss'], data[i]['label'], data[i]['label']));
+			for (var i in data) {
+				li_body += gallery.html.li(i % 6, data[i]['clzss'], data[i]['label']);
 			}
 		});
-		var li_foot = gallery.html
-				.li('<a id="createBtn" style="text-align: center;text-decoration:none"><img src="./Charisma/images/0.png" style="display: block;">【添加】<br>添加新类别</a>');
-		$('#content').html(gallery.html.content(gallery.html.ul(li_body + li_foot)));
+		$('#ch-content').html(gallery.html.content(li_body));
 	},
 	html : {
-		ul : function(li) {
-			return '<ul class="thumbnails">{0}</ul>'.format(li)
-		},
-		li : function(args) {
-			return '<li class="thumbnail" style="float:left;list-style:none">{0}</li>'.format(args);
-		},
-		a : function() {
-			return '<a style="text-align: center;text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="{4}" href="javascript:intoNote({1})"><img src="./Charisma/images/{0}.png" style="display: block;">【{2}】<br>{3}</a>';
+		li : function(img,clzss,label) {
+			var tmpl = 
+				`<li class="thumbnail" style="float: left; list-style: none">
+				    <a style="text-align: center;text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="${label}" href="note?clzss=${clzss}&label=${label}">
+				        <img src="./Charisma/images/${img}.png" style="display: block;">【${clzss}】<br>${label}
+				    </a>
+				</li>`;
+			return tmpl;
 		},
 		content : function(args) {
-			var result = '<div class="box col-md-12">';
-			/* result+='<div class="box-inner">' */
-			result += '<div class="box-header well">'
-			result += '<h2>'
-			result += '<i class="glyphicon glyphicon-user"></i> 笔记管理系统'
-			result += '</h2>'
-			result += '<div class="box-icon">'
-			result += '<h2>'
-			result += '<a href="gallery" style="color: #333; margin-top: 4px;"><i class="glyphicon glyphicon-refresh"></i></a>'
-			result += '</h2>'
-			result += '</div>'
-			result += '</div>'
-			result += '<div class="box-content">{0}</div>'
-			result += '</div>'
-			/* result += '</div>' */
-			return result.format(args);
+			var tmpl = 
+				`<div class="row">
+					<div class="box col-md-12">
+						<div class="box-inner">
+							<div class="box-header well">
+								<h2>
+									<i class="glyphicon glyphicon-user"></i> 笔记管理系统
+								</h2>
+								<div class="box-icon">
+									<h2>
+										<a href="gallery" style="color: #333; margin-top: 4px;"><i class="glyphicon glyphicon-refresh"></i></a>
+									</h2>
+								</div>
+							</div>
+							<div class="box-content" style="height: 565px;">
+								<ul class="thumbnails">
+									${args}
+								    <li class="thumbnail" style="float: left; list-style: none">
+								        <a id="createBtn" style="text-align: center; text-decoration: none">
+								            <img src="./Charisma/images/0.png" style="display: block;">【添加】<br>添加新类别
+								        </a>
+								    </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>`
+			return tmpl;
 		},
 	},
 	taggingBtn : function() {

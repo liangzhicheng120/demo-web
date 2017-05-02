@@ -7,7 +7,7 @@
 		<a class="navbar-brand" href="index"> <img alt="Charisma Logo" src="./Charisma/images/logo20.png" class="hidden-xs" /> <span>DEMOWEB</span></a>
 		<div class="btn-group pull-right">
 			<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-				<i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> ${sessionScope.ADMIN }</span> <span class="caret"></span>
+				<i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> ${sessionScope.NAME }</span> <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu">
 				<li><a href="exit">安全退出</a></li>

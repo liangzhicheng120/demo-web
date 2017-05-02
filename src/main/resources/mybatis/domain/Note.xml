@@ -10,16 +10,17 @@
 		KEYWORD,
 		POSTTIME,
 		TITLE,
-		NCLASS
+		CLZSS,
+		LABEL
 		FROM
 		note
 		<where>
-			AID = (SELECT ID FROM admin WHERE NAME = #{name})
+			AID = #{aid} AND ClZSS = #{clzss}
+			<if test="label != null and !&quot;&quot;.equals(label.trim())">
+				AND LABEL = #{label}
+			</if>
 			<if test="keyword != null and !&quot;&quot;.equals(keyword.trim())">
 				AND KEYWORD LIKE CONCAT('%', #{keyword}, '%')
-			</if>
-			<if test="nclass != null and !&quot;&quot;.equals(nclass.trim())">
-				AND NCLASS LIKE CONCAT('%', #{nclass}, '%')
 			</if>
 			<if test="start != null and !&quot;&quot;.equals(start.trim()) and end != null and !&quot;&quot;.equals(end.trim())">
 				AND POSTTIME BETWEEN #{start} AND DATE_ADD(#{end} , INTERVAL 1 day)
@@ -58,7 +59,8 @@
 		POSTTIME,
 		AID,
 		TITLE,
-		NCLASS
+		CLZSS,
+		LABEL
 		)
 		VALUES
 		(
@@ -67,7 +69,8 @@
 		now(),
 		#{aid},
 		#{title},
-		#{nclass}
+		#{clzss},
+		#{label}
 		)
 	</insert>
 
@@ -77,7 +80,7 @@
 		CONTENT,
 		KEYWORD,
 		TITLE,
-		NCLASS
+		LABEL
 		FROM
 		note
 		WHERE
@@ -90,8 +93,8 @@
 		SET
 		TITLE = #{title},
 		KEYWORD = #{keyword},
-		NCLASS = #{nclass},
-		CONTENT	= #{content},
+		LABEL = #{label},
+		CONTENT = #{content},
 		POSTTIME = NOW()
 		WHERE
 		ID = #{id}

@@ -56,7 +56,7 @@ public class LoginController {
 			baseResultModel.setMessage("密码错误");
 			return baseResultModel;
 		}
-		session.setAttribute(Constants.ADMIN, username);
+		session.setAttribute(Constants.NAME, username);
 		session.setAttribute(Constants.AID, String.valueOf(admin.getId()));
 		baseResultModel.setRedirect("index");
 		return baseResultModel;

@@ -165,11 +165,8 @@ var common = {
 	},
 	markupoption : function(url, selectId, other) {
 		common.doAjaxWithNotAsync(url, null, function(data) {
-			var nc = data.value;
-			var content = (other == null) ? '' : '<option value=" ">{0}</option>'.format(other);
-			for (var i = 0; i < nc.length; i++) {
-				content += '<option value="{0}">{1}</option>'.format(nc[i]['desc'], nc[i]['desc'])
-			}
+			var clzss = data.value.label.split(',').map(item=>`<option value="${item}">${item}</option>`).join('\n');
+			var content = (other == null) ? `${clzss}` : `<option value=" ">${other}</option>\n${clzss}`;
 			$(selectId).html(content);
 		});
 	},
@@ -259,8 +256,17 @@ var common = {
 		return result;
 	},
 	modal : function(id) {
-		$(id).modal({backdrop : 'static',keyboard : false,show : true,});
+		$(id).modal({
+			backdrop : 'static',
+			keyboard : false,
+			show : true,
+		});
 	},
+	trumbowyg : function(id) {
+		$(id).trumbowyg({
+			lang : 'zh_cn',
+		});
+	}
 };
 /**
  * String.format方法

@@ -18,10 +18,11 @@ import com.xinrui.demo.bean.vo.NoteVO;
 import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.NoteService;
+import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.StringUtil;
 import com.xinrui.demo.util.encrypt.EncryptUtil;
 import com.xinrui.demo.util.web.CheckUtil;
-import com.xinrui.demo.util.web.Nclass;
+import com.xinrui.demo.util.web.SessionUtil;
 
 @Controller
 @RequestMapping(value = "/note")
@@ -32,11 +33,11 @@ public class NoteController {
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public BaseResultModel list(@RequestParam(required = false) String keyword, @RequestParam(required = false) String nclass, String currentPage,
-			@RequestParam(required = false) String start, @RequestParam(required = false) String end) {
+	public BaseResultModel list(@RequestParam(required = false) String label, @RequestParam(required = false) String keyword, String currentPage, @RequestParam(required = false) String start,
+			@RequestParam(required = false) String end) {
 		BaseResultModel baseResultModel = new BaseResultModel();
 		PageParam pageParam = new PageParam(currentPage);
-		List<Note> notes = noteService.getAllByPage(keyword, nclass, pageParam, start, end);
+		List<Note> notes = noteService.getAllByPage(label, keyword, pageParam, start, end);
 		List<NoteVO> noteVOs = new ArrayList<NoteVO>();
 		for (Note note : notes) {
 			noteVOs.add(NoteVO.build(note));
@@ -63,21 +64,6 @@ public class NoteController {
 		CheckUtil.checkBlank(ids, "无效的ID");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.batchDelete(StringUtil.fromStringToInteger(ids.split(",")));
-		return baseResultModel;
-	}
-
-	@RequestMapping(value = "/getnclass")
-	@ResponseBody
-	public BaseResultModel getNclass() {
-		BaseResultModel baseResultModel = new BaseResultModel();
-		List<JSONObject> value = new ArrayList<JSONObject>();
-		for (Nclass nc : Nclass.values()) {
-			JSONObject e = new JSONObject();
-			e.put("typeCode", nc.getTypeCode());
-			e.put("desc", nc.getDesc());
-			value.add(e);
-		}
-		baseResultModel.setValue(value);
 		return baseResultModel;
 	}
 
@@ -117,6 +103,16 @@ public class NoteController {
 		CheckUtil.checkBlank(label, "标签不能为空");
 		PythonUtil.Process(PyConstants.ml.BAIKE_PY, clzss, label, EncryptUtil.HMACMD5(clzss));
 		BaseResultModel baseResultModel = new BaseResultModel();
+		return baseResultModel;
+	}
+
+	@RequestMapping(value = "/getlabel")
+	@ResponseBody
+	public BaseResultModel getLabel() {
+		BaseResultModel baseResultModel = new BaseResultModel();
+		JSONObject label = new JSONObject();
+		label.put("label", SessionUtil.getAttribute(Constants.LABEL));
+		baseResultModel.setValue(label);
 		return baseResultModel;
 	}
 

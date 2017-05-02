@@ -108,7 +108,6 @@
 	<script src="<%=basePath%>Charisma/js/moment.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/fullcalendar.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/chosen.jquery.min.js"></script>
-	<script src="<%=basePath%>Charisma/js/jquery.colorbox-min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.noty.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap-tour.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.raty.min.js"></script>

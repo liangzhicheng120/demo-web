@@ -32,7 +32,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		}
 		flag = is_include(excludeUrl, url);
 		if (!flag) {
-			String admin = (String) request.getSession().getAttribute(Constants.ADMIN);
+			String admin = (String) request.getSession().getAttribute(Constants.NAME);
 			if (admin != null) {
 				flag = true;
 			} else {

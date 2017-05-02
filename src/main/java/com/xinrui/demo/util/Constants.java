@@ -12,9 +12,17 @@ public class Constants {
 	/**
 	 * session保存值
 	 */
-	public static final String ADMIN = "ADMIN";
+	public static final String NAME = "NAME";
+	/**
+	 * session保存值
+	 */
+	public static final String CLZSS = "CLZSS";
 	/**
 	 * session保存值
 	 */
 	public static final String AID = "AID";
+	/**
+	 * session保存值
+	 */
+	public static final String LABEL = "LABEL";
 }

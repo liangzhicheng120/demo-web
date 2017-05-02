@@ -17,4 +17,9 @@ public class SessionUtil {
 		String attribute = (String) request.getSession().getAttribute(name);
 		return attribute;
 	}
+
+	public static void setAttribute(String key, String value) {
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		request.setAttribute(key, value);
+	}
 }

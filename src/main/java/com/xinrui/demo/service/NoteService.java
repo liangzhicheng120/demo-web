@@ -7,7 +7,7 @@ import com.xinrui.demo.bean.param.PageParam;
 
 public interface NoteService {
 
-	public List<Note> getAllByPage(String keyword, String nclass, PageParam pageParam, String start, String end);
+	public List<Note> getAllByPage(String label, String keyword, PageParam pageParam, String start, String end);
 
 	public void delete(int id);
 

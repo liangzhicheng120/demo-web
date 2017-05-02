@@ -16,7 +16,9 @@ public class Note {
 
 	private int aid;
 
-	private String nclass;
+	private String clzss;
+
+	private String label;
 
 	public int getId() {
 		return id;
@@ -66,12 +68,20 @@ public class Note {
 		this.title = title;
 	}
 
-	public String getNclass() {
-		return nclass;
+	public String getClzss() {
+		return clzss;
 	}
 
-	public void setNclass(String nclass) {
-		this.nclass = nclass;
+	public void setClzss(String clzss) {
+		this.clzss = clzss;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 }

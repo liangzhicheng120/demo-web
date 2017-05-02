@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.bean.Note;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.dao.NoteDao;
@@ -25,7 +24,7 @@ public class NoteDaoTest {
 	public void testGetAllByPage() {
 		Map<String, Object> param = new HashMap<String, Object>();
 		PageParam pageParam = new PageParam("1");
-		param.put("keyword", "Ïê½â");
+		param.put("keyword", "ï¿½ï¿½ï¿½");
 		param.put("pageParam", pageParam);
 		param.put("start", "2017-03-01");
 		param.put("end", "2017-03-02");
@@ -44,32 +43,10 @@ public class NoteDaoTest {
 	}
 
 	@Test
-	public void testSave() {
-		Note note = new Note();
-		note.setAid(1);
-		note.setContent("ÕâĞ©Çé¿öÏÂ£¬¶¯Ì¬ÇëÇó·µ»ØµÄÊı¾İÒ»°ã²»ÊÇÒÑÆ´ºÃµÄ HTML ¾ÍÊÇ JSON");
-		List<String> keywords = HanLP.extractKeyword("ÕâĞ©Çé¿öÏÂ£¬¶¯Ì¬ÇëÇó·µ»ØµÄÊı¾İÒ»°ã²»ÊÇÒÑÆ´ºÃµÄ HTML ¾ÍÊÇ JSON", 3);
-		note.setKeyword(keywords.toString().replace("[", "").replace("]", ""));
-		note.setTitle("json");
-		note.setNclass("IT");
-		noteDao.save(note);
-	}
-
-	@Test
 	public void testGet() {
 		int id = 0;
 		Note note = noteDao.get(id);
 		System.out.println(note.getContent());
 	}
-	
-	@Test
-	public void testUpdate(){
-		Note note = new Note();
-		note.setId(164);
-		note.setContent("ÁúÖé³¬");
-		note.setKeyword("ÁúÖé");
-		note.setTitle("ÁúÖé");
-		note.setNclass("IT");
-		noteDao.update(note);
-	}
+
 }

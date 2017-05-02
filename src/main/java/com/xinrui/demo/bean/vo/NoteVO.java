@@ -19,7 +19,9 @@ public class NoteVO {
 
 	private int aid;
 
-	private String nclass;
+	private String clzss;
+
+	private String label;
 
 	public int getId() {
 		return id;
@@ -69,12 +71,20 @@ public class NoteVO {
 		this.title = title;
 	}
 
-	public String getNclass() {
-		return nclass;
+	public String getClzss() {
+		return clzss;
 	}
 
-	public void setNclass(String nclass) {
-		this.nclass = nclass;
+	public void setClzss(String clzss) {
+		this.clzss = clzss;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 	public static NoteVO build(Note note) {
@@ -85,7 +95,8 @@ public class NoteVO {
 		noteVO.setId(note.getId());
 		noteVO.setKeyword(note.getKeyword());
 		noteVO.setPosttime(note.getPosttime());
-		noteVO.setNclass(note.getNclass());
+		noteVO.setClzss(note.getClzss());
+		noteVO.setLabel(note.getLabel());
 		return noteVO;
 	}
 
