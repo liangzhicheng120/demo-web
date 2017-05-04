@@ -60,4 +60,9 @@ public class PageController {
 	public String gallery() {
 		return "main/gallery";
 	}
+
+	@RequestMapping(value = "/baike")
+	public String baike() {
+		return "main/baike";
+	}
 }

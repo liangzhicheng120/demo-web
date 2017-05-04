@@ -7,7 +7,7 @@
 				<li><a class="ajax-link" href="index"><i class="glyphicon glyphicon-home"></i><span> 首页</span></a></li>
 				<li><a class="ajax-link" href="gallery"><i class="glyphicon glyphicon-check"></i><span> 笔记管理 </span></a></li>
 				<li><a class="ajax-link" href="learn"><i class="glyphicon glyphicon-info-sign"></i><span> 学习网站 </span></a></li>
-				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-info-sign"></i><span> information </span></a></li>
+				<li><a class="ajax-link" href="baike"><i class="glyphicon glyphicon-info-sign"></i><span> 百度百科 </span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-phone-alt"></i><span> information</span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-shopping-cart"></i><span> information</span></a></li>
 				<li><a class="ajax-link" href="javascript:void(0)"><i class="glyphicon glyphicon-upload"></i><span> information </span></a></li>

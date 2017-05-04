@@ -137,6 +137,9 @@ var common = {
 	doAjaxSubmitForm : function(formId, modalId, callback) {
 		$(formId).ajaxSubmit({
 			type : 'POST',
+			beforeSend : function(){
+				$('.modal-footer a').attr('disabled','true');
+			},
 			success : function(data) {
 				if (data.code == 200) {
 					callback(data);
@@ -149,6 +152,9 @@ var common = {
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 			},
+			complete : function(){
+				$('.modal-footer a').removeAttr('disabled');
+			}
 		});
 	},
 	/**
@@ -164,6 +170,9 @@ var common = {
 			url : url,
 			data : param,
 			type : 'POST',
+			beforeSend : function(){
+				$('.input-group a').attr('disabled','true'); 
+			},
 			success : function(data) {
 				if (data.code == 200) {
 					callback(data);
@@ -176,6 +185,9 @@ var common = {
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 			},
+			complete : function(){
+				$('.input-group a').removeAttr('disabled');
+			}
 		});
 	},
 	/**
