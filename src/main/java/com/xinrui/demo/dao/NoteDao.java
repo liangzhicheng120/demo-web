@@ -9,7 +9,7 @@ import com.xinrui.demo.bean.Note;
 
 @Repository
 public interface NoteDao {
-	
+
 	public List<Note> getAllByPage(Map<String, Object> parameter);
 
 	public void delete(Note note);
@@ -19,7 +19,9 @@ public interface NoteDao {
 	public void save(Note note);
 
 	public Note get(int id);
-	
+
 	public void update(Note note);
-	
+
+	public void deleteByClzss(String clzss);
+
 }

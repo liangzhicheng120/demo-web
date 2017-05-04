@@ -61,56 +61,56 @@
 		// Default options value
 		defaults : {
 			"case-sensitive" : false, // True to allow differences between
-										// lowercase and uppercase
+			// lowercase and uppercase
 			"close-char" : "&times;", // Single Tag close char
 			"close-class" : "tag-i", // Single Tag close class
 			"edit-on-delete" : true, // True to edit tag that has just been
-										// removed from tag box
+			// removed from tag box
 			"forbidden-chars" : [ ".", "_", "?" ], // Array of forbidden
-													// characters
+			// characters
 			"forbidden-chars-callback" : window.alert, // Function to call when
-														// there is a forbidden
-														// chars
+			// there is a forbidden
+			// chars
 			"forbidden-chars-text" : "Forbidden character:", // Basic text
-																// passed to
-																// forbidden-chars
-																// callback
+			// passed to
+			// forbidden-chars
+			// callback
 			"forbidden-words" : [], // Array of forbidden words
 			"forbidden-words-callback" : window.alert, // Function to call when
-														// there is a forbidden
-														// words
+			// there is a forbidden
+			// words
 			"forbidden-words-text" : "Forbidden word:", // Basic text passed to
-														// forbidden-words
-														// callback
+			// forbidden-words
+			// callback
 			"no-backspace" : false, // Backspace key remove last tag, true to
-									// avoid that
+			// avoid that
 			"no-comma" : false, // Comma "," key add a new tag, true to avoid
-								// that
+			// that
 			"no-del" : false, // Delete key remove last tag, true to avoid
-								// that
+			// that
 			"no-duplicate" : true, // No duplicate in tag box
 			"no-duplicate-callback" : window.alert, // Function to call when
-													// there is a duplicate tag
+			// there is a duplicate tag
 			"no-duplicate-text" : "Duplicate tag:", // Basic text passed to
-													// no-duplicate callback
+			// no-duplicate callback
 			"no-enter" : false, // Enter key add a new tag, true to avoid that
 			"no-spacebar" : false, // Spacebar key add a new tag by default,
-									// true to avoid that
+			// true to avoid that
 			"pre-tags-separator" : ", ", // By default, you must put new tags
-											// using a new line
+			// using a new line
 			"tag-box-class" : "tagging", // Class of the tag box
 			"tag-box-editable-class" : "editable", // Class of the tag box when
-													// editable, used together
-													// with tags-limit option
-													// for css targeting
+			// editable, used together
+			// with tags-limit option
+			// for css targeting
 			"tag-char" : "#", // Single Tag char
 			"tag-class" : "tag", // Single Tag class
 			"tags-input-name" : "tag", // Name to use as name="" in single tags
-										// (by default tag[])
+			// (by default tag[])
 			"tag-on-blur" : true, // Add the current tag if user clicks away
-									// from type-zone
+			// from type-zone
 			"tags-limit" : 0, // Limit the number of tags that can be added,
-								// zero means no limit
+			// zero means no limit
 			"type-zone-class" : "type-zone" // Class of the type-zone
 		},
 
@@ -531,22 +531,24 @@
 							return self.throwError(callback_f, callback_t, forbidden_chars[l]);
 						}
 					}
+					try {
+						// For in to look in Add Keys
+						for (key in self.keys.add) {
+							// Enter or comma or spacebar if enabled
+							if (pressed_key === self.keys.add[key]) {
 
-					// For in to look in Add Keys
-					for (key in self.keys.add) {
+								if (!self.config["no-" + key]) {
 
-						// Enter or comma or spacebar if enabled
-						if (pressed_key === self.keys.add[key]) {
+									// Prevent Default
+									e.preventDefault();
 
-							if (!self.config["no-" + key]) {
-
-								// Prevent Default
-								e.preventDefault();
-
-								// Adding tag with no text
-								return self.add();
+									// Adding tag with no text
+									return self.add();
+								}
 							}
 						}
+					} catch (e) {
+
 					}
 				}
 
@@ -837,10 +839,12 @@
 				results.push(tagging.$elem);
 
 			} else {
+				try {
+					// Invoke function on existing tags input
+					val = tagging[arg1](arg2);
+				} catch (e) {
 
-				// Invoke function on existing tags input
-				val = tagging[arg1](arg2);
-
+				}
 				if (val /* != null */) {
 					results.push(val);
 				}

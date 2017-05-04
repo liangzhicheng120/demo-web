@@ -79,6 +79,7 @@
 	<script src="<%=basePath%>Charisma/jquery-tag/tagging.js"></script>
 	<script src="<%=basePath%>Charisma/js/gallery.js"></script>
 	<script src="<%=basePath%>Charisma/js/note.js"></script>
+	<script src="<%=basePath%>Charisma/jquery-gallery/jquery.colorbox.js"></script>
 	<script>
 		$(function() {
 			gallery.init();

@@ -136,8 +136,7 @@
 					<input type="text" hidden="hidden" id="noteId">
 					<div class="col-md-3" style="padding-right: 0px; padding-left: 5px;">
 						<div class="input-group input-group-sm">
-							<a class="btn btn-success btn-sm" id="noteUpdateBtn">&nbsp;&nbsp;修改&nbsp;&nbsp;</a>&nbsp; 
-							<a class="btn btn-danger btn-sm" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>&nbsp;
+							<a class="btn btn-success btn-sm" id="noteUpdateBtn">&nbsp;&nbsp;修改&nbsp;&nbsp;</a>&nbsp; <a class="btn btn-danger btn-sm" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</a>&nbsp;
 							<a class="btn btn-success btn-sm" id="noteDownloadBtn">&nbsp;&nbsp;下载&nbsp;&nbsp;</a>
 						</div>
 					</div>
@@ -164,6 +163,7 @@
 			<div class="modal-header" style="padding-bottom: 3px;">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<h4>创建分类</h4>
+				<div class="showloading"></div>
 			</div>
 			<div class="modal-body" style="text-align: center;">
 				<div class="example-wrapper">
@@ -178,7 +178,37 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<a class="btn btn-sm btn-default" id='sumbitBtn'>提交</a> <a class="btn btn-sm btn-default" id='resetBtn'>重置</a>
+				<a class="btn btn-sm btn-default" id="sumbitBtn">提交</a> <a class="btn btn-sm btn-default" id='resetBtn'>重置</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- galleryUpdateDialog -->
+<div class="modal fade" id="galleryUpdateDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="padding-bottom: 3px;">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<h4>修改分类</h4>
+				<div class="showloading"></div>
+			</div>
+			<div class="modal-body" style="text-align: center;">
+				<div class="example-wrapper">
+					<div class="tags well">
+						<label for="tag" class="control-label">类别</label>
+						<div id="update-clzss-tag" data-tags-input-name="taggone" class="form-control"></div>
+						<p class="help-block">按回车，逗号或空格键创建一个新的类别，退格键或删除删除最后一个。</p>
+						<label for="tag" class="control-label">标签</label>
+						<div id="update-label-tag" data-tags-input-name="taggone" class="form-control"></div>
+						<p class="help-block">按回车，逗号或空格键创建一个新的标签，退格键或删除删除最后一个。</p>
+						<label for="tag" class="control-label">新标签</label>
+						<div id="new-label-tag" data-tags-input-name="taggone" class="form-control tagging editable"></div>
+						<p class="help-block">按回车，逗号或空格键创建一个新的标签，退格键或删除删除最后一个。</p>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a class="btn btn-sm btn-default" id='updateBtn'>提交</a> <a class="btn btn-sm btn-default" id='updateResetBtn'>重置</a>
 			</div>
 		</div>
 	</div>

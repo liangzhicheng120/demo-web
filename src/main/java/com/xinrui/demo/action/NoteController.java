@@ -15,12 +15,9 @@ import com.xinrui.demo.bean.base.BaseResultModel;
 import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
-import com.xinrui.demo.python.PyConstants;
-import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.StringUtil;
-import com.xinrui.demo.util.encrypt.EncryptUtil;
 import com.xinrui.demo.util.web.CheckUtil;
 import com.xinrui.demo.util.web.SessionUtil;
 
@@ -93,16 +90,6 @@ public class NoteController {
 		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.update(noteParam.transformModel());
-		return baseResultModel;
-	}
-
-	@RequestMapping(value = "/init")
-	@ResponseBody
-	public BaseResultModel init(String clzss, String label) throws Exception {
-		CheckUtil.checkBlank(clzss, "类别不能为空");
-		CheckUtil.checkBlank(label, "标签不能为空");
-		PythonUtil.Process(PyConstants.ml.BAIKE_PY, clzss, label, EncryptUtil.HMACMD5(clzss));
-		BaseResultModel baseResultModel = new BaseResultModel();
 		return baseResultModel;
 	}
 

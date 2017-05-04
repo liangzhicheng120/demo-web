@@ -18,4 +18,6 @@ public interface NoteService {
 	public Note get(int id);
 
 	public void update(Note note);
+	
+	public void deleteByClzss(String clzss);
 }

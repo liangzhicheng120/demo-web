@@ -62,4 +62,9 @@ public class NoteServiceImpl implements NoteService {
 		noteDao.update(note);
 	}
 
+	@Transactional
+	public void deleteByClzss(String clzss) {
+		noteDao.deleteByClzss(clzss);
+	}
+
 }

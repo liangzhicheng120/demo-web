@@ -57,7 +57,7 @@ var common = {
 	 * @param param
 	 * @param func
 	 */
-	doAjaxWithNotAsync : function(url, param, func) {
+	doAjaxWithNotAsync : function(url, param, func, errc) {
 		$.ajax({
 			url : url,
 			async : false,
@@ -66,14 +66,65 @@ var common = {
 				if (data.code == 200) {
 					func(data);
 				} else {
+					errc();
+					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				errc();
+				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
+			}
+		});
+	},
+	doAsyncAjaxWithBefore : function(url,param,func){
+		$.ajax({
+			url : url,
+			data : param,
+			beforeSend : function(){
+				common.showload(true);
+				$('.modal-footer a').attr('disabled','true');
+			},
+			success : function(data){
+				if (data.code == 200) {
+					$.tooltip('OK, 操作成功！', 2500, true);
+					func(data);
+				} else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
+			},
+			complete : function(){
+				common.showload(false);
+				$('.modal-footer a').removeAttr('disabled');
 			}
 		});
-
+	},
+	/**
+	 * 异步获取数据
+	 * 
+	 * @param url
+	 * @param param
+	 * @param func
+	 */
+	doAjax : function(url, param, func, errc) {
+		$.ajax({
+			url : url,
+			data : param,
+			success : function(data) {
+				if (data.code == 200) {
+					func(data);
+				} else {
+					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
+					errc();
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				errc();
+				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
+			}
+		});
 	},
 	/**
 	 * ajax提交表单
@@ -85,9 +136,6 @@ var common = {
 	 */
 	doAjaxSubmitForm : function(formId, modalId, callback) {
 		$(formId).ajaxSubmit({
-			secureuri : false,
-			clearForm : true,
-			resetForm : true,
 			type : 'POST',
 			success : function(data) {
 				if (data.code == 200) {
@@ -266,7 +314,14 @@ var common = {
 		$(id).trumbowyg({
 			lang : 'zh_cn',
 		});
-	}
+	},
+	showload:function(flag){
+		if(flag){
+			$(".showloading").html('<div id="load" class="center">Loading...<div class="center"></div></div>');
+		}else{
+			$(".showloading").html('');
+		}
+	},
 };
 /**
  * String.format方法

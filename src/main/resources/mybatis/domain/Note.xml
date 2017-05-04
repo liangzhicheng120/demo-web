@@ -94,10 +94,19 @@
 		TITLE = #{title},
 		KEYWORD = #{keyword},
 		LABEL = #{label},
-		CONTENT = #{content},
+		CONTENT =
+		#{content},
 		POSTTIME = NOW()
 		WHERE
 		ID = #{id}
 	</update>
+
+	<delete id="deleteByClzss">
+		DELETE 
+		FROM 
+		note 
+		WHERE 
+		clzss = #{clzss}
+	</delete>
 
 </mapper>

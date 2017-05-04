@@ -1,6 +1,5 @@
 package com.xinrui.demo.util.code;
 
-
 public class CodeConstants implements BaseCode {
 
 	/**
@@ -31,6 +30,10 @@ public class CodeConstants implements BaseCode {
 	 * 操作系统错误
 	 */
 	public final static int OPERATING_SYSTEM_ERROR = SERVER_ERROR + DS + 7;
+	/**
+	 * 类型已存在
+	 */
+	public final static int CLZSS_IS_EXIST = SERVER_ERROR + DS + 8;
 	/**
 	 * SQL语法错误
 	 */

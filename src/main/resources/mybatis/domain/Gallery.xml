@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinrui.demo.dao.GalleryDao">
+
 	<select id="getAllGallery" resultType="Gallery">
 		SELECT
 		ID,
@@ -10,4 +11,54 @@
 		FROM
 		gallery
 	</select>
+
+	<delete id="delete">
+		DELETE
+		FROM
+		gallery
+		WHERE
+		CLZSS = #{clzss}
+	</delete>
+
+	<select id="get" resultType="Gallery">
+		SELECT
+		ID,
+		CLZSS,
+		LABEL
+		FROM
+		gallery
+		<where>
+			1 = 1
+			<if test="label != null and !&quot;&quot;.equals(label.trim())">
+				AND LABEL LIKE CONCAT('%', #{label}, '%')
+			</if>
+			<if test="clzss != null and !&quot;&quot;.equals(clzss.trim())">
+				AND CLZSS = #{clzss}
+			</if>
+		</where>
+	</select>
+
+	<update id="update" parameterType="Gallery">
+		UPDATE
+		gallery
+		SET
+		LABEL = #{label}
+		WHERE
+		CLZSS = #{clzss}
+	</update>
+
+	<insert id="save">
+		INSERT INTO
+		gallery
+		(
+		CLZSS,
+		LABEL
+		)
+		VALUES
+		(
+		#{clzss},
+		#{label}
+		)
+	</insert>
+
 </mapper>

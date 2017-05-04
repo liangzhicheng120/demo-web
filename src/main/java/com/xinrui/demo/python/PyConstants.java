@@ -18,7 +18,7 @@ public class PyConstants {
 		 */
 		public static final String BAYES_PY = ML_PROJECT + "/bayes/bayes.py";
 		/**
-		 * bayes model 贝叶斯模型文件
+		 * bayes model 贝叶斯模型文件存放位置
 		 */
 		public static final String BAYES_MODEL = ML_PROJECT + "/model/";
 		/**
