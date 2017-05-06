@@ -74,14 +74,15 @@ public class NoteController {
 		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
 		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
-		noteService.save(noteParam.transformModel());
+		Note note = noteParam.transformModel();
+		noteService.save(note);
 		return baseResultModel;
 	}
 
 	@RequestMapping(value = "/get")
 	@ResponseBody
 	public BaseResultModel get(String id) {
-		CheckUtil.checkIsNumeric(id, "id不能为空");
+		CheckUtil.checkIsNumeric(id, "无效的ID");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		baseResultModel.setValue(noteService.get(Integer.valueOf(id)));
 		return baseResultModel;
@@ -103,9 +104,9 @@ public class NoteController {
 	@ResponseBody
 	public BaseResultModel getLabel() {
 		BaseResultModel baseResultModel = new BaseResultModel();
-		JSONObject label = new JSONObject();
-		label.put("label", SessionUtil.getAttribute(Constants.LABEL));
-		baseResultModel.setValue(label);
+		JSONObject value = new JSONObject();
+		value.put("label", SessionUtil.getAttribute(Constants.LABEL));
+		baseResultModel.setValue(value);
 		return baseResultModel;
 	}
 

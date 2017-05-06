@@ -50,7 +50,7 @@
 		)
 	</delete>
 
-	<insert id="save" parameterType="Note">
+	<insert id="save" parameterType="Note" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
 		note
 		(
@@ -110,12 +110,12 @@
 	</delete>
 
 	<select id="countByClzss" resultType="int">
-		SELECT 
-		COUNT(*) 
-		FROM 
-		note 
-		WHERE 
+		SELECT
+		COUNT(*)
+		FROM
+		note
+		WHERE
 		CLZSS = #{clzss}
 	</select>
-	
+
 </mapper>

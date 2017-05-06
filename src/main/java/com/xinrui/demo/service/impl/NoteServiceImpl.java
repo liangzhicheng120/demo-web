@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xinrui.demo.bean.Note;
+import com.xinrui.demo.bean.Recommend;
 import com.xinrui.demo.bean.param.PageParam;
+import com.xinrui.demo.bean.param.RecommendParam;
 import com.xinrui.demo.dao.NoteDao;
+import com.xinrui.demo.dao.RecommendDao;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.sql.SqlUtils;
@@ -21,6 +24,9 @@ public class NoteServiceImpl implements NoteService {
 
 	@Autowired
 	private NoteDao noteDao;
+
+	@Autowired
+	private RecommendDao recommendDao;
 
 	@Transactional
 	public List<Note> getAllByPage(String label, String keyword, PageParam pageParam, String start, String end) {
@@ -38,8 +44,11 @@ public class NoteServiceImpl implements NoteService {
 	@Transactional
 	public void delete(int id) {
 		Note note = new Note();
+		Recommend recommend = new Recommend();
 		note.setId(id);
+		recommend.setNid(id);
 		noteDao.delete(note);
+		recommendDao.delete(recommend);
 	}
 
 	@Transactional
@@ -50,6 +59,7 @@ public class NoteServiceImpl implements NoteService {
 	@Transactional
 	public void save(Note note) {
 		noteDao.save(note);
+		recommendDao.save(RecommendParam.transformModel(note));
 	}
 
 	@Transactional

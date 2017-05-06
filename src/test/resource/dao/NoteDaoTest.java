@@ -49,4 +49,22 @@ public class NoteDaoTest {
 		System.out.println(note.getContent());
 	}
 
+	@Test
+	public void testSave() {
+		String content = "123";
+		String keyword = "123";
+		int aid = 1 ;
+		String title = "123";
+		String label = "123";
+		String clzss = "123";
+		Note note  = new Note();
+		note.setAid(aid);
+		note.setClzss(clzss);
+		note.setContent(content);
+		note.setKeyword(keyword);
+		note.setLabel(label);
+		note.setTitle(title);
+		noteDao.save(note);
+		System.out.println(note.getId());
+	}
 }

@@ -21,7 +21,7 @@ var note = {
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
-		head : new Array('标题', '内容', '关键词', '标签', '修改时间'),
+		head : new Array('标题', '内容', '关键词', '分类', '修改时间'),
 		body : new Array('title', 'content', 'keyword', 'label', 'posttime'),
 		page : 'javascript:note.changeCurrentPage'
 	},
@@ -114,6 +114,7 @@ var note = {
 			validator.start();
 			common.doAjaxSubmitForm('#noteEditFrom', '#noteEditDia', function(data) {
 				$('#content').empty();
+				$('#title').empty();
 				note.notemarkuptable(note.param());
 			});
 		});
