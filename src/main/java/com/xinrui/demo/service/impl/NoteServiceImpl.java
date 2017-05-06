@@ -67,4 +67,11 @@ public class NoteServiceImpl implements NoteService {
 		noteDao.deleteByClzss(clzss);
 	}
 
+	@Transactional
+	public int countByClzss(String clzss) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("clzss", clzss);
+		return noteDao.countByClzss(param);
+	}
+
 }

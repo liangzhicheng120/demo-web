@@ -4,13 +4,22 @@ public class Model {
 
 	private int id;
 
-	private String clazz;
+	private String clzss;
 
 	private String keyword;
 
-	private String newword;
+	private String label;
 
 	private int mid;
+
+	public Model() {
+
+	}
+
+	public Model(String clzss, String label) {
+		this.clzss = clzss;
+		this.label = label;
+	}
 
 	public int getId() {
 		return id;
@@ -18,14 +27,6 @@ public class Model {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getClazz() {
-		return clazz;
-	}
-
-	public void setClazz(String clazz) {
-		this.clazz = clazz;
 	}
 
 	public String getKeyword() {
@@ -36,20 +37,28 @@ public class Model {
 		this.keyword = keyword;
 	}
 
-	public String getNewword() {
-		return newword;
-	}
-
-	public void setNewword(String newword) {
-		this.newword = newword;
-	}
-
 	public int getMid() {
 		return mid;
 	}
 
 	public void setMid(int mid) {
 		this.mid = mid;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public String getClzss() {
+		return clzss;
+	}
+
+	public void setClzss(String clzss) {
+		this.clzss = clzss;
 	}
 
 }

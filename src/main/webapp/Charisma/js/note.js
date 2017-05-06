@@ -155,7 +155,7 @@ var note = {
 				title : $('#update-title').val(),
 				content : document.getElementById('update-content').innerHTML,
 				keyword : $('#key0').val() + note.isNotEmpty('#key1') + note.isNotEmpty('#key2'),
-				label : $('#update-option').val()
+				label : $('#update-option').val(),
 			}, '#noteUpdateDia', function(data) {
 				note.notemarkuptable(note.param());
 			});

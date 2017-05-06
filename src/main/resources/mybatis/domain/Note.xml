@@ -102,11 +102,20 @@
 	</update>
 
 	<delete id="deleteByClzss">
-		DELETE 
-		FROM 
-		note 
-		WHERE 
+		DELETE
+		FROM
+		note
+		WHERE
 		clzss = #{clzss}
 	</delete>
 
+	<select id="countByClzss" resultType="int">
+		SELECT 
+		COUNT(*) 
+		FROM 
+		note 
+		WHERE 
+		CLZSS = #{clzss}
+	</select>
+	
 </mapper>

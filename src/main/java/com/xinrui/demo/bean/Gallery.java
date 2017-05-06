@@ -1,12 +1,14 @@
 package com.xinrui.demo.bean;
 
 public class Gallery {
-	
+
 	private int id;
-	
+
 	private String clzss;
-	
+
 	private String label;
+
+	private int num;
 
 	public int getId() {
 		return id;
@@ -30,6 +32,14 @@ public class Gallery {
 
 	public void setLabel(String label) {
 		this.label = label;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 }

@@ -40,7 +40,7 @@
 		<div class="row">
 			<%@include file="../main/sidebar.jsp"%>
 			<div id="content" class="col-lg-10 col-sm-10">
-				<object id="web" type="text/x-scriptlet" data="http://www.jikexueyuan.com/path/javaweb/" width=100% height=600px></object>
+				<object id="web" type="text/x-scriptlet" data="https://baike.baidu.com/" width=100% height=600px></object>
 			</div>
 		</div>
 	</div>

@@ -35,6 +35,10 @@ public class CodeConstants implements BaseCode {
 	 */
 	public final static int CLZSS_IS_EXIST = SERVER_ERROR + DS + 8;
 	/**
+	 * 推荐程序出错
+	 */
+	public final static int RECOMMENDER_CLASS_ERROR = SERVER_ERROR + DS + 9;
+	/**
 	 * SQL语法错误
 	 */
 	public final static int SQL_SYNTAX_ERROR = SERVER_ERROR + DB + 1;

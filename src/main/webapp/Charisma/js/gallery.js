@@ -18,17 +18,17 @@ var gallery = {
 		common.doAjaxWithNotAsync(gallery.url.list, {}, function(result) {
 			var data = result.value.data;
 			for (var i in data) {
-				li_body += gallery.html.li(i % 6, data[i]['clzss'], data[i]['label']);
+				li_body += gallery.html.li(i % 6, data[i]['clzss'], data[i]['label'],data[i]['num']);
 			}
 		});
 		$('#ch-content').html(gallery.html.content(li_body));
 	},
 	html : {
-		li : function(img,clzss,label) {
+		li : function(img,clzss,label,num) {
 			var tmpl = 
 				`<li class="thumbnail clzss" style="float: left; list-style: none" data-clzss="${clzss}" data-label="${label}">
 				    <a style="text-align: center;text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="${label}" href="note?clzss=${clzss}&label=${label}">
-				        <img src="./Charisma/images/${img}.png" style="display: block;">【${clzss}】<br>${label}
+				    	<img src="./Charisma/images/${img}.png" style="display: block;">【${clzss} 共${num}篇】<br>${label}
 				    </a>
 				</li>`;
 			return tmpl;
@@ -113,6 +113,7 @@ var gallery = {
 	},
 	hoverBtn : function(){
 	    $('ul.gallery li.clzss').hover(function () {
+//	    	if($('ul.gallery li.clzss a').hover(function(){return true})){return false};
 	        $('img', this).fadeToggle(500);
 	        $(this).find('.gallery-controls').remove();
 	        $(this).append('<div class="well gallery-controls">' +
@@ -120,8 +121,9 @@ var gallery = {
 	            '</div>');
 	        $(this).find('.gallery-controls').stop().animate({'margin-top': '-1'}, 400);
 	    }, function () {
+//	    	if($('ul.gallery li.clzss a').hover(function(){return true})){return false};
 	        $('img', this).fadeToggle(500);
-	        $(this).find('.gallery-controls').stop().animate({'margin-top': '-30'}, 200, function () {
+	        $(this).find('.gallery-controls').stop().animate({'margin-top': '-1'}, 200, function () {
 	            $(this).remove();
 	        });
 	    });

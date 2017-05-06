@@ -214,10 +214,10 @@ public class Bayes {
 	 * @return 训练数据集
 	 * @throws Exception
 	 */
-	public static ArrayList<ArrayList<String>> read(String label) throws Exception {
+	public static ArrayList<ArrayList<String>> read(String clzss) throws Exception {
 		ArrayList<String> singleTrainning = null;
 		ArrayList<ArrayList<String>> trainningSet = new ArrayList<ArrayList<String>>();
-		String modelFileName = PyConstants.ml.BAYES_MODEL + EncryptUtil.HMACMD5(label) + ".txt";
+		String modelFileName = PyConstants.ml.BAYES_MODEL + EncryptUtil.HMACMD5(clzss) + ".txt";
 		List<String> datas = new ArrayList<String>(FileUtils.readLines(new File(modelFileName), Charsets.UTF_8));
 		if (datas.size() == 0) {
 			logger.error("[" + "模型文件加载错误" + "]" + modelFileName);

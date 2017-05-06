@@ -51,8 +51,8 @@ public class CheckUtil {
 		}
 	}
 
-	public static void checkIsNumeric(String num, Object... args) {
-		if (!StringUtils.isNumeric(num) || "".equals(num)) {
+	public static void checkIsNumeric(String str, Object... args) {
+		if (!StringUtils.isNumeric(str) || "".equals(str)) {
 			throw new CalException(CodeConstants.PARAMETERS_CHECK_ERROR, args);
 		}
 	}

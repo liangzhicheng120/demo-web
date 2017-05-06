@@ -18,6 +18,7 @@ import com.xinrui.demo.exception.CalException;
 import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.GalleryService;
+import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.code.CodeConstants;
 import com.xinrui.demo.util.encrypt.EncryptUtil;
 import com.xinrui.demo.util.web.CheckUtil;
@@ -26,6 +27,9 @@ import com.xinrui.demo.util.web.CheckUtil;
 @RequestMapping(value = "/gallery")
 public class GalleryController {
 
+	@Autowired
+	private NoteService noteService;
+	
 	@Autowired
 	private GalleryService galleryService;
 
@@ -43,10 +47,12 @@ public class GalleryController {
 	@RequestMapping(value = "/list")
 	@ResponseBody
 	public BaseResultModel list() {
+		System.out.println("list");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		List<Gallery> galleries = galleryService.getAllGallery();
 		List<GalleryVO> galleryVOs = new ArrayList<GalleryVO>();
 		for (Gallery gallery : galleries) {
+			gallery.setNum(noteService.countByClzss(gallery.getClzss()));
 			galleryVOs.add(GalleryVO.build(gallery));
 		}
 		JSONObject value = new JSONObject();

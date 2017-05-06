@@ -10,6 +10,8 @@ public class GalleryVO {
 
 	private String label;
 
+	private int num;
+
 	public int getId() {
 		return id;
 	}
@@ -34,11 +36,21 @@ public class GalleryVO {
 		this.label = label;
 	}
 
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public static GalleryVO build(Gallery gallery) {
 		GalleryVO galleryVO = new GalleryVO();
 		galleryVO.setId(gallery.getId());
 		galleryVO.setClzss(gallery.getClzss());
 		galleryVO.setLabel(gallery.getLabel());
+		galleryVO.setNum(gallery.getNum());
 		return galleryVO;
 	}
+
 }

@@ -15,6 +15,7 @@ import com.xinrui.demo.bean.base.BaseResultModel;
 import com.xinrui.demo.bean.param.NoteParam;
 import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.vo.NoteVO;
+import com.xinrui.demo.service.ModelService;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.StringUtil;
@@ -27,6 +28,9 @@ public class NoteController {
 
 	@Autowired
 	private NoteService noteService;
+
+	@Autowired
+	private ModelService modelService;
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
@@ -88,8 +92,10 @@ public class NoteController {
 	public BaseResultModel update(NoteParam noteParam) throws Exception {
 		CheckUtil.checkBlank(noteParam.getTitle(), "标题不能为空");
 		CheckUtil.checkBlank(noteParam.getContent(), "内容不能为空");
+		CheckUtil.checkBlank(noteParam.getKeyword(), "关键词不能为空");
 		BaseResultModel baseResultModel = new BaseResultModel();
 		noteService.update(noteParam.transformModel());
+		modelService.update(SessionUtil.getAttribute(Constants.CLZSS), noteParam.getLabel(), noteParam.getKeyword());
 		return baseResultModel;
 	}
 

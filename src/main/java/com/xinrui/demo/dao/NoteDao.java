@@ -24,4 +24,6 @@ public interface NoteDao {
 
 	public void deleteByClzss(String clzss);
 
+	public int countByClzss(Map<String, Object> param);
+
 }

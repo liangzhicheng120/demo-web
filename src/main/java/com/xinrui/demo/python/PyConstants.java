@@ -1,5 +1,6 @@
 package com.xinrui.demo.python;
 
+
 public class PyConstants {
 	/**
 	 * ml project
@@ -25,6 +26,10 @@ public class PyConstants {
 		 * bayes train set 贝叶斯训练集文件
 		 */
 		public static final String BAYES_TRAIN = ML_PROJECT + "/train/";
+		/**
+		 * 协同过滤算法模型文件位置
+		 */
+		public static final String CF_MODEL_FILE = ML_PROJECT + "/cf/user.txt";
 	}
 
 }

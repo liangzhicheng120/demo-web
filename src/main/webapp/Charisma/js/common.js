@@ -57,7 +57,7 @@ var common = {
 	 * @param param
 	 * @param func
 	 */
-	doAjaxWithNotAsync : function(url, param, func, errc) {
+	doAjaxWithNotAsync : function(url, param, func) {
 		$.ajax({
 			url : url,
 			async : false,
@@ -66,12 +66,10 @@ var common = {
 				if (data.code == 200) {
 					func(data);
 				} else {
-					errc();
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				errc();
 				$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 			}
 		});
@@ -329,7 +327,7 @@ var common = {
 	},
 	showload:function(flag){
 		if(flag){
-			$(".showloading").html('<div id="load" class="center">Loading...<div class="center"></div></div>');
+			$(".showloading").html('<div id="load" class="center">Creating...<div class="center"></div></div>');
 		}else{
 			$(".showloading").html('');
 		}
