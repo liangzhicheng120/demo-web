@@ -8,8 +8,9 @@ import com.xinrui.demo.bean.Recommend;
 public interface RecommendDao {
 
 	public void save(Recommend recommend);
-	
+
 	public void delete(Recommend recommend);
-	
+
 	public void update(Recommend recommend);
+
 }

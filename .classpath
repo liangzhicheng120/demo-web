@@ -30,5 +30,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/weka-3.7.3-sources.jar"/>
+	<classpathentry kind="lib" path="lib/weka-3.7.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

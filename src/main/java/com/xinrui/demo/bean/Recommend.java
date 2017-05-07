@@ -1,20 +1,36 @@
 package com.xinrui.demo.bean;
 
 public class Recommend {
-	
+
 	private int id;
-	
+
 	private String clzss;
-	
+
 	private String label;
-	
+
 	private int nid;
-	
-	private int read;
-	
-	private int time;
-	
+
 	private int aid;
+
+	private double cost;
+
+	private int views;
+	
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
+	}
 
 	public int getId() {
 		return id;
@@ -48,28 +64,17 @@ public class Recommend {
 		this.nid = nid;
 	}
 
-	public int getRead() {
-		return read;
-	}
-
-	public void setRead(int read) {
-		this.read = read;
-	}
-
-	public int getTime() {
-		return time;
-	}
-
-	public void setTime(int time) {
-		this.time = time;
-	}
-
 	public int getAid() {
 		return aid;
 	}
 
 	public void setAid(int aid) {
 		this.aid = aid;
+	}
+
+	@Override
+	public String toString() {
+		return "Recommend [nid=" + nid + ", aid=" + aid + ", cost=" + cost + ", views=" + views + "]";
 	}
 
 }

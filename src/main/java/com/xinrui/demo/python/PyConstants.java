@@ -19,6 +19,10 @@ public class PyConstants {
 		 */
 		public static final String BAYES_PY = ML_PROJECT + "/bayes/bayes.py";
 		/**
+		 * recommend.py 创建协同过滤模型文件
+		 */
+		public static final String RECOMMEND_PY = ML_PROJECT + "/recommend/recommend.py";
+		/**
 		 * bayes model 贝叶斯模型文件存放位置
 		 */
 		public static final String BAYES_MODEL = ML_PROJECT + "/model/";
@@ -29,7 +33,8 @@ public class PyConstants {
 		/**
 		 * 协同过滤算法模型文件位置
 		 */
-		public static final String CF_MODEL_FILE = ML_PROJECT + "/cf/user.txt";
+		public static final String CF_MODEL = ML_PROJECT + "/cf/user.txt";
+
 	}
 
 }

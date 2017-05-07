@@ -5,17 +5,21 @@ import java.util.List;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 
 import com.xinrui.demo.algorithm.mahout.Recommender;
+import com.xinrui.demo.python.PyConstants;
 
 public class TestRecommender {
 	public static void main(String[] args) throws Exception {
-		String model = "E:/webworkspace/demo-web/src/main/java/com/xinrui/demo/algorithm/mahout/user.txt";
-		int uid = 10;
-		Recommender recommender = new Recommender(2, 3);
-		List<RecommendedItem> recommendations = recommender.userBaseRecommend(uid, model);
+		String model = PyConstants.ml.CF_MODEL;
+		int uid = 1;
+		List<RecommendedItem> recommendations = Recommender.itemBaseRecommend(uid, model, 1);
 		System.out.printf("uid:%s", uid);
-		for (RecommendedItem recommendedItem : recommendations) {
-			System.out.printf("(%s,%f)", recommendedItem.getItemID(), recommendedItem.getValue());
+		if (recommendations.isEmpty()) {
+			System.out.println(":null");
+		} else {
+			for (RecommendedItem recommendedItem : recommendations) {
+				System.out.printf("(%s,%f)", recommendedItem.getItemID(), recommendedItem.getValue());
+			}
 		}
 	}
-	
+
 }

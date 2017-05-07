@@ -5,7 +5,8 @@ var note = {
 		batchdelete : 'note/batchdelete',
 		getlabel : 'note/getlabel',
 		get : 'note/get',
-		update : 'note/update'
+		update : 'note/update',
+		record : 'recommend/record'
 	},
 	init : function() {
 		note.notemarkuptable(); // 初始化表格
@@ -18,6 +19,7 @@ var note = {
 		note.notemarkupupdatebtn(); // 注册修改事件
 		note.notemarkupdatepicker(); // 注册日期选择事件
 		note.notemarkupsearchdatebtn(); // 注册搜索日期事件
+		note.buryPointEvent('#noteUpdateDia'); // 注册埋点事件
 		responsiveTable(); // 注册响应式表格
 	},
 	table : {
@@ -33,6 +35,28 @@ var note = {
 			start : $('#start').val().trim(),
 			end : $('#end').val().trim(),
 		}
+	},
+	buryPointEvent : function(modalId) {
+		var start;var end;
+		$(modalId).on('shown.bs.modal', function(e) {
+			start = new Date();
+		});
+		$(modalId).on('hidden.bs.modal', function(e) {
+			end = new Date();
+			console.log('hide');
+			$.ajax({
+				url : note.url.record,
+				async : false,
+				data : {
+					nid : $('#noteId').val(),
+					label : $('#update-option').val(),
+					time : (end.getTime() - start.getTime()) / 1000,
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					throw("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
+				}
+			});
+		});
 	},
 	notemarkuptable : function(param) {
 		common.markuptable(note.url.list, param, note.notemarkupthead(), note.notemarkuptbody(), note.table.page);
@@ -133,7 +157,7 @@ var note = {
 			}
 			common.markupoption(note.url.getlabel, '#update-option', null);
 			$('#update-option').val(data.value.label);
-			$('#noteId').val(data.value.id)
+			$('#noteId').val(data.value.id);
 		});
 	},
 	isNotEmpty : function(id) {

@@ -51,7 +51,7 @@ public class PageController {
 		CheckUtil.checkBlank(label, "标签不能为空");
 		session.setAttribute(Constants.CLZSS, clzss);
 		session.setAttribute(Constants.LABEL, label);
-		PythonUtil.Process(PyConstants.ml.BAYES_PY, EncryptUtil.HMACMD5(clzss));
+		PythonUtil.run(PyConstants.ml.BAYES_PY, EncryptUtil.HMACMD5(clzss));
 		return "main/note";
 	}
 

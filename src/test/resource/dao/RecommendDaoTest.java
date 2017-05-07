@@ -32,13 +32,13 @@ public class RecommendDaoTest {
 		recommend.setNid(1);
 		recommendDao.delete(recommend);
 	}
-	
+
 	@Test
-	public void testUpdate(){
+	public void testUpdate() {
 		Recommend recommend = new Recommend();
 		recommend.setAid(1);
 		recommend.setNid(1);
-		recommend.setTime(10);
+		recommend.setCost(10);
 		recommendDao.update(recommend);
 	}
 

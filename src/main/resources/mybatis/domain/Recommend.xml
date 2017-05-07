@@ -4,36 +4,36 @@
 <mapper namespace="com.xinrui.demo.dao.RecommendDao">
 
 	<insert id="save" parameterType="Recommend">
-		INSERT INTO 
-		recommend 
+		INSERT INTO
+		recommend
 		(CLZSS,LABEL,NID,AID)
 		SELECT
 		#{clzss},#{label},#{nid},#{aid}
-		FROM 
-		DUAL 
-		WHERE 
-		NOT EXISTS 
+		FROM
+		DUAL
+		WHERE
+		NOT EXISTS
 		(SELECT NID FROM recommend WHERE NID = #{nid} and AID = #{aid})
 	</insert>
-	
+
 	<delete id="delete" parameterType="Recommend">
-		DELETE 
-		FROM 
-		recommend 
-		WHERE 
+		DELETE
+		FROM
+		recommend
+		WHERE
 		nid = ${nid}
 	</delete>
-	
+
 	<update id="update" parameterType="Recommend">
-		UPDATE 
-		recommend 
-		SET 
+		UPDATE
+		recommend
+		SET
 		`READ` = `READ` + 1,
-		`TIME` = `TIME` + #{time}  
-		WHERE 
+		`TIME` = `TIME` + #{time}
+		WHERE
 		AID = #{aid}
-		AND 
+		AND
 		NID = #{nid}
 	</update>
-	
+
 </mapper>

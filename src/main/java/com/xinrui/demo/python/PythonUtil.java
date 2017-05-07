@@ -27,7 +27,7 @@ public class PythonUtil {
 	 * @param pyclass [python执行类]
 	 * @param args [参数]
 	 */
-	public static void Process(String pyclass, String... args) {
+	public static void run(String pyclass, String... args) {
 		if (OSInfoUtil.isWindows()) {
 			command = String.format("%spython.exe %s%s", PythonConfig.ROOT, pyclass, StringUtil.argsToString(args));
 		} else if (OSInfoUtil.isLinux()) {
@@ -37,13 +37,13 @@ public class PythonUtil {
 			logger.error(er);
 			throw new CalException(CodeConstants.OPERATING_SYSTEM_ERROR, er);
 		}
-		Process(command);
+		process(command);
 	}
 	/**
 	 * 
 	 * @param command [cmd执行命令]
 	 */
-	public static void Process(String command) {
+	public static void process(String command) {
 		try {
 			logger.info(String.format("[command] %s", command));
 			Process pr = Runtime.getRuntime().exec(command);

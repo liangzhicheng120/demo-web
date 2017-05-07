@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xinrui.demo.bean.base.BaseResultModel;
+import com.xinrui.demo.bean.param.RecommendParam;
 import com.xinrui.demo.service.RecommendService;
 import com.xinrui.demo.util.web.CheckUtil;
 
@@ -28,5 +29,15 @@ public class RecommendController {
 		baseResultModel.setValue(recommendations);
 		return baseResultModel;
 	}
-	
+
+	@RequestMapping(value = "/record")
+	@ResponseBody
+	public BaseResultModel record(RecommendParam recommendParam) {
+		CheckUtil.checkBlank(recommendParam.getNid(), "nid不能为空");
+		CheckUtil.checkBlank(recommendParam.getCost(), "cost不能为空");
+		BaseResultModel baseResultModel = new BaseResultModel();
+		recommendService.update(recommendParam.transformModel());
+		return baseResultModel;
+	}
+
 }

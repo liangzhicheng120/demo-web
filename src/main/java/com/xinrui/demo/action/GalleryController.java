@@ -39,7 +39,7 @@ public class GalleryController {
 		CheckUtil.checkBlank(clzss, "类别不能为空");
 		CheckUtil.checkBlank(label, "标签不能为空");
 		galleryService.save(clzss, label);
-		PythonUtil.Process(PyConstants.ml.BAIKE_PY, clzss, label, EncryptUtil.HMACMD5(clzss));
+		PythonUtil.run(PyConstants.ml.BAIKE_PY, clzss, label, EncryptUtil.HMACMD5(clzss));
 		BaseResultModel baseResultModel = new BaseResultModel();
 		return baseResultModel;
 	}
@@ -86,7 +86,7 @@ public class GalleryController {
 	public BaseResultModel update(GalleryParam galleryParam) throws Exception {
 		CheckUtil.checkBlank(galleryParam.getNewlabel(), "新标签不能为空");
 		galleryService.update(galleryParam.transformModel());
-		PythonUtil.Process(PyConstants.ml.BAIKE_PY, galleryParam.getClzss(), galleryParam.getNewlabel(), EncryptUtil.HMACMD5(galleryParam.getClzss()));
+		PythonUtil.run(PyConstants.ml.BAIKE_PY, galleryParam.getClzss(), galleryParam.getNewlabel(), EncryptUtil.HMACMD5(galleryParam.getClzss()));
 		BaseResultModel baseResultModel = new BaseResultModel();
 		return baseResultModel;
 	}

@@ -105,4 +105,26 @@ public class MathUtil {
 		BigDecimal one = new BigDecimal("1");
 		return b.divide(one, scale, BigDecimal.ROUND_HALF_UP).doubleValue();
 	}
+
+	/**
+	 * sigmoid 函数
+	 * 
+	 * @param src
+	 * @return
+	 */
+	public static double sigmoid(double src) {
+		return div(1.0, (1 + Math.exp(-src)));
+	}
+
+	/**
+	 * log函数
+	 * 
+	 * @param value
+	 * @param base
+	 * @return
+	 */
+	public static double log(double value, double base) {
+		return Math.log(value) / Math.log(base);
+	}
+
 }

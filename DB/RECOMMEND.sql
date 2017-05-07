@@ -24,3 +24,9 @@ CHANGE COLUMN `time` `time` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL DEFAULT 0 
 ALTER TABLE `demo_web`.`recommend` 
 CHANGE COLUMN `time` `time` BIGINT NOT NULL DEFAULT '0' COMMENT '浏览时间' ;
 
+ALTER TABLE `demo_web`.`recommend` 
+CHANGE COLUMN `read` `views` INT(11) NOT NULL DEFAULT '0' COMMENT '阅读次数' ,
+CHANGE COLUMN `time` `cost` FLOAT NOT NULL DEFAULT '0' COMMENT '浏览时间' ;
+ALTER TABLE `demo_web`.`recommend` 
+CHANGE COLUMN `cost` `cost` DOUBLE NOT NULL DEFAULT '0' COMMENT '浏览时间' ;
+

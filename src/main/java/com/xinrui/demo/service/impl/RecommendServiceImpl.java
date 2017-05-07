@@ -21,9 +21,7 @@ public class RecommendServiceImpl implements RecommendService {
 
 	@Override
 	public List<RecommendedItem> userBaseRecommend(int uid) {
-		Recommender recommender = new Recommender(2, 3);
-		List<RecommendedItem> recommendations = recommender.userBaseRecommend(uid, PyConstants.ml.CF_MODEL_FILE);
-		return recommendations;
+		return Recommender.userBaseRecommend(uid, PyConstants.ml.CF_MODEL, 2, 3);
 	}
 
 	@Transactional
@@ -41,6 +39,11 @@ public class RecommendServiceImpl implements RecommendService {
 		Recommend recommend = new Recommend();
 		recommend.setNid(Integer.valueOf(nid));
 		recommendDao.delete(recommend);
+	}
+
+	@Transactional
+	public void update(Recommend recommend) {
+		recommendDao.update(recommend);
 	}
 
 }
