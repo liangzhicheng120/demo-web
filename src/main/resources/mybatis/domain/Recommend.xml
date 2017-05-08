@@ -28,8 +28,8 @@
 		UPDATE
 		recommend
 		SET
-		`READ` = `READ` + 1,
-		`TIME` = `TIME` + #{time}
+		`VIEWS` = `VIEWS` + 1,
+		`COST` = `COST` + #{cost}
 		WHERE
 		AID = #{aid}
 		AND

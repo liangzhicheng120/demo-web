@@ -43,14 +43,18 @@ var note = {
 		});
 		$(modalId).on('hidden.bs.modal', function(e) {
 			end = new Date();
-			console.log('hide');
 			$.ajax({
 				url : note.url.record,
 				async : false,
 				data : {
 					nid : $('#noteId').val(),
-					label : $('#update-option').val(),
-					time : (end.getTime() - start.getTime()) / 1000,
+					views : $('#update-option').val(),
+					cost : (end.getTime() - start.getTime()) / 1000,
+				},
+				success:function(data){
+					if(data.code != 200){
+						console.log("错误：" + data.code + ',' + data.message);
+					}
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					throw("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);

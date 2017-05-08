@@ -2,6 +2,7 @@ package com.xinrui.demo.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ import com.xinrui.demo.service.RecommendService;
 
 @Service
 public class RecommendServiceImpl implements RecommendService {
+
+	private static Logger logger = Logger.getLogger(RecommendServiceImpl.class);
 
 	@Autowired
 	private RecommendDao recommendDao;
@@ -43,6 +46,7 @@ public class RecommendServiceImpl implements RecommendService {
 
 	@Transactional
 	public void update(Recommend recommend) {
+		logger.info(String.format("recommend:{0}", recommend.toString()));
 		recommendDao.update(recommend);
 	}
 
