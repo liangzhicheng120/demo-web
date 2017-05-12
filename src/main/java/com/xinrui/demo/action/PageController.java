@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.util.Constants;
-import com.xinrui.demo.util.encrypt.EncryptUtil;
 import com.xinrui.demo.util.web.CheckUtil;
 
 @Controller
@@ -16,6 +15,7 @@ public class PageController {
 
 	@RequestMapping(value = "/index")
 	public String index() {
+		PythonUtil.run(PyConstants.ml.RECOMMEND_PY);
 		return "main/index";
 	}
 
@@ -51,7 +51,6 @@ public class PageController {
 		CheckUtil.checkBlank(label, "标签不能为空");
 		session.setAttribute(Constants.CLZSS, clzss);
 		session.setAttribute(Constants.LABEL, label);
-		PythonUtil.run(PyConstants.ml.BAYES_PY, EncryptUtil.HMACMD5(clzss));
 		return "main/note";
 	}
 

@@ -14,5 +14,5 @@ public interface ModelDao {
 	public void update(Model model);
 
 	public List<Model> get(Model model);
-
+	
 }

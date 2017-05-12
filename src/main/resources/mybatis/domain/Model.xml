@@ -12,28 +12,26 @@
 	</delete>
 
 	<update id="update" parameterType="Model">
-		UPDATE 
-		model 
-		SET 
-		KEYWORD = CONCAT(KEYWORD,',',#{keyword}) 
-		WHERE 
-		LABEL = #{label} 
-		AND 
-		CLZSS = #{clzss}
-	</update>
-	
-	<select id="get" parameterType="Model" resultType="Model">
-		SELECT 
-		KEYWORD 
-		FROM 
-		model 
-		WHERE 
-		KEYWORD
-		LIKE 
-		CONCAT('%', #{keyword}, '%')
+		UPDATE
+		model
+		SET
+		KEYWORD = CONCAT(KEYWORD,',',#{keyword})
+		WHERE
+		LABEL = #{label}
 		AND
 		CLZSS = #{clzss}
-		AND 
+	</update>
+
+	<select id="get" parameterType="Model" resultType="Model">
+		SELECT
+		KEYWORD
+		FROM
+		model
+		WHERE
+		KEYWORD LIKE #{keyword}
+		AND
+		CLZSS = #{clzss}
+		AND
 		LABEL = #{label}
 	</select>
 

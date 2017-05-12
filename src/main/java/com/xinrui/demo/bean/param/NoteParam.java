@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import com.hankcs.hanlp.HanLP;
 import com.xinrui.demo.algorithm.bayes.Bayes;
@@ -99,8 +100,11 @@ public class NoteParam {
 		note.setId(this.getId());
 		note.setContent(this.getContent());
 		note.setKeyword((String) ObjectUtils.defaultIfNull(this.getKeyword(), HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 3).toString().replace("[", "").replace("]", "")));
-		String label = Bayes.predictClassify(Bayes.read(SessionUtil.getAttribute(Constants.CLZSS)), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15));
-		note.setLabel(((String) ObjectUtils.defaultIfNull(this.getLabel(), label)));
+		if (StringUtils.isEmpty(this.getLabel())) {
+			note.setLabel(Bayes.predictClassify(Bayes.read(SessionUtil.getAttribute(Constants.CLZSS)), (ArrayList<String>) HanLP.extractKeyword(HtmlUtil.delHTMLTag(this.getContent()), 15)));
+		} else {
+			note.setLabel(this.getLabel());
+		}
 		note.setTitle(this.getTitle());
 		note.setAid(Integer.valueOf(SessionUtil.getAttribute(Constants.AID)));
 		note.setPosttime(this.getPosttime());

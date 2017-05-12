@@ -31,7 +31,8 @@
 		`VIEWS` = `VIEWS` + 1,
 		`COST` = `COST` + #{cost}
 		WHERE
-		AID = #{aid}
+		AID =
+		#{aid}
 		AND
 		NID = #{nid}
 	</update>

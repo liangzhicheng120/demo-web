@@ -135,6 +135,8 @@ var common = {
 	doAjaxSubmitForm : function(formId, modalId, callback) {
 		$(formId).ajaxSubmit({
 			type : 'POST',
+			clearForm: true,
+			resetForm: true,
 			beforeSend : function(){
 				$('.modal-footer a').attr('disabled','true');
 			},

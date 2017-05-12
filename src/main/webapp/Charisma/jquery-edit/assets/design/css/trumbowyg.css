@@ -3,9 +3,9 @@
 	display: block;
 	position: relative;
 	border: 1px solid #DDD;
-	width: 96%;
+/* 	width: 96%; */
 	min-height: 300px;
-	margin: 5px auto
+/* 	margin: 5px auto */
 }
 
 .trumbowyg-box .editor {

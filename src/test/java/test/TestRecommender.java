@@ -9,17 +9,15 @@ import com.xinrui.demo.python.PyConstants;
 
 public class TestRecommender {
 	public static void main(String[] args) throws Exception {
+		// PythonUtil.run(PyConstants.ml.RECOMMEND_PY);
 		String model = PyConstants.ml.CF_MODEL;
-		int uid = 1;
-		List<RecommendedItem> recommendations = Recommender.itemBaseRecommend(uid, model, 1);
-		System.out.printf("uid:%s", uid);
-		if (recommendations.isEmpty()) {
-			System.out.println(":null");
-		} else {
+		for (int i = 171; i < 183; i++) {
+			List<RecommendedItem> recommendations = Recommender.userBaseRecommend(i, model);
+			System.out.printf("size:%s", recommendations.size());
 			for (RecommendedItem recommendedItem : recommendations) {
 				System.out.printf("(%s,%f)", recommendedItem.getItemID(), recommendedItem.getValue());
 			}
 		}
-	}
 
+	}
 }

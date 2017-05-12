@@ -127,4 +127,13 @@ public class MathUtil {
 		return Math.log(value) / Math.log(base);
 	}
 
+	/**
+	 * 
+	 * @param cost
+	 * @param views
+	 * @return
+	 */
+	public static double rate(double cost, int views) {
+		return (double) views + MathUtil.log(cost / 60, 2);
+	}
 }

@@ -1,8 +1,5 @@
 package com.xinrui.demo.action;
 
-import java.util.List;
-
-import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,16 +16,6 @@ public class RecommendController {
 
 	@Autowired
 	private RecommendService recommendService;
-
-	@RequestMapping(value = "/usercf")
-	@ResponseBody
-	public BaseResultModel userCf(String uid) {
-		CheckUtil.checkIsNumeric(uid, "uid非法");
-		BaseResultModel baseResultModel = new BaseResultModel();
-		List<RecommendedItem> recommendations = recommendService.userBaseRecommend(Integer.valueOf(uid));
-		baseResultModel.setValue(recommendations);
-		return baseResultModel;
-	}
 
 	@RequestMapping(value = "/record")
 	@ResponseBody

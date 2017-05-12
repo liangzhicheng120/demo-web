@@ -47,7 +47,7 @@
 	<input type="text" hidden="hidden" id="currentPage" value="">
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
-			<%@include file="../main/sidebar.jsp"%>
+			<%@include file="../main/sidebar2.jsp"%>
 			<div id="ch-content" class="col-lg-10 col-sm-10">
 				<div class="row">
 					<div class="box col-md-12">
@@ -63,33 +63,6 @@
 								</div>
 							</div>
 							<div class="box-content">
-								<div class="row" style="margin-bottom: 10px; margin-left: -10px;">
-									<div class="col-md-2">
-										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <select size="1" class="form-control" id="label" onchange="note.notechangelabel()">
-												<option value=" ">---全部---</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-5">
-										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> <input class="default-date-picker form-control" type="text" value="" id="start">
-											<span class="input-group-addon">TO</span> <input id="end" class="default-date-picker form-control" type="text" value=""> <span class="input-group-addon"
-												id="searchDateBtn"> <i class="glyphicon glyphicon-search"></i>
-											</span>
-										</div>
-									</div>
-									<div class="col-md-3">
-										<div class="input-group input-group-sm">
-											<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <input type="text" class="form-control" placeholder="搜索关键词"
-												aria-describedby="basic-addon1" id="keyword"> <span class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
-										</div>
-									</div>
-									<div class="col-md-2">
-										<a class="btn btn-success btn-sm" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a> <a class="btn btn-danger btn-sm" data-toggle="modal"
-											data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a> <a class="btn btn-success btn-sm" data-toggle="modal" id="noteDownloadBtn" data-backdrop="static">下载</a>
-									</div>
-								</div>
 								<table class="table table-striped table-bordered responsive">
 									<thead id="thead"></thead>
 									<tbody id="tbody"></tbody>

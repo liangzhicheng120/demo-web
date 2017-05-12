@@ -37,7 +37,8 @@ var note = {
 		}
 	},
 	buryPointEvent : function(modalId) {
-		var start;var end;
+		var start;
+		var end;
 		$(modalId).on('shown.bs.modal', function(e) {
 			start = new Date();
 		});
@@ -51,13 +52,13 @@ var note = {
 					views : $('#update-option').val(),
 					cost : (end.getTime() - start.getTime()) / 1000,
 				},
-				success:function(data){
-					if(data.code != 200){
-						console.log("错误：" + data.code + ',' + data.message);
+				success : function(data) {
+					if (data.code != 200) {
+						$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 					}
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
-					throw("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
+					$.tooltip("错误：" + XMLHttpRequest.status + ',' + XMLHttpRequest.readyState + ',' + textStatus, 2500, false);
 				}
 			});
 		});

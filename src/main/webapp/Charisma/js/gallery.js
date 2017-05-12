@@ -28,7 +28,7 @@ var gallery = {
 			var tmpl = 
 				`<li class="thumbnail clzss" style="float: left; list-style: none" data-clzss="${clzss}" data-label="${label}">
 				    <a style="text-align: center;text-decoration:none" data-toggle="tooltip" data-placement="bottom" title="${label}" href="note?clzss=${clzss}&label=${label}">
-				    	<img src="./Charisma/images/${img}.png" style="display: block;">【${clzss} 共${num}篇】<br>${label}
+				    	<img src="./Charisma/images/${img}.png" style="display: block;">【${clzss} ${num}篇】<br>${label}
 				    </a>
 				</li>`;
 			return tmpl;
@@ -113,7 +113,6 @@ var gallery = {
 	},
 	hoverBtn : function(){
 	    $('ul.gallery li.clzss').hover(function () {
-//	    	if($('ul.gallery li.clzss a').hover(function(){return true})){return false};
 	        $('img', this).fadeToggle(500);
 	        $(this).find('.gallery-controls').remove();
 	        $(this).append('<div class="well gallery-controls">' +
@@ -121,7 +120,6 @@ var gallery = {
 	            '</div>');
 	        $(this).find('.gallery-controls').stop().animate({'margin-top': '-1'}, 400);
 	    }, function () {
-//	    	if($('ul.gallery li.clzss a').hover(function(){return true})){return false};
 	        $('img', this).fadeToggle(500);
 	        $(this).find('.gallery-controls').stop().animate({'margin-top': '-1'}, 200, function () {
 	            $(this).remove();

@@ -14,7 +14,7 @@ public class PageParam implements java.io.Serializable {
 
 	private int totalPage;
 
-	private int pageNumber = 10;
+	private int pageNumber = 11;
 
 	private int dbIndex;
 
