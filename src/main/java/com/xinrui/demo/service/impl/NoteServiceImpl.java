@@ -1,9 +1,11 @@
 package com.xinrui.demo.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,8 @@ import com.xinrui.demo.bean.param.PageParam;
 import com.xinrui.demo.bean.param.RecommendParam;
 import com.xinrui.demo.dao.NoteDao;
 import com.xinrui.demo.dao.RecommendDao;
+import com.xinrui.demo.python.PyConstants;
+import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.sql.SqlUtils;
@@ -82,6 +86,16 @@ public class NoteServiceImpl implements NoteService {
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("clzss", clzss);
 		return noteDao.countByClzss(param);
+	}
+
+	@Transactional
+	public List<Note> recommendList() {
+		List<Note> notes = new ArrayList<Note>();
+		String nids = PythonUtil.run(PyConstants.ml.DEFAULT_PY, SessionUtil.getAttribute(Constants.AID));
+		for (String id : StringUtils.split(nids, ",")) {
+			notes.add(noteDao.get(Integer.valueOf(id)));
+		}
+		return notes;
 	}
 
 }

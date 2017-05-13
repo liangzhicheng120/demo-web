@@ -65,7 +65,11 @@ var common = {
 			success : function(data) {
 				if (data.code == 200) {
 					func(data);
-				} else {
+				} 
+				else if(data.code == 192010){
+					window.location.href='login';
+				}
+				else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 				}
 			},
@@ -86,7 +90,11 @@ var common = {
 				if (data.code == 200) {
 					$.tooltip('OK, 操作成功！', 2500, true);
 					func(data);
-				} else {
+				} 
+				else if(data.code == 192010){
+					window.location.href='login';
+				}
+				else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 				}
 			},
@@ -113,7 +121,11 @@ var common = {
 			success : function(data) {
 				if (data.code == 200) {
 					func(data);
-				} else {
+				} 
+				else if(data.code == 192010){
+					window.location.href='login';
+				}
+				else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 					errc();
 				}
@@ -145,7 +157,11 @@ var common = {
 					callback(data);
 					$(modalId).modal('hide');
 					$.tooltip('OK, 操作成功！', 2500, true);
-				} else {
+				} 
+				else if(data.code == 192010){
+					window.location.href='login';
+				}
+				else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 				}
 			},
@@ -178,7 +194,11 @@ var common = {
 					callback(data);
 					$(modalId).modal('hide');
 					$.tooltip('OK, 操作成功！', 2500, true);
-				} else {
+				} 
+				else if(data.code == 192010){
+					window.location.href='login';
+				}
+				else {
 					$.tooltip("错误：" + data.code + ',' + data.message, 2500, false);
 				}
 			},
@@ -325,6 +345,7 @@ var common = {
 	trumbowyg : function(id) {
 		$(id).trumbowyg({
 			lang : 'zh_cn',
+			resetCss : true
 		});
 	},
 	showload:function(flag){
@@ -334,6 +355,9 @@ var common = {
 			$(".showloading").html('');
 		}
 	},
+	substring:function(content,size,char){
+		return (content.length > size) ? content.substring(0, size) + char : content;
+	}
 };
 /**
  * String.format方法

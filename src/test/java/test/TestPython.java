@@ -2,7 +2,6 @@ package test;
 
 import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
-import com.xinrui.demo.util.encrypt.EncryptUtil;
 
 public class TestPython {
 
@@ -12,6 +11,8 @@ public class TestPython {
 		// PythonUtil.run(PyConstants.ml.BAYES_PY,EncryptUtil.HMACMD5("学习"));
 		// System.out.println(EncryptUtil.HMACMD5("佛教"));
 		// PythonUtil.run(PyConstants.ml.BAYES_PY, EncryptUtil.HMACMD5("编程"));
-		 PythonUtil.run(PyConstants.ml.RECOMMEND_PY);
+		// PythonUtil.run(PyConstants.ml.RECOMMEND_PY);
+		String nids = PythonUtil.run(PyConstants.ml.DEFAULT_PY, "1");
+		System.out.println(nids);
 	}
 }

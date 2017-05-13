@@ -47,7 +47,7 @@
 	<input type="text" hidden="hidden" id="currentPage" value="">
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
-			<%@include file="../main/sidebar2.jsp"%>
+			<%@include file="../main/sidebar-note.jsp"%>
 			<div id="ch-content" class="col-lg-10 col-sm-10">
 				<div class="row">
 					<div class="box col-md-12">
@@ -97,7 +97,6 @@
 	<script src="<%=basePath%>Charisma/js/jquery.autogrow-textarea.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.uploadify-3.1.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.history.js"></script>
-	<script src="<%=basePath%>Charisma/js/charisma.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery-form.js"></script>
 	<script src="<%=basePath%>Charisma/js/jquery.tmpl.min.js"></script>
 	<script src="<%=basePath%>Charisma/jquery-edit/assets/trumbowyg.js"></script>
@@ -113,5 +112,6 @@
 			note.init();
 		});
 	</script>
+	<script src="<%=basePath%>Charisma/js/charisma.min.js"></script>
 </body>
 </html>

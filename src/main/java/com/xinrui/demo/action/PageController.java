@@ -9,13 +9,14 @@ import com.xinrui.demo.python.PyConstants;
 import com.xinrui.demo.python.PythonUtil;
 import com.xinrui.demo.util.Constants;
 import com.xinrui.demo.util.web.CheckUtil;
+import com.xinrui.demo.util.web.SessionUtil;
 
 @Controller
 public class PageController {
 
 	@RequestMapping(value = "/index")
 	public String index() {
-		PythonUtil.run(PyConstants.ml.RECOMMEND_PY);
+		PythonUtil.run(PyConstants.ml.DEFAULT_PY, SessionUtil.getAttribute(Constants.AID));
 		return "main/index";
 	}
 

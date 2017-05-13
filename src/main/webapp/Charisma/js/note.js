@@ -97,7 +97,10 @@ var note = {
 				keyboard : false,
 				show : true
 			});
-			common.trumbowyg('#content');
+			$('#content').trumbowyg({
+				lang : 'zh_cn',
+				resetCss : true,
+			});
 		});
 	},
 	notemarkupsearchbtn : function() {
@@ -150,6 +153,11 @@ var note = {
 	},
 	notemarkupinitupdateformbtn : function(id) {
 		common.modal('#noteUpdateDia');
+		$('#remarks').trumbowyg({
+			lang : 'zh_cn',
+			btns : [ '|' ],
+			resetCss : true
+		});
 		common.doAjaxWithNotAsync(note.url.get, {
 			id : id
 		}, function(data) {
@@ -163,6 +171,7 @@ var note = {
 			common.markupoption(note.url.getlabel, '#update-option', null);
 			$('#update-option').val(data.value.label);
 			$('#noteId').val(data.value.id);
+			$('#remarks').html(data.value.remarks);
 		});
 	},
 	isNotEmpty : function(id) {
@@ -186,6 +195,7 @@ var note = {
 				content : document.getElementById('update-content').innerHTML,
 				keyword : $('#key0').val() + note.isNotEmpty('#key1') + note.isNotEmpty('#key2'),
 				label : $('#update-option').val(),
+				remarks : document.getElementById('remarks').innerHTML,
 			}, '#noteUpdateDia', function(data) {
 				note.notemarkuptable(note.param());
 			});

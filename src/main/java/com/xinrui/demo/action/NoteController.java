@@ -110,4 +110,11 @@ public class NoteController {
 		return baseResultModel;
 	}
 
+	@RequestMapping(value = "/recommendlist")
+	@ResponseBody
+	public BaseResultModel recommendList() {
+		BaseResultModel baseResultModel = new BaseResultModel();
+		baseResultModel.setValue(noteService.recommendList());
+		return baseResultModel;
+	}
 }

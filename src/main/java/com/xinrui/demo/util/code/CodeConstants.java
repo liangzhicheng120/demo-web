@@ -42,5 +42,8 @@ public class CodeConstants implements BaseCode {
 	 * SQL语法错误
 	 */
 	public final static int SQL_SYNTAX_ERROR = SERVER_ERROR + DB + 1;
-
+	/**
+	 * 未登录异常
+	 */
+	public final static int NOT_LOGIN_ERROR = SERVER_ERROR + DS + 10;
 }

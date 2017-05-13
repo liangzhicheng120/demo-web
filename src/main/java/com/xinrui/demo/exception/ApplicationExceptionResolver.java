@@ -34,6 +34,9 @@ public class ApplicationExceptionResolver implements HandlerExceptionResolver {
 		if (e instanceof BadSqlGrammarException) {
 			return makeModelAndView(CodeConstants.SQL_SYNTAX_ERROR, e);
 		}
+		if (e instanceof NumberFormatException || e instanceof NullPointerException) {
+			return makeModelAndView(CodeConstants.NOT_LOGIN_ERROR, e);
+		}
 		if (e instanceof CalException) {
 			CalException es = (CalException) e;
 			ModelAndView mav = new ModelAndView("error");

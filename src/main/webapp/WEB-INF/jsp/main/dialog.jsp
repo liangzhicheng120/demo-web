@@ -94,27 +94,34 @@
 <div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteUpdateDia" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content" style="position: absolute;">
-			<div class="modal-header text-center">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<div class="text-center" style="font-size: 23px;">
-					<i class="glyphicon glyphicon-edit"></i>查看笔记
-				</div>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" style="margin-top: -9px;">×</button>
 			</div>
 			<div class="col-lg-2 col-sm-2">
 				<div class="sidebar-nav">
 					<div class="nav-canvas">
 						<div class="nav-sm nav nav-stacked"></div>
 						<ul class="nav nav-pills nav-stacked main-menu">
-							<li><span class="input-group-addon">标题</span><input type="text" class="text-center form-control" id="update-title" name="title"></li>
-							<li><span class="input-group-addon">标签</span> <select size="1" class="text-center form-control" id="update-option" dir="ltr">
+							<li><span class="input-group-addon"><i class="glyphicon-leaf glyphicon glyphicon-fire"></i>标题</span><input type="text" class="text-center form-control"
+								id="update-title" name="title"></li>
+							<li><span class="input-group-addon"><i class="glyphicon-leaf glyphicon glyphicon-fire"></i>标签</span> <select size="1" class="text-center form-control"
+								id="update-option" dir="ltr">
 									<option value="">--全部--</option>
 							</select></li>
-							<li><span class="input-group-addon">关键词</span> <input type="text" class="text-center form-control" id="key0" placeholder="关键词1"></li>
-							<li><span class="input-group-addon">关键词</span><input type="text" class="text-center form-control" id="key1" placeholder="关键词2"></li>
-							<li><span class="input-group-addon">关键词</span><input type="text" class="text-center form-control" id="key2" placeholder="关键词3"></li>
-							<li><a class="btn btn-default btn-sm" id="noteUpdateBtn">修改</a></li>
-							<li><a class="btn btn-default btn-sm" data-dismiss="modal">取消</a></li>
-							<li><a class="btn btn-default btn-sm" id="noteDownloadBtn">下载</a></li>
+							<li class="accordion"><a class="btn btn-default"><i class="glyphicon-leaf glyphicon glyphicon-fire"></i>备注</a>
+								<ul class="nav nav-pills nav-stacked" style="display: none; margin-left: 0px;">
+									<li><div id="remarks" style="clear: both; width: 100%;" class="editor"></div></li>
+								</ul>
+							</li>
+							<li class="accordion"><a class="btn btn-default">关键词</a>
+								<ul class="nav nav-pills nav-stacked" style="display: block; margin-left: 0px;">
+									<li><input type="text" class="text-center form-control" id="key0" placeholder="关键词1"></li>
+									<li><input type="text" class="text-center form-control" id="key1" placeholder="关键词2"></li>
+									<li><input type="text" class="text-center form-control" id="key2" placeholder="关键词3"></li>
+								</ul></li>
+							<li><a class="btn btn-default" id="noteUpdateBtn">修改</a></li>
+							<li><a class="btn btn-default" id="noteDownloadBtn">下载</a></li>
+							<li><a class="btn btn-default" data-dismiss="modal">取消</a></li>
 						</ul>
 					</div>
 				</div>
@@ -126,6 +133,9 @@
 						onclick="del();odiv.style.display='none';" />
 				</div>
 				<div id="update-content" style="clear: both; height: 510px; width: 100%;" class="editor"></div>
+			</div>
+			<div class="modal-footer">
+				<hr>
 			</div>
 		</div>
 	</div>

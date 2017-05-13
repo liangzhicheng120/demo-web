@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xinrui.demo.bean.base.BaseResultModel;
 import com.xinrui.demo.bean.param.RecommendParam;
+import com.xinrui.demo.service.NoteService;
 import com.xinrui.demo.service.RecommendService;
 import com.xinrui.demo.util.web.CheckUtil;
 
@@ -16,6 +17,9 @@ public class RecommendController {
 
 	@Autowired
 	private RecommendService recommendService;
+	
+	@Autowired
+	private NoteService noteService;
 
 	@RequestMapping(value = "/record")
 	@ResponseBody

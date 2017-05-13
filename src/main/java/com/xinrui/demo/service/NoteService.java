@@ -22,4 +22,6 @@ public interface NoteService {
 	public void deleteByClzss(String clzss);
 
 	public int countByClzss(String clzss);
+	
+	public List<Note> recommendList();
 }

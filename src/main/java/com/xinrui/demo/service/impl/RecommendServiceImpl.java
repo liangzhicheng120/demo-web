@@ -39,5 +39,4 @@ public class RecommendServiceImpl implements RecommendService {
 		logger.info(recommend.toString());
 		recommendDao.update(recommend);
 	}
-
 }

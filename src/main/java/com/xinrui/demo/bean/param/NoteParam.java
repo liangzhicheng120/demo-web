@@ -30,6 +30,16 @@ public class NoteParam {
 	private String clzss;
 
 	private String label;
+	
+	private String remarks;
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 
 	public String getKeyword() {
 		return keyword;
@@ -109,6 +119,7 @@ public class NoteParam {
 		note.setAid(Integer.valueOf(SessionUtil.getAttribute(Constants.AID)));
 		note.setPosttime(this.getPosttime());
 		note.setClzss(SessionUtil.getAttribute(Constants.CLZSS));
+		note.setRemarks(this.getRemarks());
 		return note;
 	}
 }

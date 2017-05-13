@@ -60,7 +60,7 @@
 		AID,
 		TITLE,
 		CLZSS,
-		LABEL
+		LABEL,
 		)
 		VALUES
 		(
@@ -70,7 +70,7 @@
 		#{aid},
 		#{title},
 		#{clzss},
-		#{label}
+		#{label},
 		)
 	</insert>
 
@@ -80,7 +80,8 @@
 		CONTENT,
 		KEYWORD,
 		TITLE,
-		LABEL
+		LABEL,
+		REMARKS
 		FROM
 		note
 		WHERE
@@ -96,7 +97,8 @@
 		LABEL = #{label},
 		CONTENT =
 		#{content},
-		POSTTIME = NOW()
+		POSTTIME = NOW(),
+		REMARKS = #{remarks}
 		WHERE
 		ID = #{id}
 	</update>

@@ -23,6 +23,8 @@ public class NoteVO {
 
 	private String label;
 
+	private String remarks;
+
 	public int getId() {
 		return id;
 	}
@@ -87,6 +89,14 @@ public class NoteVO {
 		this.label = label;
 	}
 
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
 	public static NoteVO build(Note note) {
 		NoteVO noteVO = new NoteVO();
 		noteVO.setAid(note.getAid());
@@ -97,6 +107,7 @@ public class NoteVO {
 		noteVO.setPosttime(note.getPosttime());
 		noteVO.setClzss(note.getClzss());
 		noteVO.setLabel(note.getLabel());
+		noteVO.setRemarks(note.getRemarks());
 		return noteVO;
 	}
 

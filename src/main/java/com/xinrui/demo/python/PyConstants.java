@@ -1,6 +1,5 @@
 package com.xinrui.demo.python;
 
-
 public class PyConstants {
 	/**
 	 * ml project
@@ -23,6 +22,10 @@ public class PyConstants {
 		 */
 		public static final String RECOMMEND_PY = ML_PROJECT + "/recommend/recommend.py";
 		/**
+		 * default.py 获取默认推荐项目[aid]=[用户ID]
+		 */
+		public static final String DEFAULT_PY = ML_PROJECT + "/recommend/default.py";
+		/**
 		 * bayes model 贝叶斯模型文件存放位置
 		 */
 		public static final String BAYES_MODEL = ML_PROJECT + "/model/";
@@ -34,7 +37,10 @@ public class PyConstants {
 		 * 协同过滤算法模型文件位置
 		 */
 		public static final String CF_MODEL = ML_PROJECT + "/cf/user.txt";
-
+		/**
+		 * 错误信息反馈标示
+		 */
+		public static final String ERROR = "Traceback (most recent call last):";
 	}
 
 }
