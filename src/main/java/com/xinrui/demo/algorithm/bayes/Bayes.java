@@ -198,11 +198,9 @@ public class Bayes {
 	 */
 	private static double calProbabilityClassificationInKey(Map<String, ArrayList<ArrayList<String>>> map, String classify, String key) {
 		ArrayList<ArrayList<String>> classifyList = map.get(classify);
-
 		double pkc = calProbabilityKeyInClassification(classifyList, key); // p(key|classify)
 		double pc = calProbabilityClassification(map, classify); // p(classify)
 		double pk = calProbabilityKey(map, key); // p(key)
-
 		return pk == 0 ? 0 : pkc * pc / pk; // p(classify | key)
 	}
 
