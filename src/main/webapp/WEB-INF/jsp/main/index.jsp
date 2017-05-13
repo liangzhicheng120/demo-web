@@ -54,7 +54,7 @@
 									<i class="glyphicon glyphicon-font"></i> Neural Networks and Deep Learning
 								</h2>
 							</div>
-							<div id="index-content" style="clear: both; height: 500px; width: 100%;" class="editor"></div>
+							<div id="index-content" style="clear: both; height: 510px; width: 100%;" class="editor"></div>
 						</div>
 					</div>
 				</div>

@@ -10,7 +10,7 @@
 				<li><a class="btn btn-default" href="baike"><i class="glyphicon glyphicon-info-sign"></i><span> 百度百科 </span></a></li>
 				<li class="accordion" id="recommend"></li>
 			</ul>
-			<div style="margin-top: 110px; text-align: center;">
+			<div style="margin-top: 30px; text-align: center;">
 				<hr>
 				<p class="copyright" style="margin-top: -10px; height: 30px;">
 					&copy; <a href="https://github.com/liangzhicheng120" target="blank">东岸工作室</a>

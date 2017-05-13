@@ -52,7 +52,7 @@ var gallery = {
 			tmpl += '</h2>';
 			tmpl += '</div>';
 			tmpl += '</div>';
-			tmpl += '<div class="box-content" style="height: 565px;">';
+			tmpl += '<div class="box-content" style="height: 550px;">';
 			tmpl += '<ul class="thumbnails gallery">';
 			tmpl += '{0}';
 			tmpl += '<li class="thumbnail" style="float: left; list-style: none">';

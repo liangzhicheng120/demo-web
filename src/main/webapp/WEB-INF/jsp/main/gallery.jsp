@@ -53,6 +53,13 @@
 	</div>
 	<script src="<%=basePath%>Charisma/js/jquery.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/bootstrap.min.js"></script>
+	<script src="<%=basePath%>Charisma/js/gallery.js"></script>
+	<script src="<%=basePath%>Charisma/js/note.js"></script>
+	<script>
+		$(function() {
+			gallery.init();
+		});
+	</script>
 	<script src="<%=basePath%>Charisma/js/jquery.cookie.js"></script>
 	<script src="<%=basePath%>Charisma/js/moment.min.js"></script>
 	<script src="<%=basePath%>Charisma/js/fullcalendar.min.js"></script>
@@ -76,14 +83,7 @@
 	<script src="<%=basePath%>Charisma/js/jquery.hDialog.min.js"></script>
 	<script src="<%=basePath%>AdminEx/js/bootstrap-datepicker.js"></script>
 	<script src="<%=basePath%>Charisma/jquery-tag/tagging.js"></script>
-	<script src="<%=basePath%>Charisma/js/gallery.js"></script>
-	<script src="<%=basePath%>Charisma/js/note.js"></script>
 	<script src="<%=basePath%>Charisma/jquery-gallery/jquery.colorbox.js"></script>
-	<script>
-		$(function() {
-			gallery.init();
-		});
-	</script>
 	<script src="<%=basePath%>Charisma/js/charisma.min.js"></script>
 </body>
 </html>

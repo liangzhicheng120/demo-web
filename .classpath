@@ -32,5 +32,14 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/weka-3.7.3-sources.jar"/>
 	<classpathentry kind="lib" path="lib/weka-3.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/itext-pdfa-5.5.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/itext-pdfa-5.5.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/itext-pdfa-5.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.5.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.5.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/itext-xtra-5.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/itextpdf-5.5.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
