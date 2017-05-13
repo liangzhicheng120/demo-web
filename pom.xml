@@ -213,16 +213,6 @@
 			<artifactId>mahout-core</artifactId>
 			<version>0.8</version>
 		</dependency>
-		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>5.4.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.itextpdf.tool</groupId>
-			<artifactId>xmlworker</artifactId>
-			<version>5.4.1</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>demo-web</finalName>
