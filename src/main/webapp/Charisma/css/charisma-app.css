@@ -309,7 +309,7 @@ img.grayscale {
 
 .thumbnail .gallery-controls {
 	position: absolute;
-	z-index: 1;
+	z-index: 100;
 	margin-top: -30px;
 	height: 30px;
 	min-height: 30px;

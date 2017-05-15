@@ -31,7 +31,7 @@ var gallery = {
 		li : function(img, clzss, label, num) {
 			var tmpl = '<li class="thumbnail clzss" style="float: left; list-style: none" data-clzss="{0}" data-label="{1}">'.format(clzss, label);
 			tmpl += '<a style="text-align: center;text-decoration:none" href="note?clzss={0}&label={1}">'.format(clzss, label);
-			tmpl += '<img src="./Charisma/images/{0}.png" data-toggle="tooltip" data-placement="bottom" title="{1}" style="display: block;">'.format(
+			tmpl += '<img src="./Charisma/images/{0}.png" data-toggle="tooltip" data-placement="top" title="{1}" style="display: block;">'.format(
 					img, label);
 			tmpl += '【{0} {1}篇】<br>{2}'.format(clzss, num, label);
 			tmpl += '</a>';
@@ -142,12 +142,12 @@ var gallery = {
 			$(this).find('.gallery-controls').remove();
 			$(this).append(gallery.html.controls());
 			$(this).find('.gallery-controls').stop().animate({
-				'margin-top' : '50'
+				'margin-top' : '-1'
 			}, 100);
 		}, function() {
 //			$('img', this).fadeToggle(500);
 			$(this).find('.gallery-controls').stop().animate({
-				'margin-top' : '50'
+				'margin-top' : '-1'
 			}, 200, function() {
 				$(this).remove();
 			});
