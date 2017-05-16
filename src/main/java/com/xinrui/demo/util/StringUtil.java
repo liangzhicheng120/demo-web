@@ -3,6 +3,8 @@ package com.xinrui.demo.util;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 public class StringUtil {
 	public static String getEncoding(String str) {
 		String encode = "GB2312";
@@ -55,5 +57,8 @@ public class StringUtil {
 		}
 		return result;
 	}
-	
+
+	public static boolean isNumeric(String str) {
+		return (!StringUtils.isNumeric(str) || "".equals(str)) ? false : true;
+	}
 }

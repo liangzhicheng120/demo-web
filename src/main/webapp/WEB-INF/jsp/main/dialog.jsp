@@ -94,8 +94,11 @@
 <div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteUpdateDia" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content" style="position: absolute;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" style="margin-top: -9px;">×</button>
+			<div class="modal-header text-center">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<div style="font-size: 23px;">
+					<i class="glyphicon glyphicon-edit"></i>查看
+				</div>
 			</div>
 			<div class="col-lg-2 col-sm-2">
 				<div class="sidebar-nav">
@@ -111,8 +114,7 @@
 							<li class="accordion"><a class="btn btn-default"><i class="glyphicon-leaf glyphicon glyphicon-fire"></i>备注</a>
 								<ul class="nav nav-pills nav-stacked" style="display: none; margin-left: 0px;">
 									<li><div id="remarks" style="clear: both; width: 100%;" class="editor"></div></li>
-								</ul>
-							</li>
+								</ul></li>
 							<li class="accordion"><a class="btn btn-default">关键词</a>
 								<ul class="nav nav-pills nav-stacked" style="display: block; margin-left: 0px;">
 									<li><input type="text" class="text-center form-control" id="key0" placeholder="关键词1"></li>
@@ -195,6 +197,33 @@
 			</div>
 			<div class="modal-footer">
 				<a class="btn btn-sm btn-default" id='updateBtn'>提交</a> <a class="btn btn-sm btn-default" id='updateResetBtn'>重置</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--  -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" id="noteBagWordDialog" role="dialog" aria-labelledby="myLargeModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<button type="button" class="close" data-dismiss="modal">×</button>
+				<div style="font-size: 23px;">
+					<i class="glyphicon glyphicon-edit"></i>词库
+				</div>
+			</div>
+			<div class="input-group input-group-sm">
+				<span class="input-group-addon">标签</span> <select size="1" class="text-center form-control" id="bagWordLabelSelect" dir="ltr" onchange="note.updateBagWordOnChange()">
+				</select>
+			</div>
+			<div id="odiv" style="display: none; position: absolute; z-index: 100;">
+				<img src="./Charisma/images/sx.png" title="缩小" border="0" alt="缩小" onclick="sub(-1);" /> <img src="./Charisma/images/fd.png" title="放大" border="0" alt="放大" onclick="sub(1)" />
+				<img src="./Charisma/images/cz.png" title="重置" border="0" alt="重置" onclick="sub(0)" /> <img src="./Charisma/images/sc.png" title="删除" border="0" alt="删除"
+					onclick="del();odiv.style.display='none';" />
+			</div>
+			<div id="bagwordContent" style="clear: both; height: 400px; width: 100%;" class="editor"></div>
+			<div class="modal-footer" id="submitFooter">
+				<a class="btn btn-danger btn-sm" data-dismiss="modal">取消</a> <a class="btn btn-success btn-sm" id="updateBagWordBtn">修改 </a>
 			</div>
 		</div>
 	</div>

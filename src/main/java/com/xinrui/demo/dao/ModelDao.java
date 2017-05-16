@@ -14,5 +14,10 @@ public interface ModelDao {
 	public void update(Model model);
 
 	public List<Model> get(Model model);
-	
+
+	public List<Model> getByClzss(Model model);
+
+	public Model getById(Model model);
+
+	public void updateKeyword(Model model);
 }

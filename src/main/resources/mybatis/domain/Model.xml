@@ -30,9 +30,38 @@
 		WHERE
 		KEYWORD LIKE #{keyword}
 		AND
-		CLZSS = #{clzss}
+		CLZSS =
+		#{clzss}
 		AND
 		LABEL = #{label}
 	</select>
 
+	<select id="getByClzss" parameterType="Model" resultType="Model">
+		SELECT
+		ID,
+		LABEL,
+		KEYWORD
+		FROM
+		model
+		WHERE
+		CLZSS = #{clzss};
+	</select>
+
+	<select id="getById" parameterType="Model" resultType="Model">
+		SELECT
+		KEYWORD
+		FROM
+		model
+		WHERE
+		ID = #{id}
+	</select>
+
+	<update id="updateKeyword" parameterType="Model">
+		UPDATE 
+		model 
+		SET 
+		KEYWORD = #{keyword} 
+		WHERE 
+		ID = #{id}
+	</update>
 </mapper>

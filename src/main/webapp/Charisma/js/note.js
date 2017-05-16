@@ -6,7 +6,10 @@ var note = {
 		getlabel : 'note/getlabel',
 		get : 'note/get',
 		update : 'note/update',
-		record : 'recommend/record'
+		record : 'recommend/record',
+		getalllabel : 'model/get',
+		getkeyword : 'model/getkeyword',
+		updatekeyword :'model/updatekeyword',
 	},
 	init : function() {
 		note.notemarkuptable(); // 初始化表格
@@ -19,6 +22,7 @@ var note = {
 		note.notemarkupupdatebtn(); // 注册修改事件
 		note.notemarkupdatepicker(); // 注册日期选择事件
 		note.notemarkupsearchdatebtn(); // 注册搜索日期事件
+		note.updateBagWordBtn(); // 注册词袋更新事件
 		note.buryPointEvent('#noteUpdateDia'); // 注册埋点事件
 		responsiveTable(); // 注册响应式表格
 	},
@@ -211,4 +215,31 @@ var note = {
 			format : 'yyyy-mm-dd'
 		});
 	},
+	updateBagWordBtn : function() {
+		$('#bagwordContent').trumbowyg({
+			lang : 'zh_cn',
+			btns : [ '|' ],
+			resetCss : true
+		});
+		common.doAjaxWithNotAsync(note.url.getalllabel, {}, function(data) {
+			 var option = data.value.map(item => '<option value="{0}">{1}</option>\n'.format(item['id'],item['label'])).join('');
+			$('#bagWordLabelSelect').html('<option value=" ">请选择</option>\n' + option);
+		});
+		$('#updateBagWordBtn').on('click', function() {
+			common.doAjaxWithNotAsync(note.url.updatekeyword,{
+				id : $('#bagWordLabelSelect').val(),
+				keyword:$('#bagwordContent').text(),
+			},function(data){
+				$.tooltip('OK, 操作成功！', 2500, true);
+				$('#noteBagWordDialog').modal('hide');
+			});
+		});
+	},
+	updateBagWordOnChange : function() {
+		common.doAjaxWithNotAsync(note.url.getkeyword, {
+			id : $('#bagWordLabelSelect').val()
+		}, function(data) {
+			$('#bagwordContent').html(data.value['keyword']);
+		});
+	}
 };

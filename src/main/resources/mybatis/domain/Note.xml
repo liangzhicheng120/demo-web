@@ -20,7 +20,7 @@
 				AND LABEL = #{label}
 			</if>
 			<if test="keyword != null and !&quot;&quot;.equals(keyword.trim())">
-				AND KEYWORD LIKE CONCAT('%', #{keyword}, '%')
+				AND CONTENT LIKE CONCAT('%', #{keyword}, '%')
 			</if>
 			<if test="start != null and !&quot;&quot;.equals(start.trim()) and end != null and !&quot;&quot;.equals(end.trim())">
 				AND POSTTIME BETWEEN #{start} AND DATE_ADD(#{end} , INTERVAL 1 day)

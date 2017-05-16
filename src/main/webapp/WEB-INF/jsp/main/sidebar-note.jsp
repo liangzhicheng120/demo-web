@@ -26,13 +26,13 @@
 						</li>
 						<li>
 							<div class="input-group input-group-sm">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <input type="text" class="form-control" placeholder="搜索关键词" aria-describedby="basic-addon1"
+								<span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span> <input type="text" class="form-control" placeholder="搜索内容" aria-describedby="basic-addon1"
 									id="keyword"> <span class="input-group-addon" id="searchBtn"> <i class="glyphicon glyphicon-search"></i></span>
 							</div>
 						</li>
+						<li><a class="btn btn-default" data-toggle="modal" data-target="#noteBagWordDialog" data-backdrop="static">词库</a></li>
 						<li><a class="btn btn-default" data-toggle="modal" id="noteEditBtn" data-backdrop="static">新增</a></li>
 						<li><a class="btn btn-default" data-toggle="modal" data-target="#noteBatchDeleteDia" data-backdrop="static">删除</a></li>
-						<li><a class="btn btn-default" data-toggle="modal" id="noteDownloadBtn" data-backdrop="static">下载</a></li>
 					</ul></li>
 				<li><a class="btn btn-default" href="learn"><i class="glyphicon glyphicon-info-sign"></i><span> 学习网站 </span></a></li>
 				<li><a class="btn btn-default" href="baike"><i class="glyphicon glyphicon-info-sign"></i><span> 百度百科 </span></a></li>
