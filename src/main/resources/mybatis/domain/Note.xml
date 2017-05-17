@@ -60,7 +60,7 @@
 		AID,
 		TITLE,
 		CLZSS,
-		LABEL,
+		LABEL
 		)
 		VALUES
 		(
@@ -70,7 +70,7 @@
 		#{aid},
 		#{title},
 		#{clzss},
-		#{label},
+		#{label}
 		)
 	</insert>
 
