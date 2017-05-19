@@ -38,7 +38,7 @@
 	<%@include file="../main/navbar.jsp"%>
 	<div class="ch-container" style="margin-top: -15px;">
 		<div class="row">
-			<%@include file="../main/sidebar-gallery.jsp"%>
+			<%@include file="../main/sidebar-other.jsp"%>
 			<div id="content" class="col-lg-10 col-sm-10">
 				<object id="web" type="text/x-scriptlet" data="https://baike.baidu.com/" width=100% height=600px></object>
 			</div>
